@@ -10,16 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
 import { Route as PaketIndexRouteImport } from './routes/paket.index'
 import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -42,6 +50,16 @@ const TentangRoute = TentangRouteImport.update({
   path: '/tentang',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminPesanRoute = AdminPesanRouteImport.update({
+  id: '/pesan',
+  path: '/pesan',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const PaketIndexRoute = PaketIndexRouteImport.update({
   id: '/paket/',
   path: '/paket/',
@@ -55,11 +73,14 @@ const PaketSlugRoute = PaketSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/tentang': typeof TentangRoute
+  '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/paket/': typeof PaketIndexRoute
 }
 export interface FileRoutesByTo {
@@ -68,28 +89,36 @@ export interface FileRoutesByTo {
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/tentang': typeof TentangRoute
+  '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
+  '/admin': typeof AdminIndexRoute
   '/paket': typeof PaketIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/tentang': typeof TentangRoute
+  '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/paket/': typeof PaketIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/auth'
     | '/galeri'
     | '/kontak'
     | '/tentang'
+    | '/admin/pesan'
     | '/paket/$slug'
+    | '/admin/'
     | '/paket/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -98,21 +127,27 @@ export interface FileRouteTypes {
     | '/galeri'
     | '/kontak'
     | '/tentang'
+    | '/admin/pesan'
     | '/paket/$slug'
+    | '/admin'
     | '/paket'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/auth'
     | '/galeri'
     | '/kontak'
     | '/tentang'
+    | '/admin/pesan'
     | '/paket/$slug'
+    | '/admin/'
     | '/paket/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
@@ -128,6 +163,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -158,6 +200,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TentangRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/pesan': {
+      id: '/admin/pesan'
+      path: '/pesan'
+      fullPath: '/admin/pesan'
+      preLoaderRoute: typeof AdminPesanRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/paket/': {
       id: '/paket/'
       path: '/paket'
@@ -175,8 +231,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminPesanRoute: typeof AdminPesanRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminPesanRoute: AdminPesanRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
