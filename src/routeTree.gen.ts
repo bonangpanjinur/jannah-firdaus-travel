@@ -10,33 +10,186 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminGaleriRouteImport } from './routes/admin/galeri'
+import { Route as AdminPaketRouteImport } from './routes/admin/paket'
+import { Route as AdminPengaturanRouteImport } from './routes/admin/pengaturan'
+import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
+import { Route as PaketIndexRouteImport } from './routes/paket.index'
+import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontakRoute = KontakRouteImport.update({
+  id: '/kontak',
+  path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TentangRoute = TentangRouteImport.update({
+  id: '/tentang',
+  path: '/tentang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminGaleriRoute = AdminGaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminPaketRoute = AdminPaketRouteImport.update({
+  id: '/paket',
+  path: '/paket',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminPengaturanRoute = AdminPengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminPesanRoute = AdminPesanRouteImport.update({
+  id: '/pesan',
+  path: '/pesan',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const PaketIndexRoute = PaketIndexRouteImport.update({
+  id: '/paket/',
+  path: '/paket/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaketSlugRoute = PaketSlugRouteImport.update({
+  id: '/paket/$slug',
+  path: '/paket/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/admin/galeri': typeof AdminGaleriRoute
+  '/admin/paket': typeof AdminPaketRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/pesan': typeof AdminPesanRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/paket/': typeof PaketIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/admin/galeri': typeof AdminGaleriRoute
+  '/admin/paket': typeof AdminPaketRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/pesan': typeof AdminPesanRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/admin': typeof AdminIndexRoute
+  '/paket': typeof PaketIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/admin/galeri': typeof AdminGaleriRoute
+  '/admin/paket': typeof AdminPaketRoute
+  '/admin/pengaturan': typeof AdminPengaturanRoute
+  '/admin/pesan': typeof AdminPesanRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/admin/': typeof AdminIndexRoute
+  '/paket/': typeof PaketIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/admin/galeri'
+    | '/admin/paket'
+    | '/admin/pengaturan'
+    | '/admin/pesan'
+    | '/paket/$slug'
+    | '/admin/'
+    | '/paket/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/admin/galeri'
+    | '/admin/paket'
+    | '/admin/pengaturan'
+    | '/admin/pesan'
+    | '/paket/$slug'
+    | '/admin'
+    | '/paket'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/admin/galeri'
+    | '/admin/paket'
+    | '/admin/pengaturan'
+    | '/admin/pesan'
+    | '/paket/$slug'
+    | '/admin/'
+    | '/paket/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  GaleriRoute: typeof GaleriRoute
+  KontakRoute: typeof KontakRoute
+  TentangRoute: typeof TentangRoute
+  PaketSlugRoute: typeof PaketSlugRoute
+  PaketIndexRoute: typeof PaketIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +201,123 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontak': {
+      id: '/kontak'
+      path: '/kontak'
+      fullPath: '/kontak'
+      preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tentang': {
+      id: '/tentang'
+      path: '/tentang'
+      fullPath: '/tentang'
+      preLoaderRoute: typeof TentangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/galeri': {
+      id: '/admin/galeri'
+      path: '/galeri'
+      fullPath: '/admin/galeri'
+      preLoaderRoute: typeof AdminGaleriRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/paket': {
+      id: '/admin/paket'
+      path: '/paket'
+      fullPath: '/admin/paket'
+      preLoaderRoute: typeof AdminPaketRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/pengaturan': {
+      id: '/admin/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/admin/pengaturan'
+      preLoaderRoute: typeof AdminPengaturanRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/pesan': {
+      id: '/admin/pesan'
+      path: '/pesan'
+      fullPath: '/admin/pesan'
+      preLoaderRoute: typeof AdminPesanRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/paket/': {
+      id: '/paket/'
+      path: '/paket'
+      fullPath: '/paket/'
+      preLoaderRoute: typeof PaketIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paket/$slug': {
+      id: '/paket/$slug'
+      path: '/paket/$slug'
+      fullPath: '/paket/$slug'
+      preLoaderRoute: typeof PaketSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminGaleriRoute: typeof AdminGaleriRoute
+  AdminPaketRoute: typeof AdminPaketRoute
+  AdminPengaturanRoute: typeof AdminPengaturanRoute
+  AdminPesanRoute: typeof AdminPesanRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminGaleriRoute: AdminGaleriRoute,
+  AdminPaketRoute: AdminPaketRoute,
+  AdminPengaturanRoute: AdminPengaturanRoute,
+  AdminPesanRoute: AdminPesanRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  GaleriRoute: GaleriRoute,
+  KontakRoute: KontakRoute,
+  TentangRoute: TentangRoute,
+  PaketSlugRoute: PaketSlugRoute,
+  PaketIndexRoute: PaketIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
