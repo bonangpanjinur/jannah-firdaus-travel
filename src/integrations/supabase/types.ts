@@ -14,16 +14,301 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_messages: {
+        Row: {
+          created_at: string
+          id: string
+          is_read: boolean
+          message: string
+          name: string
+          phone: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          message: string
+          name: string
+          phone: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          is_read?: boolean
+          message?: string
+          name?: string
+          phone?: string
+        }
+        Relationships: []
+      }
+      gallery: {
+        Row: {
+          caption: string | null
+          created_at: string
+          id: string
+          image_url: string
+          sort_order: number
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url: string
+          sort_order?: number
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string
+          sort_order?: number
+        }
+        Relationships: []
+      }
+      package_images: {
+        Row: {
+          caption: string | null
+          created_at: string
+          id: string
+          image_url: string
+          package_id: string
+          sort_order: number
+        }
+        Insert: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url: string
+          package_id: string
+          sort_order?: number
+        }
+        Update: {
+          caption?: string | null
+          created_at?: string
+          id?: string
+          image_url?: string
+          package_id?: string
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "package_images_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "packages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      package_itinerary: {
+        Row: {
+          created_at: string
+          day_number: number
+          description: string | null
+          id: string
+          package_id: string
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          day_number: number
+          description?: string | null
+          id?: string
+          package_id: string
+          title: string
+        }
+        Update: {
+          created_at?: string
+          day_number?: number
+          description?: string | null
+          id?: string
+          package_id?: string
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "package_itinerary_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "packages"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      packages: {
+        Row: {
+          airline: string | null
+          created_at: string
+          departure_date: string | null
+          description: string | null
+          duration_days: number | null
+          excludes: string[]
+          flyer_url: string | null
+          hotel_madinah: string | null
+          hotel_madinah_stars: number | null
+          hotel_makkah: string | null
+          hotel_makkah_stars: number | null
+          id: string
+          includes: string[]
+          is_featured: boolean
+          is_published: boolean
+          name: string
+          price_double: number | null
+          price_quad: number | null
+          price_triple: number | null
+          quota: number | null
+          requirements: string[]
+          slug: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          airline?: string | null
+          created_at?: string
+          departure_date?: string | null
+          description?: string | null
+          duration_days?: number | null
+          excludes?: string[]
+          flyer_url?: string | null
+          hotel_madinah?: string | null
+          hotel_madinah_stars?: number | null
+          hotel_makkah?: string | null
+          hotel_makkah_stars?: number | null
+          id?: string
+          includes?: string[]
+          is_featured?: boolean
+          is_published?: boolean
+          name: string
+          price_double?: number | null
+          price_quad?: number | null
+          price_triple?: number | null
+          quota?: number | null
+          requirements?: string[]
+          slug: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          airline?: string | null
+          created_at?: string
+          departure_date?: string | null
+          description?: string | null
+          duration_days?: number | null
+          excludes?: string[]
+          flyer_url?: string | null
+          hotel_madinah?: string | null
+          hotel_madinah_stars?: number | null
+          hotel_makkah?: string | null
+          hotel_makkah_stars?: number | null
+          id?: string
+          includes?: string[]
+          is_featured?: boolean
+          is_published?: boolean
+          name?: string
+          price_double?: number | null
+          price_quad?: number | null
+          price_triple?: number | null
+          quota?: number | null
+          requirements?: string[]
+          slug?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          about_text: string | null
+          address: string | null
+          agency_name: string
+          email: string | null
+          facebook: string | null
+          hero_subtitle: string | null
+          hero_title: string | null
+          id: number
+          instagram: string | null
+          license_text: string | null
+          logo_url: string | null
+          tagline: string | null
+          updated_at: string
+          whatsapp_number: string
+          whatsapp_template: string
+          youtube: string | null
+        }
+        Insert: {
+          about_text?: string | null
+          address?: string | null
+          agency_name?: string
+          email?: string | null
+          facebook?: string | null
+          hero_subtitle?: string | null
+          hero_title?: string | null
+          id?: number
+          instagram?: string | null
+          license_text?: string | null
+          logo_url?: string | null
+          tagline?: string | null
+          updated_at?: string
+          whatsapp_number?: string
+          whatsapp_template?: string
+          youtube?: string | null
+        }
+        Update: {
+          about_text?: string | null
+          address?: string | null
+          agency_name?: string
+          email?: string | null
+          facebook?: string | null
+          hero_subtitle?: string | null
+          hero_title?: string | null
+          id?: number
+          instagram?: string | null
+          license_text?: string | null
+          logo_url?: string | null
+          tagline?: string | null
+          updated_at?: string
+          whatsapp_number?: string
+          whatsapp_template?: string
+          youtube?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +435,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
