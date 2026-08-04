@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as TentangRouteImport } from './routes/tentang'
+import { Route as PaketIndexRouteImport } from './routes/paket.index'
+import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontakRoute = KontakRouteImport.update({
+  id: '/kontak',
+  path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TentangRoute = TentangRouteImport.update({
+  id: '/tentang',
+  path: '/tentang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaketIndexRoute = PaketIndexRouteImport.update({
+  id: '/paket/',
+  path: '/paket/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaketSlugRoute = PaketSlugRouteImport.update({
+  id: '/paket/$slug',
+  path: '/paket/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/paket/': typeof PaketIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/paket': typeof PaketIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/galeri': typeof GaleriRoute
+  '/kontak': typeof KontakRoute
+  '/tentang': typeof TentangRoute
+  '/paket/$slug': typeof PaketSlugRoute
+  '/paket/': typeof PaketIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/paket/$slug'
+    | '/paket/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/paket/$slug'
+    | '/paket'
+  id:
+    | '__root__'
+    | '/'
+    | '/auth'
+    | '/galeri'
+    | '/kontak'
+    | '/tentang'
+    | '/paket/$slug'
+    | '/paket/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  GaleriRoute: typeof GaleriRoute
+  KontakRoute: typeof KontakRoute
+  TentangRoute: typeof TentangRoute
+  PaketSlugRoute: typeof PaketSlugRoute
+  PaketIndexRoute: typeof PaketIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontak': {
+      id: '/kontak'
+      path: '/kontak'
+      fullPath: '/kontak'
+      preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tentang': {
+      id: '/tentang'
+      path: '/tentang'
+      fullPath: '/tentang'
+      preLoaderRoute: typeof TentangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paket/': {
+      id: '/paket/'
+      path: '/paket'
+      fullPath: '/paket/'
+      preLoaderRoute: typeof PaketIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paket/$slug': {
+      id: '/paket/$slug'
+      path: '/paket/$slug'
+      fullPath: '/paket/$slug'
+      preLoaderRoute: typeof PaketSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  GaleriRoute: GaleriRoute,
+  KontakRoute: KontakRoute,
+  TentangRoute: TentangRoute,
+  PaketSlugRoute: PaketSlugRoute,
+  PaketIndexRoute: PaketIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { bulanTahun } from "@/lib/format";
 import { packagesQuery } from "@/lib/site-data";
 
-export const Route = createFileRoute("/paket")({
+export const Route = createFileRoute("/paket/")({
   head: () => ({
     meta: [
       { title: "Paket Umroh & Jadwal Keberangkatan — Barokah Umroh" },
