@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db, galleryQuery } from "@/lib/site-data";
+import { ImageUpload } from "@/components/admin/image-upload";
+import { StorageImage } from "@/components/site/storage-image";
+import { deleteMedia } from "@/lib/storage";
 
 export const Route = createFileRoute("/admin/galeri")({
   component: AdminGaleri,
@@ -14,17 +17,18 @@ export const Route = createFileRoute("/admin/galeri")({
 function AdminGaleri() {
   const qc = useQueryClient();
   const { data: gallery = [] } = useQuery(galleryQuery);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState<string | null>(null);
   const [caption, setCaption] = useState("");
 
   const add = useMutation({
     mutationFn: async () => {
+      if (!url) throw new Error("Unggah foto terlebih dahulu.");
       const { error } = await db().from("gallery").insert({ image_url: url, caption: caption || null });
       if (error) throw error;
     },
     onSuccess: () => {
       toast.success("Foto ditambahkan");
-      setUrl("");
+      setUrl(null);
       setCaption("");
       qc.invalidateQueries({ queryKey: galleryQuery.queryKey });
     },
@@ -32,11 +36,13 @@ function AdminGaleri() {
   });
 
   const remove = useMutation({
-    mutationFn: async (id: string) => {
+    mutationFn: async ({ id, path }: { id: string; path: string }) => {
       const { error } = await db().from("gallery").delete().eq("id", id);
       if (error) throw error;
+      await deleteMedia(path).catch(() => undefined);
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: galleryQuery.queryKey }),
+    onError: (e: Error) => toast.error(e.message),
   });
 
   return (
@@ -45,26 +51,35 @@ function AdminGaleri() {
 
       <form
         onSubmit={(e) => { e.preventDefault(); add.mutate(); }}
-        className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft md:grid-cols-[1fr_1fr_auto]"
+        className="mt-6 grid gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft"
       >
-        <div className="space-y-2">
-          <Label>URL foto</Label>
-          <Input required value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://…" />
-        </div>
+        <ImageUpload label="Foto galeri" folder="galeri" value={url} onChange={setUrl} aspect="aspect-4/3" />
         <div className="space-y-2">
           <Label>Keterangan</Label>
           <Input value={caption} onChange={(e) => setCaption(e.target.value)} />
         </div>
-        <Button type="submit" className="self-end">Tambah</Button>
+        <Button type="submit" className="justify-self-start" disabled={add.isPending || !url}>
+          {add.isPending ? "Menyimpan…" : "Tambah ke galeri"}
+        </Button>
       </form>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-3">
         {gallery.map((item) => (
           <figure key={item.id} className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
-            <img src={item.image_url} alt={item.caption ?? "Foto galeri"} className="aspect-4/3 w-full object-cover" />
+            <StorageImage
+              src={item.image_url}
+              alt={item.caption ?? "Foto galeri"}
+              className="aspect-4/3 w-full object-cover"
+            />
             <figcaption className="flex items-center justify-between gap-2 p-3 text-xs text-muted-foreground">
               <span className="truncate">{item.caption ?? "Tanpa keterangan"}</span>
-              <Button size="sm" variant="ghost" onClick={() => remove.mutate(item.id)}>Hapus</Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => remove.mutate({ id: item.id, path: item.image_url })}
+              >
+                Hapus
+              </Button>
             </figcaption>
           </figure>
         ))}
