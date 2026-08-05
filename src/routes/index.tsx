@@ -6,6 +6,7 @@ import { PackageCard } from "@/components/site/package-card";
 import { useSettings } from "@/hooks/use-site";
 import { galleryQuery, packagesQuery } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
+import { StorageImage } from "@/components/site/storage-image";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -169,7 +170,7 @@ function Beranda() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.slice(0, 6).map((item) => (
-              <img
+              <StorageImage
                 key={item.id}
                 src={item.image_url}
                 alt={item.caption ?? "Dokumentasi jamaah umroh"}

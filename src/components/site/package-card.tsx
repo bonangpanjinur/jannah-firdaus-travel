@@ -4,24 +4,24 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatRupiah, formatTanggal, hargaMulai } from "@/lib/format";
 import type { Paket } from "@/lib/site-data";
+import { StorageImage } from "@/components/site/storage-image";
 
 export function PackageCard({ paket }: { paket: Paket }) {
   return (
     <article className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-shadow hover:shadow-lift">
       <Link to="/paket/$slug" params={{ slug: paket.slug }} className="block">
         <div className="relative aspect-3/4 overflow-hidden bg-muted">
-          {paket.flyer_url ? (
-            <img
-              src={paket.flyer_url}
-              alt={`Flyer paket ${paket.name}`}
-              loading="lazy"
-              className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          ) : (
-            <div className="flex size-full items-center justify-center surface-emerald font-display text-lg">
-              {paket.name}
-            </div>
-          )}
+          <StorageImage
+            src={paket.flyer_url}
+            alt={`Flyer paket ${paket.name}`}
+            loading="lazy"
+            className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+            fallback={
+              <div className="flex size-full items-center justify-center surface-emerald font-display text-lg">
+                {paket.name}
+              </div>
+            }
+          />
           {paket.is_featured ? (
             <Badge className="absolute left-3 top-3 bg-gold text-gold-foreground hover:bg-gold">
               Unggulan
