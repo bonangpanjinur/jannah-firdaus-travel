@@ -16,6 +16,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
+import { StorageImage } from "@/components/site/storage-image";
 
 export const Route = createFileRoute("/paket/$slug")({
   head: ({ params }) => ({
@@ -76,14 +77,12 @@ function DetailPaket() {
           <h1 className="font-display text-3xl md:text-4xl">{paket.name}</h1>
           <p className="mt-4 text-sm/7 text-muted-foreground">{paket.description}</p>
 
-          {paket.flyer_url ? (
-            <img
-              src={paket.flyer_url}
-              alt={`Flyer paket ${paket.name}`}
-              loading="lazy"
-              className="mt-8 w-full rounded-2xl object-cover shadow-soft"
-            />
-          ) : null}
+          <StorageImage
+            src={paket.flyer_url}
+            alt={`Flyer paket ${paket.name}`}
+            loading="lazy"
+            className="mt-8 w-full rounded-2xl object-cover shadow-soft"
+          />
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <InfoRow icon={CalendarDays} label="Keberangkatan" value={formatTanggal(paket.departure_date)} />
@@ -170,7 +169,7 @@ function DetailPaket() {
               ) : (
                 <div className="grid gap-4 sm:grid-cols-3">
                   {images.map((img) => (
-                    <img
+                    <StorageImage
                       key={img.id}
                       src={img.image_url}
                       alt={img.caption ?? `Foto paket ${paket.name}`}

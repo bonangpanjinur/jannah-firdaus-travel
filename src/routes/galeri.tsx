@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { galleryQuery } from "@/lib/site-data";
+import { StorageImage } from "@/components/site/storage-image";
 
 export const Route = createFileRoute("/galeri")({
   head: () => ({
@@ -38,7 +39,7 @@ function Galeri() {
         <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
           {gallery.map((item) => (
             <figure key={item.id} className="mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-soft">
-              <img
+              <StorageImage
                 src={item.image_url}
                 alt={item.caption ?? "Dokumentasi jamaah umroh"}
                 loading="lazy"

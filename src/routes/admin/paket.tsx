@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { formatRupiah, formatTanggal } from "@/lib/format";
 import { db, packagesQuery, type Paket } from "@/lib/site-data";
+import { ImageUpload } from "@/components/admin/image-upload";
 
 export const Route = createFileRoute("/admin/paket")({
   component: AdminPaket,
@@ -92,8 +93,15 @@ function AdminPaket() {
         >
           <Text label="Nama paket" value={draft.name ?? ""} onChange={(v) => field("name", v)} required />
           <Text label="Slug (URL)" value={draft.slug ?? ""} onChange={(v) => field("slug", slugify(v))} />
-          <Text label="URL flyer" value={draft.flyer_url ?? ""} onChange={(v) => field("flyer_url", v)} />
           <Text label="Maskapai" value={draft.airline ?? ""} onChange={(v) => field("airline", v)} />
+          <div className="md:col-span-2">
+            <ImageUpload
+              label="Foto flyer paket"
+              folder="flyers"
+              value={draft.flyer_url}
+              onChange={(v) => field("flyer_url", v)}
+            />
+          </div>
           <Text
             label="Tanggal keberangkatan"
             type="date"
