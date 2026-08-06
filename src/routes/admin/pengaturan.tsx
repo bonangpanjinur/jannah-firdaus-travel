@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { ImageUpload } from "@/components/admin/image-upload";
 import { useSettings } from "@/hooks/use-site";
 import { db, settingsQuery, type SiteSettings } from "@/lib/site-data";
 
@@ -24,76 +25,48 @@ function AdminPengaturan() {
 
   const save = useMutation({
     mutationFn: async () => {
+      if (!form.agency_name?.trim()) throw new Error("Nama agen wajib diisi.");
+      if (!form.whatsapp_number?.trim()) throw new Error("Nomor WhatsApp wajib diisi.");
       const { id, ...rest } = form;
       void id;
-      const { error } = await db().from("site_settings").update(rest).eq("id", 1);
+      const { error } = await db().from("site_settings").update({ ...rest, agency_name: form.agency_name.trim(), whatsapp_number: form.whatsapp_number.trim() }).eq("id", 1);
       if (error) throw error;
     },
     onSuccess: () => {
       toast.success("Pengaturan tersimpan");
       qc.invalidateQueries({ queryKey: settingsQuery.queryKey });
     },
-    onError: (e: Error) => toast.error(e.message),
+    onError: (error: Error) => toast.error(error.message),
   });
 
-  function field(key: keyof SiteSettings, value: string) {
-    setForm((prev) => ({ ...prev, [key]: value }));
+  function field(key: keyof SiteSettings, value: string | null) {
+    setForm((previous) => ({ ...previous, [key]: value }));
   }
 
   return (
     <main className="p-6 md:p-10">
-      <h1 className="font-display text-3xl">Pengaturan Website</h1>
-      <form
-        onSubmit={(e) => { e.preventDefault(); save.mutate(); }}
-        className="mt-6 grid max-w-4xl gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft md:grid-cols-2"
-      >
-        <Field label="Nama agen" value={form.agency_name ?? ""} onChange={(v) => field("agency_name", v)} />
-        <Field label="Tagline" value={form.tagline ?? ""} onChange={(v) => field("tagline", v)} />
-        <Field
-          label="Nomor WhatsApp utama"
-          value={form.whatsapp_number ?? ""}
-          onChange={(v) => field("whatsapp_number", v)}
-        />
-        <Field label="Email" value={form.email ?? ""} onChange={(v) => field("email", v)} />
-        <Field label="Instagram" value={form.instagram ?? ""} onChange={(v) => field("instagram", v)} />
-        <Field label="Facebook" value={form.facebook ?? ""} onChange={(v) => field("facebook", v)} />
-        <Field label="Legalitas" value={form.license_text ?? ""} onChange={(v) => field("license_text", v)} />
-        <Field label="Alamat" value={form.address ?? ""} onChange={(v) => field("address", v)} />
-        <div className="space-y-2 md:col-span-2">
-          <Label>Template pesan WhatsApp (gunakan {"{paket}"})</Label>
-          <Textarea
-            rows={2}
-            value={form.whatsapp_template ?? ""}
-            onChange={(e) => field("whatsapp_template", e.target.value)}
-          />
-        </div>
-        <div className="space-y-2 md:col-span-2">
-          <Label>Tentang kami</Label>
-          <Textarea rows={4} value={form.about_text ?? ""} onChange={(e) => field("about_text", e.target.value)} />
-        </div>
-        <div className="md:col-span-2">
-          <Button type="submit" disabled={save.isPending}>
-            {save.isPending ? "Menyimpan…" : "Simpan pengaturan"}
-          </Button>
-        </div>
+      <div><p className="text-sm font-semibold uppercase tracking-wider text-gold">Identitas & konten</p><h1 className="mt-1 font-display text-3xl">Pengaturan Website</h1><p className="mt-2 max-w-2xl text-sm text-muted-foreground">Perubahan di sini akan tampil di beranda, header, footer, dan halaman informasi.</p></div>
+      <form onSubmit={(event) => { event.preventDefault(); save.mutate(); }} className="mt-6 grid max-w-5xl gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft md:grid-cols-2">
+        <Field label="Nama agen" value={form.agency_name ?? ""} onChange={(value) => field("agency_name", value)} required />
+        <Field label="Tagline" value={form.tagline ?? ""} onChange={(value) => field("tagline", value)} />
+        <div className="md:col-span-2"><ImageUpload label="Logo agen" folder="uploads" value={form.logo_url} onChange={(value) => field("logo_url", value)} aspect="aspect-square" /></div>
+        <Field label="Nomor WhatsApp utama" value={form.whatsapp_number ?? ""} onChange={(value) => field("whatsapp_number", value)} required />
+        <Field label="Email" type="email" value={form.email ?? ""} onChange={(value) => field("email", value)} />
+        <Field label="Instagram" value={form.instagram ?? ""} onChange={(value) => field("instagram", value)} placeholder="username tanpa @" />
+        <Field label="Facebook" value={form.facebook ?? ""} onChange={(value) => field("facebook", value)} />
+        <Field label="YouTube" value={form.youtube ?? ""} onChange={(value) => field("youtube", value)} placeholder="URL channel atau video" />
+        <Field label="Legalitas" value={form.license_text ?? ""} onChange={(value) => field("license_text", value)} />
+        <div className="space-y-2 md:col-span-2"><Label>Alamat kantor</Label><Textarea rows={2} value={form.address ?? ""} onChange={(event) => field("address", event.target.value)} /></div>
+        <div className="space-y-2 md:col-span-2"><Label>Judul hero beranda</Label><Input value={form.hero_title ?? ""} onChange={(event) => field("hero_title", event.target.value)} /></div>
+        <div className="space-y-2 md:col-span-2"><Label>Subjudul hero beranda</Label><Textarea rows={3} value={form.hero_subtitle ?? ""} onChange={(event) => field("hero_subtitle", event.target.value)} /></div>
+        <div className="space-y-2 md:col-span-2"><Label>Template pesan WhatsApp (gunakan {'{paket}'})</Label><Textarea rows={2} value={form.whatsapp_template ?? ""} onChange={(event) => field("whatsapp_template", event.target.value)} /></div>
+        <div className="space-y-2 md:col-span-2"><Label>Tentang kami</Label><Textarea rows={5} value={form.about_text ?? ""} onChange={(event) => field("about_text", event.target.value)} /></div>
+        <div className="md:col-span-2"><Button type="submit" disabled={save.isPending}>{save.isPending ? "Menyimpan…" : "Simpan pengaturan"}</Button></div>
       </form>
     </main>
   );
 }
 
-function Field({
-  label,
-  value,
-  onChange,
-}: {
-  label: string;
-  value: string;
-  onChange: (value: string) => void;
-}) {
-  return (
-    <div className="space-y-2">
-      <Label>{label}</Label>
-      <Input value={value} onChange={(e) => onChange(e.target.value)} />
-    </div>
-  );
+function Field({ label, value, onChange, type = "text", required, placeholder }: { label: string; value: string; onChange: (value: string) => void; type?: string; required?: boolean; placeholder?: string }) {
+  return <div className="space-y-2"><Label>{label}</Label><Input type={type} value={value} required={required} placeholder={placeholder} onChange={(event) => onChange(event.target.value)} /></div>;
 }
