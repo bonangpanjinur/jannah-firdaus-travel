@@ -46,6 +46,7 @@ function validateDraft(value: Draft) {
   if (value.duration_days !== null && value.duration_days !== undefined && (!Number.isInteger(value.duration_days) || value.duration_days < 1)) return "Durasi harus berupa angka minimal 1 hari.";
   if (value.quota !== null && value.quota !== undefined && (!Number.isInteger(value.quota) || value.quota < 0)) return "Kuota tidak boleh negatif.";
   if ([value.price_quad, value.price_triple, value.price_double].some((price) => price !== null && price !== undefined && price < 0)) return "Harga tidak boleh negatif.";
+  if ([value.hotel_makkah_stars, value.hotel_madinah_stars].some((stars) => stars !== null && stars !== undefined && (!Number.isInteger(stars) || stars < 1 || stars > 5))) return "Rating hotel harus antara 1 sampai 5 bintang.";
   return null;
 }
 
@@ -110,9 +111,9 @@ function AdminPaket() {
         <Text label="Tanggal keberangkatan" type="date" value={draft.departure_date ?? ""} onChange={(value) => field("departure_date", value || null)} />
         <Text label="Durasi (hari)" type="number" value={String(draft.duration_days ?? "")} onChange={(value) => field("duration_days", value ? Number(value) : null)} />
         <Text label="Hotel Makkah" value={draft.hotel_makkah ?? ""} onChange={(value) => field("hotel_makkah", value)} />
-        <Text label="Bintang Makkah" type="number" value={String(draft.hotel_makkah_stars ?? "")} onChange={(value) => field("hotel_makkah_stars", value ? Number(value) : null)} />
+        <Text label="Bintang Makkah" type="number" min="1" max="5" value={String(draft.hotel_makkah_stars ?? "")} onChange={(value) => field("hotel_makkah_stars", value ? Number(value) : null)} />
         <Text label="Hotel Madinah" value={draft.hotel_madinah ?? ""} onChange={(value) => field("hotel_madinah", value)} />
-        <Text label="Bintang Madinah" type="number" value={String(draft.hotel_madinah_stars ?? "")} onChange={(value) => field("hotel_madinah_stars", value ? Number(value) : null)} />
+        <Text label="Bintang Madinah" type="number" min="1" max="5" value={String(draft.hotel_madinah_stars ?? "")} onChange={(value) => field("hotel_madinah_stars", value ? Number(value) : null)} />
         <Text label="Harga quad" type="number" value={String(draft.price_quad ?? "")} onChange={(value) => field("price_quad", value ? Number(value) : null)} />
         <Text label="Harga triple" type="number" value={String(draft.price_triple ?? "")} onChange={(value) => field("price_triple", value ? Number(value) : null)} />
         <Text label="Harga double" type="number" value={String(draft.price_double ?? "")} onChange={(value) => field("price_double", value ? Number(value) : null)} />
@@ -127,8 +128,8 @@ function AdminPaket() {
   );
 }
 
-function Text({ label, value, onChange, type = "text", required }: { label: string; value: string; onChange: (value: string) => void; type?: string; required?: boolean }) {
-  return <div className="space-y-2"><Label>{label}</Label><Input type={type} min={type === "number" ? "0" : undefined} value={value} required={required} onChange={(event) => onChange(event.target.value)} /></div>;
+function Text({ label, value, onChange, type = "text", required, min, max }: { label: string; value: string; onChange: (value: string) => void; type?: string; required?: boolean; min?: string; max?: string }) {
+  return <div className="space-y-2"><Label>{label}</Label><Input type={type} min={min ?? (type === "number" ? "0" : undefined)} max={max} value={value} required={required} onChange={(event) => onChange(event.target.value)} /></div>;
 }
 
 function ListField({ label, value, onChange }: { label: string; value: string[]; onChange: (value: string[]) => void }) {
