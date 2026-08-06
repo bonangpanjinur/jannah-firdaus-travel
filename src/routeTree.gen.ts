@@ -23,6 +23,7 @@ import { Route as AdminPengaturanRouteImport } from './routes/admin/pengaturan'
 import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
 import { Route as PaketIndexRouteImport } from './routes/paket.index'
 import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
+import { Route as AdminPaketIdRouteImport } from './routes/admin/paket.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -94,6 +95,11 @@ const PaketSlugRoute = PaketSlugRouteImport.update({
   path: '/paket/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminPaketIdRoute = AdminPaketIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => AdminPaketRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -104,12 +110,13 @@ export interface FileRoutesByFullPath {
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
-  '/admin/paket': typeof AdminPaketRoute
+  '/admin/paket': typeof AdminPaketRouteWithChildren
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/paket/': typeof PaketIndexRoute
+  '/admin/paket/$id': typeof AdminPaketIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -119,12 +126,13 @@ export interface FileRoutesByTo {
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
-  '/admin/paket': typeof AdminPaketRoute
+  '/admin/paket': typeof AdminPaketRouteWithChildren
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/admin': typeof AdminIndexRoute
   '/paket': typeof PaketIndexRoute
+  '/admin/paket/$id': typeof AdminPaketIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -136,12 +144,13 @@ export interface FileRoutesById {
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
-  '/admin/paket': typeof AdminPaketRoute
+  '/admin/paket': typeof AdminPaketRouteWithChildren
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/admin/': typeof AdminIndexRoute
   '/paket/': typeof PaketIndexRoute
+  '/admin/paket/$id': typeof AdminPaketIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -160,6 +169,7 @@ export interface FileRouteTypes {
     | '/paket/$slug'
     | '/admin/'
     | '/paket/'
+    | '/admin/paket/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -175,6 +185,7 @@ export interface FileRouteTypes {
     | '/paket/$slug'
     | '/admin'
     | '/paket'
+    | '/admin/paket/$id'
   id:
     | '__root__'
     | '/'
@@ -191,6 +202,7 @@ export interface FileRouteTypes {
     | '/paket/$slug'
     | '/admin/'
     | '/paket/'
+    | '/admin/paket/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -304,13 +316,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PaketSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/paket/$id': {
+      id: '/admin/paket/$id'
+      path: '/$id'
+      fullPath: '/admin/paket/$id'
+      preLoaderRoute: typeof AdminPaketIdRouteImport
+      parentRoute: typeof AdminPaketRoute
+    }
   }
 }
+
+interface AdminPaketRouteChildren {
+  AdminPaketIdRoute: typeof AdminPaketIdRoute
+}
+
+const AdminPaketRouteChildren: AdminPaketRouteChildren = {
+  AdminPaketIdRoute: AdminPaketIdRoute,
+}
+
+const AdminPaketRouteWithChildren = AdminPaketRoute._addFileChildren(
+  AdminPaketRouteChildren,
+)
 
 interface AdminRouteRouteChildren {
   AdminFileRoute: typeof AdminFileRoute
   AdminGaleriRoute: typeof AdminGaleriRoute
-  AdminPaketRoute: typeof AdminPaketRoute
+  AdminPaketRoute: typeof AdminPaketRouteWithChildren
   AdminPengaturanRoute: typeof AdminPengaturanRoute
   AdminPesanRoute: typeof AdminPesanRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -319,7 +350,7 @@ interface AdminRouteRouteChildren {
 const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminFileRoute: AdminFileRoute,
   AdminGaleriRoute: AdminGaleriRoute,
-  AdminPaketRoute: AdminPaketRoute,
+  AdminPaketRoute: AdminPaketRouteWithChildren,
   AdminPengaturanRoute: AdminPengaturanRoute,
   AdminPesanRoute: AdminPesanRoute,
   AdminIndexRoute: AdminIndexRoute,
