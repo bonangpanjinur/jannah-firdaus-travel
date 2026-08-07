@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { createFileRoute, Link, Outlet, useNavigate } from "@tanstack/react-router";
-import { FolderOpen, Image, LayoutDashboard, LogOut, Mail, Package, Settings } from "lucide-react";
+import { ClipboardList, FolderOpen, Image, LayoutDashboard, LogOut, Mail, Package, Settings } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useIsAdmin, useSession } from "@/hooks/use-site";
@@ -22,6 +22,7 @@ const nav = [
   { to: "/admin/paket", label: "Paket", icon: Package },
   { to: "/admin/galeri", label: "Galeri", icon: Image },
   { to: "/admin/file", label: "File", icon: FolderOpen },
+  { to: "/admin/pendaftaran", label: "Pendaftaran", icon: ClipboardList },
   { to: "/admin/pesan", label: "Pesan", icon: Mail },
   { to: "/admin/pengaturan", label: "Pengaturan", icon: Settings },
 ] as const;

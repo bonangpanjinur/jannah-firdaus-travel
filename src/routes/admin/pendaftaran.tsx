@@ -17,13 +17,19 @@ function AdminPendaftaran() {
 
   async function setStatus(id: string, status: string) {
     const { error } = await db().from("registrations").update({ status }).eq("id", id);
-    if (error) return toast.error("Gagal memperbarui status.");
+    if (error) {
+      toast.error("Gagal memperbarui status.");
+      return;
+    }
     qc.invalidateQueries({ queryKey: registrationsQuery.queryKey });
   }
 
   async function remove(id: string) {
     const { error } = await db().from("registrations").delete().eq("id", id);
-    if (error) return toast.error("Gagal menghapus pendaftaran.");
+    if (error) {
+      toast.error("Gagal menghapus pendaftaran.");
+      return;
+    }
     toast.success("Pendaftaran dihapus.");
     qc.invalidateQueries({ queryKey: registrationsQuery.queryKey });
   }
