@@ -71,6 +71,18 @@ export interface ContactMessage {
   created_at: string;
 }
 
+export interface Registration {
+  id: string;
+  package_id: string | null;
+  package_name: string | null;
+  name: string;
+  phone: string;
+  preferred_date: string | null;
+  notes: string | null;
+  status: string;
+  created_at: string;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const db = () => supabase as any;
 
@@ -163,5 +175,17 @@ export const messagesQuery = {
       .order("created_at", { ascending: false });
     if (error) throw error;
     return (data ?? []) as ContactMessage[];
+  },
+};
+
+export const registrationsQuery = {
+  queryKey: ["registrations"] as const,
+  queryFn: async (): Promise<Registration[]> => {
+    const { data, error } = await db()
+      .from("registrations")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Registration[];
   },
 };
