@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
@@ -8,16 +9,29 @@ import {
   FileText,
   MessageCircle,
   Plane,
+  ShieldCheck,
+  Star,
   Users,
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
 import { RegistrationForm } from "@/components/site/registration-form";
+import heroMakkah from "@/assets/detail-makkah.jpg";
+import fotoMadinah from "@/assets/detail-madinah.jpg";
+import fotoJamaah from "@/assets/detail-jamaah.jpg";
+
+const fotoCadangan = [
+  { src: heroMakkah, caption: "Masjidil Haram, Makkah" },
+  { src: fotoMadinah, caption: "Masjid Nabawi, Madinah" },
+  { src: fotoJamaah, caption: "Dokumentasi jamaah kami" },
+];
 
 export const Route = createFileRoute("/paket/$slug")({
   head: ({ params }) => ({
@@ -43,6 +57,7 @@ function DetailPaket() {
   const { data: paket, isLoading } = useQuery(packageBySlugQuery(slug));
   const { data: itinerary = [] } = useQuery(itineraryQuery(paket?.id));
   const { data: images = [] } = useQuery(packageImagesQuery(paket?.id));
+  const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   if (isLoading) {
     return <main className="container-page py-20 text-sm text-muted-foreground">Memuat paket…</main>;
@@ -65,42 +80,72 @@ function DetailPaket() {
     { label: "Double (sekamar 2)", value: paket.price_double },
   ];
 
+  const galeri =
+    images.length > 0
+      ? images.map((img) => ({ id: img.id, src: img.image_url, caption: img.caption ?? `Foto paket ${paket.name}`, storage: true }))
+      : fotoCadangan.map((f) => ({ id: f.src, src: f.src, caption: f.caption, storage: false }));
+
   return (
-    <main className="container-page py-12">
-      <nav className="text-sm text-muted-foreground">
-        <Link to="/" className="hover:text-primary">Beranda</Link>
-        <span className="px-2">/</span>
-        <Link to="/paket" className="hover:text-primary">Paket</Link>
-      </nav>
+    <main className="pb-16">
+      <section className="relative isolate overflow-hidden">
+        <img
+          src={heroMakkah}
+          alt="Suasana Masjidil Haram saat jamaah melakukan tawaf"
+          width={1600}
+          height={912}
+          className="absolute inset-0 size-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-primary/30" />
+        <div className="container-page relative py-14 md:py-20">
+          <nav className="text-sm text-primary-foreground/80">
+            <Link to="/" className="hover:text-gold">Beranda</Link>
+            <span className="px-2">/</span>
+            <Link to="/paket" className="hover:text-gold">Paket</Link>
+          </nav>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {paket.is_featured ? <Badge className="bg-gold text-gold-foreground hover:bg-gold">Paket Unggulan</Badge> : null}
+            {paket.duration_days ? <Badge variant="secondary">{paket.duration_days} hari</Badge> : null}
+            {paket.quota ? <Badge variant="secondary">Kuota {paket.quota} jamaah</Badge> : null}
+          </div>
+          <h1 className="mt-4 max-w-3xl font-display text-3xl text-primary-foreground md:text-5xl">{paket.name}</h1>
+          <p className="mt-4 max-w-2xl text-sm/7 text-primary-foreground/85">{paket.description}</p>
+          <p className="mt-6 text-xs uppercase tracking-wider text-primary-foreground/70">Mulai dari</p>
+          <p className="font-display text-3xl text-gold">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
+        </div>
+      </section>
 
-      <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="container-page grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div>
-          <h1 className="font-display text-3xl md:text-4xl">{paket.name}</h1>
-          <p className="mt-4 text-sm/7 text-muted-foreground">{paket.description}</p>
-
-          <StorageImage
-            src={paket.flyer_url}
-            alt={`Flyer paket ${paket.name}`}
-            loading="lazy"
-            className="mt-8 w-full rounded-2xl object-cover shadow-soft"
-          />
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2">
             <InfoRow icon={CalendarDays} label="Keberangkatan" value={formatTanggal(paket.departure_date)} />
             <InfoRow icon={Clock} label="Durasi" value={paket.duration_days ? `${paket.duration_days} hari` : "-"} />
             <InfoRow icon={Plane} label="Maskapai" value={paket.airline ?? "-"} />
             <InfoRow icon={Users} label="Kuota" value={paket.quota ? `${paket.quota} jamaah` : "-"} />
-            <InfoRow
-              icon={BedDouble}
-              label="Hotel Makkah"
-              value={`${paket.hotel_makkah ?? "-"}${paket.hotel_makkah_stars ? ` • ${paket.hotel_makkah_stars} bintang` : ""}`}
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <HotelCard
+              image={heroMakkah}
+              kota="Makkah"
+              nama={paket.hotel_makkah}
+              bintang={paket.hotel_makkah_stars}
             />
-            <InfoRow
-              icon={BedDouble}
-              label="Hotel Madinah"
-              value={`${paket.hotel_madinah ?? "-"}${paket.hotel_madinah_stars ? ` • ${paket.hotel_madinah_stars} bintang` : ""}`}
+            <HotelCard
+              image={fotoMadinah}
+              kota="Madinah"
+              nama={paket.hotel_madinah}
+              bintang={paket.hotel_madinah_stars}
             />
           </div>
+
+          {paket.flyer_url ? (
+            <StorageImage
+              src={paket.flyer_url}
+              alt={`Flyer paket ${paket.name}`}
+              loading="lazy"
+              className="mt-8 w-full rounded-2xl object-cover shadow-soft"
+            />
+          ) : null}
 
           <Tabs defaultValue="fasilitas" className="mt-10">
             <TabsList>
@@ -165,26 +210,50 @@ function DetailPaket() {
             </TabsContent>
 
             <TabsContent value="galeri" className="mt-6">
+              <div className="grid gap-4 sm:grid-cols-3">
+                {galeri.map((img) => (
+                  <figure key={img.id} className="group overflow-hidden rounded-xl shadow-soft">
+                    <button
+                      type="button"
+                      className="block w-full"
+                      onClick={() => setLightbox({ src: img.src, caption: img.caption })}
+                    >
+                      {img.storage ? (
+                        <StorageImage
+                          src={img.src}
+                          alt={img.caption}
+                          loading="lazy"
+                          className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <img
+                          src={img.src}
+                          alt={img.caption}
+                          loading="lazy"
+                          className="aspect-4/3 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      )}
+                    </button>
+                    <figcaption className="bg-card px-3 py-2 text-xs text-muted-foreground">{img.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
               {images.length === 0 ? (
-                <p className="text-sm text-muted-foreground">Belum ada foto untuk paket ini.</p>
-              ) : (
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {images.map((img) => (
-                    <StorageImage
-                      key={img.id}
-                      src={img.image_url}
-                      alt={img.caption ?? `Foto paket ${paket.name}`}
-                      loading="lazy"
-                      className="aspect-4/3 w-full rounded-xl object-cover shadow-soft"
-                    />
-                  ))}
-                </div>
-              )}
+                <p className="mt-4 text-xs text-muted-foreground">
+                  Foto dokumentasi umum. Foto khusus paket ini akan segera ditambahkan.
+                </p>
+              ) : null}
             </TabsContent>
           </Tabs>
         </div>
 
         <aside className="h-fit rounded-2xl border border-border bg-card p-6 shadow-soft lg:sticky lg:top-24">
+          <img
+            src={fotoJamaah}
+            alt="Jamaah umroh bersama tim kami"
+            loading="lazy"
+            className="mb-5 aspect-16/9 w-full rounded-xl object-cover"
+          />
           <p className="text-xs uppercase tracking-wider text-muted-foreground">Pilihan harga</p>
           <ul className="mt-4 space-y-3">
             {harga.map((item) => (
@@ -203,6 +272,9 @@ function DetailPaket() {
           <p className="mt-3 text-center text-xs text-muted-foreground">
             Tim kami membalas setiap hari pukul 08.00–20.00 WIB.
           </p>
+          <p className="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <ShieldCheck className="size-4 text-primary" /> Travel resmi & berizin
+          </p>
 
           <div className="mt-6 border-t border-border pt-6">
             <h2 className="font-display text-lg">Formulir pendaftaran</h2>
@@ -213,7 +285,50 @@ function DetailPaket() {
           </div>
         </aside>
       </div>
+
+      <Dialog open={Boolean(lightbox)} onOpenChange={(open) => !open && setLightbox(null)}>
+        <DialogContent className="max-w-3xl p-2">
+          {lightbox ? (
+            <figure>
+              <img src={lightbox.src} alt={lightbox.caption} className="w-full rounded-lg object-contain" />
+              <figcaption className="px-2 py-3 text-center text-sm text-muted-foreground">{lightbox.caption}</figcaption>
+            </figure>
+          ) : null}
+        </DialogContent>
+      </Dialog>
     </main>
+  );
+}
+
+function HotelCard({
+  image,
+  kota,
+  nama,
+  bintang,
+}: {
+  image: string;
+  kota: string;
+  nama: string | null;
+  bintang: number | null;
+}) {
+  return (
+    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
+      <img src={image} alt={`Suasana kota ${kota}`} loading="lazy" className="aspect-16/9 w-full object-cover" />
+      <div className="flex gap-3 p-4">
+        <BedDouble className="size-5 shrink-0 text-primary" />
+        <div>
+          <p className="text-xs uppercase tracking-wide text-muted-foreground">Hotel {kota}</p>
+          <p className="text-sm font-medium">{nama ?? "Menyusul"}</p>
+          {bintang ? (
+            <div className="mt-1 flex gap-0.5">
+              {Array.from({ length: bintang }).map((_, i) => (
+                <Star key={i} className="size-3.5 fill-gold text-gold" />
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>
   );
 }
 
