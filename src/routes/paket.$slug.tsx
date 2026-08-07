@@ -17,6 +17,7 @@ import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
+import { RegistrationForm } from "@/components/site/registration-form";
 
 export const Route = createFileRoute("/paket/$slug")({
   head: ({ params }) => ({
@@ -202,6 +203,14 @@ function DetailPaket() {
           <p className="mt-3 text-center text-xs text-muted-foreground">
             Tim kami membalas setiap hari pukul 08.00–20.00 WIB.
           </p>
+
+          <div className="mt-6 border-t border-border pt-6">
+            <h2 className="font-display text-lg">Formulir pendaftaran</h2>
+            <p className="mb-4 mt-1 text-xs text-muted-foreground">
+              Isi data berikut, tim kami akan menghubungi Anda via WhatsApp.
+            </p>
+            <RegistrationForm paket={paket} />
+          </div>
         </aside>
       </div>
     </main>
