@@ -95,9 +95,9 @@ function DetailPaket() {
           height={912}
           className="absolute inset-0 size-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/70 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
         <div className="container-page relative py-14 md:py-20">
-          <nav className="text-sm text-primary-foreground/80">
+          <nav className="text-sm text-muted-foreground">
             <Link to="/" className="hover:text-gold">Beranda</Link>
             <span className="px-2">/</span>
             <Link to="/paket" className="hover:text-gold">Paket</Link>
@@ -107,9 +107,9 @@ function DetailPaket() {
             {paket.duration_days ? <Badge variant="secondary">{paket.duration_days} hari</Badge> : null}
             {paket.quota ? <Badge variant="secondary">Kuota {paket.quota} jamaah</Badge> : null}
           </div>
-          <h1 className="mt-4 max-w-3xl font-display text-3xl text-primary-foreground md:text-5xl">{paket.name}</h1>
-          <p className="mt-4 max-w-2xl text-sm/7 text-primary-foreground/85">{paket.description}</p>
-          <p className="mt-6 text-xs uppercase tracking-wider text-primary-foreground/70">Mulai dari</p>
+          <h1 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">{paket.name}</h1>
+          <p className="mt-4 max-w-2xl text-sm/7 text-muted-foreground">{paket.description}</p>
+          <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Mulai dari</p>
           <p className="font-display text-3xl text-gold">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
         </div>
       </section>
@@ -212,7 +212,7 @@ function DetailPaket() {
             <TabsContent value="galeri" className="mt-6">
               <div className="grid gap-4 sm:grid-cols-3">
                 {galeri.map((img) => (
-                  <figure key={img.id} className="group overflow-hidden rounded-xl shadow-soft">
+                  <figure key={img.id} className="group bento-card">
                     <button
                       type="button"
                       className="block w-full"
@@ -247,7 +247,7 @@ function DetailPaket() {
           </Tabs>
         </div>
 
-        <aside className="h-fit rounded-2xl border border-border bg-card p-6 shadow-soft lg:sticky lg:top-24">
+        <aside className="h-fit bento-card p-6 lg:sticky lg:top-24">
           <img
             src={fotoJamaah}
             alt="Jamaah umroh bersama tim kami"
@@ -259,7 +259,7 @@ function DetailPaket() {
             {harga.map((item) => (
               <li key={item.label} className="flex items-center justify-between gap-3 text-sm">
                 <span className="text-muted-foreground">{item.label}</span>
-                <span className="font-display text-base text-primary">{formatRupiah(item.value)}</span>
+                <span className="font-display text-base text-gold">{formatRupiah(item.value)}</span>
               </li>
             ))}
           </ul>
@@ -312,10 +312,10 @@ function HotelCard({
   bintang: number | null;
 }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-border bg-card shadow-soft">
+    <div className="bento-card">
       <img src={image} alt={`Suasana kota ${kota}`} loading="lazy" className="aspect-16/9 w-full object-cover" />
       <div className="flex gap-3 p-4">
-        <BedDouble className="size-5 shrink-0 text-primary" />
+        <BedDouble className="size-5 shrink-0 text-gold" />
         <div>
           <p className="text-xs uppercase tracking-wide text-muted-foreground">Hotel {kota}</p>
           <p className="text-sm font-medium">{nama ?? "Menyusul"}</p>
@@ -342,8 +342,8 @@ function InfoRow({
   value: string;
 }) {
   return (
-    <div className="flex gap-3 rounded-xl border border-border bg-card p-4">
-      <Icon className="size-5 shrink-0 text-primary" />
+    <div className="flex gap-3 bento-card p-4">
+      <Icon className="size-5 shrink-0 text-gold" />
       <div>
         <p className="text-xs uppercase tracking-wide text-muted-foreground">{label}</p>
         <p className="text-sm font-medium">{value}</p>
