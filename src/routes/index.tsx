@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { BadgeCheck, BookOpenText, HeartHandshake, MessageCircle, Plane, Star } from "lucide-react";
+import { ArrowRight, BadgeCheck, BookOpenText, HeartHandshake, MessageCircle, Plane, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PackageCard } from "@/components/site/package-card";
 import { useSettings } from "@/hooks/use-site";
@@ -85,52 +85,96 @@ function Beranda() {
           height={1088}
           className="absolute inset-0 -z-10 size-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-linear-to-r from-[oklch(0.22_0.05_160/0.92)] via-[oklch(0.22_0.05_160/0.72)] to-transparent" />
-        <div className="container-page py-28 md:py-36">
-          <div className="max-w-2xl text-[oklch(0.98_0.01_95)]">
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 px-4 py-1.5 text-xs font-medium tracking-wide uppercase">
+        <div className="absolute inset-0 -z-10 bg-linear-to-r from-[oklch(0.10_0_0/0.96)] via-[oklch(0.10_0_0/0.78)] to-[oklch(0.10_0_0/0.35)]" />
+        <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background to-transparent" />
+        <div className="container-page py-24 md:py-36">
+          <div className="max-w-2xl text-foreground">
+            <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-4 py-1.5">
               {settings?.license_text ?? "Travel umroh berizin resmi"}
             </p>
-            <h1 className="font-display text-4xl leading-tight md:text-6xl">
+            <h1 className="font-display text-4xl leading-[1.08] md:text-6xl">
               {settings?.hero_title ?? "Wujudkan Perjalanan Umroh Impian Bersama Kami"}
             </h1>
-            <p className="mt-5 max-w-xl text-base/7 opacity-90">
+            <p className="mt-5 max-w-xl text-base/7 text-muted-foreground">
               {settings?.hero_subtitle ??
                 "Bimbingan ustadz berpengalaman, hotel dekat Masjidil Haram, dan pelayanan penuh amanah."}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
-                <Link to="/paket">Lihat Paket Umroh</Link>
+                <Link to="/paket">
+                  Lihat Paket Umroh <ArrowRight className="size-4" />
+                </Link>
               </Button>
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" variant="outline">
                 <a href={waLink(settings)} target="_blank" rel="noreferrer">
                   <MessageCircle className="size-4" />
                   Konsultasi Gratis
                 </a>
               </Button>
             </div>
+            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-border pt-6">
+              {[
+                { k: "10+", v: "Tahun pengalaman" },
+                { k: "5.000+", v: "Jamaah terlayani" },
+                { k: "4.9/5", v: "Kepuasan jamaah" },
+              ].map((s) => (
+                <div key={s.v}>
+                  <dt className="font-display text-2xl text-gold">{s.k}</dt>
+                  <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
-      <section className="container-page -mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section aria-label="Keunggulan layanan" className="container-page mt-16 grid gap-4 md:grid-cols-4 md:grid-rows-2">
+        <div className="bento-card surface-emerald flex flex-col justify-between gap-6 p-7 md:col-span-2 md:row-span-2">
+          <p className="eyebrow">Mengapa kami</p>
+          <div>
+            <h2 className="font-display text-3xl leading-tight md:text-4xl">
+              Amanah dari niat hingga <span className="text-gradient-gold">kembali ke tanah air</span>
+            </h2>
+            <p className="mt-4 text-sm/7 text-muted-foreground">
+              Setiap detail perjalanan kami siapkan agar Anda cukup fokus pada ibadah.
+            </p>
+          </div>
+          <Button asChild variant="outline" className="w-fit">
+            <Link to="/tentang">
+              Kenali kami <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+        </div>
         {keunggulan.map((item) => (
-          <div key={item.title} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-            <item.icon className="size-7 text-primary" strokeWidth={1.6} />
+          <div key={item.title} className="bento-card p-6">
+            <span className="flex size-11 items-center justify-center rounded-xl bg-gold/12 text-gold">
+              <item.icon className="size-5" strokeWidth={1.6} />
+            </span>
             <h3 className="mt-4 font-display text-lg">{item.title}</h3>
             <p className="mt-2 text-sm/6 text-muted-foreground">{item.text}</p>
           </div>
         ))}
+        <div className="bento-card flex flex-col justify-center gap-3 p-6">
+          <p className="eyebrow">Konsultasi</p>
+          <p className="text-sm/6 text-muted-foreground">Tim kami siap menjawab setiap hari pukul 08.00–20.00 WIB.</p>
+          <Button asChild size="sm" className="w-fit">
+            <a href={waLink(settings)} target="_blank" rel="noreferrer">
+              <MessageCircle className="size-4" /> Chat sekarang
+            </a>
+          </Button>
+        </div>
       </section>
 
       <section className="container-page mt-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-gold">Paket Pilihan</p>
+            <p className="eyebrow">Paket Pilihan</p>
             <h2 className="mt-2 font-display text-3xl md:text-4xl">Jadwal Keberangkatan Terdekat</h2>
           </div>
           <Button asChild variant="outline">
-            <Link to="/paket">Semua paket</Link>
+            <Link to="/paket">
+              Semua paket <ArrowRight className="size-4" />
+            </Link>
           </Button>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -141,16 +185,19 @@ function Beranda() {
       </section>
 
       <section className="container-page mt-24">
-        <h2 className="font-display text-3xl md:text-4xl">Kata Jamaah Kami</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {testimoni.map((item) => (
-            <figure key={item.name} className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+        <p className="eyebrow">Testimoni</p>
+        <h2 className="mt-2 font-display text-3xl md:text-4xl">Kata Jamaah Kami</h2>
+        <div className="mt-8 grid gap-4 md:grid-cols-3">
+          {testimoni.map((item, i) => (
+            <figure key={item.name} className={`bento-card p-6 ${i === 0 ? "md:row-span-2 md:flex md:flex-col md:justify-center" : ""}`}>
               <div className="flex gap-1 text-gold">
                 {Array.from({ length: 5 }).map((_, i) => (
                   <Star key={i} className="size-4 fill-current" />
                 ))}
               </div>
-              <blockquote className="mt-4 text-sm/7 text-muted-foreground">“{item.text}”</blockquote>
+              <blockquote className={`mt-4 text-muted-foreground ${i === 0 ? "font-display text-xl/8 text-foreground" : "text-sm/7"}`}>
+                “{item.text}”
+              </blockquote>
               <figcaption className="mt-4 text-sm font-semibold">
                 {item.name}
                 <span className="block text-xs font-normal text-muted-foreground">{item.origin}</span>
@@ -163,32 +210,41 @@ function Beranda() {
       {gallery.length ? (
         <section className="container-page mt-24">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <h2 className="font-display text-3xl md:text-4xl">Dokumentasi Keberangkatan</h2>
+            <div>
+              <p className="eyebrow">Galeri</p>
+              <h2 className="mt-2 font-display text-3xl md:text-4xl">Dokumentasi Keberangkatan</h2>
+            </div>
             <Button asChild variant="outline">
-              <Link to="/galeri">Lihat galeri</Link>
+              <Link to="/galeri">
+                Lihat galeri <ArrowRight className="size-4" />
+              </Link>
             </Button>
           </div>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.slice(0, 6).map((item) => (
-              <StorageImage
+          <div className="mt-8 grid auto-rows-[160px] grid-cols-2 gap-4 md:grid-cols-4">
+            {gallery.slice(0, 6).map((item, i) => (
+              <figure
                 key={item.id}
-                src={item.image_url}
-                alt={item.caption ?? "Dokumentasi jamaah umroh"}
-                loading="lazy"
-                className="aspect-4/3 w-full rounded-2xl object-cover shadow-soft"
-              />
+                className={`bento-card ${i === 0 ? "col-span-2 row-span-2" : ""} ${i === 3 ? "md:col-span-2" : ""}`}
+              >
+                <StorageImage
+                  src={item.image_url}
+                  alt={item.caption ?? "Dokumentasi jamaah umroh"}
+                  loading="lazy"
+                  className="size-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </figure>
             ))}
           </div>
         </section>
       ) : null}
 
       <section className="container-page mt-24">
-        <div className="rounded-3xl surface-emerald px-8 py-14 text-center">
+        <div className="bento-card surface-emerald px-8 py-14 text-center">
           <h2 className="font-display text-3xl md:text-4xl">Siap Berangkat ke Tanah Suci?</h2>
-          <p className="mx-auto mt-4 max-w-xl text-sm/7 opacity-85">
+          <p className="mx-auto mt-4 max-w-xl text-sm/7 text-muted-foreground">
             Konsultasikan rencana keberangkatan Anda dengan tim kami. Kami bantu pilih paket yang paling sesuai.
           </p>
-          <Button asChild size="lg" className="mt-8 bg-gold text-gold-foreground hover:bg-gold/90">
+          <Button asChild size="lg" className="mt-8">
             <a href={waLink(settings)} target="_blank" rel="noreferrer">
               <MessageCircle className="size-4" />
               Chat WhatsApp Sekarang
