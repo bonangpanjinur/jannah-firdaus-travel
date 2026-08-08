@@ -154,15 +154,6 @@ function Beranda() {
             <p className="mt-2 text-sm/6 text-muted-foreground">{item.text}</p>
           </div>
         ))}
-        <div className="bento-card flex flex-col justify-center gap-3 p-6">
-          <p className="eyebrow">Konsultasi</p>
-          <p className="text-sm/6 text-muted-foreground">Tim kami siap menjawab setiap hari pukul 08.00–20.00 WIB.</p>
-          <Button asChild size="sm" className="w-fit">
-            <a href={waLink(settings)} target="_blank" rel="noreferrer">
-              <MessageCircle className="size-4" /> Chat sekarang
-            </a>
-          </Button>
-        </div>
       </section>
 
       <section className="container-page mt-24">
