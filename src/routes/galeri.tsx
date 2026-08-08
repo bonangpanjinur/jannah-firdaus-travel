@@ -24,7 +24,7 @@ function Galeri() {
   return (
     <main className="container-page py-14">
       <header className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-wider text-gold">Galeri</p>
+        <p className="eyebrow">Galeri</p>
         <h1 className="mt-2 font-display text-4xl">Dokumentasi Perjalanan Jamaah</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
           Momen kebersamaan jamaah kami selama beribadah di Makkah dan Madinah.
@@ -38,15 +38,15 @@ function Galeri() {
       ) : (
         <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
           {gallery.map((item) => (
-            <figure key={item.id} className="mb-4 break-inside-avoid overflow-hidden rounded-2xl shadow-soft">
+            <figure key={item.id} className="bento-card mb-4 break-inside-avoid">
               <StorageImage
                 src={item.image_url}
                 alt={item.caption ?? "Dokumentasi jamaah umroh"}
                 loading="lazy"
-                className="w-full object-cover"
+                className="w-full object-cover transition-transform duration-700 hover:scale-105"
               />
               {item.caption ? (
-                <figcaption className="bg-card px-4 py-3 text-sm text-muted-foreground">
+                <figcaption className="px-4 py-3 text-sm text-muted-foreground">
                   {item.caption}
                 </figcaption>
               ) : null}

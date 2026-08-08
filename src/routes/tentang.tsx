@@ -24,24 +24,24 @@ function Tentang() {
   return (
     <main className="container-page py-14">
       <header className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-wider text-gold">Tentang Kami</p>
+        <p className="eyebrow">Tentang Kami</p>
         <h1 className="mt-2 font-display text-4xl">{settings?.agency_name ?? "Barokah Umroh"}</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">{settings?.about_text}</p>
       </header>
 
       <div className="mt-10 grid gap-4 sm:grid-cols-3">
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <BadgeCheck className="size-6 text-primary" />
+        <div className="bento-card p-6">
+          <BadgeCheck className="size-6 text-gold" />
           <h2 className="mt-3 font-display text-lg">Legalitas</h2>
           <p className="mt-2 text-sm/6 text-muted-foreground">{settings?.license_text ?? "-"}</p>
         </div>
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <MapPin className="size-6 text-primary" />
+        <div className="bento-card p-6">
+          <MapPin className="size-6 text-gold" />
           <h2 className="mt-3 font-display text-lg">Kantor</h2>
           <p className="mt-2 text-sm/6 text-muted-foreground">{settings?.address ?? "-"}</p>
         </div>
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-soft">
-          <Users className="size-6 text-primary" />
+        <div className="bento-card p-6">
+          <Users className="size-6 text-gold" />
           <h2 className="mt-3 font-display text-lg">Pelayanan</h2>
           <p className="mt-2 text-sm/6 text-muted-foreground">
             Pendampingan penuh mulai dari pendaftaran, manasik, keberangkatan, hingga kepulangan jamaah.
@@ -49,7 +49,7 @@ function Tentang() {
         </div>
       </div>
 
-      <section className="mt-14 rounded-3xl surface-emerald p-8 md:p-12">
+      <section className="bento-card surface-emerald mt-14 p-8 md:p-12">
         <h2 className="font-display text-2xl md:text-3xl">Komitmen Kami</h2>
         <ul className="mt-6 grid gap-4 text-sm/7 opacity-90 md:grid-cols-2">
           <li>Harga transparan tanpa biaya tersembunyi.</li>

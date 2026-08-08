@@ -50,7 +50,7 @@ function Kontak() {
   return (
     <main className="container-page py-14">
       <header className="max-w-2xl">
-        <p className="text-sm font-semibold uppercase tracking-wider text-gold">Kontak</p>
+        <p className="eyebrow">Kontak</p>
         <h1 className="mt-2 font-display text-4xl">Kami Siap Membantu Anda</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
           Tanyakan apa saja seputar paket, jadwal, dan persyaratan keberangkatan.
@@ -58,7 +58,7 @@ function Kontak() {
       </header>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px]">
-        <form onSubmit={submit} className="space-y-5 rounded-2xl border border-border bg-card p-6 shadow-soft">
+        <form onSubmit={submit} className="bento-card space-y-5 p-6">
           <div className="space-y-2">
             <Label htmlFor="name">Nama lengkap</Label>
             <Input
@@ -95,15 +95,15 @@ function Kontak() {
           </Button>
         </form>
 
-        <aside className="h-fit space-y-4 rounded-2xl border border-border bg-card p-6 shadow-soft">
+        <aside className="bento-card h-fit space-y-4 p-6">
           <h2 className="font-display text-lg">Informasi kantor</h2>
           <ul className="space-y-3 text-sm text-muted-foreground">
             {settings?.address ? (
-              <li className="flex gap-2"><MapPin className="mt-0.5 size-4 shrink-0 text-primary" />{settings.address}</li>
+              <li className="flex gap-2"><MapPin className="mt-0.5 size-4 shrink-0 text-gold" />{settings.address}</li>
             ) : null}
-            <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0 text-primary" />{settings?.whatsapp_number}</li>
+            <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0 text-gold" />{settings?.whatsapp_number}</li>
             {settings?.email ? (
-              <li className="flex gap-2"><Mail className="mt-0.5 size-4 shrink-0 text-primary" />{settings.email}</li>
+              <li className="flex gap-2"><Mail className="mt-0.5 size-4 shrink-0 text-gold" />{settings.email}</li>
             ) : null}
           </ul>
           <Button asChild className="w-full">

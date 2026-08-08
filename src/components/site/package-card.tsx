@@ -11,15 +11,16 @@ export function PackageCard({ paket }: { paket: Paket }) {
   const quotaLabel = remaining === null ? null : remaining <= 5 ? "Kuota terbatas" : `${remaining} kuota tersedia`;
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-shadow hover:shadow-lift">
+    <article className="bento-card group flex flex-col">
       <Link to="/paket/$slug" params={{ slug: paket.slug }} className="block">
-        <div className="relative aspect-3/4 overflow-hidden bg-muted">
+        <div className="relative aspect-4/3 overflow-hidden bg-muted">
           <StorageImage src={paket.flyer_url} alt={`Flyer paket ${paket.name}`} loading="lazy" className="size-full object-cover transition-transform duration-500 group-hover:scale-105" fallback={<div className="flex size-full items-center justify-center surface-emerald font-display text-lg">{paket.name}</div>} />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-card to-transparent" />
           {paket.is_featured ? <Badge className="absolute left-3 top-3 bg-gold text-gold-foreground hover:bg-gold">Unggulan</Badge> : null}
           {remaining !== null && remaining <= 5 ? <Badge variant="destructive" className="absolute right-3 top-3">{quotaLabel}</Badge> : null}
         </div>
       </Link>
-      <div className="space-y-3 p-5">
+      <div className="flex flex-1 flex-col space-y-3 p-5">
         <h3 className="font-display text-lg leading-snug text-foreground"><Link to="/paket/$slug" params={{ slug: paket.slug }}>{paket.name}</Link></h3>
         <ul className="space-y-1.5 text-sm text-muted-foreground">
           <li className="flex items-center gap-2"><CalendarDays className="size-4 text-primary" />{formatTanggal(paket.departure_date)}</li>
@@ -27,7 +28,7 @@ export function PackageCard({ paket }: { paket: Paket }) {
           {paket.airline ? <li className="flex items-center gap-2"><Plane className="size-4 text-primary" />{paket.airline}</li> : null}
           {quotaLabel && remaining !== null && remaining > 5 ? <li className="flex items-center gap-2"><Users className="size-4 text-primary" />{quotaLabel}</li> : null}
         </ul>
-        <div className="flex items-end justify-between gap-3 pt-2"><div><p className="text-xs text-muted-foreground">Mulai dari</p><p className="font-display text-xl text-primary">{formatRupiah(hargaMulai(paket))}</p></div><Button asChild size="sm" variant="secondary"><Link to="/paket/$slug" params={{ slug: paket.slug }}>Detail</Link></Button></div>
+        <div className="mt-auto flex items-end justify-between gap-3 border-t border-border pt-4"><div><p className="text-xs text-muted-foreground">Mulai dari</p><p className="font-display text-xl text-gold">{formatRupiah(hargaMulai(paket))}</p></div><Button asChild size="sm"><Link to="/paket/$slug" params={{ slug: paket.slug }}>Detail</Link></Button></div>
       </div>
     </article>
   );

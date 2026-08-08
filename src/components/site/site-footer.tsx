@@ -6,7 +6,7 @@ export function SiteFooter() {
   const { data: settings } = useSettings();
 
   return (
-    <footer className="mt-24 surface-emerald">
+    <footer className="mt-24 border-t border-border bg-card/40">
       <div className="container-page grid gap-10 py-14 md:grid-cols-3">
         <div>
           <h3 className="font-display text-xl text-gradient-gold">
@@ -50,7 +50,7 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-5 text-center text-xs opacity-70">
+      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
         &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Barokah Umroh"}. Seluruh hak cipta dilindungi.
       </div>
     </footer>
