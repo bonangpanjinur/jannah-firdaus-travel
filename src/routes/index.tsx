@@ -87,40 +87,40 @@ function Beranda() {
         />
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-[oklch(0.10_0_0/0.96)] via-[oklch(0.10_0_0/0.78)] to-[oklch(0.10_0_0/0.35)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background to-transparent" />
-        <div className="container-page py-24 md:py-36">
+        <div className="container-page py-16 sm:py-24 md:py-36">
           <div className="max-w-2xl text-foreground">
-            <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-4 py-1.5">
+            <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-[11px] sm:px-4 sm:text-xs">
               {settings?.license_text ?? "Travel umroh berizin resmi"}
             </p>
-            <h1 className="font-display text-4xl leading-[1.08] md:text-6xl">
+            <h1 className="font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-6xl">
               {settings?.hero_title ?? "Wujudkan Perjalanan Umroh Impian Bersama Kami"}
             </h1>
-            <p className="mt-5 max-w-xl text-base/7 text-muted-foreground">
+            <p className="mt-4 max-w-xl text-sm/7 text-muted-foreground sm:mt-5 sm:text-base/7">
               {settings?.hero_subtitle ??
                 "Bimbingan ustadz berpengalaman, hotel dekat Masjidil Haram, dan pelayanan penuh amanah."}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Button asChild size="lg" className="w-full sm:w-auto">
                 <Link to="/paket">
                   Lihat Paket Umroh <ArrowRight className="size-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
                 <a href={waLink(settings)} target="_blank" rel="noreferrer">
                   <MessageCircle className="size-4" />
                   Konsultasi Gratis
                 </a>
               </Button>
             </div>
-            <dl className="mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-border pt-6">
+            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-3 border-t border-border pt-6 sm:gap-4">
               {[
                 { k: "10+", v: "Tahun pengalaman" },
                 { k: "5.000+", v: "Jamaah terlayani" },
                 { k: "4.9/5", v: "Kepuasan jamaah" },
               ].map((s) => (
                 <div key={s.v}>
-                  <dt className="font-display text-2xl text-gold">{s.k}</dt>
-                  <dd className="mt-1 text-xs text-muted-foreground">{s.v}</dd>
+                  <dt className="font-display text-xl text-gold sm:text-2xl">{s.k}</dt>
+                  <dd className="mt-1 text-[11px] leading-snug text-muted-foreground sm:text-xs">{s.v}</dd>
                 </div>
               ))}
             </dl>
@@ -128,11 +128,11 @@ function Beranda() {
         </div>
       </section>
 
-      <section aria-label="Keunggulan layanan" className="container-page mt-16 grid gap-4 md:grid-cols-4 md:grid-rows-2">
-        <div className="bento-card surface-emerald flex flex-col justify-between gap-6 p-7 md:col-span-2 md:row-span-2">
+      <section aria-label="Keunggulan layanan" className="container-page mt-14 grid gap-4 sm:grid-cols-2 md:mt-16 md:grid-cols-4 md:grid-rows-2">
+        <div className="bento-card surface-emerald flex flex-col justify-between gap-6 p-6 sm:col-span-2 sm:p-7 md:row-span-2">
           <p className="eyebrow">Mengapa kami</p>
           <div>
-            <h2 className="font-display text-3xl leading-tight md:text-4xl">
+            <h2 className="font-display text-2xl leading-tight sm:text-3xl md:text-4xl">
               Amanah dari niat hingga <span className="text-gradient-gold">kembali ke tanah air</span>
             </h2>
             <p className="mt-4 text-sm/7 text-muted-foreground">
@@ -156,11 +156,11 @@ function Beranda() {
         ))}
       </section>
 
-      <section className="container-page mt-24">
+      <section className="container-page mt-16 sm:mt-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="eyebrow">Paket Pilihan</p>
-            <h2 className="mt-2 font-display text-3xl md:text-4xl">Jadwal Keberangkatan Terdekat</h2>
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">Jadwal Keberangkatan Terdekat</h2>
           </div>
           <Button asChild variant="outline">
             <Link to="/paket">
@@ -168,17 +168,17 @@ function Beranda() {
             </Link>
           </Button>
         </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {tampil.map((paket) => (
             <PackageCard key={paket.id} paket={paket} />
           ))}
         </div>
       </section>
 
-      <section className="container-page mt-24">
+      <section className="container-page mt-16 sm:mt-24">
         <p className="eyebrow">Testimoni</p>
-        <h2 className="mt-2 font-display text-3xl md:text-4xl">Kata Jamaah Kami</h2>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">Kata Jamaah Kami</h2>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
           {testimoni.map((item, i) => (
             <figure key={item.name} className={`bento-card p-6 ${i === 0 ? "md:row-span-2 md:flex md:flex-col md:justify-center" : ""}`}>
               <div className="flex gap-1 text-gold">
@@ -199,11 +199,11 @@ function Beranda() {
       </section>
 
       {gallery.length ? (
-        <section className="container-page mt-24">
+        <section className="container-page mt-16 sm:mt-24">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="eyebrow">Galeri</p>
-              <h2 className="mt-2 font-display text-3xl md:text-4xl">Dokumentasi Keberangkatan</h2>
+              <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">Dokumentasi Keberangkatan</h2>
             </div>
             <Button asChild variant="outline">
               <Link to="/galeri">
@@ -211,7 +211,7 @@ function Beranda() {
               </Link>
             </Button>
           </div>
-          <div className="mt-8 grid auto-rows-[160px] grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="mt-8 grid auto-rows-[120px] grid-cols-2 gap-3 sm:auto-rows-[160px] sm:gap-4 md:grid-cols-4">
             {gallery.slice(0, 6).map((item, i) => (
               <figure
                 key={item.id}
@@ -229,13 +229,13 @@ function Beranda() {
         </section>
       ) : null}
 
-      <section className="container-page mt-24">
-        <div className="bento-card surface-emerald px-8 py-14 text-center">
-          <h2 className="font-display text-3xl md:text-4xl">Siap Berangkat ke Tanah Suci?</h2>
+      <section className="container-page mt-16 sm:mt-24">
+        <div className="bento-card surface-emerald px-5 py-10 text-center sm:px-8 sm:py-14">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl">Siap Berangkat ke Tanah Suci?</h2>
           <p className="mx-auto mt-4 max-w-xl text-sm/7 text-muted-foreground">
             Konsultasikan rencana keberangkatan Anda dengan tim kami. Kami bantu pilih paket yang paling sesuai.
           </p>
-          <Button asChild size="lg" className="mt-8">
+          <Button asChild size="lg" className="mt-7 w-full sm:w-auto">
             <a href={waLink(settings)} target="_blank" rel="noreferrer">
               <MessageCircle className="size-4" />
               Chat WhatsApp Sekarang

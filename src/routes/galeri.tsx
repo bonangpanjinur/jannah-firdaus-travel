@@ -22,10 +22,10 @@ function Galeri() {
   const { data: gallery = [], isLoading } = useQuery(galleryQuery);
 
   return (
-    <main className="container-page py-14">
+    <main className="container-page py-10 sm:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Galeri</p>
-        <h1 className="mt-2 font-display text-4xl">Dokumentasi Perjalanan Jamaah</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">Dokumentasi Perjalanan Jamaah</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
           Momen kebersamaan jamaah kami selama beribadah di Makkah dan Madinah.
         </p>
@@ -36,9 +36,9 @@ function Galeri() {
       ) : gallery.length === 0 ? (
         <p className="mt-12 text-sm text-muted-foreground">Belum ada foto yang diunggah.</p>
       ) : (
-        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <div className="mt-8 columns-1 gap-3 sm:mt-10 sm:columns-2 sm:gap-4 lg:columns-3">
           {gallery.map((item) => (
-            <figure key={item.id} className="bento-card mb-4 break-inside-avoid">
+            <figure key={item.id} className="bento-card mb-3 break-inside-avoid sm:mb-4">
               <StorageImage
                 src={item.image_url}
                 alt={item.caption ?? "Dokumentasi jamaah umroh"}
