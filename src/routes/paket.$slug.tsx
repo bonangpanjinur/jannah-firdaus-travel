@@ -307,7 +307,7 @@ function DetailPaket() {
       </div>
 
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
-        <div className="container-page flex items-center gap-3 py-3">
+        <div className="container-page flex items-center gap-3 py-3 pr-20">
           <div className="min-w-0">
             <p className="text-[11px] text-muted-foreground">Mulai dari</p>
             <p className="truncate font-display text-base text-gold">
