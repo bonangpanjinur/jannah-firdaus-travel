@@ -48,17 +48,17 @@ function Kontak() {
   }
 
   return (
-    <main className="container-page py-14">
+    <main className="container-page py-10 sm:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Kontak</p>
-        <h1 className="mt-2 font-display text-4xl">Kami Siap Membantu Anda</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">Kami Siap Membantu Anda</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
           Tanyakan apa saja seputar paket, jadwal, dan persyaratan keberangkatan.
         </p>
       </header>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_340px]">
-        <form onSubmit={submit} className="bento-card space-y-5 p-6">
+      <div className="mt-8 grid gap-6 sm:mt-10 lg:grid-cols-[minmax(0,1fr)_340px] lg:gap-10">
+        <form onSubmit={submit} className="bento-card space-y-5 p-5 sm:p-6">
           <div className="space-y-2">
             <Label htmlFor="name">Nama lengkap</Label>
             <Input
@@ -90,12 +90,12 @@ function Kontak() {
               placeholder="Tulis pertanyaan Anda di sini"
             />
           </div>
-          <Button type="submit" disabled={sending}>
+          <Button type="submit" disabled={sending} className="w-full sm:w-auto">
             {sending ? "Mengirim…" : "Kirim pertanyaan"}
           </Button>
         </form>
 
-        <aside className="bento-card h-fit space-y-4 p-6">
+        <aside className="bento-card h-fit space-y-4 p-5 sm:p-6">
           <h2 className="font-display text-lg">Informasi kantor</h2>
           <ul className="space-y-3 text-sm text-muted-foreground">
             {settings?.address ? (

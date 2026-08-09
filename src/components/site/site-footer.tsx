@@ -50,8 +50,10 @@ export function SiteFooter() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
-        &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Barokah Umroh"}. Seluruh hak cipta dilindungi.
+      <div className="border-t border-border">
+        <p className="container-page py-5 text-center text-xs text-muted-foreground">
+          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Barokah Umroh"}. Seluruh hak cipta dilindungi.
+        </p>
       </div>
     </footer>
   );

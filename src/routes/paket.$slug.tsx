@@ -96,7 +96,7 @@ function DetailPaket() {
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
-        <div className="container-page relative py-14 md:py-20">
+        <div className="container-page relative py-10 sm:py-14 md:py-20">
           <nav className="text-sm text-muted-foreground">
             <Link to="/" className="hover:text-gold">Beranda</Link>
             <span className="px-2">/</span>
@@ -107,16 +107,16 @@ function DetailPaket() {
             {paket.duration_days ? <Badge variant="secondary">{paket.duration_days} hari</Badge> : null}
             {paket.quota ? <Badge variant="secondary">Kuota {paket.quota} jamaah</Badge> : null}
           </div>
-          <h1 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">{paket.name}</h1>
+          <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-foreground sm:text-3xl md:text-5xl">{paket.name}</h1>
           <p className="mt-4 max-w-2xl text-sm/7 text-muted-foreground">{paket.description}</p>
           <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Mulai dari</p>
-          <p className="font-display text-3xl text-gold">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
+          <p className="font-display text-2xl text-gold sm:text-3xl">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
         </div>
       </section>
 
-      <div className="container-page grid gap-10 py-12 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="container-page grid gap-8 py-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
         <div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <InfoRow icon={CalendarDays} label="Keberangkatan" value={formatTanggal(paket.departure_date)} />
             <InfoRow icon={Clock} label="Durasi" value={paket.duration_days ? `${paket.duration_days} hari` : "-"} />
             <InfoRow icon={Plane} label="Maskapai" value={paket.airline ?? "-"} />
@@ -148,7 +148,7 @@ function DetailPaket() {
           ) : null}
 
           <Tabs defaultValue="fasilitas" className="mt-10">
-            <TabsList>
+            <TabsList className="w-full justify-start overflow-x-auto">
               <TabsTrigger value="fasilitas">Fasilitas</TabsTrigger>
               <TabsTrigger value="itinerary">Itinerary</TabsTrigger>
               <TabsTrigger value="syarat">Syarat</TabsTrigger>
@@ -210,7 +210,7 @@ function DetailPaket() {
             </TabsContent>
 
             <TabsContent value="galeri" className="mt-6">
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
                 {galeri.map((img) => (
                   <figure key={img.id} className="group bento-card">
                     <button
@@ -247,7 +247,7 @@ function DetailPaket() {
           </Tabs>
         </div>
 
-        <aside className="h-fit bento-card p-6 lg:sticky lg:top-24">
+        <aside className="h-fit bento-card p-5 sm:p-6 lg:sticky lg:top-24">
           <img
             src={fotoJamaah}
             alt="Jamaah umroh bersama tim kami"
@@ -342,10 +342,10 @@ function InfoRow({
   value: string;
 }) {
   return (
-    <div className="flex gap-3 bento-card p-4">
+    <div className="flex gap-3 bento-card p-3 sm:p-4">
       <Icon className="size-5 shrink-0 text-gold" />
       <div>
-        <p className="text-xs uppercase tracking-wide text-muted-foreground">{label}</p>
+        <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</p>
         <p className="text-sm font-medium">{value}</p>
       </div>
     </div>
