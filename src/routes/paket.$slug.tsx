@@ -14,6 +14,7 @@ import {
   Users,
   X,
 } from "lucide-react";
+import { ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -58,6 +59,13 @@ function DetailPaket() {
   const { data: itinerary = [] } = useQuery(itineraryQuery(paket?.id));
   const { data: images = [] } = useQuery(packageImagesQuery(paket?.id));
   const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
+
+  function scrollToForm() {
+    const el = document.getElementById("daftar");
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    window.setTimeout(() => document.getElementById("reg-name")?.focus({ preventScroll: true }), 600);
+  }
 
   if (isLoading) {
     return <main className="container-page py-20 text-sm text-muted-foreground">Memuat paket…</main>;
@@ -111,10 +119,22 @@ function DetailPaket() {
           <p className="mt-4 max-w-2xl text-sm/7 text-muted-foreground">{paket.description}</p>
           <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Mulai dari</p>
           <p className="font-display text-2xl text-gold sm:text-3xl">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+            <Button size="lg" className="w-full sm:w-auto" onClick={scrollToForm}>
+              <ClipboardList className="size-4" />
+              Daftar sekarang
+            </Button>
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+              <a href={waLink(settings, paket.name)} target="_blank" rel="noreferrer">
+                <MessageCircle className="size-4" />
+                Tanya via WhatsApp
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
-      <div className="container-page grid gap-8 py-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
+      <div className="container-page grid gap-8 pb-28 pt-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10 lg:pb-12">
         <div>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <InfoRow icon={CalendarDays} label="Keberangkatan" value={formatTanggal(paket.departure_date)} />
@@ -263,7 +283,15 @@ function DetailPaket() {
               </li>
             ))}
           </ul>
-          <Button asChild size="lg" className="mt-6 w-full">
+          <div id="daftar" className="mt-6 scroll-mt-24 border-t border-border pt-6">
+            <h2 className="font-display text-lg">Formulir pendaftaran</h2>
+            <p className="mb-4 mt-1 text-xs text-muted-foreground">
+              Cukup 3 isian singkat — tim kami langsung menghubungi Anda via WhatsApp.
+            </p>
+            <RegistrationForm paket={paket} />
+          </div>
+
+          <Button asChild size="lg" variant="outline" className="mt-4 w-full">
             <a href={waLink(settings, paket.name)} target="_blank" rel="noreferrer">
               <MessageCircle className="size-4" />
               Daftar via WhatsApp
@@ -275,15 +303,22 @@ function DetailPaket() {
           <p className="mt-3 flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <ShieldCheck className="size-4 text-primary" /> Travel resmi & berizin
           </p>
-
-          <div className="mt-6 border-t border-border pt-6">
-            <h2 className="font-display text-lg">Formulir pendaftaran</h2>
-            <p className="mb-4 mt-1 text-xs text-muted-foreground">
-              Isi data berikut, tim kami akan menghubungi Anda via WhatsApp.
-            </p>
-            <RegistrationForm paket={paket} />
-          </div>
         </aside>
+      </div>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
+        <div className="container-page flex items-center gap-3 py-3 pr-16">
+          <div className="min-w-0">
+            <p className="text-[11px] text-muted-foreground">Mulai dari</p>
+            <p className="truncate font-display text-base text-gold">
+              {formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}
+            </p>
+          </div>
+          <Button className="ml-auto shrink-0" onClick={scrollToForm}>
+            <ClipboardList className="size-4" />
+            Daftar
+          </Button>
+        </div>
       </div>
 
       <Dialog open={Boolean(lightbox)} onOpenChange={(open) => !open && setLightbox(null)}>

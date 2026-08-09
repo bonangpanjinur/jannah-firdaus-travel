@@ -28,7 +28,13 @@ export function PackageCard({ paket }: { paket: Paket }) {
           {paket.airline ? <li className="flex items-center gap-2"><Plane className="size-4 text-primary" />{paket.airline}</li> : null}
           {quotaLabel && remaining !== null && remaining > 5 ? <li className="flex items-center gap-2"><Users className="size-4 text-primary" />{quotaLabel}</li> : null}
         </ul>
-        <div className="mt-auto flex items-end justify-between gap-3 border-t border-border pt-4"><div><p className="text-xs text-muted-foreground">Mulai dari</p><p className="font-display text-xl text-gold">{formatRupiah(hargaMulai(paket))}</p></div><Button asChild size="sm"><Link to="/paket/$slug" params={{ slug: paket.slug }}>Detail</Link></Button></div>
+        <div className="mt-auto space-y-3 border-t border-border pt-4">
+          <div><p className="text-xs text-muted-foreground">Mulai dari</p><p className="font-display text-xl text-gold">{formatRupiah(hargaMulai(paket))}</p></div>
+          <div className="grid grid-cols-2 gap-2">
+            <Button asChild size="sm" variant="outline"><Link to="/paket/$slug" params={{ slug: paket.slug }}>Detail</Link></Button>
+            <Button asChild size="sm"><Link to="/paket/$slug" params={{ slug: paket.slug }} hash="daftar">Daftar</Link></Button>
+          </div>
+        </div>
       </div>
     </article>
   );
