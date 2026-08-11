@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as BiayaUmrohRouteImport } from './routes/biaya-umroh'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
@@ -40,6 +41,11 @@ const AdminRouteRoute = AdminRouteRouteImport.update({
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BiayaUmrohRoute = BiayaUmrohRouteImport.update({
+  id: '/biaya-umroh',
+  path: '/biaya-umroh',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriRoute = GaleriRouteImport.update({
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/biaya-umroh': typeof BiayaUmrohRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -135,6 +142,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/biaya-umroh': typeof BiayaUmrohRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -155,6 +163,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/admin': typeof AdminRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/biaya-umroh': typeof BiayaUmrohRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/auth'
+    | '/biaya-umroh'
     | '/galeri'
     | '/kontak'
     | '/sitemap.xml'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/biaya-umroh'
     | '/galeri'
     | '/kontak'
     | '/sitemap.xml'
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
     | '/'
     | '/admin'
     | '/auth'
+    | '/biaya-umroh'
     | '/galeri'
     | '/kontak'
     | '/sitemap.xml'
@@ -233,6 +245,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRouteRoute: typeof AdminRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  BiayaUmrohRoute: typeof BiayaUmrohRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -262,6 +275,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/biaya-umroh': {
+      id: '/biaya-umroh'
+      path: '/biaya-umroh'
+      fullPath: '/biaya-umroh'
+      preLoaderRoute: typeof BiayaUmrohRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeri': {
@@ -405,6 +425,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRouteRoute: AdminRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  BiayaUmrohRoute: BiayaUmrohRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
