@@ -9,25 +9,15 @@ import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Barokah Umroh — Paket Umroh Amanah & Terjadwal" },
-      {
-        name: "description",
-        content:
-          "Pilih paket umroh dengan hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ustadz berpengalaman. Konsultasi gratis via WhatsApp.",
-      },
-      { property: "og:title", content: "Barokah Umroh — Paket Umroh Amanah & Terjadwal" },
-      {
-        property: "og:description",
-        content: "Paket umroh terjadwal dengan pelayanan amanah dari keberangkatan hingga kepulangan.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/" }],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    return pageMeta({
+      title: `${info.siteName} — Travel Umroh ${SITE_CITY}`,
+      description: `${info.siteName}, travel umroh ${SITE_CITY}: paket umroh terjadwal dengan harga transparan, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah. Konsultasi gratis via WhatsApp.`,
+      path: "/",
+    });
+  },
 
   component: Beranda,
 });
