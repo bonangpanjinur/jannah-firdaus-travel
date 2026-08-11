@@ -35,6 +35,18 @@ export function SiteFooter() {
         </div>
 
         <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Panduan Umroh</h4>
+          <ul className="mt-4 space-y-2 text-sm opacity-90">
+            <li><Link to="/umroh-jakarta-selatan" className="hover:underline">Umroh Jakarta Selatan</Link></li>
+            <li><Link to="/biaya-umroh" className="hover:underline">Biaya Umroh</Link></li>
+            <li><Link to="/syarat-umroh" className="hover:underline">Syarat Umroh</Link></li>
+            <li><Link to="/umroh-plus" className="hover:underline">Umroh Plus</Link></li>
+            <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
+          </ul>
+        </div>
+
+
+        <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Kontak</h4>
           <ul className="mt-4 space-y-3 text-sm opacity-90">
             {settings?.address ? (
