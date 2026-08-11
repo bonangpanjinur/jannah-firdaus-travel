@@ -49,11 +49,15 @@ function AdminPengaturan() {
     <main className="p-6 md:p-10">
       <div><p className="text-sm font-semibold uppercase tracking-wider text-gold">Identitas & konten</p><h1 className="mt-1 font-display text-3xl">Pengaturan Website</h1><p className="mt-2 max-w-2xl text-sm text-muted-foreground">Perubahan di sini akan tampil di beranda, header, footer, dan halaman informasi.</p></div>
       <form onSubmit={(event) => { event.preventDefault(); save.mutate(); }} className="mt-6 grid max-w-5xl gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft md:grid-cols-2">
-        <Field label="Nama agen" value={form.agency_name ?? ""} onChange={(value) => field("agency_name", value)} required />
+        <Field label="Nama website" value={form.agency_name ?? ""} onChange={(value) => field("agency_name", value)} required placeholder="Nama yang tampil di header & footer" />
         <Field label="Tagline" value={form.tagline ?? ""} onChange={(value) => field("tagline", value)} />
-        <div className="md:col-span-2"><ImageUpload label="Logo agen" folder="uploads" value={form.logo_url} onChange={(value) => field("logo_url", value)} aspect="aspect-square" /></div>
-        <Field label="Nomor WhatsApp utama" value={form.whatsapp_number ?? ""} onChange={(value) => field("whatsapp_number", value)} required />
-        <Field label="Email" type="email" value={form.email ?? ""} onChange={(value) => field("email", value)} />
+        <div className="md:col-span-2"><ImageUpload label="Logo website" folder="uploads" value={form.logo_url} onChange={(value) => field("logo_url", value)} aspect="aspect-square" /></div>
+        <div className="md:col-span-2 mt-2">
+          <p className="text-sm font-semibold uppercase tracking-wider text-gold">Kontak agen</p>
+          <p className="text-xs text-muted-foreground">Data agen yang bisa dihubungi calon jamaah.</p>
+        </div>
+        <Field label="Nomor WhatsApp agen" value={form.whatsapp_number ?? ""} onChange={(value) => field("whatsapp_number", value)} required placeholder="6281234567890" />
+        <Field label="Email agen" type="email" value={form.email ?? ""} onChange={(value) => field("email", value)} />
         <Field label="Instagram" value={form.instagram ?? ""} onChange={(value) => field("instagram", value)} placeholder="username tanpa @" />
         <Field label="Facebook" value={form.facebook ?? ""} onChange={(value) => field("facebook", value)} />
         <Field label="YouTube" value={form.youtube ?? ""} onChange={(value) => field("youtube", value)} placeholder="URL channel atau video" />
