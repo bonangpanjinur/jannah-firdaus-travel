@@ -20,7 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useSettings } from "@/hooks/use-site";
-import { formatRupiah, formatTanggal, waLink } from "@/lib/format";
+import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
 import { RegistrationForm } from "@/components/site/registration-form";
@@ -35,22 +35,87 @@ const fotoCadangan = [
 ];
 
 export const Route = createFileRoute("/paket/$slug")({
-  head: ({ params }) => ({
-    meta: [
-      { title: `Detail Paket Umroh — Barokah Umroh` },
-      {
-        name: "description",
-        content: `Rincian paket umroh ${params.slug.replace(/-/g, " ")}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`,
-      },
-      { property: "og:title", content: "Detail Paket Umroh — Barokah Umroh" },
-      {
-        property: "og:description",
-        content: "Rincian harga, jadwal, hotel, maskapai, dan itinerary paket umroh.",
-      },
-    ],
-  }),
+  loader: async ({ context, params }) => {
+    const paket = await context.queryClient.ensureQueryData(packageBySlugQuery(params.slug));
+    return { paket };
+  },
+  head: ({ params, loaderData }) => {
+    const paket = loaderData?.paket ?? null;
+    const nama = paket?.name ?? params.slug.replace(/-/g, " ");
+    const title = `${nama} — Paket Umroh Barokah Umroh`;
+    const harga = paket ? hargaMulai(paket) : null;
+    const potongan = [
+      paket?.duration_days ? `${paket.duration_days} hari` : null,
+      paket?.departure_date ? `berangkat ${formatTanggal(paket.departure_date)}` : null,
+      paket?.airline ? `maskapai ${paket.airline}` : null,
+      paket?.hotel_makkah ? `hotel ${paket.hotel_makkah}` : null,
+      harga ? `mulai ${formatRupiah(harga)}` : null,
+    ].filter(Boolean);
+    const description = potongan.length
+      ? `Paket umroh ${nama}: ${potongan.join(", ")}. Lihat itinerary harian dan daftar sekarang.`
+      : `Rincian paket umroh ${nama}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`;
+    const gambar = paket?.flyer_url && /^https?:\/\//i.test(paket.flyer_url) ? paket.flyer_url : null;
+
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: `/paket/${params.slug}` },
+        { name: "twitter:card", content: "summary_large_image" },
+        ...(paket ? [] : [{ name: "robots", content: "noindex" }]),
+        ...(gambar
+          ? [
+              { property: "og:image", content: gambar },
+              { name: "twitter:image", content: gambar },
+            ]
+          : []),
+      ],
+      links: [{ rel: "canonical", href: `/paket/${params.slug}` }],
+      scripts: paket
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: paket.name,
+                description: paket.description ?? description,
+                brand: { "@type": "Brand", name: "Barokah Umroh" },
+                ...(harga
+                  ? {
+                      offers: {
+                        "@type": "Offer",
+                        price: harga,
+                        priceCurrency: "IDR",
+                        availability: "https://schema.org/InStock",
+                        url: `/paket/${params.slug}`,
+                      },
+                    }
+                  : {}),
+              }),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  { "@type": "ListItem", position: 1, name: "Beranda", item: "/" },
+                  { "@type": "ListItem", position: 2, name: "Paket Umroh", item: "/paket" },
+                  { "@type": "ListItem", position: 3, name: paket.name, item: `/paket/${params.slug}` },
+                ],
+              }),
+            },
+          ]
+        : [],
+    };
+  },
   component: DetailPaket,
 });
+
 
 function DetailPaket() {
   const { slug } = Route.useParams();

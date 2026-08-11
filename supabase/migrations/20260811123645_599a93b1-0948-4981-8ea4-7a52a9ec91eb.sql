@@ -1,0 +1,2 @@
+alter table public.site_settings add column if not exists theme text not null default 'noir-emas';
+alter table public.site_settings add constraint site_settings_theme_check check (theme in ('noir-emas','putih-zamrud'));

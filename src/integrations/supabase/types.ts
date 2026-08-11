@@ -277,6 +277,7 @@ export type Database = {
           license_text: string | null
           logo_url: string | null
           tagline: string | null
+          theme: string
           updated_at: string
           whatsapp_number: string
           whatsapp_template: string
@@ -295,6 +296,7 @@ export type Database = {
           license_text?: string | null
           logo_url?: string | null
           tagline?: string | null
+          theme?: string
           updated_at?: string
           whatsapp_number?: string
           whatsapp_template?: string
@@ -313,6 +315,7 @@ export type Database = {
           license_text?: string | null
           logo_url?: string | null
           tagline?: string | null
+          theme?: string
           updated_at?: string
           whatsapp_number?: string
           whatsapp_template?: string

@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { ImageUpload } from "@/components/admin/image-upload";
 import { useSettings } from "@/hooks/use-site";
 import { db, settingsQuery, type SiteSettings } from "@/lib/site-data";
+import { THEMES } from "@/components/site/theme-applier";
+
 
 export const Route = createFileRoute("/admin/pengaturan")({
   component: AdminPengaturan,
@@ -61,7 +63,38 @@ function AdminPengaturan() {
         <div className="space-y-2 md:col-span-2"><Label>Subjudul hero beranda</Label><Textarea rows={3} value={form.hero_subtitle ?? ""} onChange={(event) => field("hero_subtitle", event.target.value)} /></div>
         <div className="space-y-2 md:col-span-2"><Label>Template pesan WhatsApp (gunakan {'{paket}'})</Label><Textarea rows={2} value={form.whatsapp_template ?? ""} onChange={(event) => field("whatsapp_template", event.target.value)} /></div>
         <div className="space-y-2 md:col-span-2"><Label>Tentang kami</Label><Textarea rows={5} value={form.about_text ?? ""} onChange={(event) => field("about_text", event.target.value)} /></div>
+        <div className="space-y-3 md:col-span-2">
+          <div>
+            <Label>Tema tampilan depan</Label>
+            <p className="text-xs text-muted-foreground">Pilih gaya warna website yang dilihat pengunjung. Perubahan langsung berlaku setelah disimpan.</p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {THEMES.map((theme) => {
+              const active = (form.theme ?? "noir-emas") === theme.value;
+              return (
+                <button
+                  key={theme.value}
+                  type="button"
+                  onClick={() => field("theme", theme.value)}
+                  className={`rounded-2xl border p-4 text-left transition-colors ${active ? "border-gold bg-accent/40" : "border-border bg-background hover:border-gold/50"}`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="font-semibold">{theme.label}</span>
+                    {active ? <span className="text-xs font-semibold uppercase tracking-wider text-gold">Aktif</span> : null}
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">{theme.description}</p>
+                  <div className="mt-3 flex gap-1.5">
+                    {theme.swatches.map((color) => (
+                      <span key={color} className="h-6 w-10 rounded-md border border-border" style={{ backgroundColor: color }} />
+                    ))}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
         <div className="md:col-span-2"><Button type="submit" disabled={save.isPending}>{save.isPending ? "Menyimpan…" : "Simpan pengaturan"}</Button></div>
+
       </form>
     </main>
   );

@@ -20,8 +20,13 @@ export const Route = createFileRoute("/kontak")({
       },
       { property: "og:title", content: "Hubungi Kami & Konsultasi Umroh — Barokah Umroh" },
       { property: "og:description", content: "Konsultasi paket umroh langsung dengan tim kami." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/kontak" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/kontak" }],
   }),
+
   component: Kontak,
 });
 

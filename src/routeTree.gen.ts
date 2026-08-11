@@ -14,6 +14,7 @@ import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TentangRouteImport } from './routes/tentang'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminFileRouteImport } from './routes/admin/file'
@@ -49,6 +50,11 @@ const GaleriRoute = GaleriRouteImport.update({
 const KontakRoute = KontakRouteImport.update({
   id: '/kontak',
   path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TentangRoute = TentangRouteImport.update({
@@ -113,6 +119,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
@@ -130,6 +137,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
@@ -149,6 +157,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/tentang': typeof TentangRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
@@ -169,6 +178,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/galeri'
     | '/kontak'
+    | '/sitemap.xml'
     | '/tentang'
     | '/admin/file'
     | '/admin/galeri'
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/galeri'
     | '/kontak'
+    | '/sitemap.xml'
     | '/tentang'
     | '/admin/file'
     | '/admin/galeri'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/galeri'
     | '/kontak'
+    | '/sitemap.xml'
     | '/tentang'
     | '/admin/file'
     | '/admin/galeri'
@@ -223,6 +235,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TentangRoute: typeof TentangRoute
   PaketSlugRoute: typeof PaketSlugRoute
   PaketIndexRoute: typeof PaketIndexRoute
@@ -263,6 +276,13 @@ declare module '@tanstack/react-router' {
       path: '/kontak'
       fullPath: '/kontak'
       preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/tentang': {
@@ -387,6 +407,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   TentangRoute: TentangRoute,
   PaketSlugRoute: PaketSlugRoute,
   PaketIndexRoute: PaketIndexRoute,

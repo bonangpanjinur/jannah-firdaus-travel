@@ -16,6 +16,8 @@ export interface SiteSettings {
   hero_title: string | null;
   hero_subtitle: string | null;
   about_text: string | null;
+  theme: string;
+
 }
 
 export interface Paket {

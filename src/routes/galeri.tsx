@@ -13,8 +13,13 @@ export const Route = createFileRoute("/galeri")({
       },
       { property: "og:title", content: "Galeri Dokumentasi Jamaah — Barokah Umroh" },
       { property: "og:description", content: "Foto keberangkatan dan kegiatan ibadah jamaah kami." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/galeri" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/galeri" }],
   }),
+
   component: Galeri,
 });
 
