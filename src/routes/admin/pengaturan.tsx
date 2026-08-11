@@ -27,7 +27,7 @@ function AdminPengaturan() {
 
   const save = useMutation({
     mutationFn: async () => {
-      if (!form.agency_name?.trim()) throw new Error("Nama agen wajib diisi.");
+      if (!form.agency_name?.trim()) throw new Error("Nama website wajib diisi.");
       if (!form.whatsapp_number?.trim()) throw new Error("Nomor WhatsApp wajib diisi.");
       const { id, ...rest } = form;
       void id;
