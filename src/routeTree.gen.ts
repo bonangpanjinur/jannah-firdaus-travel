@@ -19,6 +19,7 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SyaratUmrohRouteImport } from './routes/syarat-umroh'
 import { Route as TentangRouteImport } from './routes/tentang'
 import { Route as UmrohJakartaSelatanRouteImport } from './routes/umroh-jakarta-selatan'
+import { Route as UmrohPlusRouteImport } from './routes/umroh-plus'
 import { Route as AdminIndexRouteImport } from './routes/admin/index'
 import { Route as AdminFileRouteImport } from './routes/admin/file'
 import { Route as AdminGaleriRouteImport } from './routes/admin/galeri'
@@ -78,6 +79,11 @@ const TentangRoute = TentangRouteImport.update({
 const UmrohJakartaSelatanRoute = UmrohJakartaSelatanRouteImport.update({
   id: '/umroh-jakarta-selatan',
   path: '/umroh-jakarta-selatan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UmrohPlusRoute = UmrohPlusRouteImport.update({
+  id: '/umroh-plus',
+  path: '/umroh-plus',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -142,6 +148,7 @@ export interface FileRoutesByFullPath {
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
   '/umroh-jakarta-selatan': typeof UmrohJakartaSelatanRoute
+  '/umroh-plus': typeof UmrohPlusRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
   '/admin/paket': typeof AdminPaketRouteWithChildren
@@ -163,6 +170,7 @@ export interface FileRoutesByTo {
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
   '/umroh-jakarta-selatan': typeof UmrohJakartaSelatanRoute
+  '/umroh-plus': typeof UmrohPlusRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
   '/admin/paket': typeof AdminPaketRouteWithChildren
@@ -186,6 +194,7 @@ export interface FileRoutesById {
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
   '/umroh-jakarta-selatan': typeof UmrohJakartaSelatanRoute
+  '/umroh-plus': typeof UmrohPlusRoute
   '/admin/file': typeof AdminFileRoute
   '/admin/galeri': typeof AdminGaleriRoute
   '/admin/paket': typeof AdminPaketRouteWithChildren
@@ -210,6 +219,7 @@ export interface FileRouteTypes {
     | '/syarat-umroh'
     | '/tentang'
     | '/umroh-jakarta-selatan'
+    | '/umroh-plus'
     | '/admin/file'
     | '/admin/galeri'
     | '/admin/paket'
@@ -231,6 +241,7 @@ export interface FileRouteTypes {
     | '/syarat-umroh'
     | '/tentang'
     | '/umroh-jakarta-selatan'
+    | '/umroh-plus'
     | '/admin/file'
     | '/admin/galeri'
     | '/admin/paket'
@@ -253,6 +264,7 @@ export interface FileRouteTypes {
     | '/syarat-umroh'
     | '/tentang'
     | '/umroh-jakarta-selatan'
+    | '/umroh-plus'
     | '/admin/file'
     | '/admin/galeri'
     | '/admin/paket'
@@ -276,6 +288,7 @@ export interface RootRouteChildren {
   SyaratUmrohRoute: typeof SyaratUmrohRoute
   TentangRoute: typeof TentangRoute
   UmrohJakartaSelatanRoute: typeof UmrohJakartaSelatanRoute
+  UmrohPlusRoute: typeof UmrohPlusRoute
   PaketSlugRoute: typeof PaketSlugRoute
   PaketIndexRoute: typeof PaketIndexRoute
 }
@@ -350,6 +363,13 @@ declare module '@tanstack/react-router' {
       path: '/umroh-jakarta-selatan'
       fullPath: '/umroh-jakarta-selatan'
       preLoaderRoute: typeof UmrohJakartaSelatanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/umroh-plus': {
+      id: '/umroh-plus'
+      path: '/umroh-plus'
+      fullPath: '/umroh-plus'
+      preLoaderRoute: typeof UmrohPlusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -472,6 +492,7 @@ const rootRouteChildren: RootRouteChildren = {
   SyaratUmrohRoute: SyaratUmrohRoute,
   TentangRoute: TentangRoute,
   UmrohJakartaSelatanRoute: UmrohJakartaSelatanRoute,
+  UmrohPlusRoute: UmrohPlusRoute,
   PaketSlugRoute: PaketSlugRoute,
   PaketIndexRoute: PaketIndexRoute,
 }
