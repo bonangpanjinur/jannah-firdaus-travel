@@ -22,8 +22,13 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Paket umroh terjadwal dengan pelayanan amanah dari keberangkatan hingga kepulangan.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
+
   component: Beranda,
 });
 
@@ -88,7 +93,7 @@ function Beranda() {
         <div className="absolute inset-0 -z-10 bg-linear-to-r from-[oklch(0.10_0_0/0.96)] via-[oklch(0.10_0_0/0.78)] to-[oklch(0.10_0_0/0.35)]" />
         <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background to-transparent" />
         <div className="container-page py-16 sm:py-24 md:py-36">
-          <div className="max-w-2xl text-foreground">
+          <div className="on-dark-media max-w-2xl text-foreground">
             <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-[11px] sm:px-4 sm:text-xs">
               {settings?.license_text ?? "Travel umroh berizin resmi"}
             </p>

@@ -14,6 +14,8 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
+import { ThemeApplier } from "@/components/site/theme-applier";
+
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
 
@@ -109,7 +111,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          name: "Barokah Umroh",
+          description:
+            "Travel umroh dengan paket terjadwal, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ustadz berpengalaman.",
+          areaServed: "Indonesia",
+          knowsLanguage: ["id"],
+          url: "/",
+        }),
+      },
+    ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -118,7 +136,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="id" data-theme="noir-emas" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>
@@ -137,6 +155,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ThemeApplier />
       <div className="flex min-h-screen flex-col">
         {isBackoffice ? null : <SiteHeader />}
         <div className="flex-1">
@@ -149,4 +168,5 @@ function RootComponent() {
       <Toaster />
     </QueryClientProvider>
   );
+
 }

@@ -13,8 +13,13 @@ export const Route = createFileRoute("/tentang")({
       },
       { property: "og:title", content: "Tentang Kami & Legalitas — Barokah Umroh" },
       { property: "og:description", content: "Profil, legalitas, dan komitmen pelayanan travel umroh kami." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/tentang" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/tentang" }],
   }),
+
   component: Tentang,
 });
 

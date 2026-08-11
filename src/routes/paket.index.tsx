@@ -18,9 +18,12 @@ export const Route = createFileRoute("/paket/")({
       { property: "og:title", content: "Paket Umroh & Jadwal Keberangkatan — Barokah Umroh" },
       { property: "og:description", content: "Bandingkan paket umroh berdasarkan harga, jadwal, maskapai, dan hotel." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/paket" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/paket" }],
   }),
+
   component: DaftarPaket,
 });
 
