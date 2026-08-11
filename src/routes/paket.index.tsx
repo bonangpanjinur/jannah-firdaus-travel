@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { bulanTahun, hargaMulai } from "@/lib/format";
 import { packagesQuery } from "@/lib/site-data";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/paket/")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
