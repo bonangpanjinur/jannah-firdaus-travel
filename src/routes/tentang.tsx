@@ -38,7 +38,7 @@ function Tentang() {
     <main className="container-page py-10 sm:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Tentang Kami</p>
-        <h1 className="mt-2 font-display text-3xl sm:text-4xl">{settings?.agency_name ?? "Barokah Umroh"}</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">{settings?.agency_name ?? "Jannah Firdaus Tour Travel"}</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">{settings?.about_text}</p>
       </header>
 

@@ -10,7 +10,7 @@ export function SiteFooter() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-xl text-gradient-gold">
-            {settings?.agency_name ?? "Barokah Umroh"}
+            {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}
           </h3>
           <p className="mt-3 max-w-sm text-sm/6 opacity-85">
             {settings?.tagline ?? "Sahabat Perjalanan Suci Anda"}
@@ -64,7 +64,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border">
         <p className="container-page py-5 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Barokah Umroh"}. Seluruh hak cipta dilindungi.
+          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}. Seluruh hak cipta dilindungi.
         </p>
       </div>
     </footer>
