@@ -7,6 +7,7 @@ import { useSettings } from "@/hooks/use-site";
 import { galleryQuery, packagesQuery } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
+import { loadSiteInfo, siteInfoFrom, pageMeta, SITE_CITY } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
