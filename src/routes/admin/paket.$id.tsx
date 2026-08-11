@@ -21,7 +21,7 @@ import { deleteMedia, isStoragePath, uploadMedia } from "@/lib/storage";
 export const Route = createFileRoute("/admin/paket/$id")({
   head: () => ({
     meta: [
-      { title: "Isi Paket — Panel Admin Barokah Umroh" },
+      { title: "Isi Paket — Panel Admin Jannah Firdaus Tour Travel" },
       { name: "description", content: "Kelola itinerary dan galeri foto untuk satu paket umroh." },
       { name: "robots", content: "noindex" },
     ],

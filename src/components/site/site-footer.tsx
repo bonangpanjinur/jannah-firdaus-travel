@@ -7,10 +7,10 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-24 border-t border-border bg-card/40">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-3">
+      <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-xl text-gradient-gold">
-            {settings?.agency_name ?? "Barokah Umroh"}
+            {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}
           </h3>
           <p className="mt-3 max-w-sm text-sm/6 opacity-85">
             {settings?.tagline ?? "Sahabat Perjalanan Suci Anda"}
@@ -35,6 +35,18 @@ export function SiteFooter() {
         </div>
 
         <div>
+          <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Panduan Umroh</h4>
+          <ul className="mt-4 space-y-2 text-sm opacity-90">
+            <li><Link to="/umroh-jakarta-selatan" className="hover:underline">Umroh Jakarta Selatan</Link></li>
+            <li><Link to="/biaya-umroh" className="hover:underline">Biaya Umroh</Link></li>
+            <li><Link to="/syarat-umroh" className="hover:underline">Syarat Umroh</Link></li>
+            <li><Link to="/umroh-plus" className="hover:underline">Umroh Plus</Link></li>
+            <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
+          </ul>
+        </div>
+
+
+        <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Kontak</h4>
           <ul className="mt-4 space-y-3 text-sm opacity-90">
             {settings?.address ? (
@@ -52,7 +64,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-border">
         <p className="container-page py-5 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Barokah Umroh"}. Seluruh hak cipta dilindungi.
+          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}. Seluruh hak cipta dilindungi.
         </p>
       </div>
     </footer>

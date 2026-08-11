@@ -9,7 +9,7 @@ export const Route = createFileRoute("/admin")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Panel Admin — Barokah Umroh" },
+      { title: "Panel Admin — Jannah Firdaus Tour Travel" },
       { name: "description", content: "Kelola paket, itinerary, galeri, dan pengaturan website." },
       { name: "robots", content: "noindex" },
     ],
@@ -57,7 +57,7 @@ function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-sand">
       <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-card p-5 md:flex">
-        <Link to="/" className="font-display text-lg text-primary">Barokah Umroh</Link>
+        <Link to="/" className="font-display text-lg text-primary">Jannah Firdaus Tour Travel</Link>
         <p className="mt-1 text-xs text-muted-foreground">Panel Admin</p>
         <nav className="mt-6 flex flex-1 flex-col gap-1">
           {nav.map((item) => (

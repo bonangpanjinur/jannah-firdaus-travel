@@ -9,20 +9,32 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { bulanTahun, hargaMulai } from "@/lib/format";
 import { packagesQuery } from "@/lib/site-data";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/paket/")({
-  head: () => ({
-    meta: [
-      { title: "Paket Umroh & Jadwal Keberangkatan — Barokah Umroh" },
-      { name: "description", content: "Daftar paket umroh lengkap dengan harga, tanggal keberangkatan, maskapai, dan hotel di Makkah serta Madinah." },
-      { property: "og:title", content: "Paket Umroh & Jadwal Keberangkatan — Barokah Umroh" },
-      { property: "og:description", content: "Bandingkan paket umroh berdasarkan harga, jadwal, maskapai, dan hotel." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/paket" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/paket" }],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    const base = pageMeta({
+      title: `Paket Umroh & Jadwal Keberangkatan — ${info.siteName}`,
+      description: `Daftar paket umroh ${info.siteName} lengkap dengan harga per tipe kamar, tanggal keberangkatan, maskapai, serta hotel di Makkah dan Madinah.`,
+      path: "/paket",
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbLd([
+              { name: "Beranda", path: "/" },
+              { name: "Paket Umroh", path: "/paket" },
+            ]),
+          ),
+        },
+      ],
+    };
+  },
 
   component: DaftarPaket,
 });

@@ -23,6 +23,7 @@ import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
 import { RegistrationForm } from "@/components/site/registration-form";
 import heroMakkah from "@/assets/detail-makkah.jpg";
 import fotoMadinah from "@/assets/detail-madinah.jpg";
@@ -36,14 +37,18 @@ const fotoCadangan = [
 
 export const Route = createFileRoute("/paket/$slug")({
   loader: async ({ context, params }) => {
-    const paket = await context.queryClient.ensureQueryData(packageBySlugQuery(params.slug));
-    return { paket };
+    const [paket, site] = await Promise.all([
+      context.queryClient.ensureQueryData(packageBySlugQuery(params.slug)),
+      loadSiteInfo(context.queryClient),
+    ]);
+    return { paket, site };
   },
   head: ({ params, loaderData }) => {
     const paket = loaderData?.paket ?? null;
+    const info = siteInfoFrom(loaderData?.site);
     const nama = paket?.name ?? params.slug.replace(/-/g, " ");
-    const title = `${nama} — Paket Umroh Barokah Umroh`;
     const harga = paket ? hargaMulai(paket) : null;
+    const title = `${nama}${harga ? ` — Mulai ${formatRupiah(harga)}` : ""} | ${info.siteName}`;
     const potongan = [
       paket?.duration_days ? `${paket.duration_days} hari` : null,
       paket?.departure_date ? `berangkat ${formatTanggal(paket.departure_date)}` : null,
@@ -52,28 +57,27 @@ export const Route = createFileRoute("/paket/$slug")({
       harga ? `mulai ${formatRupiah(harga)}` : null,
     ].filter(Boolean);
     const description = potongan.length
-      ? `Paket umroh ${nama}: ${potongan.join(", ")}. Lihat itinerary harian dan daftar sekarang.`
-      : `Rincian paket umroh ${nama}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`;
+      ? `Paket umroh ${nama} dari ${info.siteName} ${SITE_CITY}: ${potongan.join(", ")}. Lihat itinerary harian dan daftar sekarang.`
+      : `Rincian paket umroh ${nama} dari ${info.siteName}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`;
     const gambar = paket?.flyer_url && /^https?:\/\//i.test(paket.flyer_url) ? paket.flyer_url : null;
+    const path = `/paket/${params.slug}`;
+
+    const base = pageMeta({
+      title,
+      description,
+      path,
+      type: "product",
+      image: gambar,
+      noindex: !paket,
+    });
+
+    const tujuan = [
+      paket?.hotel_makkah ? "Makkah" : "Makkah",
+      paket?.hotel_madinah ? "Madinah" : "Madinah",
+    ];
 
     return {
-      meta: [
-        { title },
-        { name: "description", content: description },
-        { property: "og:title", content: title },
-        { property: "og:description", content: description },
-        { property: "og:type", content: "product" },
-        { property: "og:url", content: `/paket/${params.slug}` },
-        { name: "twitter:card", content: "summary_large_image" },
-        ...(paket ? [] : [{ name: "robots", content: "noindex" }]),
-        ...(gambar
-          ? [
-              { property: "og:image", content: gambar },
-              { name: "twitter:image", content: gambar },
-            ]
-          : []),
-      ],
-      links: [{ rel: "canonical", href: `/paket/${params.slug}` }],
+      ...base,
       scripts: paket
         ? [
             {
@@ -83,7 +87,9 @@ export const Route = createFileRoute("/paket/$slug")({
                 "@type": "Product",
                 name: paket.name,
                 description: paket.description ?? description,
-                brand: { "@type": "Brand", name: "Barokah Umroh" },
+                category: "Paket Perjalanan Umroh",
+                ...(gambar ? { image: [gambar] } : {}),
+                brand: { "@type": "Brand", name: info.siteName },
                 ...(harga
                   ? {
                       offers: {
@@ -91,23 +97,52 @@ export const Route = createFileRoute("/paket/$slug")({
                         price: harga,
                         priceCurrency: "IDR",
                         availability: "https://schema.org/InStock",
-                        url: `/paket/${params.slug}`,
+                        url: path,
+                        seller: { "@id": "/#organization" },
+                        ...(paket.departure_date ? { priceValidUntil: paket.departure_date } : {}),
                       },
                     }
                   : {}),
+                additionalProperty: [
+                  paket.duration_days
+                    ? { "@type": "PropertyValue", name: "Durasi", value: `${paket.duration_days} hari` }
+                    : null,
+                  paket.airline ? { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } : null,
+                  paket.hotel_makkah
+                    ? { "@type": "PropertyValue", name: "Hotel Makkah", value: paket.hotel_makkah }
+                    : null,
+                  paket.hotel_madinah
+                    ? { "@type": "PropertyValue", name: "Hotel Madinah", value: paket.hotel_madinah }
+                    : null,
+                ].filter(Boolean),
               }),
             },
             {
               type: "application/ld+json",
               children: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  { "@type": "ListItem", position: 1, name: "Beranda", item: "/" },
-                  { "@type": "ListItem", position: 2, name: "Paket Umroh", item: "/paket" },
-                  { "@type": "ListItem", position: 3, name: paket.name, item: `/paket/${params.slug}` },
-                ],
+                "@type": "TouristTrip",
+                name: paket.name,
+                description: paket.description ?? description,
+                touristType: "Jamaah umroh",
+                provider: { "@id": "/#organization" },
+                itinerary: tujuan.map((kota) => ({ "@type": "City", name: kota, address: { "@type": "PostalAddress", addressCountry: "SA" } })),
+                ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
+                ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `Itinerary ${paket.duration_days} hari` } } : {}),
+                ...(harga
+                  ? { offers: { "@type": "Offer", price: harga, priceCurrency: "IDR", url: path } }
+                  : {}),
               }),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(
+                breadcrumbLd([
+                  { name: "Beranda", path: "/" },
+                  { name: "Paket Umroh", path: "/paket" },
+                  { name: paket.name, path },
+                ]),
+              ),
             },
           ]
         : [],

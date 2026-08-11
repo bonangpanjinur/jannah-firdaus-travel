@@ -11,10 +11,10 @@ export const Route = createFileRoute("/auth")({
   ssr: false,
   head: () => ({
     meta: [
-      { title: "Masuk Panel Admin — Barokah Umroh" },
+      { title: "Masuk Panel Admin — Jannah Firdaus Tour Travel" },
       { name: "description", content: "Halaman masuk pengelola website travel umroh." },
       { name: "robots", content: "noindex" },
-      { property: "og:title", content: "Masuk Panel Admin — Barokah Umroh" },
+      { property: "og:title", content: "Masuk Panel Admin — Jannah Firdaus Tour Travel" },
       { property: "og:description", content: "Halaman masuk pengelola website travel umroh." },
     ],
   }),

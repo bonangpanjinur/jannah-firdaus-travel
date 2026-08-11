@@ -2,23 +2,32 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { galleryQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/galeri")({
-  head: () => ({
-    meta: [
-      { title: "Galeri Dokumentasi Jamaah — Barokah Umroh" },
-      {
-        name: "description",
-        content: "Dokumentasi keberangkatan dan kegiatan ibadah jamaah umroh bersama Barokah Umroh.",
-      },
-      { property: "og:title", content: "Galeri Dokumentasi Jamaah — Barokah Umroh" },
-      { property: "og:description", content: "Foto keberangkatan dan kegiatan ibadah jamaah kami." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/galeri" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/galeri" }],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    const base = pageMeta({
+      title: `Galeri Dokumentasi Jamaah — ${info.siteName}`,
+      description: `Dokumentasi keberangkatan, manasik, dan kegiatan ibadah jamaah umroh bersama ${info.siteName}.`,
+      path: "/galeri",
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbLd([
+              { name: "Beranda", path: "/" },
+              { name: "Galeri", path: "/galeri" },
+            ]),
+          ),
+        },
+      ],
+    };
+  },
 
   component: Galeri,
 });

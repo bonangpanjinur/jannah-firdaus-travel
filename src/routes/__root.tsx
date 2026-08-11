@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
+import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION } from "@/lib/seo";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
@@ -80,53 +81,81 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Barokah Umroh — Travel Umroh Amanah" },
-      {
-        name: "description",
-        content:
-          "Paket umroh terjadwal dengan hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ustadz berpengalaman.",
-      },
-      { property: "og:title", content: "Barokah Umroh — Travel Umroh Amanah" },
-      {
-        property: "og:description",
-        content: "Paket umroh terjadwal, hotel dekat Masjidil Haram, dan pelayanan penuh amanah.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
-      },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "TravelAgency",
-          name: "Barokah Umroh",
-          description:
-            "Travel umroh dengan paket terjadwal, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ustadz berpengalaman.",
-          areaServed: "Indonesia",
-          knowsLanguage: ["id"],
-          url: "/",
-        }),
-      },
-    ],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    const sameAs = socialLinks(info);
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { title: `${info.siteName} — ${info.tagline}` },
+        { name: "description", content: info.about },
+        { property: "og:site_name", content: info.siteName },
+        { property: "og:locale", content: "id_ID" },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "preconnect", href: "https://fonts.googleapis.com" },
+        { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
+        },
+        { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TravelAgency",
+            "@id": "/#organization",
+            name: info.siteName,
+            alternateName: [`${info.siteName} Umroh`, "Jannah Firdaus Umroh"],
+            description: info.about,
+            slogan: info.tagline,
+            url: "/",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: info.address ?? undefined,
+              addressLocality: SITE_CITY,
+              addressRegion: SITE_REGION,
+              addressCountry: "ID",
+            },
+            ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
+            ...(info.email ? { email: info.email } : {}),
+            ...(sameAs.length ? { sameAs } : {}),
+            areaServed: [SITE_CITY, "Jabodetabek", "Indonesia"],
+            knowsLanguage: ["id"],
+            priceRange: "IDR",
+            makesOffer: {
+              "@type": "Offer",
+              itemOffered: { "@type": "Service", name: "Paket perjalanan ibadah umroh" },
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: info.siteName,
+            alternateName: "Jannah Firdaus Umroh",
+            url: "/",
+            inLanguage: "id-ID",
+            publisher: { "@id": "/#organization" },
+          }),
+        },
+      ],
+    };
+  },
+
 
   shellComponent: RootShell,
   component: RootComponent,
