@@ -11,21 +11,50 @@ import { waLink } from "@/lib/format";
 import { db } from "@/lib/site-data";
 
 export const Route = createFileRoute("/kontak")({
-  head: () => ({
-    meta: [
-      { title: "Hubungi Kami & Konsultasi Umroh — Barokah Umroh" },
-      {
-        name: "description",
-        content: "Hubungi tim kami via WhatsApp, telepon, atau kirim pertanyaan melalui formulir kontak.",
-      },
-      { property: "og:title", content: "Hubungi Kami & Konsultasi Umroh — Barokah Umroh" },
-      { property: "og:description", content: "Konsultasi paket umroh langsung dengan tim kami." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/kontak" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/kontak" }],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    const base = pageMeta({
+      title: `Hubungi & Konsultasi Umroh — ${info.siteName}`,
+      description: `Hubungi ${info.siteName} di ${SITE_CITY} via WhatsApp, telepon, atau formulir kontak untuk konsultasi paket umroh dan jadwal keberangkatan.`,
+      path: "/kontak",
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            name: `Kontak ${info.siteName}`,
+            mainEntity: {
+              "@type": "Organization",
+              "@id": "/#organization",
+              name: info.siteName,
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "customer service",
+                availableLanguage: ["id"],
+                areaServed: "ID",
+                ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
+                ...(info.email ? { email: info.email } : {}),
+              },
+            },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbLd([
+              { name: "Beranda", path: "/" },
+              { name: "Kontak", path: "/kontak" },
+            ]),
+          ),
+        },
+      ],
+    };
+  },
 
   component: Kontak,
 });
