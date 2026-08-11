@@ -1,24 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { BadgeCheck, MapPin, Users } from "lucide-react";
 import { useSettings } from "@/hooks/use-site";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
 
 export const Route = createFileRoute("/tentang")({
-  head: () => ({
-    meta: [
-      { title: "Tentang Kami & Legalitas — Barokah Umroh" },
-      {
-        name: "description",
-        content:
-          "Profil biro perjalanan umroh berizin resmi PPIU, legalitas, alamat kantor, dan komitmen pelayanan kami.",
-      },
-      { property: "og:title", content: "Tentang Kami & Legalitas — Barokah Umroh" },
-      { property: "og:description", content: "Profil, legalitas, dan komitmen pelayanan travel umroh kami." },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/tentang" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [{ rel: "canonical", href: "/tentang" }],
-  }),
+  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  head: ({ loaderData }) => {
+    const info = siteInfoFrom(loaderData);
+    const base = pageMeta({
+      title: `Tentang ${info.siteName} — Travel Umroh ${SITE_CITY}`,
+      description: `Profil ${info.siteName}, biro perjalanan umroh di ${SITE_CITY}: legalitas, alamat kantor, dan komitmen pelayanan jamaah.`,
+      path: "/tentang",
+    });
+    return {
+      ...base,
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            breadcrumbLd([
+              { name: "Beranda", path: "/" },
+              { name: "Tentang Kami", path: "/tentang" },
+            ]),
+          ),
+        },
+      ],
+    };
+  },
 
   component: Tentang,
 });
