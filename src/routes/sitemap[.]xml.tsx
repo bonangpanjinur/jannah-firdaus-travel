@@ -1,7 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 
-const STATIC_PATHS = ["/", "/paket", "/galeri", "/tentang", "/kontak"];
+const STATIC_PATHS = [
+  "/",
+  "/paket",
+  "/umroh-jakarta-selatan",
+  "/biaya-umroh",
+  "/syarat-umroh",
+  "/umroh-plus",
+  "/faq",
+  "/galeri",
+  "/tentang",
+  "/kontak",
+];
 
 function urlEntry(origin: string, path: string, lastmod?: string | null) {
   return [
