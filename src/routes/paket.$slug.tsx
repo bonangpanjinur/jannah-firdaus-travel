@@ -23,6 +23,7 @@ import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
 import { RegistrationForm } from "@/components/site/registration-form";
 import heroMakkah from "@/assets/detail-makkah.jpg";
 import fotoMadinah from "@/assets/detail-madinah.jpg";
