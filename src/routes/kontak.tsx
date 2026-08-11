@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useSettings } from "@/hooks/use-site";
 import { waLink } from "@/lib/format";
 import { db } from "@/lib/site-data";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
 
 export const Route = createFileRoute("/kontak")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
