@@ -7,7 +7,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-24 border-t border-border bg-card/40">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-3">
+      <div className="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
           <h3 className="font-display text-xl text-gradient-gold">
             {settings?.agency_name ?? "Barokah Umroh"}
