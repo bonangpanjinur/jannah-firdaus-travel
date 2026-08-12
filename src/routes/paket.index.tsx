@@ -11,12 +11,14 @@ import { packagesQuery, type Paket } from "@/lib/site-data";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
 
 export interface PaketSearch {
-  bulan: string;
-  maskapai: string;
-  hotel: string;
-  harga: string;
-  urut: string;
+  bulan?: string;
+  maskapai?: string;
+  hotel?: string;
+  harga?: string;
+  urut?: string;
 }
+
+const EMPTY_SEARCH: PaketSearch = {};
 
 const HARGA_RANGES: { value: string; label: string; min: number; max: number }[] = [
   { value: "di-bawah-30-juta", label: "Di bawah Rp 30 juta", min: 0, max: 30_000_000 },
@@ -68,18 +70,22 @@ function headline(search: PaketSearch) {
 }
 
 export const Route = createFileRoute("/paket/")({
-  validateSearch: (raw: Record<string, unknown>): PaketSearch => ({
-    bulan: str(raw.bulan),
-    maskapai: str(raw.maskapai),
-    hotel: str(raw.hotel),
-    harga: HARGA_RANGES.some((r) => r.value === raw.harga) ? (raw.harga as string) : "",
-    urut: ["harga", "durasi"].includes(str(raw.urut)) ? str(raw.urut) : "",
-  }),
+  validateSearch: (raw: Record<string, unknown>): PaketSearch => {
+    const harga = str(raw["harga"]);
+    const urut = str(raw["urut"]);
+    const next: PaketSearch = {};
+    if (str(raw["bulan"])) next.bulan = str(raw["bulan"]);
+    if (str(raw["maskapai"])) next.maskapai = str(raw["maskapai"]);
+    if (str(raw["hotel"])) next.hotel = str(raw["hotel"]);
+    if (HARGA_RANGES.some((r) => r.value === harga)) next.harga = harga;
+    if (["harga", "durasi"].includes(urut)) next.urut = urut;
+    return next;
+  },
   loaderDeps: ({ search }) => search,
   loader: async ({ context, deps }) => ({ info: await loadSiteInfo(context.queryClient), search: deps }),
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData?.info);
-    const search: PaketSearch = loaderData?.search ?? { bulan: "", maskapai: "", hotel: "", harga: "", urut: "" };
+    const search: PaketSearch = loaderData?.search ?? EMPTY_SEARCH;
     const bits = headline(search);
     const filters = activeFilters(search);
     // Satu filter = halaman kategori yang layak diindeks. Kombinasi banyak filter
@@ -109,7 +115,7 @@ export const Route = createFileRoute("/paket/")({
             breadcrumbLd([
               { name: "Beranda", path: "/" },
               { name: "Paket Umroh", path: "/paket" },
-              ...(bits.length && indexable ? [{ name: bits[0], path: canonicalPath(search) }] : []),
+              ...(bits.length && indexable ? [{ name: bits[0] as string, path: canonicalPath(search) }] : []),
             ]),
           ),
         },
@@ -121,11 +127,11 @@ export const Route = createFileRoute("/paket/")({
 
 function DaftarPaket() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/paket" });
+  const navigate = useNavigate();
   const { data: packages = [], isLoading } = useQuery(packagesQuery());
 
   const setFilter = (patch: Partial<PaketSearch>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }), replace: true });
+    navigate({ to: "/paket", search: (prev: PaketSearch) => ({ ...prev, ...patch }), replace: true });
 
   const opsiBulan = useMemo(() => uniqueOptions(packages, (p) => bulanTahun(p.departure_date)), [packages]);
   const opsiMaskapai = useMemo(() => uniqueOptions(packages, (p) => p.airline), [packages]);
@@ -162,7 +168,7 @@ function DaftarPaket() {
         <span className="px-2">/</span>
         {bits.length ? (
           <>
-            <Link to="/paket" search={{ bulan: "", maskapai: "", hotel: "", harga: "", urut: "" }} className="hover:underline">
+            <Link to="/paket" className="hover:underline">
               Paket Umroh
             </Link>
             <span className="px-2">/</span>
@@ -192,7 +198,7 @@ function DaftarPaket() {
           </div>
           {adaFilter ? (
             <Button asChild size="sm" variant="ghost">
-              <Link to="/paket" search={{ bulan: "", maskapai: "", hotel: "", harga: "", urut: "" }}>Reset filter</Link>
+              <Link to="/paket">Reset filter</Link>
             </Button>
           ) : null}
         </div>
@@ -230,7 +236,7 @@ function DaftarPaket() {
             <Link
               key={o.value}
               to="/paket"
-              search={{ bulan: o.value, maskapai: "", hotel: "", harga: "", urut: "" }}
+              search={{ bulan: o.value }}
               className={`rounded-full border px-3 py-1 transition-colors ${search.bulan === o.value ? "border-gold/50 text-gold" : "border-border text-muted-foreground hover:text-foreground"}`}
             >
               Umroh {o.label}
@@ -250,7 +256,7 @@ function DaftarPaket() {
         <div className="mt-8 rounded-2xl border border-dashed border-border p-10 text-center">
           <p className="text-sm text-muted-foreground">Belum ada paket yang sesuai filter.</p>
           <Button asChild variant="outline" className="mt-4">
-            <Link to="/paket" search={{ bulan: "", maskapai: "", hotel: "", harga: "", urut: "" }}>Tampilkan semua paket</Link>
+            <Link to="/paket">Tampilkan semua paket</Link>
           </Button>
         </div>
       ) : (
