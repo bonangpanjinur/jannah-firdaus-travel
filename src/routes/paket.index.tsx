@@ -212,13 +212,13 @@ function DaftarPaket() {
         </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <FilterSelect label="Tanggal keberangkatan" placeholder="Semua bulan" value={search.bulan} options={opsiBulan} onChange={(v) => setFilter({ bulan: v })} />
-          <FilterSelect label="Maskapai" placeholder="Semua maskapai" value={search.maskapai} options={opsiMaskapai} onChange={(v) => setFilter({ maskapai: v })} />
-          <FilterSelect label="Hotel Makkah" placeholder="Semua hotel" value={search.hotel} options={opsiHotel} onChange={(v) => setFilter({ hotel: v })} />
+          <FilterSelect label="Tanggal keberangkatan" placeholder="Semua bulan" value={search.bulan ?? ""} options={opsiBulan} onChange={(v) => setFilter({ bulan: v })} />
+          <FilterSelect label="Maskapai" placeholder="Semua maskapai" value={search.maskapai ?? ""} options={opsiMaskapai} onChange={(v) => setFilter({ maskapai: v })} />
+          <FilterSelect label="Hotel Makkah" placeholder="Semua hotel" value={search.hotel ?? ""} options={opsiHotel} onChange={(v) => setFilter({ hotel: v })} />
           <FilterSelect
             label="Kisaran harga"
             placeholder="Semua harga"
-            value={search.harga}
+            value={search.harga ?? ""}
             options={HARGA_RANGES.map((r) => ({ value: r.value, label: r.label }))}
             onChange={(v) => setFilter({ harga: v })}
           />
