@@ -131,7 +131,15 @@ function DaftarPaket() {
   const { data: packages = [], isLoading } = useQuery(packagesQuery());
 
   const setFilter = (patch: Partial<PaketSearch>) =>
-    navigate({ to: "/paket", search: (prev: PaketSearch) => ({ ...prev, ...patch }), replace: true });
+    navigate({
+      to: "/paket",
+      search: (prev: PaketSearch) => {
+        const next = { ...prev, ...patch } as Record<string, string | undefined>;
+        for (const key of Object.keys(next)) if (!next[key]) delete next[key];
+        return next as PaketSearch;
+      },
+      replace: true,
+    });
 
   const opsiBulan = useMemo(() => uniqueOptions(packages, (p) => bulanTahun(p.departure_date)), [packages]);
   const opsiMaskapai = useMemo(() => uniqueOptions(packages, (p) => p.airline), [packages]);
