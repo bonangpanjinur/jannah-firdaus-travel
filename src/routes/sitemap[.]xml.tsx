@@ -1,10 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
+import { KOTA_LAYANAN } from "@/lib/kota";
 
 const STATIC_PATHS = [
   "/",
   "/paket",
+  "/umroh",
   "/umroh-jakarta-selatan",
+  ...KOTA_LAYANAN.map((kota) => `/umroh/${kota.slug}`),
   "/biaya-umroh",
   "/syarat-umroh",
   "/umroh-plus",
