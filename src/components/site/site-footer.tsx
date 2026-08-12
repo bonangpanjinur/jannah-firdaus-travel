@@ -38,6 +38,7 @@ export function SiteFooter() {
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Panduan Umroh</h4>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             <li><Link to="/umroh-jakarta-selatan" className="hover:underline">Umroh Jakarta Selatan</Link></li>
+            <li><Link to="/umroh" className="hover:underline">Area Layanan Jabodetabek</Link></li>
             <li><Link to="/biaya-umroh" className="hover:underline">Biaya Umroh</Link></li>
             <li><Link to="/syarat-umroh" className="hover:underline">Syarat Umroh</Link></li>
             <li><Link to="/umroh-plus" className="hover:underline">Umroh Plus</Link></li>
