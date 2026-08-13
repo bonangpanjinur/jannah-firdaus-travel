@@ -12,6 +12,7 @@ export const Route = createFileRoute("/galeri")({
       title: `Galeri Dokumentasi Jamaah — ${info.siteName}`,
       description: `Dokumentasi keberangkatan, manasik, dan kegiatan ibadah jamaah umroh bersama ${info.siteName}.`,
       path: "/galeri",
+      siteName: info.siteName,
     });
     return {
       ...base,

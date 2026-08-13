@@ -11,6 +11,7 @@ export const Route = createFileRoute("/tentang")({
       title: `Tentang ${info.siteName} — Travel Umroh ${SITE_CITY}`,
       description: `Profil ${info.siteName}, biro perjalanan umroh di ${SITE_CITY}: legalitas, alamat kantor, dan komitmen pelayanan jamaah.`,
       path: "/tentang",
+      siteName: info.siteName,
     });
     return {
       ...base,

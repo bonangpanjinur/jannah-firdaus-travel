@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { ArrowDownUp, CalendarDays, Filter } from "lucide-react";
+import { ArrowDownUp, CalendarDays, ListFilter as Filter } from "lucide-react";
 import { PackageCard } from "@/components/site/package-card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -128,6 +128,7 @@ export const Route = createFileRoute("/paket/")({
       description,
       path: indexable ? canonicalPath(search) : "/paket",
       noindex: !indexable,
+      siteName: info.siteName,
     });
 
     const pakets = loaderData?.pakets ?? [];

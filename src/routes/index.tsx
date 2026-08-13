@@ -17,6 +17,7 @@ export const Route = createFileRoute("/")({
       title: `${info.siteName} — Travel Umroh ${SITE_CITY}`,
       description: `${info.siteName}, travel umroh ${SITE_CITY}: paket umroh terjadwal dengan harga transparan, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah. Konsultasi gratis via WhatsApp.`,
       path: "/",
+      siteName: info.siteName,
     });
   },
 

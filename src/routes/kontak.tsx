@@ -19,6 +19,7 @@ export const Route = createFileRoute("/kontak")({
       title: `Hubungi & Konsultasi Umroh — ${info.siteName}`,
       description: `Hubungi ${info.siteName} di ${SITE_CITY} via WhatsApp, telepon, atau formulir kontak untuk konsultasi paket umroh dan jadwal keberangkatan.`,
       path: "/kontak",
+      siteName: info.siteName,
     });
     return {
       ...base,

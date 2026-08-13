@@ -40,6 +40,7 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
       title: `Travel Umroh Jakarta Selatan Resmi — ${info.siteName}`,
       description: `${info.siteName} adalah travel umroh di ${SITE_CITY}. Paket umroh terjadwal, hotel dekat Masjidil Haram, pendampingan ibadah, dan konsultasi langsung di kantor kami.`,
       path: "/umroh-jakarta-selatan",
+      siteName: info.siteName,
     });
     return {
       ...base,

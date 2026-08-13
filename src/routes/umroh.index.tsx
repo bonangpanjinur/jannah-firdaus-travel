@@ -10,6 +10,7 @@ export const Route = createFileRoute("/umroh/")({
       title: `Area Layanan Umroh Jabodetabek — ${info.siteName}`,
       description: `Daftar kota dan wilayah yang dilayani ${info.siteName}: Jakarta, Depok, Bekasi, Bogor, Tangerang Selatan, dan sekitarnya. Pilih kota Anda untuk melihat layanan umroh terdekat.`,
       path: "/umroh",
+      siteName: info.siteName,
     });
     return {
       ...base,

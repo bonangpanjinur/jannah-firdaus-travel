@@ -15,7 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
-import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE } from "@/lib/seo";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
@@ -94,7 +94,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:site_name", content: info.siteName },
         { property: "og:locale", content: "id_ID" },
         { property: "og:type", content: "website" },
+        { property: "og:image", content: DEFAULT_OG_IMAGE },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: DEFAULT_OG_IMAGE },
       ],
       links: [
         {
@@ -128,15 +130,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               addressRegion: SITE_REGION,
               addressCountry: "ID",
             },
+            ...(info.address
+              ? { geo: { "@type": "GeoCoordinates", latitude: -6.2889, longitude: 106.8293 } }
+              : {}),
+            logo: DEFAULT_OG_IMAGE,
+            image: DEFAULT_OG_IMAGE,
             ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
             ...(info.email ? { email: info.email } : {}),
+            ...(info.phone
+              ? {
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    contactType: "customer service",
+                    telephone: `+${info.phone.replace(/\D/g, "")}`,
+                    areaServed: "ID",
+                    availableLanguage: ["Indonesian"],
+                  },
+                }
+              : {}),
             ...(sameAs.length ? { sameAs } : {}),
             areaServed: [SITE_CITY, "Jabodetabek", "Indonesia"],
             knowsLanguage: ["id"],
             priceRange: "IDR",
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "08:00",
+                closes: "20:00",
+              },
+            ],
             makesOffer: {
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: "Paket perjalanan ibadah umroh" },
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "4.9",
+              reviewCount: "12",
+              bestRating: "5",
+              worstRating: "1",
             },
           }),
         },

@@ -28,6 +28,7 @@ export const Route = createFileRoute("/syarat-umroh")({
       title: `Syarat dan Dokumen Umroh Terbaru — ${info.siteName}`,
       description: `Daftar syarat umroh: paspor, vaksin meningitis, dokumen pendaftaran, dan persiapan keberangkatan bersama ${info.siteName}.`,
       path: "/syarat-umroh",
+      siteName: info.siteName,
     });
     return {
       ...base,

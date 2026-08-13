@@ -59,6 +59,7 @@ export const Route = createFileRoute("/umroh/$kota")({
       title: `Travel Umroh ${kota.nama} — Paket & Jadwal ${info.siteName}`,
       description: `Travel umroh untuk jamaah ${kota.nama}, ${kota.provinsi}. Paket umroh terjadwal, hotel dekat Masjidil Haram, manasik, dan pendampingan ibadah bersama ${info.siteName}.`,
       path,
+      siteName: info.siteName,
     });
     const pakets = loaderData.pakets ?? [];
     const trips = pakets.map((paket) => tripLd(paket, hargaMulai(paket), info, { departureCity: kota.nama }));

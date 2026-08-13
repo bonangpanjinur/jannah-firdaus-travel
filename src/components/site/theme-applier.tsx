@@ -14,6 +14,24 @@ export const THEMES = [
     description: "Terang, bersih, hijau zamrud dengan aksen emas lembut.",
     swatches: ["#f8fbf8", "#ffffff", "#12795f", "#c49a4d"],
   },
+  {
+    value: "maroon-klasik",
+    label: "Maroon Klasik",
+    description: "Hangat dan tradisional, merah maroon dengan aksen emas tua.",
+    swatches: ["#f5f0ec", "#ffffff", "#8c2d2d", "#b8893b"],
+  },
+  {
+    value: "safi-biru",
+    label: "Safi Biru",
+    description: "Terang dan bersih, biru elegan dengan sentuhan emas ringan.",
+    swatches: ["#f7f9fc", "#ffffff", "#2b6cb0", "#d4b87a"],
+  },
+  {
+    value: "toska-modern",
+    label: "Toska Modern",
+    description: "Kontemporer dan segar, toska dengan aksen emas cerah.",
+    swatches: ["#f4fafa", "#ffffff", "#2b8a8a", "#cda85a"],
+  },
 ] as const;
 
 export type ThemeValue = (typeof THEMES)[number]["value"];

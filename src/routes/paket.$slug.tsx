@@ -23,7 +23,7 @@ import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, faqLd, SITE_CITY } from "@/lib/seo";
 import { RegistrationForm } from "@/components/site/registration-form";
 import heroMakkah from "@/assets/detail-makkah.jpg";
 import fotoMadinah from "@/assets/detail-madinah.jpg";
@@ -48,7 +48,7 @@ export const Route = createFileRoute("/paket/$slug")({
     const info = siteInfoFrom(loaderData?.site);
     const nama = paket?.name ?? params.slug.replace(/-/g, " ");
     const harga = paket ? hargaMulai(paket) : null;
-    const title = `${nama}${harga ? ` — Mulai ${formatRupiah(harga)}` : ""} | ${info.siteName}`;
+    const title = `${nama}${harga ? ` — Mulai ${formatRupiah(harga)}` : ""} — ${info.siteName}`;
     const potongan = [
       paket?.duration_days ? `${paket.duration_days} hari` : null,
       paket?.departure_date ? `berangkat ${formatTanggal(paket.departure_date)}` : null,
@@ -69,7 +69,29 @@ export const Route = createFileRoute("/paket/$slug")({
       type: "product",
       image: gambar,
       noindex: !paket,
+      siteName: info.siteName,
     });
+
+    const faqPaket = paket
+      ? [
+          {
+            q: `Berapa harga paket umroh ${paket.name}?`,
+            a: paket.price_quad
+              ? `Harga mulai ${formatRupiah(paket.price_quad)} per jamaah (kamar quad). Tersedia juga pilihan triple ${formatRupiah(paket.price_triple ?? 0)} dan double ${formatRupiah(paket.price_double ?? 0)}.`
+              : `Silakan hubungi kami untuk informasi harga terbaru paket ${paket.name}.`,
+          },
+          {
+            q: `Kapan keberangkatan paket ${paket.name}?`,
+            a: paket.departure_date
+              ? `Keberangkatan dijadwalkan pada ${formatTanggal(paket.departure_date)}${paket.duration_days ? ` selama ${paket.duration_days} hari` : ""}.`
+              : `Jadwal keberangkatan akan diperbarui segera. Silakan hubungi kami untuk info terkini.`,
+          },
+          {
+            q: `Hotel apa yang digunakan untuk paket ${paket.name}?`,
+            a: `Hotel di Makkah: ${paket.hotel_makkah ?? "menyusul"}. Hotel di Madinah: ${paket.hotel_madinah ?? "menyusul"}. Semua hotel berada dekat dengan masjid utama.`,
+          },
+        ]
+      : [];
 
     const tujuan = [
       paket?.hotel_makkah ? "Makkah" : "Makkah",
@@ -82,57 +104,11 @@ export const Route = createFileRoute("/paket/$slug")({
         ? [
             {
               type: "application/ld+json",
-              children: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "Product",
-                name: paket.name,
-                description: paket.description ?? description,
-                category: "Paket Perjalanan Umroh",
-                ...(gambar ? { image: [gambar] } : {}),
-                brand: { "@type": "Brand", name: info.siteName },
-                ...(harga
-                  ? {
-                      offers: {
-                        "@type": "Offer",
-                        price: harga,
-                        priceCurrency: "IDR",
-                        availability: "https://schema.org/InStock",
-                        url: path,
-                        seller: { "@id": "/#organization" },
-                        ...(paket.departure_date ? { priceValidUntil: paket.departure_date } : {}),
-                      },
-                    }
-                  : {}),
-                additionalProperty: [
-                  paket.duration_days
-                    ? { "@type": "PropertyValue", name: "Durasi", value: `${paket.duration_days} hari` }
-                    : null,
-                  paket.airline ? { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } : null,
-                  paket.hotel_makkah
-                    ? { "@type": "PropertyValue", name: "Hotel Makkah", value: paket.hotel_makkah }
-                    : null,
-                  paket.hotel_madinah
-                    ? { "@type": "PropertyValue", name: "Hotel Madinah", value: paket.hotel_madinah }
-                    : null,
-                ].filter(Boolean),
-              }),
+              children: JSON.stringify(tripLd(paket, harga, info)),
             },
             {
               type: "application/ld+json",
-              children: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "TouristTrip",
-                name: paket.name,
-                description: paket.description ?? description,
-                touristType: "Jamaah umroh",
-                provider: { "@id": "/#organization" },
-                itinerary: tujuan.map((kota) => ({ "@type": "City", name: kota, address: { "@type": "PostalAddress", addressCountry: "SA" } })),
-                ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
-                ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `Itinerary ${paket.duration_days} hari` } } : {}),
-                ...(harga
-                  ? { offers: { "@type": "Offer", price: harga, priceCurrency: "IDR", url: path } }
-                  : {}),
-              }),
+              children: JSON.stringify(faqLd(faqPaket)),
             },
             {
               type: "application/ld+json",
@@ -205,10 +181,12 @@ function DetailPaket() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
         <div className="container-page relative py-10 sm:py-14 md:py-20">
-          <nav className="text-sm text-muted-foreground">
+          <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
             <Link to="/" className="hover:text-gold">Beranda</Link>
             <span className="px-2">/</span>
-            <Link to="/paket" className="hover:text-gold">Paket</Link>
+            <Link to="/paket" className="hover:text-gold">Paket Umroh</Link>
+            <span className="px-2">/</span>
+            <span className="text-foreground">{paket.name}</span>
           </nav>
           <div className="mt-5 flex flex-wrap gap-2">
             {paket.is_featured ? <Badge className="bg-gold text-gold-foreground hover:bg-gold">Paket Unggulan</Badge> : null}
@@ -431,6 +409,24 @@ function DetailPaket() {
           ) : null}
         </DialogContent>
       </Dialog>
+
+      <section className="container-page mt-12 border-t border-border pt-10">
+        <h2 className="font-display text-xl">Baca juga</h2>
+        <div className="mt-4 flex flex-wrap gap-3 text-sm">
+          <Link to="/biaya-umroh" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+            Rincian biaya umroh
+          </Link>
+          <Link to="/syarat-umroh" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+            Syarat pendaftaran umroh
+          </Link>
+          <Link to="/faq" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+            Pertanyaan umum
+          </Link>
+          <Link to="/paket" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+            Lihat semua paket
+          </Link>
+        </div>
+      </section>
     </main>
   );
 }

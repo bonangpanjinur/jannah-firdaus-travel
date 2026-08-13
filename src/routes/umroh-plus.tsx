@@ -28,6 +28,7 @@ export const Route = createFileRoute("/umroh-plus")({
       title: `Umroh Plus: Ibadah dan Wisata Religi — ${info.siteName}`,
       description: `Paket umroh plus dari ${info.siteName} ${SITE_CITY}: ibadah umroh lengkap dipadukan kunjungan ke destinasi tambahan, dengan pengurusan visa dan pendampingan penuh.`,
       path: "/umroh-plus",
+      siteName: info.siteName,
     });
     return {
       ...base,

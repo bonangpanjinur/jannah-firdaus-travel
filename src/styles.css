@@ -187,6 +187,165 @@ html[data-theme="putih-zamrud"] .dark {
   --card-hover-border: oklch(0.52 0.11 163 / 0.45);
 }
 
+/* ---- Tema C: Maroon Klasik (tradisional hangat) ---- */
+html[data-theme="maroon-klasik"],
+html[data-theme="maroon-klasik"] .dark {
+  --background: oklch(0.97 0.008 30);
+  --foreground: oklch(0.22 0.03 30);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.03 30);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.03 30);
+
+  --primary: oklch(0.42 0.15 30);
+  --primary-foreground: oklch(0.98 0.01 30);
+
+  --secondary: oklch(0.93 0.02 30);
+  --secondary-foreground: oklch(0.30 0.05 30);
+
+  --muted: oklch(0.94 0.015 30);
+  --muted-foreground: oklch(0.50 0.03 30);
+
+  --accent: oklch(0.90 0.04 35);
+  --accent-foreground: oklch(0.28 0.06 30);
+
+  --gold: oklch(0.62 0.12 60);
+  --gold-foreground: oklch(0.22 0.03 30);
+  --sand: oklch(0.96 0.02 40);
+
+  --destructive: oklch(0.56 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 30);
+
+  --border: oklch(0.42 0.15 30 / 16%);
+  --input: oklch(0.42 0.15 30 / 24%);
+  --ring: oklch(0.42 0.15 30);
+
+  --sidebar: oklch(0.96 0.015 35);
+  --sidebar-foreground: oklch(0.24 0.03 30);
+  --sidebar-primary: oklch(0.42 0.15 30);
+  --sidebar-primary-foreground: oklch(0.98 0.01 30);
+  --sidebar-accent: oklch(0.90 0.04 35);
+  --sidebar-accent-foreground: oklch(0.28 0.06 30);
+  --sidebar-border: oklch(0.42 0.15 30 / 16%);
+  --sidebar-ring: oklch(0.42 0.15 30);
+
+  --elev-1: 0 1px 2px 0 oklch(0.30 0.08 30 / 0.06), 0 12px 28px -20px oklch(0.30 0.08 30 / 0.30);
+  --elev-2: 0 10px 24px -12px oklch(0.30 0.08 30 / 0.20), 0 28px 60px -30px oklch(0.30 0.08 30 / 0.25);
+  --gold-soft: oklch(0.58 0.13 55);
+  --surface-from: oklch(0.94 0.03 35);
+  --surface-to: oklch(0.99 0.006 40);
+  --surface-fg: oklch(0.26 0.05 30);
+  --hairline: oklch(0.42 0.15 30 / 0.28);
+  --card-hover-border: oklch(0.42 0.15 30 / 0.45);
+}
+
+/* ---- Tema D: Safi Biru (terang, bersih, biru) ---- */
+html[data-theme="safi-biru"],
+html[data-theme="safi-biru"] .dark {
+  --background: oklch(0.985 0.004 240);
+  --foreground: oklch(0.22 0.02 250);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 250);
+
+  --primary: oklch(0.50 0.14 250);
+  --primary-foreground: oklch(0.98 0.01 250);
+
+  --secondary: oklch(0.95 0.02 240);
+  --secondary-foreground: oklch(0.28 0.04 250);
+
+  --muted: oklch(0.96 0.012 240);
+  --muted-foreground: oklch(0.48 0.02 250);
+
+  --accent: oklch(0.93 0.04 240);
+  --accent-foreground: oklch(0.30 0.05 250);
+
+  --gold: oklch(0.68 0.10 82);
+  --gold-foreground: oklch(0.22 0.03 82);
+  --sand: oklch(0.97 0.012 240);
+
+  --destructive: oklch(0.56 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 240);
+
+  --border: oklch(0.50 0.14 250 / 16%);
+  --input: oklch(0.50 0.14 250 / 24%);
+  --ring: oklch(0.50 0.14 250);
+
+  --sidebar: oklch(0.97 0.012 240);
+  --sidebar-foreground: oklch(0.24 0.02 250);
+  --sidebar-primary: oklch(0.50 0.14 250);
+  --sidebar-primary-foreground: oklch(0.98 0.01 250);
+  --sidebar-accent: oklch(0.93 0.04 240);
+  --sidebar-accent-foreground: oklch(0.28 0.04 250);
+  --sidebar-border: oklch(0.50 0.14 250 / 16%);
+  --sidebar-ring: oklch(0.50 0.14 250);
+
+  --elev-1: 0 1px 2px 0 oklch(0.30 0.08 250 / 0.06), 0 12px 28px -20px oklch(0.30 0.08 250 / 0.30);
+  --elev-2: 0 10px 24px -12px oklch(0.30 0.08 250 / 0.20), 0 28px 60px -30px oklch(0.30 0.08 250 / 0.25);
+  --gold-soft: oklch(0.62 0.12 240);
+  --surface-from: oklch(0.94 0.03 245);
+  --surface-to: oklch(0.99 0.008 240);
+  --surface-fg: oklch(0.26 0.04 250);
+  --hairline: oklch(0.50 0.14 250 / 0.28);
+  --card-hover-border: oklch(0.50 0.14 250 / 0.45);
+}
+
+/* ---- Tema E: Toska Modern (teal kontemporer) ---- */
+html[data-theme="toska-modern"],
+html[data-theme="toska-modern"] .dark {
+  --background: oklch(0.98 0.006 200);
+  --foreground: oklch(0.22 0.02 200);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 200);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 200);
+
+  --primary: oklch(0.56 0.10 200);
+  --primary-foreground: oklch(0.99 0.01 200);
+
+  --secondary: oklch(0.94 0.03 200);
+  --secondary-foreground: oklch(0.26 0.04 200);
+
+  --muted: oklch(0.95 0.015 200);
+  --muted-foreground: oklch(0.48 0.02 200);
+
+  --accent: oklch(0.92 0.05 200);
+  --accent-foreground: oklch(0.28 0.05 200);
+
+  --gold: oklch(0.66 0.10 82);
+  --gold-foreground: oklch(0.22 0.03 82);
+  --sand: oklch(0.96 0.02 200);
+
+  --destructive: oklch(0.56 0.19 27);
+  --destructive-foreground: oklch(0.98 0.01 200);
+
+  --border: oklch(0.56 0.10 200 / 16%);
+  --input: oklch(0.56 0.10 200 / 24%);
+  --ring: oklch(0.56 0.10 200);
+
+  --sidebar: oklch(0.96 0.015 200);
+  --sidebar-foreground: oklch(0.24 0.02 200);
+  --sidebar-primary: oklch(0.56 0.10 200);
+  --sidebar-primary-foreground: oklch(0.99 0.01 200);
+  --sidebar-accent: oklch(0.92 0.05 200);
+  --sidebar-accent-foreground: oklch(0.28 0.05 200);
+  --sidebar-border: oklch(0.56 0.10 200 / 16%);
+  --sidebar-ring: oklch(0.56 0.10 200);
+
+  --elev-1: 0 1px 2px 0 oklch(0.30 0.06 200 / 0.06), 0 12px 28px -20px oklch(0.30 0.06 200 / 0.28);
+  --elev-2: 0 10px 24px -12px oklch(0.30 0.06 200 / 0.18), 0 28px 60px -30px oklch(0.30 0.06 200 / 0.22);
+  --gold-soft: oklch(0.60 0.11 200);
+  --surface-from: oklch(0.93 0.04 200);
+  --surface-to: oklch(0.99 0.006 200);
+  --surface-fg: oklch(0.26 0.04 200);
+  --hairline: oklch(0.56 0.10 200 / 0.28);
+  --card-hover-border: oklch(0.56 0.10 200 / 0.45);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);

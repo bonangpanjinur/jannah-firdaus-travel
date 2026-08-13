@@ -7,6 +7,9 @@ export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
 export const SITE_DESCRIPTION_FALLBACK =
   "Travel umroh Jakarta Selatan dengan paket terjadwal, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah hingga kepulangan.";
+export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
+export const DEFAULT_OG_IMAGE_WIDTH = 1200;
+export const DEFAULT_OG_IMAGE_HEIGHT = 630;
 
 export interface SiteInfo {
   siteName: string;
@@ -83,9 +86,11 @@ interface PageMetaInput {
   type?: string;
   image?: string | null;
   noindex?: boolean;
+  siteName?: string;
 }
 
-export function pageMeta({ title, description, path, type = "website", image, noindex }: PageMetaInput) {
+export function pageMeta({ title, description, path, type = "website", image, noindex, siteName }: PageMetaInput) {
+  const img = image || DEFAULT_OG_IMAGE;
   return {
     meta: [
       { title },
@@ -94,14 +99,14 @@ export function pageMeta({ title, description, path, type = "website", image, no
       { property: "og:description", content: description },
       { property: "og:type", content: type },
       { property: "og:url", content: path },
+      { property: "og:image", content: img },
+      { property: "og:image:width", content: String(DEFAULT_OG_IMAGE_WIDTH) },
+      { property: "og:image:height", content: String(DEFAULT_OG_IMAGE_HEIGHT) },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: img },
+      ...(siteName ? [{ property: "og:site_name", content: siteName }] : []),
+      { property: "og:locale", content: "id_ID" },
       ...(noindex ? [{ name: "robots", content: "noindex" }] : []),
-      ...(image
-        ? [
-            { property: "og:image", content: image },
-            { name: "twitter:image", content: image },
-          ]
-        : []),
     ],
     links: [{ rel: "canonical", href: path }],
   };

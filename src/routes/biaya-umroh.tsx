@@ -31,6 +31,7 @@ export const Route = createFileRoute("/biaya-umroh")({
       title: `Biaya Umroh: Rincian & Daftar Harga Paket — ${info.siteName}`,
       description: `Rincian biaya umroh dan daftar harga paket ${info.siteName} ${SITE_CITY}. Ketahui komponen biaya, yang termasuk dan tidak termasuk, serta estimasi harga per keberangkatan.`,
       path: "/biaya-umroh",
+      siteName: info.siteName,
     });
     return {
       ...base,
