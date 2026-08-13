@@ -239,7 +239,15 @@ export function layananKotaLd(
   info: SiteInfo,
   kota: { nama: string; provinsi: string },
   path: string,
-  katalog: { name: string; url: string; price: number | null }[],
+  katalog: {
+    name: string;
+    url: string;
+    price: number | null;
+    departureDate?: string | null;
+    quota?: number | null;
+    durationDays?: number | null;
+  }[],
+
 ) {
   return {
     "@context": "https://schema.org",
