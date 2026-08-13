@@ -149,6 +149,27 @@ function isAbsolute(url: string | null | undefined): url is string {
   return typeof url === "string" && /^https?:\/\//i.test(url);
 }
 
+/** Status ketersediaan schema.org berdasarkan kuota & tanggal keberangkatan. */
+export function availabilityOf(paket: { quota?: number | null; departure_date?: string | null }) {
+  const kuota = paket.quota ?? null;
+  if (kuota !== null && kuota <= 0) return "https://schema.org/SoldOut";
+  if (paket.departure_date) {
+    const berangkat = new Date(`${paket.departure_date}T00:00:00`);
+    if (!Number.isNaN(berangkat.getTime()) && berangkat.getTime() < Date.now()) {
+      return "https://schema.org/Discontinued";
+    }
+  }
+  return "https://schema.org/InStock";
+}
+
+function tanggalAkhir(start: string | null | undefined, durasi: number | null | undefined) {
+  if (!start || !durasi) return null;
+  const d = new Date(`${start}T00:00:00`);
+  if (Number.isNaN(d.getTime())) return null;
+  d.setDate(d.getDate() + Math.max(0, durasi - 1));
+  return d.toISOString().slice(0, 10);
+}
+
 /** TouristTrip + Offer untuk satu paket umroh. */
 export function tripLd(
   paket: TripLike,
@@ -158,6 +179,8 @@ export function tripLd(
 ) {
   const kota = opts?.departureCity ?? SITE_CITY;
   const hariHabis = paket.departure_date ?? undefined;
+  const availability = availabilityOf(paket);
+  const endDate = tanggalAkhir(paket.departure_date, paket.duration_days);
   return {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
@@ -167,6 +190,7 @@ export function tripLd(
     ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
     ...(isAbsolute(paket.flyer_url) ? { image: paket.flyer_url } : {}),
     ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
+    ...(endDate ? { endDate } : {}),
     ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } } : {}),
     touristType: "Jamaah umroh",
     departureLocation: { "@type": "Place", name: `${kota}, ${SITE_REGION}`, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: SITE_REGION, addressCountry: "ID" } },
@@ -182,7 +206,9 @@ export function tripLd(
             "@type": "Offer",
             price: harga,
             priceCurrency: "IDR",
-            availability: "https://schema.org/InStock",
+            availability,
+            ...(paket.departure_date ? { availabilityStarts: new Date().toISOString().slice(0, 10), availabilityEnds: paket.departure_date, validThrough: paket.departure_date } : {}),
+            ...(typeof paket.quota === "number" ? { inventoryLevel: { "@type": "QuantitativeValue", value: paket.quota, unitText: "jamaah" } } : {}),
             url: `/paket/${paket.slug}`,
             ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
             ...(kota
@@ -193,6 +219,7 @@ export function tripLd(
       : {}),
   };
 }
+
 
 /** Daftar berurut paket sebagai ItemList (dipakai halaman daftar & kota). */
 export function itemListLd(name: string, path: string, trips: object[]) {
@@ -212,7 +239,15 @@ export function layananKotaLd(
   info: SiteInfo,
   kota: { nama: string; provinsi: string },
   path: string,
-  katalog: { name: string; url: string; price: number | null }[],
+  katalog: {
+    name: string;
+    url: string;
+    price: number | null;
+    departureDate?: string | null;
+    quota?: number | null;
+    durationDays?: number | null;
+  }[],
+
 ) {
   return {
     "@context": "https://schema.org",
@@ -243,14 +278,49 @@ export function layananKotaLd(
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: `Paket umroh untuk jamaah ${kota.nama}`,
-            itemListElement: katalog.map((k, i) => ({
-              "@type": "Offer",
-              position: i + 1,
-              name: k.name,
-              url: k.url,
-              ...(k.price ? { price: k.price, priceCurrency: "IDR", availability: "https://schema.org/InStock" } : {}),
-              areaServed: { "@type": "City", name: kota.nama },
-            })),
+            itemListElement: katalog.map((k, i) => {
+              const availability = availabilityOf({ quota: k.quota, departure_date: k.departureDate });
+              return {
+                "@type": "Offer",
+                position: i + 1,
+                name: k.name,
+                url: k.url,
+                availability,
+                ...(k.price ? { price: k.price, priceCurrency: "IDR" } : {}),
+                ...(k.departureDate
+                  ? {
+                      availabilityStarts: new Date().toISOString().slice(0, 10),
+                      availabilityEnds: k.departureDate,
+                      validThrough: k.departureDate,
+                      priceValidUntil: k.departureDate,
+                    }
+                  : {}),
+                ...(typeof k.quota === "number"
+                  ? { inventoryLevel: { "@type": "QuantitativeValue", value: k.quota, unitText: "jamaah" } }
+                  : {}),
+                ...(k.departureDate
+                  ? {
+                      itemOffered: {
+                        "@type": "TouristTrip",
+                        name: k.name,
+                        url: k.url,
+                        startDate: k.departureDate,
+                        ...(tanggalAkhir(k.departureDate, k.durationDays ?? null)
+                          ? { endDate: tanggalAkhir(k.departureDate, k.durationDays ?? null) }
+                          : {}),
+                        departureLocation: { "@type": "Place", name: `${kota.nama}, ${kota.provinsi}` },
+                      },
+                    }
+                  : {}),
+                areaServed: { "@type": "City", name: kota.nama },
+                eligibleRegion: {
+                  "@type": "City",
+                  name: kota.nama,
+                  address: { "@type": "PostalAddress", addressLocality: kota.nama, addressRegion: kota.provinsi, addressCountry: "ID" },
+                },
+              };
+            }),
+
           },
         }
       : {}),
