@@ -1,11 +1,21 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useSettings } from "@/hooks/use-site";
-import { packagesQuery } from "@/lib/site-data";
+import { packagesQuery, type Paket } from "@/lib/site-data";
 import { formatRupiah, hargaMulai } from "@/lib/format";
 import { PackageCard } from "@/components/site/package-card";
 import { kotaBySlug, KOTA_LAYANAN, type KotaLayanan } from "@/lib/kota";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, faqLd, SITE_CITY } from "@/lib/seo";
+import {
+  loadSiteInfo,
+  siteInfoFrom,
+  pageMeta,
+  breadcrumbLd,
+  faqLd,
+  tripLd,
+  itemListLd,
+  layananKotaLd,
+  SITE_CITY,
+} from "@/lib/seo";
 
 function faqKota(kota: KotaLayanan, siteName: string) {
   return [
@@ -32,8 +42,11 @@ export const Route = createFileRoute("/umroh/$kota")({
   loader: async ({ context, params }) => {
     const kota = kotaBySlug(params.kota);
     if (!kota) throw notFound();
-    const info = await loadSiteInfo(context.queryClient);
-    return { info, kota };
+    const [info, pakets] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(packagesQuery()).catch((): Paket[] => []),
+    ]);
+    return { info, kota, pakets: pakets.slice(0, 12) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -47,10 +60,27 @@ export const Route = createFileRoute("/umroh/$kota")({
       description: `Travel umroh untuk jamaah ${kota.nama}, ${kota.provinsi}. Paket umroh terjadwal, hotel dekat Masjidil Haram, manasik, dan pendampingan ibadah bersama ${info.siteName}.`,
       path,
     });
+    const pakets = loaderData.pakets ?? [];
+    const trips = pakets.map((paket) => tripLd(paket, hargaMulai(paket), info, { departureCity: kota.nama }));
+    const katalog = pakets.map((paket) => ({
+      name: paket.name,
+      url: `/paket/${paket.slug}`,
+      price: hargaMulai(paket),
+    }));
+
     return {
       ...base,
       scripts: [
         { type: "application/ld+json", children: JSON.stringify(faqLd(faqKota(kota, info.siteName))) },
+        { type: "application/ld+json", children: JSON.stringify(layananKotaLd(info, kota, path, katalog)) },
+        ...(trips.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify(itemListLd(`Paket umroh untuk jamaah ${kota.nama}`, path, trips)),
+              },
+            ]
+          : []),
         {
           type: "application/ld+json",
           children: JSON.stringify(

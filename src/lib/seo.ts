@@ -131,3 +131,128 @@ export function faqLd(items: { q: string; a: string }[]) {
     })),
   };
 }
+
+interface TripLike {
+  slug: string;
+  name: string;
+  description?: string | null;
+  flyer_url?: string | null;
+  departure_date?: string | null;
+  duration_days?: number | null;
+  quota?: number | null;
+  airline?: string | null;
+  hotel_makkah?: string | null;
+  hotel_madinah?: string | null;
+}
+
+function isAbsolute(url: string | null | undefined): url is string {
+  return typeof url === "string" && /^https?:\/\//i.test(url);
+}
+
+/** TouristTrip + Offer untuk satu paket umroh. */
+export function tripLd(
+  paket: TripLike,
+  harga: number | null,
+  info: SiteInfo,
+  opts?: { departureCity?: string },
+) {
+  const kota = opts?.departureCity ?? SITE_CITY;
+  const hariHabis = paket.departure_date ?? undefined;
+  return {
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "@id": `/paket/${paket.slug}#trip`,
+    name: paket.name,
+    url: `/paket/${paket.slug}`,
+    ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
+    ...(isAbsolute(paket.flyer_url) ? { image: paket.flyer_url } : {}),
+    ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
+    ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } } : {}),
+    touristType: "Jamaah umroh",
+    departureLocation: { "@type": "Place", name: `${kota}, ${SITE_REGION}`, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: SITE_REGION, addressCountry: "ID" } },
+    arrivalLocation: { "@type": "Place", name: "Makkah & Madinah, Arab Saudi", address: { "@type": "PostalAddress", addressCountry: "SA" } },
+    itinerary: [
+      { "@type": "City", name: "Makkah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
+      { "@type": "City", name: "Madinah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
+    ],
+    provider: { "@type": "TravelAgency", name: info.siteName, ...(info.address ? { address: info.address } : {}) },
+    ...(harga
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: harga,
+            priceCurrency: "IDR",
+            availability: "https://schema.org/InStock",
+            url: `/paket/${paket.slug}`,
+            ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
+            ...(kota
+              ? { eligibleRegion: { "@type": "City", name: kota, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: SITE_REGION, addressCountry: "ID" } } }
+              : {}),
+          },
+        }
+      : {}),
+  };
+}
+
+/** Daftar berurut paket sebagai ItemList (dipakai halaman daftar & kota). */
+export function itemListLd(name: string, path: string, trips: object[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    url: path,
+    numberOfItems: trips.length,
+    itemListOrder: "https://schema.org/ItemListOrderAscending",
+    itemListElement: trips.map((trip, i) => ({ "@type": "ListItem", position: i + 1, item: trip })),
+  };
+}
+
+/** Layanan umroh yang tersedia untuk satu kota, lengkap dengan katalog paket. */
+export function layananKotaLd(
+  info: SiteInfo,
+  kota: { nama: string; provinsi: string },
+  path: string,
+  katalog: { name: string; url: string; price: number | null }[],
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${path}#layanan`,
+    serviceType: "Paket perjalanan umroh",
+    name: `Travel Umroh ${kota.nama}`,
+    url: path,
+    provider: {
+      "@type": "TravelAgency",
+      name: info.siteName,
+      ...(info.address ? { address: info.address } : {}),
+      ...(info.phone ? { telephone: info.phone } : {}),
+    },
+    areaServed: {
+      "@type": "City",
+      name: kota.nama,
+      address: { "@type": "PostalAddress", addressLocality: kota.nama, addressRegion: kota.provinsi, addressCountry: "ID" },
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: path,
+      servicePhone: info.phone ?? undefined,
+      availableLanguage: { "@type": "Language", name: "Indonesian", alternateName: "id" },
+    },
+    ...(katalog.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: `Paket umroh untuk jamaah ${kota.nama}`,
+            itemListElement: katalog.map((k, i) => ({
+              "@type": "Offer",
+              position: i + 1,
+              name: k.name,
+              url: k.url,
+              ...(k.price ? { price: k.price, priceCurrency: "IDR", availability: "https://schema.org/InStock" } : {}),
+              areaServed: { "@type": "City", name: kota.nama },
+            })),
+          },
+        }
+      : {}),
+  };
+}

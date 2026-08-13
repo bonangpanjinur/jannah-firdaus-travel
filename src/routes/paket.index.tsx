@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { bulanTahun, hargaMulai } from "@/lib/format";
 import { packagesQuery, type Paket } from "@/lib/site-data";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, itemListLd } from "@/lib/seo";
 
 export interface PaketSearch {
   bulan?: string;
@@ -69,6 +69,24 @@ function headline(search: PaketSearch) {
   return bits;
 }
 
+export function filterPakets(packages: Paket[], search: PaketSearch): Paket[] {
+  const range = HARGA_RANGES.find((r) => r.value === search.harga);
+  const filtered = packages.filter((paket) => {
+    const price = hargaMulai(paket);
+    const okBulan = !search.bulan || slugify(bulanTahun(paket.departure_date)) === search.bulan;
+    const okMaskapai = !search.maskapai || slugify(paket.airline ?? "") === search.maskapai;
+    const okHotel = !search.hotel || slugify(paket.hotel_makkah ?? "") === search.hotel;
+    const okHarga = !range || (price !== null && price >= range.min && price <= range.max);
+    return okBulan && okMaskapai && okHotel && okHarga;
+  });
+
+  return filtered.sort((a, b) => {
+    if (search.urut === "harga") return (hargaMulai(a) ?? Number.MAX_SAFE_INTEGER) - (hargaMulai(b) ?? Number.MAX_SAFE_INTEGER);
+    if (search.urut === "durasi") return (a.duration_days ?? Number.MAX_SAFE_INTEGER) - (b.duration_days ?? Number.MAX_SAFE_INTEGER);
+    return (a.departure_date ?? "9999-12-31").localeCompare(b.departure_date ?? "9999-12-31");
+  });
+}
+
 export const Route = createFileRoute("/paket/")({
   validateSearch: (raw: Record<string, unknown>): PaketSearch => {
     const harga = str(raw["harga"]);
@@ -82,7 +100,13 @@ export const Route = createFileRoute("/paket/")({
     return next;
   },
   loaderDeps: ({ search }) => search,
-  loader: async ({ context, deps }) => ({ info: await loadSiteInfo(context.queryClient), search: deps }),
+  loader: async ({ context, deps }) => {
+    const [info, packages] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(packagesQuery()).catch((): Paket[] => []),
+    ]);
+    return { info, search: deps, pakets: filterPakets(packages, deps).slice(0, 20) };
+  },
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData?.info);
     const search: PaketSearch = loaderData?.search ?? EMPTY_SEARCH;
@@ -106,6 +130,9 @@ export const Route = createFileRoute("/paket/")({
       noindex: !indexable,
     });
 
+    const pakets = loaderData?.pakets ?? [];
+    const trips = pakets.map((paket) => tripLd(paket, hargaMulai(paket), info));
+
     return {
       ...base,
       scripts: [
@@ -119,6 +146,20 @@ export const Route = createFileRoute("/paket/")({
             ]),
           ),
         },
+        ...(trips.length
+          ? [
+              {
+                type: "application/ld+json",
+                children: JSON.stringify(
+                  itemListLd(
+                    bits.length ? `Paket Umroh ${bits.join(" · ")}` : "Paket Umroh & Jadwal Keberangkatan",
+                    indexable ? canonicalPath(search) : "/paket",
+                    trips,
+                  ),
+                ),
+              },
+            ]
+          : []),
       ],
     };
   },
@@ -148,23 +189,7 @@ function DaftarPaket() {
     [packages],
   );
 
-  const hasil = useMemo(() => {
-    const range = HARGA_RANGES.find((r) => r.value === search.harga);
-    const filtered = packages.filter((paket) => {
-      const price = hargaMulai(paket);
-      const okBulan = !search.bulan || slugify(bulanTahun(paket.departure_date)) === search.bulan;
-      const okMaskapai = !search.maskapai || slugify(paket.airline ?? "") === search.maskapai;
-      const okHotel = !search.hotel || slugify(paket.hotel_makkah ?? "") === search.hotel;
-      const okHarga = !range || (price !== null && price >= range.min && price <= range.max);
-      return okBulan && okMaskapai && okHotel && okHarga;
-    });
-
-    return filtered.sort((a, b) => {
-      if (search.urut === "harga") return (hargaMulai(a) ?? Number.MAX_SAFE_INTEGER) - (hargaMulai(b) ?? Number.MAX_SAFE_INTEGER);
-      if (search.urut === "durasi") return (a.duration_days ?? Number.MAX_SAFE_INTEGER) - (b.duration_days ?? Number.MAX_SAFE_INTEGER);
-      return (a.departure_date ?? "9999-12-31").localeCompare(b.departure_date ?? "9999-12-31");
-    });
-  }, [packages, search]);
+  const hasil = useMemo(() => filterPakets(packages, search), [packages, search]);
 
   const bits = headline(search);
   const adaFilter = activeFilters(search).length > 0 || Boolean(search.urut);
