@@ -278,14 +278,49 @@ export function layananKotaLd(
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: `Paket umroh untuk jamaah ${kota.nama}`,
-            itemListElement: katalog.map((k, i) => ({
-              "@type": "Offer",
-              position: i + 1,
-              name: k.name,
-              url: k.url,
-              ...(k.price ? { price: k.price, priceCurrency: "IDR", availability: "https://schema.org/InStock" } : {}),
-              areaServed: { "@type": "City", name: kota.nama },
-            })),
+            itemListElement: katalog.map((k, i) => {
+              const availability = availabilityOf({ quota: k.quota, departure_date: k.departureDate });
+              return {
+                "@type": "Offer",
+                position: i + 1,
+                name: k.name,
+                url: k.url,
+                availability,
+                ...(k.price ? { price: k.price, priceCurrency: "IDR" } : {}),
+                ...(k.departureDate
+                  ? {
+                      availabilityStarts: new Date().toISOString().slice(0, 10),
+                      availabilityEnds: k.departureDate,
+                      validThrough: k.departureDate,
+                      priceValidUntil: k.departureDate,
+                    }
+                  : {}),
+                ...(typeof k.quota === "number"
+                  ? { inventoryLevel: { "@type": "QuantitativeValue", value: k.quota, unitText: "jamaah" } }
+                  : {}),
+                ...(k.departureDate
+                  ? {
+                      itemOffered: {
+                        "@type": "TouristTrip",
+                        name: k.name,
+                        url: k.url,
+                        startDate: k.departureDate,
+                        ...(tanggalAkhir(k.departureDate, k.durationDays ?? null)
+                          ? { endDate: tanggalAkhir(k.departureDate, k.durationDays ?? null) }
+                          : {}),
+                        departureLocation: { "@type": "Place", name: `${kota.nama}, ${kota.provinsi}` },
+                      },
+                    }
+                  : {}),
+                areaServed: { "@type": "City", name: kota.nama },
+                eligibleRegion: {
+                  "@type": "City",
+                  name: kota.nama,
+                  address: { "@type": "PostalAddress", addressLocality: kota.nama, addressRegion: kota.provinsi, addressCountry: "ID" },
+                },
+              };
+            }),
+
           },
         }
       : {}),
