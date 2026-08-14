@@ -180,9 +180,10 @@ export function tripLd(
   paket: TripLike,
   harga: number | null,
   info: SiteInfo,
-  opts?: { departureCity?: string },
+  opts?: { departureCity?: string; departureRegion?: string },
 ) {
   const kota = opts?.departureCity ?? SITE_CITY;
+  const provinsi = opts?.departureRegion ?? SITE_REGION;
   const hariHabis = paket.departure_date ?? undefined;
   const availability = availabilityOf(paket);
   const endDate = tanggalAkhir(paket.departure_date, paket.duration_days);
