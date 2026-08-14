@@ -62,7 +62,9 @@ export const Route = createFileRoute("/umroh/$kota")({
       siteName: info.siteName,
     });
     const pakets = loaderData.pakets ?? [];
-    const trips = pakets.map((paket) => tripLd(paket, hargaMulai(paket), info, { departureCity: kota.nama }));
+    const trips = pakets.map((paket) =>
+      tripLd(paket, hargaMulai(paket), info, { departureCity: kota.nama, departureRegion: kota.provinsi }),
+    );
     const katalog = pakets.map((paket) => ({
       name: paket.name,
       url: `/paket/${paket.slug}`,
