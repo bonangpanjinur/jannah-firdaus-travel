@@ -199,7 +199,7 @@ export function tripLd(
     ...(endDate ? { endDate } : {}),
     ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } } : {}),
     touristType: "Jamaah umroh",
-    departureLocation: { "@type": "Place", name: `${kota}, ${SITE_REGION}`, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: SITE_REGION, addressCountry: "ID" } },
+    departureLocation: { "@type": "Place", name: `${kota}, ${provinsi}`, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" } },
     arrivalLocation: { "@type": "Place", name: "Makkah & Madinah, Arab Saudi", address: { "@type": "PostalAddress", addressCountry: "SA" } },
     itinerary: [
       { "@type": "City", name: "Makkah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
@@ -218,7 +218,7 @@ export function tripLd(
             url: `/paket/${paket.slug}`,
             ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
             ...(kota
-              ? { eligibleRegion: { "@type": "City", name: kota, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: SITE_REGION, addressCountry: "ID" } } }
+              ? { eligibleRegion: { "@type": "City", name: kota, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" } } }
               : {}),
           },
         }
