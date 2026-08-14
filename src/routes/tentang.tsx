@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { BadgeCheck, MapPin, Users } from "lucide-react";
 import { useSettings } from "@/hooks/use-site";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
+import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 export const Route = createFileRoute("/tentang")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
@@ -37,7 +38,8 @@ function Tentang() {
 
   return (
     <main className="container-page py-10 sm:py-14">
-      <header className="max-w-2xl">
+      <PageBreadcrumb items={[{ label: "Beranda", to: "/" }, { label: "Tentang Kami" }]} />
+      <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Tentang Kami</p>
         <h1 className="mt-2 font-display text-3xl sm:text-4xl">{settings?.agency_name ?? "Jannah Firdaus Tour Travel"}</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">{settings?.about_text}</p>

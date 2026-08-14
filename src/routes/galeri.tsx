@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { galleryQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
+import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 export const Route = createFileRoute("/galeri")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
@@ -38,7 +39,8 @@ function Galeri() {
 
   return (
     <main className="container-page py-10 sm:py-14">
-      <header className="max-w-2xl">
+      <PageBreadcrumb items={[{ label: "Beranda", to: "/" }, { label: "Galeri" }]} />
+      <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Galeri</p>
         <h1 className="mt-2 font-display text-3xl sm:text-4xl">Dokumentasi Perjalanan Jamaah</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">

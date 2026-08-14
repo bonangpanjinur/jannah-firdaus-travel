@@ -10,6 +10,7 @@ import { useSettings } from "@/hooks/use-site";
 import { waLink } from "@/lib/format";
 import { db } from "@/lib/site-data";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
+import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 export const Route = createFileRoute("/kontak")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
@@ -85,7 +86,8 @@ function Kontak() {
 
   return (
     <main className="container-page py-10 sm:py-14">
-      <header className="max-w-2xl">
+      <PageBreadcrumb items={[{ label: "Beranda", to: "/" }, { label: "Kontak" }]} />
+      <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Kontak</p>
         <h1 className="mt-2 font-display text-3xl sm:text-4xl">Kami Siap Membantu Anda</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">

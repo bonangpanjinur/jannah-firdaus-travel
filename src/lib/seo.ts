@@ -1,5 +1,6 @@
 import type { QueryClient } from "@tanstack/react-query";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
+import { absoluteMediaUrl } from "@/lib/storage";
 
 export const SITE_NAME_FALLBACK = "Jannah Firdaus Tour Travel";
 export const SITE_TAGLINE_FALLBACK = "Travel Umroh Jakarta Selatan";
@@ -10,6 +11,7 @@ export const SITE_DESCRIPTION_FALLBACK =
 export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 export const DEFAULT_OG_IMAGE_HEIGHT = 630;
+export const SITE_DOMAIN = "https://jannahfirdaustravel.co.id";
 
 export interface SiteInfo {
   siteName: string;
@@ -79,18 +81,33 @@ export function socialLinks(info: SiteInfo): string[] {
   return list;
 }
 
+/** Mengubah path relatif menjadi URL absolut memakai domain final. */
+export function absoluteUrl(path: string): string {
+  if (/^https?:\/\//i.test(path)) return path;
+  const clean = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_DOMAIN}${clean}`;
+}
+
+function absoluteImage(image: string | null | undefined): string {
+  if (!image) return absoluteUrl(DEFAULT_OG_IMAGE);
+  if (isAbsolute(image)) return image;
+  return absoluteMediaUrl(image) ?? absoluteUrl(DEFAULT_OG_IMAGE);
+}
+
 interface PageMetaInput {
   title: string;
   description: string;
   path: string;
   type?: string;
   image?: string | null;
+  imageAlt?: string;
   noindex?: boolean;
   siteName?: string;
 }
 
-export function pageMeta({ title, description, path, type = "website", image, noindex, siteName }: PageMetaInput) {
-  const img = image || DEFAULT_OG_IMAGE;
+export function pageMeta({ title, description, path, type = "website", image, imageAlt, noindex, siteName }: PageMetaInput) {
+  const img = absoluteImage(image);
+  const url = absoluteUrl(path);
   return {
     meta: [
       { title },
@@ -98,17 +115,18 @@ export function pageMeta({ title, description, path, type = "website", image, no
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: type },
-      { property: "og:url", content: path },
+      { property: "og:url", content: url },
       { property: "og:image", content: img },
       { property: "og:image:width", content: String(DEFAULT_OG_IMAGE_WIDTH) },
       { property: "og:image:height", content: String(DEFAULT_OG_IMAGE_HEIGHT) },
+      ...(imageAlt ? [{ property: "og:image:alt", content: imageAlt }] : []),
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: img },
       ...(siteName ? [{ property: "og:site_name", content: siteName }] : []),
       { property: "og:locale", content: "id_ID" },
       ...(noindex ? [{ name: "robots", content: "noindex" }] : []),
     ],
-    links: [{ rel: "canonical", href: path }],
+    links: [{ rel: "canonical", href: url }],
   };
 }
 
@@ -120,7 +138,7 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
-      item: item.path,
+      item: absoluteUrl(item.path),
     })),
   };
 }
@@ -175,6 +193,46 @@ function tanggalAkhir(start: string | null | undefined, durasi: number | null | 
   return d.toISOString().slice(0, 10);
 }
 
+function paketImageUrl(paket: TripLike): string | null {
+  const resolved = absoluteMediaUrl(paket.flyer_url);
+  if (resolved && isAbsolute(resolved)) return resolved;
+  return null;
+}
+
+/** Offer schema.org untuk satu paket — dipakai bersama TouristTrip dan Product. */
+function offerLd(paket: TripLike, harga: number | null, kota: string, provinsi: string) {
+  const hariHabis = paket.departure_date ?? undefined;
+  const availability = availabilityOf(paket);
+  if (!harga) return undefined;
+  return {
+    "@type": "Offer",
+    price: harga,
+    priceCurrency: "IDR",
+    availability,
+    ...(paket.departure_date
+      ? {
+          availabilityStarts: new Date().toISOString().slice(0, 10),
+          availabilityEnds: paket.departure_date,
+          validThrough: paket.departure_date,
+        }
+      : {}),
+    ...(typeof paket.quota === "number"
+      ? { inventoryLevel: { "@type": "QuantitativeValue", value: paket.quota, unitText: "jamaah" } }
+      : {}),
+    url: absoluteUrl(`/paket/${paket.slug}`),
+    ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
+    ...(kota
+      ? {
+          eligibleRegion: {
+            "@type": "City",
+            name: kota,
+            address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" },
+          },
+        }
+      : {}),
+  };
+}
+
 /** TouristTrip + Offer untuk satu paket umroh. */
 export function tripLd(
   paket: TripLike,
@@ -184,48 +242,68 @@ export function tripLd(
 ) {
   const kota = opts?.departureCity ?? SITE_CITY;
   const provinsi = opts?.departureRegion ?? SITE_REGION;
-  const hariHabis = paket.departure_date ?? undefined;
-  const availability = availabilityOf(paket);
   const endDate = tanggalAkhir(paket.departure_date, paket.duration_days);
+  const imageUrl = paketImageUrl(paket);
   return {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
-    "@id": `/paket/${paket.slug}#trip`,
+    "@id": absoluteUrl(`/paket/${paket.slug}#trip`),
     name: paket.name,
-    url: `/paket/${paket.slug}`,
+    url: absoluteUrl(`/paket/${paket.slug}`),
     ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
-    ...(isAbsolute(paket.flyer_url) ? { image: paket.flyer_url } : {}),
+    ...(imageUrl ? { image: imageUrl } : {}),
     ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
     ...(endDate ? { endDate } : {}),
     ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } } : {}),
     touristType: "Jamaah umroh",
-    departureLocation: { "@type": "Place", name: `${kota}, ${provinsi}`, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" } },
-    arrivalLocation: { "@type": "Place", name: "Makkah & Madinah, Arab Saudi", address: { "@type": "PostalAddress", addressCountry: "SA" } },
+    departureLocation: {
+      "@type": "Place",
+      name: `${kota}, ${provinsi}`,
+      address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" },
+    },
+    arrivalLocation: {
+      "@type": "Place",
+      name: "Makkah & Madinah, Arab Saudi",
+      address: { "@type": "PostalAddress", addressCountry: "SA" },
+    },
     itinerary: [
       { "@type": "City", name: "Makkah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
       { "@type": "City", name: "Madinah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
     ],
     provider: { "@type": "TravelAgency", name: info.siteName, ...(info.address ? { address: info.address } : {}) },
-    ...(harga
-      ? {
-          offers: {
-            "@type": "Offer",
-            price: harga,
-            priceCurrency: "IDR",
-            availability,
-            ...(paket.departure_date ? { availabilityStarts: new Date().toISOString().slice(0, 10), availabilityEnds: paket.departure_date, validThrough: paket.departure_date } : {}),
-            ...(typeof paket.quota === "number" ? { inventoryLevel: { "@type": "QuantitativeValue", value: paket.quota, unitText: "jamaah" } } : {}),
-            url: `/paket/${paket.slug}`,
-            ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
-            ...(kota
-              ? { eligibleRegion: { "@type": "City", name: kota, address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" } } }
-              : {}),
-          },
-        }
-      : {}),
+    ...(harga ? { offers: offerLd(paket, harga, kota, provinsi) } : {}),
   };
 }
 
+/** Product + Offer — membantu Google menampilkan harga sebagai rich snippet. */
+export function productLd(
+  paket: TripLike,
+  harga: number | null,
+  info: SiteInfo,
+  opts?: { departureCity?: string; departureRegion?: string },
+) {
+  const kota = opts?.departureCity ?? SITE_CITY;
+  const provinsi = opts?.departureRegion ?? SITE_REGION;
+  const imageUrl = paketImageUrl(paket);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": absoluteUrl(`/paket/${paket.slug}#product`),
+    name: paket.name,
+    url: absoluteUrl(`/paket/${paket.slug}`),
+    ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
+    ...(imageUrl ? { image: imageUrl } : {}),
+    brand: { "@type": "Brand", name: info.siteName },
+    ...(paket.airline ? { additionalProperty: { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } } : {}),
+    ...(paket.hotel_makkah
+      ? { additionalProperty: { "@type": "PropertyValue", name: "Hotel Makkah", value: paket.hotel_makkah } }
+      : {}),
+    ...(paket.hotel_madinah
+      ? { additionalProperty: { "@type": "PropertyValue", name: "Hotel Madinah", value: paket.hotel_madinah } }
+      : {}),
+    ...(harga ? { offers: offerLd(paket, harga, kota, provinsi) } : {}),
+  };
+}
 
 /** Daftar berurut paket sebagai ItemList (dipakai halaman daftar & kota). */
 export function itemListLd(name: string, path: string, trips: object[]) {
@@ -233,7 +311,7 @@ export function itemListLd(name: string, path: string, trips: object[]) {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name,
-    url: path,
+    url: absoluteUrl(path),
     numberOfItems: trips.length,
     itemListOrder: "https://schema.org/ItemListOrderAscending",
     itemListElement: trips.map((trip, i) => ({ "@type": "ListItem", position: i + 1, item: trip })),
@@ -253,15 +331,14 @@ export function layananKotaLd(
     quota?: number | null;
     durationDays?: number | null;
   }[],
-
 ) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${path}#layanan`,
+    "@id": absoluteUrl(`${path}#layanan`),
     serviceType: "Paket perjalanan umroh",
     name: `Travel Umroh ${kota.nama}`,
-    url: path,
+    url: absoluteUrl(path),
     provider: {
       "@type": "TravelAgency",
       name: info.siteName,
@@ -275,7 +352,7 @@ export function layananKotaLd(
     },
     availableChannel: {
       "@type": "ServiceChannel",
-      serviceUrl: path,
+      serviceUrl: absoluteUrl(path),
       servicePhone: info.phone ?? undefined,
       availableLanguage: { "@type": "Language", name: "Indonesian", alternateName: "id" },
     },
@@ -290,7 +367,7 @@ export function layananKotaLd(
                 "@type": "Offer",
                 position: i + 1,
                 name: k.name,
-                url: k.url,
+                url: absoluteUrl(k.url),
                 availability,
                 ...(k.price ? { price: k.price, priceCurrency: "IDR" } : {}),
                 ...(k.departureDate
@@ -309,7 +386,7 @@ export function layananKotaLd(
                       itemOffered: {
                         "@type": "TouristTrip",
                         name: k.name,
-                        url: k.url,
+                        url: absoluteUrl(k.url),
                         startDate: k.departureDate,
                         ...(tanggalAkhir(k.departureDate, k.durationDays ?? null)
                           ? { endDate: tanggalAkhir(k.departureDate, k.durationDays ?? null) }
@@ -326,7 +403,6 @@ export function layananKotaLd(
                 },
               };
             }),
-
           },
         }
       : {}),

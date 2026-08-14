@@ -15,7 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
-import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
@@ -94,9 +94,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:site_name", content: info.siteName },
         { property: "og:locale", content: "id_ID" },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: DEFAULT_OG_IMAGE },
+        { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+        { property: "og:image:alt", content: `Logo ${info.siteName}` },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: DEFAULT_OG_IMAGE },
+        { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
+        { name: "theme-color", content: "#1a1a18" },
       ],
       links: [
         {
@@ -117,12 +119,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "TravelAgency",
-            "@id": "/#organization",
+            "@id": absoluteUrl("/#organization"),
             name: info.siteName,
             alternateName: [`${info.siteName} Umroh`, "Jannah Firdaus Umroh"],
             description: info.about,
             slogan: info.tagline,
-            url: "/",
+            url: absoluteUrl("/"),
             address: {
               "@type": "PostalAddress",
               streetAddress: info.address ?? undefined,
@@ -133,8 +135,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             ...(info.address
               ? { geo: { "@type": "GeoCoordinates", latitude: -6.2889, longitude: 106.8293 } }
               : {}),
-            logo: DEFAULT_OG_IMAGE,
-            image: DEFAULT_OG_IMAGE,
+            logo: absoluteUrl(DEFAULT_OG_IMAGE),
+            image: absoluteUrl(DEFAULT_OG_IMAGE),
             ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
             ...(info.email ? { email: info.email } : {}),
             ...(info.phone
@@ -164,13 +166,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: "Paket perjalanan ibadah umroh" },
             },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.9",
-              reviewCount: "12",
-              bestRating: "5",
-              worstRating: "1",
-            },
           }),
         },
         {
@@ -180,9 +175,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@type": "WebSite",
             name: info.siteName,
             alternateName: "Jannah Firdaus Umroh",
-            url: "/",
+            url: absoluteUrl("/"),
             inLanguage: "id-ID",
-            publisher: { "@id": "/#organization" },
+            publisher: { "@id": absoluteUrl("/#organization") },
           }),
         },
       ],

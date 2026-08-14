@@ -23,7 +23,7 @@ import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
 import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, faqLd, SITE_CITY } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, productLd, faqLd, SITE_CITY } from "@/lib/seo";
 import { RegistrationForm } from "@/components/site/registration-form";
 import heroMakkah from "@/assets/detail-makkah.jpg";
 import fotoMadinah from "@/assets/detail-madinah.jpg";
@@ -68,6 +68,7 @@ export const Route = createFileRoute("/paket/$slug")({
       path,
       type: "product",
       image: gambar,
+      imageAlt: `Flyer paket umroh ${nama}`,
       noindex: !paket,
       siteName: info.siteName,
     });
@@ -77,7 +78,7 @@ export const Route = createFileRoute("/paket/$slug")({
           {
             q: `Berapa harga paket umroh ${paket.name}?`,
             a: paket.price_quad
-              ? `Harga mulai ${formatRupiah(paket.price_quad)} per jamaah (kamar quad). Tersedia juga pilihan triple ${formatRupiah(paket.price_triple ?? 0)} dan double ${formatRupiah(paket.price_double ?? 0)}.`
+              ? `Harga mulai ${formatRupiah(paket.price_quad)} per jamaah (kamar quad).${paket.price_triple ? ` Tersedia juga pilihan triple ${formatRupiah(paket.price_triple)}.` : ""}${paket.price_double ? ` Dan double ${formatRupiah(paket.price_double)}.` : ""}`
               : `Silakan hubungi kami untuk informasi harga terbaru paket ${paket.name}.`,
           },
           {
@@ -97,6 +98,7 @@ export const Route = createFileRoute("/paket/$slug")({
       paket?.hotel_makkah ? "Makkah" : "Makkah",
       paket?.hotel_madinah ? "Madinah" : "Madinah",
     ];
+    void tujuan;
 
     return {
       ...base,
@@ -105,6 +107,10 @@ export const Route = createFileRoute("/paket/$slug")({
             {
               type: "application/ld+json",
               children: JSON.stringify(tripLd(paket, harga, info)),
+            },
+            {
+              type: "application/ld+json",
+              children: JSON.stringify(productLd(paket, harga, info)),
             },
             {
               type: "application/ld+json",

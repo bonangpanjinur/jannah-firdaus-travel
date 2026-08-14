@@ -8,17 +8,36 @@ export function isStoragePath(value: string | null | undefined): value is string
   return !/^(https?:|data:|blob:|\/)/i.test(value);
 }
 
+/** URL publik untuk path di Supabase Storage (bucket sekarang publik). */
+export function publicMediaUrl(path: string): string {
+  const { data } = supabase.storage.from(MEDIA_BUCKET).getPublicUrl(path);
+  return data.publicUrl;
+}
+
 export async function signedMediaUrl(path: string, expiresIn = 60 * 60 * 24) {
   const { data, error } = await supabase.storage.from(MEDIA_BUCKET).createSignedUrl(path, expiresIn);
   if (error) throw error;
   return data.signedUrl;
 }
 
+/**
+ * Mengembalikan URL publik untuk path storage, atau URL asli jika sudah absolut.
+ * Dipakai untuk og:image dan data terstruktur yang butuh URL stabil tanpa query.
+ */
+export function absoluteMediaUrl(value: string | null | undefined): string | null {
+  if (!value) return null;
+  if (!isStoragePath(value)) return value;
+  return publicMediaUrl(value);
+}
+
 export const mediaUrlQuery = (value: string | null | undefined) => ({
   queryKey: ["media-url", value] as const,
   enabled: isStoragePath(value),
-  staleTime: 1000 * 60 * 30,
-  queryFn: async (): Promise<string> => signedMediaUrl(value as string),
+  staleTime: 1000 * 60 * 60,
+  queryFn: async (): Promise<string> => {
+    if (!isStoragePath(value)) return value;
+    return publicMediaUrl(value);
+  },
 });
 
 function safeName(name: string) {
@@ -75,7 +94,7 @@ export const mediaListQuery = {
           .map((item) => ({
             path: `${folder}/${item.name}`,
             name: item.name,
-            size: (item.metadata?.['size'] as number | undefined) ?? null,
+            size: (item.metadata?.["size"] as number | undefined) ?? null,
             created_at: item.created_at ?? null,
           }));
       }),

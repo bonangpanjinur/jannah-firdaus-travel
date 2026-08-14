@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, faqLd, SITE_CITY } from "@/lib/seo";
+import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 const FAQ = [
   {
@@ -59,7 +60,8 @@ const DESTINASI = [
 function UmrohPlus() {
   return (
     <main className="container-page py-10 sm:py-14">
-      <header className="max-w-2xl">
+      <PageBreadcrumb items={[{ label: "Beranda", to: "/" }, { label: "Umroh Plus" }]} />
+      <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Program Pilihan</p>
         <h1 className="mt-2 font-display text-3xl sm:text-4xl">Paket Umroh Plus</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
