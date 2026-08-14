@@ -37,7 +37,7 @@ const FALLBACK: SiteInfo = {
   youtube: null,
 };
 
-function fromSettings(settings: SiteSettings | null): SiteInfo {
+export function fromSettings(settings: SiteSettings | null): SiteInfo {
   if (!settings) return FALLBACK;
   return {
     siteName: settings.agency_name?.trim() || FALLBACK.siteName,
