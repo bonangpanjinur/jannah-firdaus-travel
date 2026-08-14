@@ -67,6 +67,9 @@ export const Route = createFileRoute("/umroh/$kota")({
       name: paket.name,
       url: `/paket/${paket.slug}`,
       price: hargaMulai(paket),
+      departureDate: paket.departure_date,
+      quota: paket.quota,
+      durationDays: paket.duration_days,
     }));
 
     return {

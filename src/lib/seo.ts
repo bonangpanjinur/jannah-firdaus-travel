@@ -155,7 +155,7 @@ function isAbsolute(url: string | null | undefined): url is string {
 }
 
 /** Status ketersediaan schema.org berdasarkan kuota & tanggal keberangkatan. */
-export function availabilityOf(paket: { quota?: number | null; departure_date?: string | null }) {
+export function availabilityOf(paket: { quota?: number | null | undefined; departure_date?: string | null | undefined }) {
   const kuota = paket.quota ?? null;
   if (kuota !== null && kuota <= 0) return "https://schema.org/SoldOut";
   if (paket.departure_date) {
