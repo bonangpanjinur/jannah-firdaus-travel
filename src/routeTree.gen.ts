@@ -28,6 +28,7 @@ import { Route as AdminPaketRouteImport } from './routes/admin/paket'
 import { Route as AdminPendaftaranRouteImport } from './routes/admin/pendaftaran'
 import { Route as AdminPengaturanRouteImport } from './routes/admin/pengaturan'
 import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
+import { Route as AdminSchemaRouteImport } from './routes/admin/schema'
 import { Route as PaketIndexRouteImport } from './routes/paket.index'
 import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 import { Route as UmrohIndexRouteImport } from './routes/umroh.index'
@@ -129,6 +130,11 @@ const AdminPesanRoute = AdminPesanRouteImport.update({
   path: '/pesan',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminSchemaRoute = AdminSchemaRouteImport.update({
+  id: '/schema',
+  path: '/schema',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const PaketIndexRoute = PaketIndexRouteImport.update({
   id: '/paket/',
   path: '/paket/',
@@ -174,6 +180,7 @@ export interface FileRoutesByFullPath {
   '/admin/pendaftaran': typeof AdminPendaftaranRoute
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
+  '/admin/schema': typeof AdminSchemaRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin/': typeof AdminIndexRoute
@@ -199,6 +206,7 @@ export interface FileRoutesByTo {
   '/admin/pendaftaran': typeof AdminPendaftaranRoute
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
+  '/admin/schema': typeof AdminSchemaRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin': typeof AdminIndexRoute
@@ -226,6 +234,7 @@ export interface FileRoutesById {
   '/admin/pendaftaran': typeof AdminPendaftaranRoute
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
+  '/admin/schema': typeof AdminSchemaRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin/': typeof AdminIndexRoute
@@ -254,6 +263,7 @@ export interface FileRouteTypes {
     | '/admin/pendaftaran'
     | '/admin/pengaturan'
     | '/admin/pesan'
+    | '/admin/schema'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin/'
@@ -279,6 +289,7 @@ export interface FileRouteTypes {
     | '/admin/pendaftaran'
     | '/admin/pengaturan'
     | '/admin/pesan'
+    | '/admin/schema'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin'
@@ -305,6 +316,7 @@ export interface FileRouteTypes {
     | '/admin/pendaftaran'
     | '/admin/pengaturan'
     | '/admin/pesan'
+    | '/admin/schema'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin/'
@@ -467,6 +479,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPesanRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/schema': {
+      id: '/admin/schema'
+      path: '/schema'
+      fullPath: '/admin/schema'
+      preLoaderRoute: typeof AdminSchemaRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/paket/': {
       id: '/paket/'
       path: '/paket'
@@ -524,6 +543,7 @@ interface AdminRouteRouteChildren {
   AdminPendaftaranRoute: typeof AdminPendaftaranRoute
   AdminPengaturanRoute: typeof AdminPengaturanRoute
   AdminPesanRoute: typeof AdminPesanRoute
+  AdminSchemaRoute: typeof AdminSchemaRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -534,6 +554,7 @@ const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminPendaftaranRoute: AdminPendaftaranRoute,
   AdminPengaturanRoute: AdminPengaturanRoute,
   AdminPesanRoute: AdminPesanRoute,
+  AdminSchemaRoute: AdminSchemaRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
