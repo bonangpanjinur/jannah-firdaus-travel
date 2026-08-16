@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
+import { ErrorState } from "@/components/site/error-state";
 import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
 
 import { Toaster } from "@/components/ui/sonner";
