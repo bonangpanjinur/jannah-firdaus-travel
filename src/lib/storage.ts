@@ -35,7 +35,7 @@ export const mediaUrlQuery = (value: string | null | undefined) => ({
   enabled: isStoragePath(value),
   staleTime: 1000 * 60 * 60,
   queryFn: async (): Promise<string> => {
-    if (!isStoragePath(value)) return value;
+    if (!isStoragePath(value)) return value ?? "";
     return publicMediaUrl(value);
   },
 });
