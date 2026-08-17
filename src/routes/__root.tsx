@@ -61,9 +61,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  loader: async ({ context }) => {
+    const info = await loadSiteInfo(context.queryClient);
+    // Sertakan raw settings agar tersedia saat hydration (mencegah mismatch logo/tema).
+    const settings = context.queryClient.getQueryData(settingsQuery.queryKey) ?? null;
+    return { info, settings };
+  },
   head: ({ loaderData }) => {
-    const info = siteInfoFrom(loaderData);
+    const info = siteInfoFrom(loaderData?.info);
+
     const sameAs = socialLinks(info);
     return {
       meta: [
