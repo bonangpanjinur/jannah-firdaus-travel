@@ -17,6 +17,7 @@ import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
 import { ErrorState } from "@/components/site/error-state";
 import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
+import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
