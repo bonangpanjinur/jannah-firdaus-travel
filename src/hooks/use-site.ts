@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useRouterState } from "@tanstack/react-router";
 import type { Session } from "@supabase/supabase-js";
 import { supabase } from "@/integrations/supabase/client";
-import { settingsQuery } from "@/lib/site-data";
+import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 
 export function useSettings() {
-  return useQuery(settingsQuery);
+  // Ambil hasil loader root (ikut terkirim ke browser) agar render server & client sama.
+  const initialData = useRouterState({
+    select: (state) =>
+      (state.matches[0]?.loaderData as { settings?: SiteSettings | null } | undefined)?.settings ??
+      undefined,
+  });
+  return useQuery({ ...settingsQuery, ...(initialData ? { initialData } : {}) });
 }
 
 export function useSession() {
