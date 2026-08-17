@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { isStoragePath, mediaUrlQuery } from "@/lib/storage";
+import { absoluteMediaUrl } from "@/lib/storage";
 
 type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
   src: string | null | undefined;
@@ -7,10 +6,12 @@ type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src"> & {
   fallback?: React.ReactNode;
 };
 
-/** Menampilkan gambar dari URL biasa maupun path Supabase Storage (bucket privat). */
+/**
+ * Menampilkan gambar dari URL biasa maupun path Supabase Storage (bucket publik).
+ * URL dihitung sinkron agar hasil render server dan browser identik (tanpa hydration mismatch).
+ */
 export function StorageImage({ src, alt, fallback = null, ...rest }: Props) {
-  const { data: signed } = useQuery(mediaUrlQuery(src));
-  const url = isStoragePath(src) ? signed : (src ?? undefined);
+  const url = absoluteMediaUrl(src);
 
   if (!url) return <>{fallback}</>;
   return <img src={url} alt={alt} {...rest} />;
