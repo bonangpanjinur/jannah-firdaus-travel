@@ -53,5 +53,9 @@ export const getRouter = () => {
     },
   });
 
+  // Kirim cache query hasil SSR ke browser agar HTML server dan client sama
+  // (mencegah hydration mismatch pada header/logo dan data lain).
+  setupRouterSsrQueryIntegration({ router, queryClient });
+
   return router;
 };
