@@ -29,6 +29,7 @@ import { Route as AdminPendaftaranRouteImport } from './routes/admin/pendaftaran
 import { Route as AdminPengaturanRouteImport } from './routes/admin/pengaturan'
 import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
 import { Route as AdminSchemaRouteImport } from './routes/admin/schema'
+import { Route as ApiScanFlyerRouteImport } from './routes/api.scan-flyer'
 import { Route as PaketIndexRouteImport } from './routes/paket.index'
 import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 import { Route as UmrohIndexRouteImport } from './routes/umroh.index'
@@ -136,6 +137,11 @@ const AdminSchemaRoute = AdminSchemaRouteImport.update({
   path: '/schema',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const ApiScanFlyerRoute = ApiScanFlyerRouteImport.update({
+  id: '/api/scan-flyer',
+  path: '/api/scan-flyer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PaketIndexRoute = PaketIndexRouteImport.update({
   id: '/paket/',
   path: '/paket/',
@@ -187,6 +193,7 @@ export interface FileRoutesByFullPath {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin/': typeof AdminIndexRoute
@@ -214,6 +221,7 @@ export interface FileRoutesByTo {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin': typeof AdminIndexRoute
@@ -243,6 +251,7 @@ export interface FileRoutesById {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
   '/admin/': typeof AdminIndexRoute
@@ -273,6 +282,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin/'
@@ -300,6 +310,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin'
@@ -328,6 +339,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
     | '/admin/'
@@ -350,6 +362,7 @@ export interface RootRouteChildren {
   TentangRoute: typeof TentangRoute
   UmrohJakartaSelatanRoute: typeof UmrohJakartaSelatanRoute
   UmrohPlusRoute: typeof UmrohPlusRoute
+  ApiScanFlyerRoute: typeof ApiScanFlyerRoute
   PaketSlugRoute: typeof PaketSlugRoute
   UmrohKotaRoute: typeof UmrohKotaRoute
   PaketIndexRoute: typeof PaketIndexRoute
@@ -498,6 +511,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSchemaRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/api/scan-flyer': {
+      id: '/api/scan-flyer'
+      path: '/api/scan-flyer'
+      fullPath: '/api/scan-flyer'
+      preLoaderRoute: typeof ApiScanFlyerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/paket/': {
       id: '/paket/'
       path: '/paket'
@@ -596,6 +616,7 @@ const rootRouteChildren: RootRouteChildren = {
   TentangRoute: TentangRoute,
   UmrohJakartaSelatanRoute: UmrohJakartaSelatanRoute,
   UmrohPlusRoute: UmrohPlusRoute,
+  ApiScanFlyerRoute: ApiScanFlyerRoute,
   PaketSlugRoute: PaketSlugRoute,
   UmrohKotaRoute: UmrohKotaRoute,
   PaketIndexRoute: PaketIndexRoute,

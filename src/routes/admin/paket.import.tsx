@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { db, packagesQuery } from "@/lib/site-data";
+import { supabase } from "@/integrations/supabase/client";
 import { deleteMedia, isStoragePath, uploadMedia } from "@/lib/storage";
 
 export const Route = createFileRoute("/admin/paket/import")({
@@ -24,6 +25,10 @@ type ImportItem = {
   name: string;
   description: string | null;
   flyerFilename: string | null;
+  flyerPath?: string | null;
+  source: "csv" | "ai";
+  confidence: number | null;
+  warnings: string[];
   price_quad: number | null;
   price_triple: number | null;
   price_double: number | null;
@@ -189,6 +194,10 @@ function parseImportItems(text: string): ImportItem[] {
       name,
       description: get("description") || null,
       flyerFilename: get("flyer_filename") || get("flyer") || null,
+      flyerPath: null,
+      source: "csv",
+      confidence: null,
+      warnings: [],
       price_quad,
       price_triple,
       price_double,
@@ -238,6 +247,70 @@ function mimeFromFilename(name: string) {
   );
 }
 
+function textValue(value: unknown) {
+  return typeof value === "string" && value.trim() ? value.trim() : null;
+}
+
+function numberValue(value: unknown) {
+  return typeof value === "number" && Number.isFinite(value) && Number.isInteger(value)
+    ? value
+    : null;
+}
+
+function listValue(value: unknown) {
+  return Array.isArray(value)
+    ? value
+        .filter((item): item is string => typeof item === "string" && item.trim().length > 0)
+        .map((item) => item.trim())
+    : [];
+}
+
+function scannedItem(value: unknown, flyerPath: string, line: number): ImportItem {
+  const record = value && typeof value === "object" ? (value as Record<string, unknown>) : {};
+  const get = (key: string) => record[key];
+  const name = textValue(get("name")) ?? "";
+  const slug = textValue(get("slug")) ?? normalizeKey(name);
+  const warnings = listValue(get("warnings"));
+  const confidence =
+    typeof get("confidence") === "number" && Number.isFinite(get("confidence"))
+      ? Math.max(0, Math.min(1, get("confidence") as number))
+      : null;
+  const issues =
+    name && slug ? [] : ["Nama paket belum terbaca dengan jelas. Isi nama dan slug secara manual."];
+  if (confidence !== null && confidence < 0.7)
+    warnings.unshift("Confidence scan rendah. Periksa semua nilai sebelum menyimpan.");
+
+  return {
+    line,
+    slug,
+    name,
+    description: textValue(get("description")),
+    flyerFilename: null,
+    flyerPath,
+    source: "ai",
+    confidence,
+    warnings,
+    price_quad: numberValue(get("price_quad")),
+    price_triple: numberValue(get("price_triple")),
+    price_double: numberValue(get("price_double")),
+    departure_date: textValue(get("departure_date")),
+    duration_days: numberValue(get("duration_days")),
+    quota: numberValue(get("quota")),
+    airline: textValue(get("airline")),
+    hotel_makkah: textValue(get("hotel_makkah")),
+    hotel_makkah_stars: numberValue(get("hotel_makkah_stars")),
+    hotel_madinah: textValue(get("hotel_madinah")),
+    hotel_madinah_stars: numberValue(get("hotel_madinah_stars")),
+    includes: listValue(get("includes")),
+    excludes: listValue(get("excludes")),
+    requirements: listValue(get("requirements")),
+    is_published: true,
+    is_featured: false,
+    sort_order: line,
+    issues,
+  };
+}
+
 function AdminPaketImport() {
   const qc = useQueryClient();
   const [csvName, setCsvName] = useState("");
@@ -248,16 +321,21 @@ function AdminPaketImport() {
   const [zipError, setZipError] = useState("");
   const [isImporting, setIsImporting] = useState(false);
   const [results, setResults] = useState<ImportResult[]>([]);
+  const [scanFile, setScanFile] = useState<File | null>(null);
+  const [scanError, setScanError] = useState("");
+  const [isScanning, setIsScanning] = useState(false);
 
   const preview = useMemo(
     () => items.map((item) => ({ item, flyer: findFlyer(item, zipEntries) })),
     [items, zipEntries],
   );
   const errorCount = preview.filter(
-    ({ item, flyer }) => item.issues.length > 0 || (item.flyerFilename && !flyer),
+    ({ item, flyer }) =>
+      item.issues.length > 0 || (item.flyerFilename && !flyer && !item.flyerPath),
   ).length;
   const warningCount = preview.filter(
-    ({ item, flyer }) => item.issues.length === 0 && !item.flyerFilename && !flyer,
+    ({ item, flyer }) =>
+      item.issues.length === 0 && !item.flyerFilename && !flyer && !item.flyerPath,
   ).length;
 
   async function onCsvChange(file: File | undefined) {
@@ -292,6 +370,86 @@ function AdminPaketImport() {
       setZipEntries([]);
       setZipError(error instanceof Error ? error.message : "ZIP tidak dapat dibaca.");
     }
+  }
+
+  async function scanFlyer() {
+    if (!scanFile) {
+      toast.error("Pilih flyer terlebih dahulu.");
+      return;
+    }
+    if (!IMAGE_EXTENSIONS.test(scanFile.name)) {
+      setScanError("Format flyer harus JPG, PNG, WebP, GIF, atau AVIF.");
+      return;
+    }
+    if (scanFile.size > 5 * 1024 * 1024) {
+      setScanError("Ukuran flyer maksimal 5 MB.");
+      return;
+    }
+
+    setIsScanning(true);
+    setScanError("");
+    let storagePath: string | null = null;
+    try {
+      storagePath = await uploadMedia(scanFile, "flyers");
+      const { data: sessionData } = await supabase.auth.getSession();
+      const accessToken = sessionData.session?.access_token;
+      if (!accessToken) throw new Error("Sesi admin tidak ditemukan. Silakan masuk kembali.");
+
+      const response = await fetch("/api/scan-flyer", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ storagePath }),
+      });
+      const result = (await response.json().catch(() => null)) as {
+        extracted?: unknown;
+        error?: string;
+      } | null;
+      if (!response.ok || !result?.extracted)
+        throw new Error(result?.error ?? "Flyer gagal dipindai.");
+
+      const item = scannedItem(result.extracted, storagePath, items.length + 2);
+      setItems((current) => {
+        if (current.some((existing) => existing.slug && existing.slug === item.slug)) {
+          item.issues.push(
+            "Slug hasil scan sudah ada di preview. Hapus atau ubah data yang duplikat sebelum import.",
+          );
+        }
+        return [...current, item];
+      });
+      setScanFile(null);
+      toast.success("Flyer berhasil dipindai. Periksa hasilnya sebelum import.");
+    } catch (error) {
+      if (storagePath) await deleteMedia(storagePath).catch(() => undefined);
+      setScanError(error instanceof Error ? error.message : "Flyer gagal dipindai.");
+    } finally {
+      setIsScanning(false);
+    }
+  }
+
+  function editItem(index: number, key: keyof ImportItem, value: string) {
+    const numericKeys = new Set<keyof ImportItem>([
+      "price_quad",
+      "price_triple",
+      "price_double",
+      "duration_days",
+      "quota",
+      "hotel_makkah_stars",
+      "hotel_madinah_stars",
+    ]);
+    setItems((current) =>
+      current.map((item, itemIndex) => {
+        if (itemIndex !== index) return item;
+        const nextValue = numericKeys.has(key) ? (value.trim() ? Number(value) : null) : value;
+        const next = { ...item, [key]: nextValue } as ImportItem;
+        const issues = item.issues.filter(
+          (issue) =>
+            !issue.includes("Nama paket belum terbaca") && !issue.includes("Slug hasil scan"),
+        );
+        if (next.source === "ai" && (!next.name.trim() || !next.slug.trim()))
+          issues.push("Nama dan slug wajib diisi.");
+        return { ...next, issues };
+      }),
+    );
   }
 
   function downloadTemplate() {
@@ -339,7 +497,7 @@ function AdminPaketImport() {
           slug: item.slug,
           name: item.name,
           description: item.description,
-          flyer_url: uploadedPath ?? existing?.flyer_url ?? null,
+          flyer_url: item.flyerPath ?? uploadedPath ?? existing?.flyer_url ?? null,
           price_quad: item.price_quad,
           price_triple: item.price_triple,
           price_double: item.price_double,
@@ -364,9 +522,9 @@ function AdminPaketImport() {
         if (saveError) throw saveError;
 
         if (
-          uploadedPath &&
+          (item.flyerPath ?? uploadedPath) &&
           existing?.flyer_url &&
-          existing.flyer_url !== uploadedPath &&
+          existing.flyer_url !== (item.flyerPath ?? uploadedPath) &&
           isStoragePath(existing.flyer_url)
         ) {
           await deleteMedia(existing.flyer_url).catch(() => undefined);
@@ -467,6 +625,40 @@ function AdminPaketImport() {
       </section>
 
       <section className="mt-5 rounded-2xl border border-border bg-card p-6 shadow-soft">
+        <p className="text-sm font-semibold uppercase tracking-wider text-gold">3. Scan Flyer AI</p>
+        <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
+          Upload satu flyer untuk membaca nama paket, tanggal, harga, maskapai, hotel, dan fasilitas
+          secara otomatis. Hasilnya hanya masuk ke preview; admin tetap harus memeriksa dan
+          mengonfirmasi melalui tombol import.
+        </p>
+        <div className="mt-5 flex flex-wrap items-end gap-3">
+          <div className="min-w-64 flex-1 space-y-2">
+            <Label htmlFor="scan-flyer">Pilih flyer untuk dipindai</Label>
+            <Input
+              id="scan-flyer"
+              type="file"
+              accept="image/avif,image/gif,image/jpeg,image/png,image/webp"
+              onChange={(event) => {
+                setScanFile(event.target.files?.[0] ?? null);
+                setScanError("");
+              }}
+            />
+          </div>
+          <Button
+            type="button"
+            onClick={() => void scanFlyer()}
+            disabled={!scanFile || isScanning || isImporting}
+          >
+            {isScanning ? "Membaca flyer…" : "Scan flyer"}
+          </Button>
+        </div>
+        {scanFile ? (
+          <p className="mt-2 text-xs text-muted-foreground">File: {scanFile.name}</p>
+        ) : null}
+        {scanError ? <p className="mt-2 text-sm text-destructive">{scanError}</p> : null}
+      </section>
+
+      <section className="mt-5 rounded-2xl border border-border bg-card p-6 shadow-soft">
         <div className="flex flex-wrap items-start justify-between gap-4">
           <div>
             <p className="text-sm font-semibold uppercase tracking-wider text-gold">
@@ -504,34 +696,135 @@ function AdminPaketImport() {
               <table className="min-w-full text-left text-sm">
                 <thead className="bg-muted/50 text-xs uppercase tracking-wider text-muted-foreground">
                   <tr>
-                    <th className="px-4 py-3">Baris</th>
+                    <th className="px-4 py-3">Sumber</th>
                     <th className="px-4 py-3">Paket</th>
                     <th className="px-4 py-3">Slug</th>
-                    <th className="px-4 py-3">Flyer</th>
+                    <th className="px-4 py-3">Data utama</th>
                     <th className="px-4 py-3">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border">
-                  {preview.map(({ item, flyer }) => {
+                  {preview.map(({ item, flyer }, index) => {
                     const errors = [
                       ...item.issues,
-                      ...(item.flyerFilename && !flyer
+                      ...(item.flyerFilename && !flyer && !item.flyerPath
                         ? [`Flyer ${item.flyerFilename} tidak ditemukan di ZIP.`]
                         : []),
                     ];
                     return (
-                      <tr key={`${item.line}-${item.slug}`}>
+                      <tr key={`${item.line}-${item.slug}-${index}`}>
                         <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
-                          {item.line}
+                          {item.source === "ai" ? "AI" : `CSV ${item.line}`}
                         </td>
-                        <td className="px-4 py-3 font-medium">{item.name || "-"}</td>
-                        <td className="px-4 py-3 font-mono text-xs">{item.slug || "-"}</td>
-                        <td className="px-4 py-3 text-xs">
-                          {flyer ? basename(flyer.name) : (item.flyerFilename ?? "Tidak ada")}
+                        <td className="min-w-56 px-4 py-3 align-top">
+                          {item.source === "ai" ? (
+                            <Input
+                              value={item.name}
+                              onChange={(event) => editItem(index, "name", event.target.value)}
+                            />
+                          ) : (
+                            <span className="font-medium">{item.name || "-"}</span>
+                          )}
                         </td>
-                        <td className="max-w-xs px-4 py-3 text-xs">
+                        <td className="min-w-48 px-4 py-3 align-top font-mono text-xs">
+                          {item.source === "ai" ? (
+                            <Input
+                              value={item.slug}
+                              onChange={(event) =>
+                                editItem(index, "slug", normalizeKey(event.target.value))
+                              }
+                            />
+                          ) : (
+                            item.slug || "-"
+                          )}
+                        </td>
+                        <td className="min-w-80 space-y-2 px-4 py-3 align-top text-xs">
+                          {item.source === "ai" ? (
+                            <div className="grid gap-2 sm:grid-cols-2">
+                              <Input
+                                type="date"
+                                value={item.departure_date ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "departure_date", event.target.value)
+                                }
+                                aria-label="Tanggal keberangkatan"
+                              />
+                              <Input
+                                value={item.airline ?? ""}
+                                onChange={(event) => editItem(index, "airline", event.target.value)}
+                                placeholder="Maskapai"
+                                aria-label="Maskapai"
+                              />
+                              <Input
+                                value={item.hotel_makkah ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "hotel_makkah", event.target.value)
+                                }
+                                placeholder="Hotel Makkah"
+                                aria-label="Hotel Makkah"
+                              />
+                              <Input
+                                value={item.hotel_madinah ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "hotel_madinah", event.target.value)
+                                }
+                                placeholder="Hotel Madinah"
+                                aria-label="Hotel Madinah"
+                              />
+                              <Input
+                                type="number"
+                                value={item.price_quad ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "price_quad", event.target.value)
+                                }
+                                placeholder="Harga quad"
+                                aria-label="Harga quad"
+                              />
+                              <Input
+                                type="number"
+                                value={item.price_triple ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "price_triple", event.target.value)
+                                }
+                                placeholder="Harga triple"
+                                aria-label="Harga triple"
+                              />
+                              <Input
+                                type="number"
+                                value={item.price_double ?? ""}
+                                onChange={(event) =>
+                                  editItem(index, "price_double", event.target.value)
+                                }
+                                placeholder="Harga double"
+                                aria-label="Harga double"
+                              />
+                              <Input
+                                type="number"
+                                value={item.quota ?? ""}
+                                onChange={(event) => editItem(index, "quota", event.target.value)}
+                                placeholder="Kuota"
+                                aria-label="Kuota"
+                              />
+                            </div>
+                          ) : (
+                            <span>
+                              {flyer ? basename(flyer.name) : (item.flyerFilename ?? "Tidak ada")}
+                            </span>
+                          )}
+                          {item.source === "ai" && item.confidence !== null ? (
+                            <span className="block text-muted-foreground">
+                              Confidence: {Math.round(item.confidence * 100)}%
+                            </span>
+                          ) : null}
+                          {item.warnings.length ? (
+                            <span className="block text-gold">{item.warnings.join(" ")}</span>
+                          ) : null}
+                        </td>
+                        <td className="max-w-xs px-4 py-3 align-top text-xs">
                           {errors.length ? (
                             <span className="text-destructive">{errors.join(" ")}</span>
+                          ) : item.source === "ai" ? (
+                            <span className="text-gold">Periksa hasil scan</span>
                           ) : !flyer ? (
                             <span className="text-gold">Tanpa flyer baru</span>
                           ) : (
