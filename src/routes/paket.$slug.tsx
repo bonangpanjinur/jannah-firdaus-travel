@@ -21,9 +21,24 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useSettings } from "@/hooks/use-site";
 import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
-import { itineraryQuery, packageBySlugQuery, packageImagesQuery } from "@/lib/site-data";
+import {
+  itineraryQuery,
+  packageBySlugQuery,
+  packageImagesQuery,
+  type Paket,
+} from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, productLd, faqLd, SITE_CITY } from "@/lib/seo";
+import { absoluteMediaUrl } from "@/lib/storage";
+import {
+  loadSiteInfo,
+  siteInfoFrom,
+  pageMeta,
+  breadcrumbLd,
+  tripLd,
+  productLd,
+  faqLd,
+  SITE_CITY,
+} from "@/lib/seo";
 import { RegistrationForm } from "@/components/site/registration-form";
 import heroMakkah from "@/assets/detail-makkah.jpg";
 import fotoMadinah from "@/assets/detail-madinah.jpg";
@@ -34,6 +49,27 @@ const fotoCadangan = [
   { src: fotoMadinah, caption: "Masjid Nabawi, Madinah" },
   { src: fotoJamaah, caption: "Dokumentasi jamaah kami" },
 ];
+
+function packageFaq(paket: Paket) {
+  return [
+    {
+      q: `Berapa harga paket umroh ${paket.name}?`,
+      a: paket.price_quad
+        ? `Harga mulai ${formatRupiah(paket.price_quad)} per jamaah (kamar quad).${paket.price_triple ? ` Tersedia juga pilihan triple ${formatRupiah(paket.price_triple)}.` : ""}${paket.price_double ? ` Dan double ${formatRupiah(paket.price_double)}.` : ""}`
+        : `Silakan hubungi kami untuk informasi harga terbaru paket ${paket.name}.`,
+    },
+    {
+      q: `Kapan keberangkatan paket ${paket.name}?`,
+      a: paket.departure_date
+        ? `Keberangkatan dijadwalkan pada ${formatTanggal(paket.departure_date)}${paket.duration_days ? ` selama ${paket.duration_days} hari` : ""}.`
+        : `Jadwal keberangkatan akan diperbarui segera. Silakan hubungi kami untuk info terkini.`,
+    },
+    {
+      q: `Hotel apa yang digunakan untuk paket ${paket.name}?`,
+      a: `Hotel di Makkah: ${paket.hotel_makkah ?? "menyusul"}. Hotel di Madinah: ${paket.hotel_madinah ?? "menyusul"}. Semua hotel berada dekat dengan masjid utama.`,
+    },
+  ];
+}
 
 export const Route = createFileRoute("/paket/$slug")({
   loader: async ({ context, params }) => {
@@ -59,7 +95,7 @@ export const Route = createFileRoute("/paket/$slug")({
     const description = potongan.length
       ? `Paket umroh ${nama} dari ${info.siteName} ${SITE_CITY}: ${potongan.join(", ")}. Lihat itinerary harian dan daftar sekarang.`
       : `Rincian paket umroh ${nama} dari ${info.siteName}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`;
-    const gambar = paket?.flyer_url && /^https?:\/\//i.test(paket.flyer_url) ? paket.flyer_url : null;
+    const gambar = paket?.flyer_url ? absoluteMediaUrl(paket.flyer_url) : null;
     const path = `/paket/${params.slug}`;
 
     const base = pageMeta({
@@ -73,26 +109,7 @@ export const Route = createFileRoute("/paket/$slug")({
       siteName: info.siteName,
     });
 
-    const faqPaket = paket
-      ? [
-          {
-            q: `Berapa harga paket umroh ${paket.name}?`,
-            a: paket.price_quad
-              ? `Harga mulai ${formatRupiah(paket.price_quad)} per jamaah (kamar quad).${paket.price_triple ? ` Tersedia juga pilihan triple ${formatRupiah(paket.price_triple)}.` : ""}${paket.price_double ? ` Dan double ${formatRupiah(paket.price_double)}.` : ""}`
-              : `Silakan hubungi kami untuk informasi harga terbaru paket ${paket.name}.`,
-          },
-          {
-            q: `Kapan keberangkatan paket ${paket.name}?`,
-            a: paket.departure_date
-              ? `Keberangkatan dijadwalkan pada ${formatTanggal(paket.departure_date)}${paket.duration_days ? ` selama ${paket.duration_days} hari` : ""}.`
-              : `Jadwal keberangkatan akan diperbarui segera. Silakan hubungi kami untuk info terkini.`,
-          },
-          {
-            q: `Hotel apa yang digunakan untuk paket ${paket.name}?`,
-            a: `Hotel di Makkah: ${paket.hotel_makkah ?? "menyusul"}. Hotel di Madinah: ${paket.hotel_madinah ?? "menyusul"}. Semua hotel berada dekat dengan masjid utama.`,
-          },
-        ]
-      : [];
+    const faqItems = paket ? packageFaq(paket) : [];
 
     const tujuan = [
       paket?.hotel_makkah ? "Makkah" : "Makkah",
@@ -114,7 +131,7 @@ export const Route = createFileRoute("/paket/$slug")({
             },
             {
               type: "application/ld+json",
-              children: JSON.stringify(faqLd(faqPaket)),
+              children: JSON.stringify(faqLd(faqItems)),
             },
             {
               type: "application/ld+json",
@@ -133,7 +150,6 @@ export const Route = createFileRoute("/paket/$slug")({
   component: DetailPaket,
 });
 
-
 function DetailPaket() {
   const { slug } = Route.useParams();
   const { data: settings } = useSettings();
@@ -146,11 +162,16 @@ function DetailPaket() {
     const el = document.getElementById("daftar");
     if (!el) return;
     el.scrollIntoView({ behavior: "smooth", block: "center" });
-    window.setTimeout(() => document.getElementById("reg-name")?.focus({ preventScroll: true }), 600);
+    window.setTimeout(
+      () => document.getElementById("reg-name")?.focus({ preventScroll: true }),
+      600,
+    );
   }
 
   if (isLoading) {
-    return <main className="container-page py-20 text-sm text-muted-foreground">Memuat paket…</main>;
+    return (
+      <main className="container-page py-20 text-sm text-muted-foreground">Memuat paket…</main>
+    );
   }
 
   if (!paket) {
@@ -164,6 +185,7 @@ function DetailPaket() {
     );
   }
 
+  const faqItems = packageFaq(paket);
   const harga = [
     { label: "Quad (sekamar 4)", value: paket.price_quad },
     { label: "Triple (sekamar 3)", value: paket.price_triple },
@@ -172,7 +194,12 @@ function DetailPaket() {
 
   const galeri =
     images.length > 0
-      ? images.map((img) => ({ id: img.id, src: img.image_url, caption: img.caption ?? `Foto paket ${paket.name}`, storage: true }))
+      ? images.map((img) => ({
+          id: img.id,
+          src: img.image_url,
+          caption: img.caption ?? `Foto paket ${paket.name}`,
+          storage: true,
+        }))
       : fotoCadangan.map((f) => ({ id: f.src, src: f.src, caption: f.caption, storage: false }));
 
   return (
@@ -188,21 +215,33 @@ function DetailPaket() {
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
         <div className="container-page relative py-10 sm:py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-gold">Beranda</Link>
+            <Link to="/" className="hover:text-gold">
+              Beranda
+            </Link>
             <span className="px-2">/</span>
-            <Link to="/paket" className="hover:text-gold">Paket Umroh</Link>
+            <Link to="/paket" className="hover:text-gold">
+              Paket Umroh
+            </Link>
             <span className="px-2">/</span>
             <span className="text-foreground">{paket.name}</span>
           </nav>
           <div className="mt-5 flex flex-wrap gap-2">
-            {paket.is_featured ? <Badge className="bg-gold text-gold-foreground hover:bg-gold">Paket Unggulan</Badge> : null}
-            {paket.duration_days ? <Badge variant="secondary">{paket.duration_days} hari</Badge> : null}
+            {paket.is_featured ? (
+              <Badge className="bg-gold text-gold-foreground hover:bg-gold">Paket Unggulan</Badge>
+            ) : null}
+            {paket.duration_days ? (
+              <Badge variant="secondary">{paket.duration_days} hari</Badge>
+            ) : null}
             {paket.quota ? <Badge variant="secondary">Kuota {paket.quota} jamaah</Badge> : null}
           </div>
-          <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-foreground sm:text-3xl md:text-5xl">{paket.name}</h1>
+          <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-foreground sm:text-3xl md:text-5xl">
+            {paket.name}
+          </h1>
           <p className="mt-4 max-w-2xl text-sm/7 text-muted-foreground">{paket.description}</p>
           <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Mulai dari</p>
-          <p className="font-display text-2xl text-gold sm:text-3xl">{formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}</p>
+          <p className="font-display text-2xl text-gold sm:text-3xl">
+            {formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}
+          </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <Button size="lg" className="w-full sm:w-auto" onClick={scrollToForm}>
               <ClipboardList className="size-4" />
@@ -221,10 +260,22 @@ function DetailPaket() {
       <div className="container-page grid gap-8 pb-28 pt-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10 lg:pb-12">
         <div>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
-            <InfoRow icon={CalendarDays} label="Keberangkatan" value={formatTanggal(paket.departure_date)} />
-            <InfoRow icon={Clock} label="Durasi" value={paket.duration_days ? `${paket.duration_days} hari` : "-"} />
+            <InfoRow
+              icon={CalendarDays}
+              label="Keberangkatan"
+              value={formatTanggal(paket.departure_date)}
+            />
+            <InfoRow
+              icon={Clock}
+              label="Durasi"
+              value={paket.duration_days ? `${paket.duration_days} hari` : "-"}
+            />
             <InfoRow icon={Plane} label="Maskapai" value={paket.airline ?? "-"} />
-            <InfoRow icon={Users} label="Kuota" value={paket.quota ? `${paket.quota} jamaah` : "-"} />
+            <InfoRow
+              icon={Users}
+              label="Kuota"
+              value={paket.quota ? `${paket.quota} jamaah` : "-"}
+            />
           </div>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -338,7 +389,9 @@ function DetailPaket() {
                         />
                       )}
                     </button>
-                    <figcaption className="bg-card px-3 py-2 text-xs text-muted-foreground">{img.caption}</figcaption>
+                    <figcaption className="bg-card px-3 py-2 text-xs text-muted-foreground">
+                      {img.caption}
+                    </figcaption>
                   </figure>
                 ))}
               </div>
@@ -349,6 +402,20 @@ function DetailPaket() {
               ) : null}
             </TabsContent>
           </Tabs>
+
+          <section aria-labelledby="faq-paket" className="mt-10">
+            <h2 id="faq-paket" className="font-display text-2xl">
+              Pertanyaan tentang {paket.name}
+            </h2>
+            <div className="mt-4 space-y-4">
+              {faqItems.map((item) => (
+                <article key={item.q} className="bento-card p-5">
+                  <h3 className="font-medium">{item.q}</h3>
+                  <p className="mt-2 text-sm/6 text-muted-foreground">{item.a}</p>
+                </article>
+              ))}
+            </div>
+          </section>
         </div>
 
         <aside className="h-fit bento-card p-5 sm:p-6 lg:sticky lg:top-24">
@@ -409,8 +476,14 @@ function DetailPaket() {
         <DialogContent className="max-w-3xl p-2">
           {lightbox ? (
             <figure>
-              <img src={lightbox.src} alt={lightbox.caption} className="w-full rounded-lg object-contain" />
-              <figcaption className="px-2 py-3 text-center text-sm text-muted-foreground">{lightbox.caption}</figcaption>
+              <img
+                src={lightbox.src}
+                alt={lightbox.caption}
+                className="w-full rounded-lg object-contain"
+              />
+              <figcaption className="px-2 py-3 text-center text-sm text-muted-foreground">
+                {lightbox.caption}
+              </figcaption>
             </figure>
           ) : null}
         </DialogContent>
@@ -419,16 +492,28 @@ function DetailPaket() {
       <section className="container-page mt-12 border-t border-border pt-10">
         <h2 className="font-display text-xl">Baca juga</h2>
         <div className="mt-4 flex flex-wrap gap-3 text-sm">
-          <Link to="/biaya-umroh" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+          <Link
+            to="/biaya-umroh"
+            className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground"
+          >
             Rincian biaya umroh
           </Link>
-          <Link to="/syarat-umroh" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+          <Link
+            to="/syarat-umroh"
+            className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground"
+          >
             Syarat pendaftaran umroh
           </Link>
-          <Link to="/faq" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+          <Link
+            to="/faq"
+            className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground"
+          >
             Pertanyaan umum
           </Link>
-          <Link to="/paket" className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground">
+          <Link
+            to="/paket"
+            className="rounded-full border border-border px-4 py-2 text-muted-foreground transition-colors hover:border-gold/40 hover:text-foreground"
+          >
             Lihat semua paket
           </Link>
         </div>
@@ -450,7 +535,12 @@ function HotelCard({
 }) {
   return (
     <div className="bento-card">
-      <img src={image} alt={`Suasana kota ${kota}`} loading="lazy" className="aspect-16/9 w-full object-cover" />
+      <img
+        src={image}
+        alt={`Suasana kota ${kota}`}
+        loading="lazy"
+        className="aspect-16/9 w-full object-cover"
+      />
       <div className="flex gap-3 p-4">
         <BedDouble className="size-5 shrink-0 text-gold" />
         <div>

@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { KOTA_LAYANAN } from "@/lib/kota";
+import { SITE_DOMAIN } from "@/lib/seo";
+import { absoluteMediaUrl } from "@/lib/storage";
 
 const STATIC_PATHS = [
   "/",
@@ -17,17 +19,26 @@ const STATIC_PATHS = [
   "/kontak",
 ];
 
+function escapeXml(value: string) {
+  return value.replace(
+    /[<>&'"]/g,
+    (character) =>
+      ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[character] ??
+      character,
+  );
+}
+
 function urlEntry(origin: string, path: string, lastmod?: string | null, image?: string | null) {
   return [
     "  <url>",
-    `    <loc>${origin}${path}</loc>`,
+    `    <loc>${escapeXml(`${origin}${path}`)}</loc>`,
     lastmod ? `    <lastmod>${lastmod}</lastmod>` : null,
     `    <changefreq>${path === "/" ? "daily" : "weekly"}</changefreq>`,
     `    <priority>${path === "/" ? "1.0" : path.startsWith("/paket/") ? "0.9" : "0.8"}</priority>`,
     image
       ? [
           "    <image:image>",
-          `      <image:loc>${image}</image:loc>`,
+          `      <image:loc>${escapeXml(image)}</image:loc>`,
           "    </image:image>",
         ].join("\n")
       : null,
@@ -40,9 +51,8 @@ function urlEntry(origin: string, path: string, lastmod?: string | null, image?:
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
-      GET: async ({ request }) => {
-        const url = new URL(request.url);
-        const origin = `${request.headers.get("x-forwarded-proto") ?? url.protocol.replace(":", "")}://${request.headers.get("host") ?? url.host}`;
+      GET: async () => {
+        const origin = SITE_DOMAIN;
 
         let paketRows: { slug: string; updated_at: string | null; flyer_url: string | null }[] = [];
         try {
@@ -50,13 +60,17 @@ export const Route = createFileRoute("/sitemap.xml")({
             .from("packages" as never)
             .select("slug, updated_at, flyer_url" as never)
             .eq("is_published" as never, true as never);
-          paketRows = (data ?? []) as { slug: string; updated_at: string | null; flyer_url: string | null }[];
+          paketRows = (data ?? []) as {
+            slug: string;
+            updated_at: string | null;
+            flyer_url: string | null;
+          }[];
         } catch {
           paketRows = [];
         }
 
         const paketEntries = paketRows.map((row) => {
-          const imgUrl = row.flyer_url && /^https?:\/\//i.test(row.flyer_url) ? row.flyer_url : null;
+          const imgUrl = row.flyer_url ? absoluteMediaUrl(row.flyer_url) : null;
           return urlEntry(origin, `/paket/${row.slug}`, row.updated_at, imgUrl);
         });
 

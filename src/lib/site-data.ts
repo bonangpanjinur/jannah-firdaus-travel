@@ -5,8 +5,9 @@ export interface SiteSettings {
   agency_name: string;
   tagline: string | null;
   logo_url: string | null;
-  whatsapp_number: string;
-  whatsapp_template: string;
+  whatsapp_number: string | null;
+  whatsapp_template: string | null;
+  operating_hours: string | null;
   address: string | null;
   email: string | null;
   instagram: string | null;
@@ -17,7 +18,6 @@ export interface SiteSettings {
   hero_subtitle: string | null;
   about_text: string | null;
   theme: string;
-
 }
 
 export interface Paket {

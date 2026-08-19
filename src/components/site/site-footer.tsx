@@ -26,46 +26,103 @@ export function SiteFooter() {
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Navigasi</h4>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
-            <li><Link to="/paket" className="hover:underline">Paket Umroh</Link></li>
-            <li><Link to="/galeri" className="hover:underline">Galeri</Link></li>
-            <li><Link to="/tentang" className="hover:underline">Tentang Kami</Link></li>
-            <li><Link to="/kontak" className="hover:underline">Kontak</Link></li>
-            <li><Link to="/admin" className="hover:underline">Panel Admin</Link></li>
+            <li>
+              <Link to="/paket" className="hover:underline">
+                Paket Umroh
+              </Link>
+            </li>
+            <li>
+              <Link to="/galeri" className="hover:underline">
+                Galeri
+              </Link>
+            </li>
+            <li>
+              <Link to="/tentang" className="hover:underline">
+                Tentang Kami
+              </Link>
+            </li>
+            <li>
+              <Link to="/kontak" className="hover:underline">
+                Kontak
+              </Link>
+            </li>
           </ul>
         </div>
 
         <div>
-          <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Panduan Umroh</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">
+            Panduan Umroh
+          </h4>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
-            <li><Link to="/umroh-jakarta-selatan" className="hover:underline">Umroh Jakarta Selatan</Link></li>
-            <li><Link to="/umroh" className="hover:underline">Area Layanan Jabodetabek</Link></li>
-            <li><Link to="/biaya-umroh" className="hover:underline">Biaya Umroh</Link></li>
-            <li><Link to="/syarat-umroh" className="hover:underline">Syarat Umroh</Link></li>
-            <li><Link to="/umroh-plus" className="hover:underline">Umroh Plus</Link></li>
-            <li><Link to="/faq" className="hover:underline">FAQ</Link></li>
+            <li>
+              <Link to="/umroh-jakarta-selatan" className="hover:underline">
+                Umroh Jakarta Selatan
+              </Link>
+            </li>
+            <li>
+              <Link to="/umroh" className="hover:underline">
+                Area Layanan Jabodetabek
+              </Link>
+            </li>
+            <li>
+              <Link to="/biaya-umroh" className="hover:underline">
+                Biaya Umroh
+              </Link>
+            </li>
+            <li>
+              <Link to="/syarat-umroh" className="hover:underline">
+                Syarat Umroh
+              </Link>
+            </li>
+            <li>
+              <Link to="/umroh-plus" className="hover:underline">
+                Umroh Plus
+              </Link>
+            </li>
+            <li>
+              <Link to="/faq" className="hover:underline">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link to="/kontak" className="hover:underline">
+                Konsultasi & Kontak
+              </Link>
+            </li>
           </ul>
         </div>
-
 
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Kontak</h4>
           <ul className="mt-4 space-y-3 text-sm opacity-90">
             {settings?.address ? (
-              <li className="flex gap-2"><MapPin className="mt-0.5 size-4 shrink-0" />{settings.address}</li>
+              <li className="flex gap-2">
+                <MapPin className="mt-0.5 size-4 shrink-0" />
+                {settings.address}
+              </li>
             ) : null}
-            <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0" />{settings?.whatsapp_number ?? "-"}</li>
+            <li className="flex gap-2">
+              <Phone className="mt-0.5 size-4 shrink-0" />
+              {settings?.whatsapp_number ?? "-"}
+            </li>
             {settings?.email ? (
-              <li className="flex gap-2"><Mail className="mt-0.5 size-4 shrink-0" />{settings.email}</li>
+              <li className="flex gap-2">
+                <Mail className="mt-0.5 size-4 shrink-0" />
+                {settings.email}
+              </li>
             ) : null}
             {settings?.instagram ? (
-              <li className="flex gap-2"><Instagram className="mt-0.5 size-4 shrink-0" />@{settings.instagram}</li>
+              <li className="flex gap-2">
+                <Instagram className="mt-0.5 size-4 shrink-0" />@{settings.instagram}
+              </li>
             ) : null}
           </ul>
         </div>
       </div>
       <div className="border-t border-border">
         <p className="container-page py-5 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}. Seluruh hak cipta dilindungi.
+          &copy; {new Date().getFullYear()} {settings?.agency_name ?? "Jannah Firdaus Tour Travel"}.
+          Seluruh hak cipta dilindungi.
         </p>
       </div>
     </footer>

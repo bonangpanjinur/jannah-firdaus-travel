@@ -2,12 +2,12 @@ import type { QueryClient } from "@tanstack/react-query";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 import { absoluteMediaUrl } from "@/lib/storage";
 
-export const SITE_NAME_FALLBACK = "Jannah Firdaus Tour Travel";
-export const SITE_TAGLINE_FALLBACK = "Travel Umroh Jakarta Selatan";
+export const SITE_NAME_FALLBACK = "Jannah Firdaus Travel";
+export const SITE_TAGLINE_FALLBACK = "Melayani Sepenuh Hati";
 export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
 export const SITE_DESCRIPTION_FALLBACK =
-  "Travel umroh Jakarta Selatan dengan paket terjadwal, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah hingga kepulangan.";
+  "Jannah Firdaus Travel melayani perjalanan umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel di Makkah dan Madinah, serta konsultasi yang transparan.";
 export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 export const DEFAULT_OG_IMAGE_HEIGHT = 630;
@@ -21,6 +21,8 @@ export interface SiteInfo {
   phone: string | null;
   email: string | null;
   license: string | null;
+  logo: string | null;
+  openingHours: string | null;
   instagram: string | null;
   facebook: string | null;
   youtube: string | null;
@@ -30,11 +32,14 @@ const FALLBACK: SiteInfo = {
   siteName: SITE_NAME_FALLBACK,
   tagline: SITE_TAGLINE_FALLBACK,
   about: SITE_DESCRIPTION_FALLBACK,
-  address: `${SITE_CITY}, ${SITE_REGION}`,
+  address:
+    "Jl. KH Abdullah Syafei No.21D, RT.1/RW.3, Kb. Baru, Kec. Tebet, Kota Jakarta Selatan, DKI Jakarta 12830",
   phone: null,
-  email: null,
+  email: "info@jannahfirdaustravel.com",
   license: null,
-  instagram: null,
+  logo: null,
+  openingHours: null,
+  instagram: "umrohjannahfirdaustravel",
   facebook: null,
   youtube: null,
 };
@@ -47,9 +52,11 @@ export function fromSettings(settings: SiteSettings | null): SiteInfo {
     about: settings.about_text?.trim().slice(0, 300) || FALLBACK.about,
     address: settings.address?.trim() || FALLBACK.address,
     phone: settings.whatsapp_number?.trim() || null,
-    email: settings.email?.trim() || null,
+    email: settings.email?.trim() || FALLBACK.email,
     license: settings.license_text?.trim() || null,
-    instagram: settings.instagram?.trim() || null,
+    logo: settings.logo_url?.trim() || null,
+    openingHours: settings.operating_hours?.trim() || null,
+    instagram: settings.instagram?.trim() || FALLBACK.instagram,
     facebook: settings.facebook?.trim() || null,
     youtube: settings.youtube?.trim() || null,
   };
@@ -67,6 +74,26 @@ export function siteInfoFrom(data: Partial<SiteInfo> | undefined | null): SiteIn
   return { ...FALLBACK, ...(data ?? {}) };
 }
 
+export function openingHoursLd(
+  value: string | null,
+):
+  | { "@type": "OpeningHoursSpecification"; dayOfWeek: string[]; opens: string; closes: string }[]
+  | undefined {
+  if (!value) return undefined;
+  const match = value.match(/(\d{1,2})[.:](\d{2})\s*(?:-|–|—|sampai)\s*(\d{1,2})[.:](\d{2})/i);
+  if (!match) return undefined;
+  const [, openHour = "00", openMinute = "00", closeHour = "00", closeMinute = "00"] = match;
+  const opens = `${openHour.padStart(2, "0")}:${openMinute}`;
+  const closes = `${closeHour.padStart(2, "0")}:${closeMinute}`;
+  const dayOfWeek =
+    /senin/i.test(value) && /sabtu/i.test(value)
+      ? ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+      : /senin/i.test(value) && /jumat/i.test(value)
+        ? ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+        : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return [{ "@type": "OpeningHoursSpecification", dayOfWeek, opens, closes }];
+}
+
 export function socialLinks(info: SiteInfo): string[] {
   const list: string[] = [];
   if (info.instagram) {
@@ -76,7 +103,10 @@ export function socialLinks(info: SiteInfo): string[] {
         : `https://instagram.com/${info.instagram.replace(/^@/, "")}`,
     );
   }
-  if (info.facebook) list.push(info.facebook.startsWith("http") ? info.facebook : `https://facebook.com/${info.facebook}`);
+  if (info.facebook)
+    list.push(
+      info.facebook.startsWith("http") ? info.facebook : `https://facebook.com/${info.facebook}`,
+    );
   if (info.youtube) list.push(info.youtube);
   return list;
 }
@@ -105,7 +135,16 @@ interface PageMetaInput {
   siteName?: string;
 }
 
-export function pageMeta({ title, description, path, type = "website", image, imageAlt, noindex, siteName }: PageMetaInput) {
+export function pageMeta({
+  title,
+  description,
+  path,
+  type = "website",
+  image,
+  imageAlt,
+  noindex,
+  siteName,
+}: PageMetaInput) {
   const img = absoluteImage(image);
   const url = absoluteUrl(path);
   return {
@@ -121,6 +160,9 @@ export function pageMeta({ title, description, path, type = "website", image, im
       { property: "og:image:height", content: String(DEFAULT_OG_IMAGE_HEIGHT) },
       ...(imageAlt ? [{ property: "og:image:alt", content: imageAlt }] : []),
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
+      { name: "twitter:url", content: url },
       { name: "twitter:image", content: img },
       ...(siteName ? [{ property: "og:site_name", content: siteName }] : []),
       { property: "og:locale", content: "id_ID" },
@@ -173,7 +215,10 @@ function isAbsolute(url: string | null | undefined): url is string {
 }
 
 /** Status ketersediaan schema.org berdasarkan kuota & tanggal keberangkatan. */
-export function availabilityOf(paket: { quota?: number | null | undefined; departure_date?: string | null | undefined }) {
+export function availabilityOf(paket: {
+  quota?: number | null | undefined;
+  departure_date?: string | null | undefined;
+}) {
   const kuota = paket.quota ?? null;
   if (kuota !== null && kuota <= 0) return "https://schema.org/SoldOut";
   if (paket.departure_date) {
@@ -201,7 +246,6 @@ function paketImageUrl(paket: TripLike): string | null {
 
 /** Offer schema.org untuk satu paket — dipakai bersama TouristTrip dan Product. */
 function offerLd(paket: TripLike, harga: number | null, kota: string, provinsi: string) {
-  const hariHabis = paket.departure_date ?? undefined;
   const availability = availabilityOf(paket);
   if (!harga) return undefined;
   return {
@@ -209,24 +253,22 @@ function offerLd(paket: TripLike, harga: number | null, kota: string, provinsi: 
     price: harga,
     priceCurrency: "IDR",
     availability,
-    ...(paket.departure_date
-      ? {
-          availabilityStarts: new Date().toISOString().slice(0, 10),
-          availabilityEnds: paket.departure_date,
-          validThrough: paket.departure_date,
-        }
-      : {}),
     ...(typeof paket.quota === "number"
       ? { inventoryLevel: { "@type": "QuantitativeValue", value: paket.quota, unitText: "jamaah" } }
       : {}),
     url: absoluteUrl(`/paket/${paket.slug}`),
-    ...(hariHabis ? { priceValidUntil: hariHabis } : {}),
+
     ...(kota
       ? {
           eligibleRegion: {
             "@type": "City",
             name: kota,
-            address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: kota,
+              addressRegion: provinsi,
+              addressCountry: "ID",
+            },
           },
         }
       : {}),
@@ -254,12 +296,19 @@ export function tripLd(
     ...(imageUrl ? { image: imageUrl } : {}),
     ...(paket.departure_date ? { startDate: paket.departure_date } : {}),
     ...(endDate ? { endDate } : {}),
-    ...(paket.duration_days ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } } : {}),
+    ...(paket.duration_days
+      ? { subjectOf: { "@type": "CreativeWork", name: `${paket.duration_days} hari` } }
+      : {}),
     touristType: "Jamaah umroh",
     departureLocation: {
       "@type": "Place",
       name: `${kota}, ${provinsi}`,
-      address: { "@type": "PostalAddress", addressLocality: kota, addressRegion: provinsi, addressCountry: "ID" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: kota,
+        addressRegion: provinsi,
+        addressCountry: "ID",
+      },
     },
     arrivalLocation: {
       "@type": "Place",
@@ -267,10 +316,24 @@ export function tripLd(
       address: { "@type": "PostalAddress", addressCountry: "SA" },
     },
     itinerary: [
-      { "@type": "City", name: "Makkah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
-      { "@type": "City", name: "Madinah", address: { "@type": "PostalAddress", addressCountry: "SA" } },
+      {
+        "@type": "City",
+        name: "Makkah",
+        address: { "@type": "PostalAddress", addressCountry: "SA" },
+      },
+      {
+        "@type": "City",
+        name: "Madinah",
+        address: { "@type": "PostalAddress", addressCountry: "SA" },
+      },
     ],
-    provider: { "@type": "TravelAgency", name: info.siteName, ...(info.address ? { address: info.address } : {}) },
+    provider: {
+      "@type": "TravelAgency",
+      name: info.siteName,
+      ...(info.address ? { address: info.address } : {}),
+      ...(info.logo ? { logo: absoluteImage(info.logo) } : {}),
+      ...(info.phone ? { telephone: info.phone } : {}),
+    },
     ...(harga ? { offers: offerLd(paket, harga, kota, provinsi) } : {}),
   };
 }
@@ -294,12 +357,26 @@ export function productLd(
     ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
     ...(imageUrl ? { image: imageUrl } : {}),
     brand: { "@type": "Brand", name: info.siteName },
-    ...(paket.airline ? { additionalProperty: { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } } : {}),
+    ...(paket.airline
+      ? { additionalProperty: { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } }
+      : {}),
     ...(paket.hotel_makkah
-      ? { additionalProperty: { "@type": "PropertyValue", name: "Hotel Makkah", value: paket.hotel_makkah } }
+      ? {
+          additionalProperty: {
+            "@type": "PropertyValue",
+            name: "Hotel Makkah",
+            value: paket.hotel_makkah,
+          },
+        }
       : {}),
     ...(paket.hotel_madinah
-      ? { additionalProperty: { "@type": "PropertyValue", name: "Hotel Madinah", value: paket.hotel_madinah } }
+      ? {
+          additionalProperty: {
+            "@type": "PropertyValue",
+            name: "Hotel Madinah",
+            value: paket.hotel_madinah,
+          },
+        }
       : {}),
     ...(harga ? { offers: offerLd(paket, harga, kota, provinsi) } : {}),
   };
@@ -348,7 +425,12 @@ export function layananKotaLd(
     areaServed: {
       "@type": "City",
       name: kota.nama,
-      address: { "@type": "PostalAddress", addressLocality: kota.nama, addressRegion: kota.provinsi, addressCountry: "ID" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: kota.nama,
+        addressRegion: kota.provinsi,
+        addressCountry: "ID",
+      },
     },
     availableChannel: {
       "@type": "ServiceChannel",
@@ -362,7 +444,10 @@ export function layananKotaLd(
             "@type": "OfferCatalog",
             name: `Paket umroh untuk jamaah ${kota.nama}`,
             itemListElement: katalog.map((k, i) => {
-              const availability = availabilityOf({ quota: k.quota, departure_date: k.departureDate });
+              const availability = availabilityOf({
+                quota: k.quota,
+                departure_date: k.departureDate,
+              });
               return {
                 "@type": "Offer",
                 position: i + 1,
@@ -370,16 +455,15 @@ export function layananKotaLd(
                 url: absoluteUrl(k.url),
                 availability,
                 ...(k.price ? { price: k.price, priceCurrency: "IDR" } : {}),
-                ...(k.departureDate
-                  ? {
-                      availabilityStarts: new Date().toISOString().slice(0, 10),
-                      availabilityEnds: k.departureDate,
-                      validThrough: k.departureDate,
-                      priceValidUntil: k.departureDate,
-                    }
-                  : {}),
+
                 ...(typeof k.quota === "number"
-                  ? { inventoryLevel: { "@type": "QuantitativeValue", value: k.quota, unitText: "jamaah" } }
+                  ? {
+                      inventoryLevel: {
+                        "@type": "QuantitativeValue",
+                        value: k.quota,
+                        unitText: "jamaah",
+                      },
+                    }
                   : {}),
                 ...(k.departureDate
                   ? {
@@ -391,7 +475,10 @@ export function layananKotaLd(
                         ...(tanggalAkhir(k.departureDate, k.durationDays ?? null)
                           ? { endDate: tanggalAkhir(k.departureDate, k.durationDays ?? null) }
                           : {}),
-                        departureLocation: { "@type": "Place", name: `${kota.nama}, ${kota.provinsi}` },
+                        departureLocation: {
+                          "@type": "Place",
+                          name: `${kota.nama}, ${kota.provinsi}`,
+                        },
                       },
                     }
                   : {}),
@@ -399,7 +486,12 @@ export function layananKotaLd(
                 eligibleRegion: {
                   "@type": "City",
                   name: kota.nama,
-                  address: { "@type": "PostalAddress", addressLocality: kota.nama, addressRegion: kota.provinsi, addressCountry: "ID" },
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: kota.nama,
+                    addressRegion: kota.provinsi,
+                    addressCountry: "ID",
+                  },
                 },
               };
             }),

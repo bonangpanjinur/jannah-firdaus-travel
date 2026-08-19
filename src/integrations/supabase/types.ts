@@ -279,8 +279,9 @@ export type Database = {
           tagline: string | null
           theme: string
           updated_at: string
-          whatsapp_number: string
-          whatsapp_template: string
+          operating_hours: string | null
+          whatsapp_number: string | null
+          whatsapp_template: string | null
           youtube: string | null
         }
         Insert: {
@@ -298,8 +299,9 @@ export type Database = {
           tagline?: string | null
           theme?: string
           updated_at?: string
-          whatsapp_number?: string
-          whatsapp_template?: string
+          operating_hours?: string | null
+          whatsapp_number?: string | null
+          whatsapp_template?: string | null
           youtube?: string | null
         }
         Update: {
@@ -317,8 +319,9 @@ export type Database = {
           tagline?: string | null
           theme?: string
           updated_at?: string
-          whatsapp_number?: string
-          whatsapp_template?: string
+          operating_hours?: string | null
+          whatsapp_number?: string | null
+          whatsapp_template?: string | null
           youtube?: string | null
         }
         Relationships: []

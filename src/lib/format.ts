@@ -41,9 +41,11 @@ function normalizeNumber(raw: string): string {
 }
 
 export function waLink(settings: SiteSettings | null | undefined, paketName?: string): string {
-  const number = normalizeNumber(settings?.whatsapp_number ?? "628123456789");
+  const rawNumber = settings?.whatsapp_number?.trim();
+  if (!rawNumber) return "/kontak";
+  const number = normalizeNumber(rawNumber);
   const template =
-    settings?.whatsapp_template ??
+    settings?.whatsapp_template?.trim() ||
     "Assalamu'alaikum, saya ingin bertanya tentang paket {paket}.";
   const text = template.replace("{paket}", paketName ?? "umroh yang tersedia");
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;

@@ -16,7 +16,17 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { ThemeApplier } from "@/components/site/theme-applier";
 import { ErrorState } from "@/components/site/error-state";
-import { loadSiteInfo, siteInfoFrom, socialLinks, SITE_CITY, SITE_REGION, DEFAULT_OG_IMAGE, absoluteUrl } from "@/lib/seo";
+import {
+  loadSiteInfo,
+  siteInfoFrom,
+  socialLinks,
+  openingHoursLd,
+  SITE_CITY,
+  SITE_REGION,
+  DEFAULT_OG_IMAGE,
+  absoluteUrl,
+} from "@/lib/seo";
+import { absoluteMediaUrl } from "@/lib/storage";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 
 import { Toaster } from "@/components/ui/sonner";
@@ -72,6 +82,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     const info = siteInfoFrom(loaderData?.info);
 
     const sameAs = socialLinks(info);
+    const openingHours = openingHoursLd(info.openingHours);
+    const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
     return {
       meta: [
         { charSet: "utf-8" },
@@ -108,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@type": "TravelAgency",
             "@id": absoluteUrl("/#organization"),
             name: info.siteName,
-            alternateName: [`${info.siteName} Umroh`, "Jannah Firdaus Umroh"],
+            alternateName: [`${info.siteName} Umroh`],
             description: info.about,
             slogan: info.tagline,
             url: absoluteUrl("/"),
@@ -119,10 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
               addressRegion: SITE_REGION,
               addressCountry: "ID",
             },
-            ...(info.address
-              ? { geo: { "@type": "GeoCoordinates", latitude: -6.2889, longitude: 106.8293 } }
-              : {}),
-            logo: absoluteUrl(DEFAULT_OG_IMAGE),
+            ...(logoUrl ? { logo: logoUrl } : {}),
             image: absoluteUrl(DEFAULT_OG_IMAGE),
             ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
             ...(info.email ? { email: info.email } : {}),
@@ -141,14 +150,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             areaServed: [SITE_CITY, "Jabodetabek", "Indonesia"],
             knowsLanguage: ["id"],
             priceRange: "IDR",
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                opens: "08:00",
-                closes: "20:00",
-              },
-            ],
+            ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
             makesOffer: {
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: "Paket perjalanan ibadah umroh" },
@@ -161,7 +163,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: info.siteName,
-            alternateName: "Jannah Firdaus Umroh",
+            alternateName: `${info.siteName} Umroh`,
             url: absoluteUrl("/"),
             inLanguage: "id-ID",
             publisher: { "@id": absoluteUrl("/#organization") },
@@ -170,7 +172,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       ],
     };
   },
-
 
   shellComponent: RootShell,
   component: RootComponent,
@@ -212,5 +213,4 @@ function RootComponent() {
       <Toaster />
     </QueryClientProvider>
   );
-
 }

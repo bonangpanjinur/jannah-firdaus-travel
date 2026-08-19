@@ -46,11 +46,13 @@ export const Route = createFileRoute("/umroh/$kota")({
       loadSiteInfo(context.queryClient),
       context.queryClient.ensureQueryData(packagesQuery()).catch((): Paket[] => []),
     ]);
-    return { info, kota, pakets: pakets.slice(0, 12) };
+    return { info, kota, pakets: pakets.slice(0, 3) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Halaman tidak ditemukan" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [{ title: "Halaman tidak ditemukan" }, { name: "robots", content: "noindex" }],
+      };
     }
     const info = siteInfoFrom(loaderData.info);
     const kota = loaderData.kota;
@@ -63,7 +65,10 @@ export const Route = createFileRoute("/umroh/$kota")({
     });
     const pakets = loaderData.pakets ?? [];
     const trips = pakets.map((paket) =>
-      tripLd(paket, hargaMulai(paket), info, { departureCity: kota.nama, departureRegion: kota.provinsi }),
+      tripLd(paket, hargaMulai(paket), info, {
+        departureCity: kota.nama,
+        departureRegion: kota.provinsi,
+      }),
     );
     const katalog = pakets.map((paket) => ({
       name: paket.name,
@@ -77,13 +82,21 @@ export const Route = createFileRoute("/umroh/$kota")({
     return {
       ...base,
       scripts: [
-        { type: "application/ld+json", children: JSON.stringify(faqLd(faqKota(kota, info.siteName))) },
-        { type: "application/ld+json", children: JSON.stringify(layananKotaLd(info, kota, path, katalog)) },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(faqLd(faqKota(kota, info.siteName))),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(layananKotaLd(info, kota, path, katalog)),
+        },
         ...(trips.length
           ? [
               {
                 type: "application/ld+json",
-                children: JSON.stringify(itemListLd(`Paket umroh untuk jamaah ${kota.nama}`, path, trips)),
+                children: JSON.stringify(
+                  itemListLd(`Paket umroh untuk jamaah ${kota.nama}`, path, trips),
+                ),
               },
             ]
           : []),
@@ -108,7 +121,9 @@ function KotaNotFound() {
   return (
     <main className="container-page py-20 text-center">
       <h1 className="font-display text-3xl">Area layanan tidak ditemukan</h1>
-      <p className="mt-3 text-sm text-muted-foreground">Silakan pilih kota lain dari daftar area layanan kami.</p>
+      <p className="mt-3 text-sm text-muted-foreground">
+        Silakan pilih kota lain dari daftar area layanan kami.
+      </p>
       <Link to="/umroh" className="btn-gold mt-6 inline-flex">
         Lihat area layanan
       </Link>
@@ -117,9 +132,10 @@ function KotaNotFound() {
 }
 
 function HalamanKota() {
-  const { kota } = Route.useLoaderData();
+  const { kota, pakets: initialPakets } = Route.useLoaderData();
   const { data: settings } = useSettings();
-  const { data: pakets = [] } = useQuery(packagesQuery());
+  const { data: queryPakets } = useQuery(packagesQuery());
+  const pakets = (queryPakets?.length ? queryPakets : initialPakets).slice(0, 3);
   const nama = settings?.agency_name ?? "Kami";
   const termurah = pakets
     .map((p) => hargaMulai(p))
@@ -131,9 +147,13 @@ function HalamanKota() {
   return (
     <main className="container-page py-10 sm:py-14">
       <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground">
-        <Link to="/" className="hover:underline">Beranda</Link>
+        <Link to="/" className="hover:underline">
+          Beranda
+        </Link>
         <span className="px-2">/</span>
-        <Link to="/umroh" className="hover:underline">Area Layanan</Link>
+        <Link to="/umroh" className="hover:underline">
+          Area Layanan
+        </Link>
         <span className="px-2">/</span>
         <span className="text-foreground">Umroh {kota.nama}</span>
       </nav>
@@ -146,8 +166,12 @@ function HalamanKota() {
           {termurah ? ` Paket tersedia mulai ${formatRupiah(termurah)} per jamaah.` : ""}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link to="/paket" className="btn-gold">Lihat jadwal keberangkatan</Link>
-          <Link to="/kontak" className="btn-ghost">Hubungi kami</Link>
+          <Link to="/paket" className="btn-gold">
+            Lihat jadwal keberangkatan
+          </Link>
+          <Link to="/kontak" className="btn-ghost">
+            Hubungi kami
+          </Link>
         </div>
       </header>
 
@@ -159,7 +183,8 @@ function HalamanKota() {
         <div className="bento-card p-6">
           <h2 className="font-display text-xl">Keberangkatan</h2>
           <p className="mt-3 text-sm/6 text-muted-foreground">
-            Jamaah {kota.nama} berangkat dari {kota.bandara} dengan pendampingan tim sejak titik kumpul.
+            Jamaah {kota.nama} berangkat dari {kota.bandara} dengan pendampingan tim sejak titik
+            kumpul.
           </p>
         </div>
         <div className="bento-card p-6">
@@ -170,20 +195,31 @@ function HalamanKota() {
         </div>
       </section>
 
-      <section className="mt-14">
-        <h2 className="font-display text-2xl">Wilayah {kota.nama} yang kami layani</h2>
-        <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-          {kota.wilayah.map((w) => (
-            <li key={w} className="rounded-full border border-border px-3 py-1 text-muted-foreground">{w}</li>
-          ))}
-        </ul>
+      <section className="mt-14 grid gap-4 md:grid-cols-2">
+        <div className="bento-card p-6">
+          <h2 className="font-display text-2xl">Pendampingan untuk jamaah {kota.nama}</h2>
+          <p className="mt-3 text-sm/7 text-muted-foreground">{kota.service_note}</p>
+        </div>
+        <div className="bento-card p-6">
+          <h2 className="font-display text-2xl">Wilayah {kota.nama} yang kami layani</h2>
+          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+            {kota.wilayah.map((w) => (
+              <li
+                key={w}
+                className="rounded-full border border-border px-3 py-1 text-muted-foreground"
+              >
+                {w}
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       {pakets.length > 0 ? (
         <section className="mt-14">
           <h2 className="font-display text-2xl">Paket umroh untuk jamaah {kota.nama}</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-            {pakets.slice(0, 3).map((paket) => (
+            {pakets.map((paket) => (
               <PackageCard key={paket.id} paket={paket} />
             ))}
           </div>
@@ -207,7 +243,11 @@ function HalamanKota() {
         <ul className="mt-4 flex flex-wrap gap-2 text-sm">
           {lainnya.map((k) => (
             <li key={k.slug}>
-              <Link to="/umroh/$kota" params={{ kota: k.slug }} className="rounded-full border border-border px-3 py-1 text-muted-foreground hover:text-foreground">
+              <Link
+                to="/umroh/$kota"
+                params={{ kota: k.slug }}
+                className="rounded-full border border-border px-3 py-1 text-muted-foreground hover:text-foreground"
+              >
                 Umroh {k.nama}
               </Link>
             </li>
