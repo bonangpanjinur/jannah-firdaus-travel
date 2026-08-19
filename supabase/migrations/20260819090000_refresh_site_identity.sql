@@ -14,7 +14,7 @@ set
   address = 'Jl. KH Abdullah Syafei No.21D, RT.1/RW.3, Kb. Baru, Kec. Tebet, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12830',
   instagram = 'umrohjannahfirdaustravel',
   whatsapp_number = null,
-  whatsapp_template = null,
+  whatsapp_template = 'Assalamu''alaikum, saya ingin bertanya tentang paket {paket}.',
   license_text = null,
   hero_title = null,
   hero_subtitle = null,

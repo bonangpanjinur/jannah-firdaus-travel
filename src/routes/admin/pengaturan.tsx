@@ -35,7 +35,7 @@ function AdminPengaturan() {
           ...rest,
           agency_name: form.agency_name.trim(),
           whatsapp_number: form.whatsapp_number?.trim() || null,
-          whatsapp_template: form.whatsapp_template?.trim() || null,
+          whatsapp_template: form.whatsapp_template?.trim() || "Assalamu'alaikum, saya ingin bertanya tentang paket {paket}.",
           operating_hours: form.operating_hours?.trim() || null,
         })
         .eq("id", 1);
