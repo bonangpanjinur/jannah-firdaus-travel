@@ -34,6 +34,7 @@ import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
 import { Route as UmrohIndexRouteImport } from './routes/umroh.index'
 import { Route as UmrohKotaRouteImport } from './routes/umroh.$kota'
 import { Route as AdminPaketIdRouteImport } from './routes/admin/paket.$id'
+import { Route as AdminPaketImportRouteImport } from './routes/admin/paket.import'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -160,6 +161,11 @@ const AdminPaketIdRoute = AdminPaketIdRouteImport.update({
   path: '/$id',
   getParentRoute: () => AdminPaketRoute,
 } as any)
+const AdminPaketImportRoute = AdminPaketImportRouteImport.update({
+  id: '/import',
+  path: '/import',
+  getParentRoute: () => AdminPaketRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -187,6 +193,7 @@ export interface FileRoutesByFullPath {
   '/paket/': typeof PaketIndexRoute
   '/umroh/': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
+  '/admin/paket/import': typeof AdminPaketImportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -213,6 +220,7 @@ export interface FileRoutesByTo {
   '/paket': typeof PaketIndexRoute
   '/umroh': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
+  '/admin/paket/import': typeof AdminPaketImportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -241,6 +249,7 @@ export interface FileRoutesById {
   '/paket/': typeof PaketIndexRoute
   '/umroh/': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
+  '/admin/paket/import': typeof AdminPaketImportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -270,6 +279,7 @@ export interface FileRouteTypes {
     | '/paket/'
     | '/umroh/'
     | '/admin/paket/$id'
+    | '/admin/paket/import'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -296,6 +306,7 @@ export interface FileRouteTypes {
     | '/paket'
     | '/umroh'
     | '/admin/paket/$id'
+    | '/admin/paket/import'
   id:
     | '__root__'
     | '/'
@@ -323,6 +334,7 @@ export interface FileRouteTypes {
     | '/paket/'
     | '/umroh/'
     | '/admin/paket/$id'
+    | '/admin/paket/import'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -521,15 +533,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPaketIdRouteImport
       parentRoute: typeof AdminPaketRoute
     }
+    '/admin/paket/import': {
+      id: '/admin/paket/import'
+      path: '/import'
+      fullPath: '/admin/paket/import'
+      preLoaderRoute: typeof AdminPaketImportRouteImport
+      parentRoute: typeof AdminPaketRoute
+    }
   }
 }
 
 interface AdminPaketRouteChildren {
   AdminPaketIdRoute: typeof AdminPaketIdRoute
+  AdminPaketImportRoute: typeof AdminPaketImportRoute
 }
 
 const AdminPaketRouteChildren: AdminPaketRouteChildren = {
   AdminPaketIdRoute: AdminPaketIdRoute,
+  AdminPaketImportRoute: AdminPaketImportRoute,
 }
 
 const AdminPaketRouteWithChildren = AdminPaketRoute._addFileChildren(
