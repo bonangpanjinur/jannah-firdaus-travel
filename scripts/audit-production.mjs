@@ -1,5 +1,11 @@
 const base = (process.env.SITE_URL ?? "https://www.jannahfirdaustravel.co.id").replace(/\/$/, "");
-const paths = ["/", "/umroh", "/paket", "/paket/umroh-reguler-9-hari"];
+const paths = [
+  "/",
+  "/umroh",
+  "/paket",
+  "/paket/umroh-reguler-9-hari",
+  "/umroh/provinsi/jawa-barat",
+];
 const timeoutMs = Number(process.env.AUDIT_TIMEOUT_MS ?? 20000);
 const requiredHeaders = [
   "x-content-type-options",
@@ -34,6 +40,15 @@ function hasType(html, type) {
 function hasEarlyThemeGuard(html) {
   return /data-theme|color-scheme|theme/i.test(html.slice(0, 12000));
 }
+function hasHomepageBrandSignals(html, path) {
+  if (path !== "/") return true;
+  const title = html.match(/<title[^>]*>([^<]+)<\/title>/i)?.[1] ?? "";
+  const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, " ") ?? "";
+  return /Jannah Firdaus/i.test(title) && /Jannah Firdaus/i.test(h1);
+}
+function hasWebsiteSchema(html, path) {
+  return path !== "/" || hasType(html, "WebSite");
+}
 
 let failures = 0;
 for (const path of paths) {
@@ -44,6 +59,8 @@ for (const path of paths) {
       http: response.status === 200,
       ttfb_proxy_ms: elapsedMs,
       canonical: canonical(body),
+      homepageBrand: hasHomepageBrandSignals(body, path),
+      websiteSchema: hasWebsiteSchema(body, path),
       travelAgency: hasType(body, "TravelAgency"),
       faqPage: hasType(body, "FAQPage"),
       breadcrumb: hasType(body, "BreadcrumbList"),
@@ -58,7 +75,14 @@ for (const path of paths) {
     const requiredSchemaFailure = path.startsWith("/umroh/")
       ? !checks.travelAgency || !checks.faqPage || !checks.breadcrumb
       : !checks.travelAgency;
-    if (!checks.http || missingHeaders.length || canonicalFailure || requiredSchemaFailure)
+    if (
+      !checks.http ||
+      missingHeaders.length ||
+      canonicalFailure ||
+      requiredSchemaFailure ||
+      !checks.homepageBrand ||
+      !checks.websiteSchema
+    )
       failures++;
     console.log(
       JSON.stringify(

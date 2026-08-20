@@ -20,7 +20,7 @@ import {
 } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
-import { loadSiteInfo, siteInfoFrom, pageMeta, SITE_CITY, SITE_DOMAIN } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, pageMeta, SEO_BRAND, SITE_CITY, SITE_DOMAIN } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
@@ -28,8 +28,8 @@ export const Route = createFileRoute("/")({
     const info = siteInfoFrom(loaderData);
     return {
       ...pageMeta({
-        title: `${info.siteName} — Travel Umroh ${SITE_CITY}`,
-        description: `${info.siteName}, travel umroh ${SITE_CITY}: paket umroh terjadwal dengan harga transparan, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah. Konsultasi gratis via WhatsApp.`,
+        title: `${SEO_BRAND} | Travel Umroh Resmi ${SITE_CITY}`,
+        description: `${SEO_BRAND} melayani perjalanan umroh resmi dari ${SITE_CITY} ke seluruh Indonesia, dengan paket terjadwal, pendampingan ibadah, dan konsultasi transparan melalui WhatsApp.`,
         path: "/",
         siteName: info.siteName,
       }),
@@ -94,6 +94,7 @@ const testimoni = [
 ];
 
 function Beranda() {
+  const info = Route.useLoaderData();
   const { data: settings } = useSettings();
   const { data: packages = [] } = useQuery(packagesQuery());
   const { data: gallery = [] } = useQuery(galleryQuery);
@@ -124,10 +125,14 @@ function Beranda() {
               {settings?.license_text ?? "Travel umroh berizin resmi"}
             </p>
             <h1 className="font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-6xl">
-              {settings?.hero_title?.trim() || DEFAULT_HERO_TITLE}
+              {SEO_BRAND}: {settings?.hero_title?.trim() || DEFAULT_HERO_TITLE}
             </h1>
             <p className="mt-4 max-w-xl text-sm/7 text-muted-foreground sm:mt-5 sm:text-base/7">
               {settings?.hero_subtitle?.trim() || DEFAULT_HERO_SUBTITLE}
+            </p>
+            <p className="mt-3 text-xs/6 text-muted-foreground sm:text-sm/6">
+              {info.siteName} melayani konsultasi umroh dari Jakarta Selatan untuk jamaah di seluruh
+              Indonesia.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg" className="w-full sm:w-auto">
