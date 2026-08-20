@@ -9,7 +9,6 @@ const STATIC_PATHS = [
   "/paket",
   "/umroh",
   "/umroh-jakarta-selatan",
-  ...KOTA_LAYANAN.map((kota) => `/umroh/${kota.slug}`),
   "/biaya-umroh",
   "/syarat-umroh",
   "/umroh-plus",
@@ -74,10 +73,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           return urlEntry(origin, `/paket/${row.slug}`, row.updated_at, imgUrl);
         });
 
+        const cityPaths = (Array.isArray(KOTA_LAYANAN) ? KOTA_LAYANAN : []).map(
+          (kota) => `/umroh/${kota.slug}`,
+        );
         const body = [
           '<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-          ...STATIC_PATHS.map((path) => urlEntry(origin, path)),
+          ...[...STATIC_PATHS, ...cityPaths].map((path) => urlEntry(origin, path)),
           ...paketEntries,
           "</urlset>",
         ].join("\n");

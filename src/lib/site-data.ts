@@ -1,4 +1,4 @@
-import { supabase } from "@/integrations/supabase/client";
+import { hasSupabaseConfig, supabase } from "@/integrations/supabase/client";
 
 export interface SiteSettings {
   id: number;
@@ -102,6 +102,7 @@ const normalizePaket = (row: Paket): Paket => ({
 export const settingsQuery = {
   queryKey: ["site-settings"] as const,
   queryFn: async (): Promise<SiteSettings | null> => {
+    if (!hasSupabaseConfig()) return null;
     const { data, error } = await db().from("site_settings").select("*").eq("id", 1).maybeSingle();
     if (error) throw error;
     return (data as SiteSettings | null) ?? null;
@@ -111,6 +112,7 @@ export const settingsQuery = {
 export const packagesQuery = (opts?: { includeDrafts?: boolean }) => ({
   queryKey: ["packages", opts?.includeDrafts ?? false] as const,
   queryFn: async (): Promise<Paket[]> => {
+    if (!hasSupabaseConfig()) return [];
     let q = db().from("packages").select("*");
     if (!opts?.includeDrafts) q = q.eq("is_published", true);
     const { data, error } = await q.order("sort_order", { ascending: true });
@@ -122,6 +124,7 @@ export const packagesQuery = (opts?: { includeDrafts?: boolean }) => ({
 export const packageBySlugQuery = (slug: string) => ({
   queryKey: ["package", slug] as const,
   queryFn: async (): Promise<Paket | null> => {
+    if (!hasSupabaseConfig()) return null;
     const { data, error } = await db().from("packages").select("*").eq("slug", slug).maybeSingle();
     if (error) throw error;
     return data ? normalizePaket(data as Paket) : null;
@@ -131,6 +134,7 @@ export const packageBySlugQuery = (slug: string) => ({
 export const packageByIdQuery = (id: string) => ({
   queryKey: ["package-id", id] as const,
   queryFn: async (): Promise<Paket | null> => {
+    if (!hasSupabaseConfig()) return null;
     const { data, error } = await db().from("packages").select("*").eq("id", id).maybeSingle();
     if (error) throw error;
     return data ? normalizePaket(data as Paket) : null;
@@ -141,7 +145,7 @@ export const itineraryQuery = (packageId: string | undefined) => ({
   queryKey: ["itinerary", packageId] as const,
   enabled: Boolean(packageId),
   queryFn: async (): Promise<ItineraryItem[]> => {
-    if (!packageId) return [];
+    if (!packageId || !hasSupabaseConfig()) return [];
     const { data, error } = await db()
       .from("package_itinerary")
       .select("*")
@@ -156,7 +160,7 @@ export const packageImagesQuery = (packageId: string | undefined) => ({
   queryKey: ["package-images", packageId] as const,
   enabled: Boolean(packageId),
   queryFn: async (): Promise<PackageImage[]> => {
-    if (!packageId) return [];
+    if (!packageId || !hasSupabaseConfig()) return [];
     const { data, error } = await db()
       .from("package_images")
       .select("*")
@@ -170,6 +174,7 @@ export const packageImagesQuery = (packageId: string | undefined) => ({
 export const galleryQuery = {
   queryKey: ["gallery"] as const,
   queryFn: async (): Promise<GalleryItem[]> => {
+    if (!hasSupabaseConfig()) return [];
     const { data, error } = await db()
       .from("gallery")
       .select("*")
@@ -182,6 +187,7 @@ export const galleryQuery = {
 export const messagesQuery = {
   queryKey: ["contact-messages"] as const,
   queryFn: async (): Promise<ContactMessage[]> => {
+    if (!hasSupabaseConfig()) return [];
     const { data, error } = await db()
       .from("contact_messages")
       .select("*")
@@ -194,6 +200,7 @@ export const messagesQuery = {
 export const registrationsQuery = {
   queryKey: ["registrations"] as const,
   queryFn: async (): Promise<Registration[]> => {
+    if (!hasSupabaseConfig()) return [];
     const { data, error } = await db()
       .from("registrations")
       .select("*")
