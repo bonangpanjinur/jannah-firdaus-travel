@@ -90,7 +90,7 @@ export const Route = createFileRoute("/umroh/$kota")({
         },
         {
           type: "application/ld+json",
-          children: JSON.stringify(faqLd(faqKota(kota, info.siteName))),
+          children: JSON.stringify(faqLd(faqKota(kota, info.siteName), path)),
         },
         {
           type: "application/ld+json",
@@ -109,11 +109,14 @@ export const Route = createFileRoute("/umroh/$kota")({
         {
           type: "application/ld+json",
           children: JSON.stringify(
-            breadcrumbLd([
-              { name: "Beranda", path: "/" },
-              { name: "Area Layanan", path: "/umroh" },
-              { name: `${SEO_BRAND} ${kota.nama}`, path },
-            ]),
+            breadcrumbLd(
+              [
+                { name: "Beranda", path: "/" },
+                { name: "Area Layanan", path: "/umroh" },
+                { name: `${SEO_BRAND} ${kota.nama}`, path },
+              ],
+              path,
+            ),
           ),
         },
       ],

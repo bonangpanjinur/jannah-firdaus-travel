@@ -218,11 +218,15 @@ export function pageMeta({
   };
 }
 
-export function breadcrumbLd(items: { name: string; path: string }[] | null | undefined) {
+export function breadcrumbLd(
+  items: { name: string; path: string }[] | null | undefined,
+  pagePath?: string,
+) {
   const list = Array.isArray(items) ? items : [];
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    ...(pagePath ? { "@id": `${absoluteUrl(pagePath)}#breadcrumb` } : {}),
     itemListElement: list.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -232,11 +236,12 @@ export function breadcrumbLd(items: { name: string; path: string }[] | null | un
   };
 }
 
-export function faqLd(items: { q: string; a: string }[] | null | undefined) {
+export function faqLd(items: { q: string; a: string }[] | null | undefined, pagePath?: string) {
   const list = Array.isArray(items) ? items : [];
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    ...(pagePath ? { "@id": `${absoluteUrl(pagePath)}#faq` } : {}),
     mainEntity: list.map((item) => ({
       "@type": "Question",
       name: item.q,

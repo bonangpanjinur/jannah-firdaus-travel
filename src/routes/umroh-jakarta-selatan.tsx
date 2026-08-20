@@ -57,14 +57,17 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
             ),
           ),
         },
-        { type: "application/ld+json", children: JSON.stringify(faqLd(FAQ)) },
+        { type: "application/ld+json", children: JSON.stringify(faqLd(FAQ, "/umroh-jakarta-selatan")) },
         {
           type: "application/ld+json",
           children: JSON.stringify(
-            breadcrumbLd([
-              { name: "Beranda", path: "/" },
-              { name: `${SEO_BRAND} Jakarta Selatan`, path: "/umroh-jakarta-selatan" },
-            ]),
+            breadcrumbLd(
+              [
+                { name: "Beranda", path: "/" },
+                { name: `${SEO_BRAND} Jakarta Selatan`, path: "/umroh-jakarta-selatan" },
+              ],
+              "/umroh-jakarta-selatan",
+            ),
           ),
         },
       ],
