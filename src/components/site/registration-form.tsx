@@ -21,36 +21,48 @@ export function RegistrationForm({ paket }: { paket: Paket }) {
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function submit(event: React.FormEvent) {
     event.preventDefault();
     if (sending) return;
+    setErrorMessage("");
     const name = form.name.trim();
     const phone = form.phone.trim();
     if (name.length < 3 || name.length > 100) {
-      toast.error("Nama minimal 3 karakter.");
+      const message = "Nama minimal 3 karakter.";
+      setErrorMessage(message);
+      toast.error(message);
       return;
     }
     if (!phoneRe.test(phone)) {
-      toast.error("Nomor WhatsApp tidak valid.");
+      const message = "Nomor WhatsApp tidak valid.";
+      setErrorMessage(message);
+      toast.error(message);
       return;
     }
     if (form.notes.length > 500) {
-      toast.error("Catatan maksimal 500 karakter.");
+      const message = "Catatan maksimal 500 karakter.";
+      setErrorMessage(message);
+      toast.error(message);
       return;
     }
     setSending(true);
-    const { error } = await db().from("registrations").insert({
-      package_id: paket.id,
-      package_name: paket.name,
-      name,
-      phone,
-      preferred_date: form.preferred_date || null,
-      notes: form.notes.trim() || null,
-    });
+    const { error } = await db()
+      .from("registrations")
+      .insert({
+        package_id: paket.id,
+        package_name: paket.name,
+        name,
+        phone,
+        preferred_date: form.preferred_date || null,
+        notes: form.notes.trim() || null,
+      });
     setSending(false);
     if (error) {
-      toast.error("Pendaftaran gagal dikirim. Coba lagi ya.");
+      const message = "Pendaftaran gagal dikirim. Coba lagi ya.";
+      setErrorMessage(message);
+      toast.error(message);
       return;
     }
     toast.success("Pendaftaran terkirim! Tim kami akan menghubungi Anda via WhatsApp.");
@@ -80,7 +92,29 @@ export function RegistrationForm({ paket }: { paket: Paket }) {
   }
 
   return (
-    <form onSubmit={submit} className="space-y-4" aria-label={`Formulir pendaftaran ${paket.name}`}>
+    <form
+      onSubmit={submit}
+      className="space-y-4"
+      aria-label={`Formulir pendaftaran ${paket.name}`}
+      noValidate
+    >
+      <div className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-xs/5 text-muted-foreground">
+        <p className="font-medium text-foreground">
+          Konsultasi dulu, bayar setelah detail dikonfirmasi
+        </p>
+        <p className="mt-1">
+          Kirim data awal untuk mendapatkan konfirmasi paket, ketersediaan, dan informasi pembayaran
+          dari tim kami.
+        </p>
+      </div>
+      {errorMessage ? (
+        <p
+          role="alert"
+          className="rounded-lg border border-destructive/30 bg-destructive/5 px-3 py-2 text-xs text-destructive"
+        >
+          {errorMessage}
+        </p>
+      ) : null}
       <div className="space-y-2">
         <Label htmlFor="reg-name">Nama lengkap</Label>
         <Input
@@ -97,6 +131,7 @@ export function RegistrationForm({ paket }: { paket: Paket }) {
         <Label htmlFor="reg-date">Tanggal keberangkatan pilihan</Label>
         <Input
           id="reg-date"
+          aria-label="Tanggal keberangkatan pilihan"
           type="date"
           value={form.preferred_date}
           onChange={(e) => setForm((f) => ({ ...f, preferred_date: e.target.value }))}
@@ -119,19 +154,33 @@ export function RegistrationForm({ paket }: { paket: Paket }) {
         <Label htmlFor="reg-notes">Catatan (opsional)</Label>
         <Textarea
           id="reg-notes"
+          aria-describedby="reg-notes-hint"
           rows={3}
           maxLength={500}
           placeholder="Jumlah jamaah, tipe kamar, atau pertanyaan lain"
           value={form.notes}
           onChange={(e) => setForm((f) => ({ ...f, notes: e.target.value }))}
         />
+        <div
+          id="reg-notes-hint"
+          className="flex justify-between gap-3 text-[11px] text-muted-foreground"
+        >
+          <span>Jumlah jamaah, tipe kamar, atau pertanyaan lain.</span>
+          <span>{form.notes.length}/500</span>
+        </div>
       </div>
-      <Button type="submit" size="lg" className="w-full" disabled={sending}>
+      <Button
+        type="submit"
+        size="lg"
+        className="min-h-12 w-full"
+        disabled={sending}
+        aria-busy={sending}
+      >
         <Send className="size-4" />
         {sending ? "Mengirim…" : "Kirim pendaftaran"}
       </Button>
       <p className="text-center text-[11px] leading-snug text-muted-foreground">
-        Gratis & tanpa biaya. Data Anda hanya dipakai tim kami untuk menghubungi Anda.
+        Gratis & tanpa biaya pendaftaran. Data Anda hanya dipakai tim kami untuk menghubungi Anda.
       </p>
     </form>
   );
