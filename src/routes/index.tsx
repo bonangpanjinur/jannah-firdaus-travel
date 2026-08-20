@@ -20,7 +20,7 @@ import {
 } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
-import { loadSiteInfo, siteInfoFrom, pageMeta, SITE_CITY } from "@/lib/seo";
+import { loadSiteInfo, siteInfoFrom, pageMeta, SITE_CITY, SITE_DOMAIN } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
@@ -34,6 +34,10 @@ export const Route = createFileRoute("/")({
         siteName: info.siteName,
       }),
       links: [
+        {
+          rel: "canonical",
+          href: `${SITE_DOMAIN}/`,
+        },
         {
           rel: "preload",
           as: "image",
