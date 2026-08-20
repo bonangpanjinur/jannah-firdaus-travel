@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "jannahfirdaustravel.co.id"
+        }
+      ],
+      "destination": "https://www.jannahfirdaustravel.co.id/$1",
+      "permanent": true
+    }
+  ]
+}

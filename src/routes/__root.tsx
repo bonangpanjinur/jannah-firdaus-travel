@@ -116,6 +116,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           href: logoUrl ?? "/favicon.ico",
           type: logoUrl ? undefined : "image/x-icon",
         },
+        { rel: "manifest", href: "/manifest.json" },
       ],
       scripts: [
         {

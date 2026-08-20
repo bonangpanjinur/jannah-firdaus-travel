@@ -7,11 +7,11 @@ export const SITE_TAGLINE_FALLBACK = "Melayani Sepenuh Hati";
 export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
 export const SITE_DESCRIPTION_FALLBACK =
-  "Jannah Firdaus Travel melayani perjalanan umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel di Makkah dan Madinah, serta konsultasi yang transparan.";
+  "Jannah Firdaus Travel melayani umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel nyaman, dan konsultasi transparan.";
 export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
 export const DEFAULT_OG_IMAGE_WIDTH = 1200;
 export const DEFAULT_OG_IMAGE_HEIGHT = 630;
-export const SITE_DOMAIN = "https://jannahfirdaustravel.co.id";
+export const SITE_DOMAIN = "https://www.jannahfirdaustravel.co.id";
 
 export interface SiteInfo {
   siteName: string;

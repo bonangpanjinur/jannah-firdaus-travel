@@ -1,0 +1,20 @@
+{
+  "name": "Jannah Firdaus Travel",
+  "short_name": "Jannah Firdaus",
+  "description": "Layanan perjalanan umroh Jannah Firdaus Travel.",
+  "lang": "id-ID",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4f8f1",
+  "theme_color": "#0b7f5f",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any maskable"
+    }
+  ]
+}

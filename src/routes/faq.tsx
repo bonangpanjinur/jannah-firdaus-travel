@@ -35,8 +35,8 @@ export const Route = createFileRoute("/faq")({
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
-      title: `FAQ Umroh: Pertanyaan yang Sering Diajukan — ${info.siteName}`,
-      description: `Jawaban atas pertanyaan umum seputar pendaftaran, pembayaran, kamar, dan bimbingan ibadah pada paket umroh ${info.siteName} ${SITE_CITY}.`,
+      title: `FAQ Umroh: Tanya Jawab — ${info.siteName}`,
+      description: `Jawaban seputar pendaftaran, pembayaran, fasilitas, dan bimbingan ibadah pada paket umroh ${info.siteName} di ${SITE_CITY}.`,
       path: "/faq",
       siteName: info.siteName,
     });
