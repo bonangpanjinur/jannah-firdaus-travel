@@ -74,7 +74,10 @@ function AreaLayanan() {
         </div>
 
         {provinsi.map((namaProvinsi) => (
-          <div key={namaProvinsi}>
+          <div
+            key={namaProvinsi}
+            className="[content-visibility:auto] [contain-intrinsic-size:600px]"
+          >
             <h2 className="font-display text-2xl">Area layanan {namaProvinsi}</h2>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {kotaPerProvinsi[namaProvinsi]!.map((kota) => {
