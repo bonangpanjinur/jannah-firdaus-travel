@@ -219,12 +219,18 @@ function DetailPaket() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
         <div className="container-page relative py-10 sm:py-14 md:py-20">
-          <nav aria-label="Breadcrumb" className="text-sm text-muted-foreground">
-            <Link to="/" className="hover:text-gold">
+          <nav aria-label="Breadcrumb" className="text-sm text-white/70">
+            <Link
+              to="/"
+              className="rounded-sm transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               Beranda
             </Link>
             <span className="px-2">/</span>
-            <Link to="/paket" className="hover:text-gold">
+            <Link
+              to="/paket"
+              className="rounded-sm transition-colors hover:text-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
               Paket Umroh
             </Link>
             <span className="px-2">/</span>
@@ -242,17 +248,22 @@ function DetailPaket() {
           <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-foreground sm:text-3xl md:text-5xl">
             {paket.name}
           </h1>
-          <p className="mt-4 max-w-2xl text-sm/7 text-muted-foreground">{paket.description}</p>
-          <p className="mt-6 text-xs uppercase tracking-wider text-muted-foreground">Mulai dari</p>
+          <p className="mt-4 max-w-2xl text-sm/7 text-white/75">{paket.description}</p>
+          <p className="mt-6 text-xs uppercase tracking-wider text-white/65">Mulai dari</p>
           <p className="font-display text-2xl text-gold sm:text-3xl">
             {formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button size="lg" className="w-full sm:w-auto" onClick={scrollToForm}>
+            <Button size="lg" className="min-h-12 w-full sm:w-auto" onClick={scrollToForm}>
               <ClipboardList className="size-4" />
               Daftar sekarang
             </Button>
-            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="min-h-12 w-full border-white/30 bg-black/10 text-white hover:bg-white/10 hover:text-white sm:w-auto"
+            >
               <a href={waLink(settings, paket.name)} target="_blank" rel="noreferrer">
                 <MessageCircle className="size-4" />
                 Tanya via WhatsApp
@@ -308,7 +319,7 @@ function DetailPaket() {
           ) : null}
 
           <Tabs defaultValue="fasilitas" className="mt-10">
-            <TabsList className="w-full justify-start overflow-x-auto">
+            <TabsList className="w-full justify-start gap-1 overflow-x-auto p-1">
               <TabsTrigger value="fasilitas">Fasilitas</TabsTrigger>
               <TabsTrigger value="itinerary">Itinerary</TabsTrigger>
               <TabsTrigger value="syarat">Syarat</TabsTrigger>
@@ -375,7 +386,7 @@ function DetailPaket() {
                   <figure key={img.id} className="group bento-card">
                     <button
                       type="button"
-                      className="block w-full"
+                      className="block w-full rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                       onClick={() => setLightbox({ src: img.src, caption: img.caption })}
                     >
                       {img.storage ? (

@@ -13,7 +13,11 @@ export function PackageCard({ paket }: { paket: Paket }) {
 
   return (
     <article className="bento-card group flex flex-col">
-      <Link to="/paket/$slug" params={{ slug: paket.slug }} className="block">
+      <Link
+        to="/paket/$slug"
+        params={{ slug: paket.slug }}
+        className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+      >
         <div className="relative aspect-4/3 overflow-hidden bg-muted">
           <StorageImage
             src={paket.flyer_url}
@@ -43,7 +47,11 @@ export function PackageCard({ paket }: { paket: Paket }) {
       </Link>
       <div className="flex flex-1 flex-col space-y-3 p-5">
         <h3 className="font-display text-lg leading-snug text-foreground">
-          <Link to="/paket/$slug" params={{ slug: paket.slug }}>
+          <Link
+            to="/paket/$slug"
+            params={{ slug: paket.slug }}
+            className="rounded-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
             {paket.name}
           </Link>
         </h3>
@@ -75,12 +83,12 @@ export function PackageCard({ paket }: { paket: Paket }) {
             <p className="font-display text-xl text-gold">{formatRupiah(hargaMulai(paket))}</p>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            <Button asChild size="sm" variant="outline">
+            <Button asChild size="sm" variant="outline" className="min-h-10">
               <Link to="/paket/$slug" params={{ slug: paket.slug }}>
                 Detail
               </Link>
             </Button>
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="min-h-10">
               <Link to="/paket/$slug" params={{ slug: paket.slug }} hash="daftar">
                 Daftar
               </Link>

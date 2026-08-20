@@ -5,7 +5,13 @@ import { ArrowDownUp, CalendarDays, ListFilter as Filter } from "lucide-react";
 import { PackageCard } from "@/components/site/package-card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { bulanTahun, hargaMulai } from "@/lib/format";
 import { packagesQuery, type Paket } from "@/lib/site-data";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, tripLd, itemListLd } from "@/lib/seo";
@@ -24,7 +30,12 @@ const HARGA_RANGES: { value: string; label: string; min: number; max: number }[]
   { value: "di-bawah-30-juta", label: "Di bawah Rp 30 juta", min: 0, max: 30_000_000 },
   { value: "30-40-juta", label: "Rp 30 – 40 juta", min: 30_000_000, max: 40_000_000 },
   { value: "40-50-juta", label: "Rp 40 – 50 juta", min: 40_000_000, max: 50_000_000 },
-  { value: "di-atas-50-juta", label: "Di atas Rp 50 juta", min: 50_000_000, max: Number.MAX_SAFE_INTEGER },
+  {
+    value: "di-atas-50-juta",
+    label: "Di atas Rp 50 juta",
+    min: 50_000_000,
+    max: Number.MAX_SAFE_INTEGER,
+  },
 ];
 
 export function slugify(value: string) {
@@ -65,7 +76,8 @@ function headline(search: PaketSearch) {
   if (search.bulan) bits.push(`Keberangkatan ${unslug(search.bulan)}`);
   if (search.maskapai) bits.push(`Maskapai ${unslug(search.maskapai)}`);
   if (search.hotel) bits.push(`Hotel ${unslug(search.hotel)}`);
-  if (search.harga) bits.push(HARGA_RANGES.find((r) => r.value === search.harga)?.label ?? unslug(search.harga));
+  if (search.harga)
+    bits.push(HARGA_RANGES.find((r) => r.value === search.harga)?.label ?? unslug(search.harga));
   return bits;
 }
 
@@ -81,8 +93,14 @@ export function filterPakets(packages: Paket[], search: PaketSearch): Paket[] {
   });
 
   return filtered.sort((a, b) => {
-    if (search.urut === "harga") return (hargaMulai(a) ?? Number.MAX_SAFE_INTEGER) - (hargaMulai(b) ?? Number.MAX_SAFE_INTEGER);
-    if (search.urut === "durasi") return (a.duration_days ?? Number.MAX_SAFE_INTEGER) - (b.duration_days ?? Number.MAX_SAFE_INTEGER);
+    if (search.urut === "harga")
+      return (
+        (hargaMulai(a) ?? Number.MAX_SAFE_INTEGER) - (hargaMulai(b) ?? Number.MAX_SAFE_INTEGER)
+      );
+    if (search.urut === "durasi")
+      return (
+        (a.duration_days ?? Number.MAX_SAFE_INTEGER) - (b.duration_days ?? Number.MAX_SAFE_INTEGER)
+      );
     return (a.departure_date ?? "9999-12-31").localeCompare(b.departure_date ?? "9999-12-31");
   });
 }
@@ -143,7 +161,9 @@ export const Route = createFileRoute("/paket/")({
             breadcrumbLd([
               { name: "Beranda", path: "/" },
               { name: "Paket Umroh", path: "/paket" },
-              ...(bits.length && indexable ? [{ name: bits[0] as string, path: canonicalPath(search) }] : []),
+              ...(bits.length && indexable
+                ? [{ name: bits[0] as string, path: canonicalPath(search) }]
+                : []),
             ]),
           ),
         },
@@ -153,7 +173,9 @@ export const Route = createFileRoute("/paket/")({
                 type: "application/ld+json",
                 children: JSON.stringify(
                   itemListLd(
-                    bits.length ? `Paket Umroh ${bits.join(" · ")}` : "Paket Umroh & Jadwal Keberangkatan",
+                    bits.length
+                      ? `Paket Umroh ${bits.join(" · ")}`
+                      : "Paket Umroh & Jadwal Keberangkatan",
                     indexable ? canonicalPath(search) : "/paket",
                     trips,
                   ),
@@ -183,12 +205,12 @@ function DaftarPaket() {
       replace: true,
     });
 
-  const opsiBulan = useMemo(() => uniqueOptions(packages, (p) => bulanTahun(p.departure_date)), [packages]);
-  const opsiMaskapai = useMemo(() => uniqueOptions(packages, (p) => p.airline), [packages]);
-  const opsiHotel = useMemo(
-    () => uniqueOptions(packages, (p) => p.hotel_makkah),
+  const opsiBulan = useMemo(
+    () => uniqueOptions(packages, (p) => bulanTahun(p.departure_date)),
     [packages],
   );
+  const opsiMaskapai = useMemo(() => uniqueOptions(packages, (p) => p.airline), [packages]);
+  const opsiHotel = useMemo(() => uniqueOptions(packages, (p) => p.hotel_makkah), [packages]);
 
   const hasil = useMemo(() => filterPakets(packages, search), [packages, search]);
 
@@ -198,11 +220,19 @@ function DaftarPaket() {
   return (
     <main className="container-page py-10 sm:py-14">
       <nav aria-label="Breadcrumb" className="text-xs text-muted-foreground">
-        <Link to="/" className="hover:underline">Beranda</Link>
+        <Link
+          to="/"
+          className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          Beranda
+        </Link>
         <span className="px-2">/</span>
         {bits.length ? (
           <>
-            <Link to="/paket" className="hover:underline">
+            <Link
+              to="/paket"
+              className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
               Paket Umroh
             </Link>
             <span className="px-2">/</span>
@@ -219,8 +249,8 @@ function DaftarPaket() {
           {bits.length ? `Paket Umroh ${bits.join(" · ")}` : "Pilih Jadwal Keberangkatan Anda"}
         </h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
-          Bandingkan jadwal, maskapai, hotel, dan kisaran harga yang paling sesuai untuk keluarga Anda. Setiap pilihan
-          filter memiliki alamat halaman sendiri sehingga mudah dibagikan.
+          Bandingkan jadwal, maskapai, hotel, dan kisaran harga yang paling sesuai untuk keluarga
+          Anda. Setiap pilihan filter memiliki alamat halaman sendiri sehingga mudah dibagikan.
         </p>
       </header>
 
@@ -238,9 +268,27 @@ function DaftarPaket() {
         </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <FilterSelect label="Tanggal keberangkatan" placeholder="Semua bulan" value={search.bulan ?? ""} options={opsiBulan} onChange={(v) => setFilter({ bulan: v })} />
-          <FilterSelect label="Maskapai" placeholder="Semua maskapai" value={search.maskapai ?? ""} options={opsiMaskapai} onChange={(v) => setFilter({ maskapai: v })} />
-          <FilterSelect label="Hotel Makkah" placeholder="Semua hotel" value={search.hotel ?? ""} options={opsiHotel} onChange={(v) => setFilter({ hotel: v })} />
+          <FilterSelect
+            label="Tanggal keberangkatan"
+            placeholder="Semua bulan"
+            value={search.bulan ?? ""}
+            options={opsiBulan}
+            onChange={(v) => setFilter({ bulan: v })}
+          />
+          <FilterSelect
+            label="Maskapai"
+            placeholder="Semua maskapai"
+            value={search.maskapai ?? ""}
+            options={opsiMaskapai}
+            onChange={(v) => setFilter({ maskapai: v })}
+          />
+          <FilterSelect
+            label="Hotel Makkah"
+            placeholder="Semua hotel"
+            value={search.hotel ?? ""}
+            options={opsiHotel}
+            onChange={(v) => setFilter({ hotel: v })}
+          />
           <FilterSelect
             label="Kisaran harga"
             placeholder="Semua harga"
@@ -252,9 +300,16 @@ function DaftarPaket() {
 
         <div className="mt-4 flex flex-wrap items-center gap-3 border-t border-border pt-4">
           <ArrowDownUp className="size-4 text-gold" />
-          <Label htmlFor="urut" className="shrink-0">Urutkan</Label>
-          <Select value={search.urut || "tanggal"} onValueChange={(v) => setFilter({ urut: v === "tanggal" ? "" : v })}>
-            <SelectTrigger id="urut" className="w-full sm:max-w-xs"><SelectValue /></SelectTrigger>
+          <Label htmlFor="urut" className="shrink-0">
+            Urutkan
+          </Label>
+          <Select
+            value={search.urut || "tanggal"}
+            onValueChange={(v) => setFilter({ urut: v === "tanggal" ? "" : v })}
+          >
+            <SelectTrigger id="urut" className="w-full sm:max-w-xs">
+              <SelectValue />
+            </SelectTrigger>
             <SelectContent>
               <SelectItem value="tanggal">Keberangkatan terdekat</SelectItem>
               <SelectItem value="harga">Harga terendah</SelectItem>
@@ -271,7 +326,7 @@ function DaftarPaket() {
               key={o.value}
               to="/paket"
               search={{ bulan: o.value }}
-              className={`rounded-full border px-3 py-1 transition-colors ${search.bulan === o.value ? "border-gold/50 text-gold" : "border-border text-muted-foreground hover:text-foreground"}`}
+              className={`inline-flex min-h-10 items-center rounded-full border px-4 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${search.bulan === o.value ? "border-gold/50 bg-gold/10 text-gold" : "border-border text-muted-foreground hover:border-gold/40 hover:text-foreground"}`}
             >
               Umroh {o.label}
             </Link>
@@ -279,7 +334,7 @@ function DaftarPaket() {
         </nav>
       ) : null}
 
-      <div className="mt-8 flex items-center gap-2 text-sm text-muted-foreground">
+      <div className="mt-8 flex items-center justify-between gap-3 text-sm text-muted-foreground">
         <CalendarDays className="size-4" />
         {isLoading ? "Memuat paket…" : `${hasil.length} paket tersedia`}
       </div>
@@ -294,7 +349,7 @@ function DaftarPaket() {
           </Button>
         </div>
       ) : (
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid items-stretch gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {hasil.map((paket) => (
             <PackageCard key={paket.id} paket={paket} />
           ))}
@@ -331,11 +386,15 @@ function FilterSelect({
     <div className="space-y-2">
       <Label>{label}</Label>
       <Select value={value || "semua"} onValueChange={(v) => onChange(v === "semua" ? "" : v)}>
-        <SelectTrigger><SelectValue placeholder={placeholder} /></SelectTrigger>
+        <SelectTrigger>
+          <SelectValue placeholder={placeholder} />
+        </SelectTrigger>
         <SelectContent>
           <SelectItem value="semua">{placeholder}</SelectItem>
           {options.map((o) => (
-            <SelectItem key={o.value} value={o.value}>{o.label}</SelectItem>
+            <SelectItem key={o.value} value={o.value}>
+              {o.label}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>
