@@ -88,6 +88,17 @@ export interface Registration {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const db = () => supabase as any;
 
+/**
+ * Rows from Supabase may contain null/undefined array fields when legacy or
+ * partially imported package data is present. Keep the UI/SSR contract stable.
+ */
+const normalizePaket = (row: Paket): Paket => ({
+  ...row,
+  includes: Array.isArray(row.includes) ? row.includes : [],
+  excludes: Array.isArray(row.excludes) ? row.excludes : [],
+  requirements: Array.isArray(row.requirements) ? row.requirements : [],
+});
+
 export const settingsQuery = {
   queryKey: ["site-settings"] as const,
   queryFn: async (): Promise<SiteSettings | null> => {
@@ -104,7 +115,7 @@ export const packagesQuery = (opts?: { includeDrafts?: boolean }) => ({
     if (!opts?.includeDrafts) q = q.eq("is_published", true);
     const { data, error } = await q.order("sort_order", { ascending: true });
     if (error) throw error;
-    return (data ?? []) as Paket[];
+    return ((data ?? []) as Paket[]).map(normalizePaket);
   },
 });
 
@@ -113,7 +124,7 @@ export const packageBySlugQuery = (slug: string) => ({
   queryFn: async (): Promise<Paket | null> => {
     const { data, error } = await db().from("packages").select("*").eq("slug", slug).maybeSingle();
     if (error) throw error;
-    return (data as Paket | null) ?? null;
+    return data ? normalizePaket(data as Paket) : null;
   },
 });
 
@@ -122,7 +133,7 @@ export const packageByIdQuery = (id: string) => ({
   queryFn: async (): Promise<Paket | null> => {
     const { data, error } = await db().from("packages").select("*").eq("id", id).maybeSingle();
     if (error) throw error;
-    return (data as Paket | null) ?? null;
+    return data ? normalizePaket(data as Paket) : null;
   },
 });
 
