@@ -14,6 +14,7 @@ import {
   tripLd,
   itemListLd,
   layananKotaLd,
+  localBusinessKotaLd,
   SITE_CITY,
   SEO_BRAND,
 } from "@/lib/seo";
@@ -83,6 +84,10 @@ export const Route = createFileRoute("/umroh/$kota")({
     return {
       ...base,
       scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(localBusinessKotaLd(info, kota, path)),
+        },
         {
           type: "application/ld+json",
           children: JSON.stringify(faqLd(faqKota(kota, info.siteName))),

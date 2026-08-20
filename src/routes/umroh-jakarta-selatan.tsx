@@ -9,6 +9,7 @@ import {
   pageMeta,
   breadcrumbLd,
   faqLd,
+  localBusinessKotaLd,
   SITE_CITY,
   SITE_REGION,
   SEO_BRAND,
@@ -46,6 +47,16 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
     return {
       ...base,
       scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(
+            localBusinessKotaLd(
+              info,
+              { nama: "Jakarta Selatan", provinsi: SITE_REGION },
+              "/umroh-jakarta-selatan",
+            ),
+          ),
+        },
         { type: "application/ld+json", children: JSON.stringify(faqLd(FAQ)) },
         {
           type: "application/ld+json",

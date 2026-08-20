@@ -112,6 +112,51 @@ export function socialLinks(info: SiteInfo): string[] {
   return list;
 }
 
+/** Schema bisnis lokal untuk halaman area layanan kota. */
+export function localBusinessKotaLd(
+  info: SiteInfo,
+  kota: { nama: string; provinsi: string },
+  path: string,
+) {
+  const businessId = absoluteUrl(`${path}#bisnis`);
+  const sameAs = socialLinks(info);
+  const hours = openingHoursLd(info.openingHours);
+  return {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "@id": businessId,
+    name: SEO_BRAND,
+    alternateName: info.siteName,
+    url: absoluteUrl(path),
+    ...(info.logo ? { image: absoluteImage(info.logo), logo: absoluteImage(info.logo) } : {}),
+    ...(info.about ? { description: info.about } : {}),
+    ...(info.phone ? { telephone: info.phone } : {}),
+    ...(info.email ? { email: info.email } : {}),
+    ...(info.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: info.address,
+            addressCountry: "ID",
+          },
+        }
+      : {}),
+    areaServed: {
+      "@type": "City",
+      name: kota.nama,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: kota.nama,
+        addressRegion: kota.provinsi,
+        addressCountry: "ID",
+      },
+    },
+    ...(hours ? { openingHoursSpecification: hours } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+    priceRange: "$$",
+  };
+}
+
 /** Mengubah path relatif menjadi URL absolut memakai domain final. */
 export function absoluteUrl(path: string): string {
   if (/^https?:\/\//i.test(path)) return path;
