@@ -200,6 +200,21 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    const reloadKey = "jannah-firdaus:chunk-reload-at";
+    const handlePreloadError = () => {
+      const previousReload = Number(sessionStorage.getItem(reloadKey) ?? 0);
+      const now = Date.now();
+      if (now - previousReload > 10_000) {
+        sessionStorage.setItem(reloadKey, String(now));
+        window.location.reload();
+      }
+    };
+
+    window.addEventListener("vite:preloadError", handlePreloadError);
+    return () => window.removeEventListener("vite:preloadError", handlePreloadError);
+  }, []);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isBackoffice = pathname.startsWith("/admin") || pathname.startsWith("/auth");
 
