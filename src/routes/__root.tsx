@@ -15,7 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
-import { ThemeApplier } from "@/components/site/theme-applier";
+import { isTheme, ThemeApplier } from "@/components/site/theme-applier";
 import { ErrorState } from "@/components/site/error-state";
 import {
   loadSiteInfo,
@@ -86,6 +86,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     const sameAs = socialLinks(info);
     const openingHours = openingHoursLd(info.openingHours);
     const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
+    const initialSettings = loaderData?.settings as SiteSettings | null | undefined;
+    const initialTheme = isTheme(initialSettings?.theme) ? initialSettings.theme : "noir-emas";
     return {
       meta: [
         { charSet: "utf-8" },
@@ -120,6 +122,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { rel: "manifest", href: "/manifest.json" },
       ],
       scripts: [
+        {
+          children: `document.documentElement.setAttribute("data-theme", "${initialTheme}");`,
+        },
         {
           type: "application/ld+json",
           children: JSON.stringify({

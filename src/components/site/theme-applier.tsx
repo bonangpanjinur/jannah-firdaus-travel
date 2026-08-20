@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { useSettings } from "@/hooks/use-site";
 
 export const THEMES = [
@@ -41,11 +41,14 @@ export function isTheme(value: unknown): value is ThemeValue {
 }
 
 /** Menerapkan tema tampilan depan dari pengaturan situs ke elemen <html>. */
+const useIsomorphicLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
 export function ThemeApplier() {
   const { data: settings } = useSettings();
   const theme = isTheme(settings?.theme) ? settings.theme : "noir-emas";
 
-  useEffect(() => {
+  // Apply before the first browser paint to prevent a black-to-light theme flash.
+  useIsomorphicLayoutEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
