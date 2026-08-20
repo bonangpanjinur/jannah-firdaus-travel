@@ -1,5 +1,11 @@
 import { hasSupabaseConfig, supabase } from "@/integrations/supabase/client";
 
+export const DEFAULT_HERO_TITLE = "Wujudkan Perjalanan Umroh Impian Bersama Kami";
+export const DEFAULT_HERO_SUBTITLE =
+  "Bimbingan ustadz berpengalaman, hotel nyaman, dan pelayanan penuh amanah untuk perjalanan ibadah yang tenang.";
+export const DEFAULT_ABOUT_TEXT =
+  "Jannah Firdaus Travel membantu keluarga Indonesia mempersiapkan perjalanan umroh dengan pendampingan yang amanah, informasi yang jelas, dan pelayanan yang tulus sejak konsultasi hingga kembali ke tanah air.";
+
 export interface SiteSettings {
   id: number;
   agency_name: string;

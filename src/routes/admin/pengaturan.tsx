@@ -8,7 +8,14 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { ImageUpload } from "@/components/admin/image-upload";
 import { useSettings } from "@/hooks/use-site";
-import { db, settingsQuery, type SiteSettings } from "@/lib/site-data";
+import {
+  db,
+  settingsQuery,
+  type SiteSettings,
+  DEFAULT_ABOUT_TEXT,
+  DEFAULT_HERO_SUBTITLE,
+  DEFAULT_HERO_TITLE,
+} from "@/lib/site-data";
 import { THEMES } from "@/components/site/theme-applier";
 
 export const Route = createFileRoute("/admin/pengaturan")({
@@ -21,7 +28,20 @@ function AdminPengaturan() {
   const [form, setForm] = useState<Partial<SiteSettings>>({});
 
   useEffect(() => {
-    if (data) setForm(data);
+    if (data) {
+      setForm({
+        ...data,
+        hero_title: data.hero_title?.trim() || DEFAULT_HERO_TITLE,
+        hero_subtitle: data.hero_subtitle?.trim() || DEFAULT_HERO_SUBTITLE,
+        about_text: data.about_text?.trim() || DEFAULT_ABOUT_TEXT,
+      });
+    } else {
+      setForm({
+        hero_title: DEFAULT_HERO_TITLE,
+        hero_subtitle: DEFAULT_HERO_SUBTITLE,
+        about_text: DEFAULT_ABOUT_TEXT,
+      });
+    }
   }, [data]);
 
   const save = useMutation({
@@ -150,6 +170,7 @@ function AdminPengaturan() {
           <Input
             value={form.hero_title ?? ""}
             onChange={(event) => field("hero_title", event.target.value)}
+            placeholder={DEFAULT_HERO_TITLE}
           />
         </div>
         <div className="space-y-2 md:col-span-2">
@@ -158,6 +179,7 @@ function AdminPengaturan() {
             rows={3}
             value={form.hero_subtitle ?? ""}
             onChange={(event) => field("hero_subtitle", event.target.value)}
+            placeholder={DEFAULT_HERO_SUBTITLE}
           />
         </div>
         <div className="space-y-2 md:col-span-2">
@@ -175,6 +197,7 @@ function AdminPengaturan() {
             rows={5}
             value={form.about_text ?? ""}
             onChange={(event) => field("about_text", event.target.value)}
+            placeholder={DEFAULT_ABOUT_TEXT}
           />
         </div>
         <div className="space-y-3 md:col-span-2">

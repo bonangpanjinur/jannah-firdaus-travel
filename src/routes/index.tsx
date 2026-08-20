@@ -12,7 +12,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { PackageCard } from "@/components/site/package-card";
 import { useSettings } from "@/hooks/use-site";
-import { galleryQuery, packagesQuery } from "@/lib/site-data";
+import {
+  DEFAULT_HERO_SUBTITLE,
+  DEFAULT_HERO_TITLE,
+  galleryQuery,
+  packagesQuery,
+} from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
 import { loadSiteInfo, siteInfoFrom, pageMeta, SITE_CITY } from "@/lib/seo";
@@ -103,11 +108,10 @@ function Beranda() {
               {settings?.license_text ?? "Travel umroh berizin resmi"}
             </p>
             <h1 className="font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-6xl">
-              {settings?.hero_title ?? "Wujudkan Perjalanan Umroh Impian Bersama Kami"}
+              {settings?.hero_title?.trim() || DEFAULT_HERO_TITLE}
             </h1>
             <p className="mt-4 max-w-xl text-sm/7 text-muted-foreground sm:mt-5 sm:text-base/7">
-              {settings?.hero_subtitle ??
-                "Bimbingan ustadz berpengalaman, hotel dekat Masjidil Haram, dan pelayanan penuh amanah."}
+              {settings?.hero_subtitle?.trim() || DEFAULT_HERO_SUBTITLE}
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild size="lg" className="w-full sm:w-auto">
