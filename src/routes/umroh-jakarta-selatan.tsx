@@ -43,6 +43,7 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
       description: `${SEO_BRAND} melayani jamaah umroh di Jakarta Selatan dan sekitarnya. Lihat paket terjadwal, hotel, pendampingan ibadah, dan konsultasi.`,
       path: "/umroh-jakarta-selatan",
       siteName: info.siteName,
+      imageAlt: `${SEO_BRAND} Jakarta Selatan — layanan perjalanan umroh`,
     });
     return {
       ...base,

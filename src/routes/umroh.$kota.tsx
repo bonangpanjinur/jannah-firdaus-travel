@@ -64,6 +64,7 @@ export const Route = createFileRoute("/umroh/$kota")({
       description: `${SEO_BRAND} melayani jamaah umroh dari ${kota.nama}, ${kota.provinsi}. Lihat paket, jadwal, hotel, manasik, dan pendampingan ibadah.`,
       path,
       siteName: info.siteName,
+      imageAlt: `${SEO_BRAND} ${kota.nama} — layanan perjalanan umroh`,
     });
     const pakets = loaderData.pakets ?? [];
     const trips = pakets.map((paket) =>
