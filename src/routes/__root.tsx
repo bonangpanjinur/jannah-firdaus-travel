@@ -29,6 +29,7 @@ import {
 } from "@/lib/seo";
 import { absoluteMediaUrl } from "@/lib/storage";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
+import { initAnalytics, trackEvent, trackPageView } from "@/lib/analytics";
 
 import { Toaster } from "@/components/ui/sonner";
 import { useRouterState } from "@tanstack/react-router";
@@ -218,6 +219,45 @@ function RootComponent() {
   }, []);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isBackoffice = pathname.startsWith("/admin") || pathname.startsWith("/auth");
+
+  useEffect(() => {
+    if (isBackoffice) return;
+    initAnalytics();
+    trackPageView(pathname);
+  }, [isBackoffice, pathname]);
+
+  useEffect(() => {
+    if (isBackoffice) return;
+    const trackElementEvent = (target: HTMLElement) => {
+      const eventName = target.dataset["analyticsEvent"];
+      if (!eventName) return;
+      trackEvent(eventName, {
+        page_path: window.location.pathname,
+        package_slug: target.dataset["analyticsPackage"],
+      });
+    };
+    const handleTrackedClick = (event: MouseEvent) => {
+      const target =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("[data-analytics-event]")
+          : null;
+      if (target) trackElementEvent(target);
+    };
+    const handleTrackedSubmit = (event: SubmitEvent) => {
+      const target =
+        event.target instanceof HTMLElement
+          ? event.target.closest<HTMLElement>("[data-analytics-event]")
+          : null;
+      if (target) trackElementEvent(target);
+    };
+
+    document.addEventListener("click", handleTrackedClick);
+    document.addEventListener("submit", handleTrackedSubmit);
+    return () => {
+      document.removeEventListener("click", handleTrackedClick);
+      document.removeEventListener("submit", handleTrackedSubmit);
+    };
+  }, [isBackoffice]);
 
   return (
     <QueryClientProvider client={queryClient}>

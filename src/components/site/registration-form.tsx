@@ -96,6 +96,7 @@ export function RegistrationForm({ paket }: { paket: Paket }) {
       onSubmit={submit}
       className="space-y-4"
       aria-label={`Formulir pendaftaran ${paket.name}`}
+      data-analytics-event="registration_submit"
       noValidate
     >
       <div className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-xs/5 text-muted-foreground">
