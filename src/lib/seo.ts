@@ -3,6 +3,7 @@ import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 import { absoluteMediaUrl } from "@/lib/storage";
 
 export const SITE_NAME_FALLBACK = "Jannah Firdaus Travel";
+export const SEO_BRAND = "Jannah Firdaus Tour Travel";
 export const SITE_TAGLINE_FALLBACK = "Melayani Sepenuh Hati";
 export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
@@ -418,7 +419,7 @@ export function layananKotaLd(
     "@type": "Service",
     "@id": absoluteUrl(`${path}#layanan`),
     serviceType: "Paket perjalanan umroh",
-    name: `Travel Umroh ${kota.nama}`,
+    name: `${SEO_BRAND} ${kota.nama}`,
     url: absoluteUrl(path),
     provider: {
       "@type": "TravelAgency",

@@ -15,6 +15,7 @@ import {
   itemListLd,
   layananKotaLd,
   SITE_CITY,
+  SEO_BRAND,
 } from "@/lib/seo";
 
 function faqKota(kota: KotaLayanan, siteName: string) {
@@ -58,8 +59,8 @@ export const Route = createFileRoute("/umroh/$kota")({
     const kota = loaderData.kota;
     const path = `/umroh/${kota.slug}`;
     const base = pageMeta({
-      title: `Travel Umroh ${kota.nama} — Paket & Jadwal ${info.siteName}`,
-      description: `Travel umroh untuk jamaah ${kota.nama}, ${kota.provinsi}. Paket umroh terjadwal, hotel dekat Masjidil Haram, manasik, dan pendampingan ibadah bersama ${info.siteName}.`,
+      title: `${SEO_BRAND} ${kota.nama} — Paket & Jadwal Umroh`,
+      description: `${SEO_BRAND} melayani jamaah umroh dari ${kota.nama}, ${kota.provinsi}. Lihat paket, jadwal, hotel, manasik, dan pendampingan ibadah.`,
       path,
       siteName: info.siteName,
     });
@@ -106,7 +107,7 @@ export const Route = createFileRoute("/umroh/$kota")({
             breadcrumbLd([
               { name: "Beranda", path: "/" },
               { name: "Area Layanan", path: "/umroh" },
-              { name: `Umroh ${kota.nama}`, path },
+              { name: `${SEO_BRAND} ${kota.nama}`, path },
             ]),
           ),
         },
@@ -155,14 +156,14 @@ function HalamanKota() {
           Area Layanan
         </Link>
         <span className="px-2">/</span>
-        <span className="text-foreground">Umroh {kota.nama}</span>
+        <span className="text-foreground">{SEO_BRAND} {kota.nama}</span>
       </nav>
 
       <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Area Layanan</p>
-        <h1 className="mt-2 font-display text-3xl sm:text-4xl">Travel Umroh {kota.nama}</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">{SEO_BRAND} {kota.nama}</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
-          {nama} melayani jamaah umroh asal {kota.nama}, {kota.provinsi}. {kota.intro}
+          {SEO_BRAND} melayani jamaah umroh asal {kota.nama}, {kota.provinsi}. {kota.intro}
           {termurah ? ` Paket tersedia mulai ${formatRupiah(termurah)} per jamaah.` : ""}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
@@ -248,7 +249,7 @@ function HalamanKota() {
                 params={{ kota: k.slug }}
                 className="rounded-full border border-border px-3 py-1 text-muted-foreground hover:text-foreground"
               >
-                Umroh {k.nama}
+                {SEO_BRAND} {k.nama}
               </Link>
             </li>
           ))}

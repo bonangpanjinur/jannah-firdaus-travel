@@ -11,11 +11,12 @@ import {
   faqLd,
   SITE_CITY,
   SITE_REGION,
+  SEO_BRAND,
 } from "@/lib/seo";
 
 const FAQ = [
   {
-    q: "Di mana kantor travel umroh Anda di Jakarta Selatan?",
+    q: `Di mana kantor ${SEO_BRAND} Jakarta Selatan?`,
     a: "Kantor kami berada di Jakarta Selatan. Alamat lengkap dan jam layanan tercantum pada halaman kontak, dan jamaah dapat membuat janji temu terlebih dahulu.",
   },
   {
@@ -37,8 +38,8 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
-      title: `Travel Umroh Jakarta Selatan Resmi — ${info.siteName}`,
-      description: `${info.siteName} adalah travel umroh di ${SITE_CITY}. Paket umroh terjadwal, hotel dekat Masjidil Haram, pendampingan ibadah, dan konsultasi langsung di kantor kami.`,
+      title: `${SEO_BRAND} Jakarta Selatan — Paket Umroh Resmi`,
+      description: `${SEO_BRAND} melayani jamaah umroh di Jakarta Selatan dan sekitarnya. Lihat paket terjadwal, hotel, pendampingan ibadah, dan konsultasi.`,
       path: "/umroh-jakarta-selatan",
       siteName: info.siteName,
     });
@@ -51,7 +52,7 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
           children: JSON.stringify(
             breadcrumbLd([
               { name: "Beranda", path: "/" },
-              { name: `Umroh ${SITE_CITY}`, path: "/umroh-jakarta-selatan" },
+              { name: `${SEO_BRAND} Jakarta Selatan`, path: "/umroh-jakarta-selatan" },
             ]),
           ),
         },
@@ -84,9 +85,9 @@ function UmrohJakartaSelatan() {
     <main className="container-page py-10 sm:py-14">
       <header className="max-w-2xl">
         <p className="eyebrow">Layanan Lokal</p>
-        <h1 className="mt-2 font-display text-3xl sm:text-4xl">Travel Umroh Jakarta Selatan</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">{SEO_BRAND} Jakarta Selatan</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
-          {nama} melayani jamaah umroh di {SITE_CITY}, {SITE_REGION}, dan sekitarnya. Konsultasi paket dapat dilakukan
+          {SEO_BRAND} melayani jamaah umroh di Jakarta Selatan, {SITE_REGION}, dan sekitarnya. Konsultasi paket dapat dilakukan
           langsung di kantor kami maupun secara daring.
           {termurah ? ` Paket kami tersedia mulai ${formatRupiah(termurah as number)} per jamaah.` : ""}
         </p>
