@@ -121,6 +121,16 @@ export function localBusinessKotaLd(
   const businessId = absoluteUrl(`${path}#bisnis`);
   const sameAs = socialLinks(info);
   const hours = openingHoursLd(info.openingHours);
+  const image = absoluteImage(info.logo);
+  const contactPoint = info.phone || info.email
+    ? {
+        "@type": "ContactPoint",
+        ...(info.phone ? { telephone: info.phone } : {}),
+        ...(info.email ? { email: info.email } : {}),
+        contactType: "customer service",
+        availableLanguage: ["id"],
+      }
+    : undefined;
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
@@ -128,7 +138,8 @@ export function localBusinessKotaLd(
     name: SEO_BRAND,
     alternateName: info.siteName,
     url: absoluteUrl(path),
-    ...(info.logo ? { image: absoluteImage(info.logo), logo: absoluteImage(info.logo) } : {}),
+    image,
+    logo: image,
     ...(info.about ? { description: info.about } : {}),
     ...(info.phone ? { telephone: info.phone } : {}),
     ...(info.email ? { email: info.email } : {}),
@@ -137,6 +148,8 @@ export function localBusinessKotaLd(
           address: {
             "@type": "PostalAddress",
             streetAddress: info.address,
+            addressLocality: SITE_CITY,
+            addressRegion: SITE_REGION,
             addressCountry: "ID",
           },
         }
@@ -151,6 +164,8 @@ export function localBusinessKotaLd(
         addressCountry: "ID",
       },
     },
+    serviceType: ["Perjalanan umroh", "Konsultasi umroh", "Manasik umroh"],
+    ...(contactPoint ? { contactPoint } : {}),
     ...(hours ? { openingHoursSpecification: hours } : {}),
     ...(sameAs.length ? { sameAs } : {}),
     priceRange: "$$",
