@@ -153,7 +153,7 @@ function AdminPaket() {
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">Isi paket seperti mengisi produk: flyer, deskripsi, pesawat, hotel, harga. Kolom kosong otomatis disembunyikan di halaman publik.</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <Button asChild variant="outline"><Link to="/admin/paket/import">Import CSV + ZIP</Link></Button>
+          <Button asChild variant="outline"><a href="/admin/paket/import">Import CSV + ZIP</a></Button>
           <Button onClick={() => setDraft({ ...empty })}>Tambah paket</Button>
         </div>
       </div>
