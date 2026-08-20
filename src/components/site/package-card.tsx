@@ -17,6 +17,8 @@ export function PackageCard({ paket }: { paket: Paket }) {
         to="/paket/$slug"
         params={{ slug: paket.slug }}
         className="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        data-analytics-event="package_view"
+        data-analytics-package={paket.slug}
       >
         <div className="relative aspect-4/3 overflow-hidden bg-muted">
           <StorageImage
@@ -53,6 +55,8 @@ export function PackageCard({ paket }: { paket: Paket }) {
             to="/paket/$slug"
             params={{ slug: paket.slug }}
             className="rounded-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            data-analytics-event="package_detail_click"
+            data-analytics-package={paket.slug}
           >
             {paket.name}
           </Link>
@@ -86,12 +90,23 @@ export function PackageCard({ paket }: { paket: Paket }) {
           </div>
           <div className="grid grid-cols-2 gap-2">
             <Button asChild size="sm" variant="outline" className="min-h-10">
-              <Link to="/paket/$slug" params={{ slug: paket.slug }}>
+              <Link
+                to="/paket/$slug"
+                params={{ slug: paket.slug }}
+                data-analytics-event="package_detail_click"
+                data-analytics-package={paket.slug}
+              >
                 Detail
               </Link>
             </Button>
             <Button asChild size="sm" className="min-h-10">
-              <Link to="/paket/$slug" params={{ slug: paket.slug }} hash="daftar">
+              <Link
+                to="/paket/$slug"
+                params={{ slug: paket.slug }}
+                hash="daftar"
+                data-analytics-event="package_registration_cta"
+                data-analytics-package={paket.slug}
+              >
                 Daftar
               </Link>
             </Button>

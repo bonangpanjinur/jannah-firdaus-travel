@@ -36,6 +36,7 @@ import { Route as UmrohIndexRouteImport } from './routes/umroh.index'
 import { Route as UmrohKotaRouteImport } from './routes/umroh.$kota'
 import { Route as AdminPaketIdRouteImport } from './routes/admin/paket.$id'
 import { Route as AdminPaketImportRouteImport } from './routes/admin/paket.import'
+import { Route as UmrohProvinsiProvinsiRouteImport } from './routes/umroh/provinsi.$provinsi'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -172,6 +173,11 @@ const AdminPaketImportRoute = AdminPaketImportRouteImport.update({
   path: '/import',
   getParentRoute: () => AdminPaketRoute,
 } as any)
+const UmrohProvinsiProvinsiRoute = UmrohProvinsiProvinsiRouteImport.update({
+  id: '/umroh/provinsi/$provinsi',
+  path: '/umroh/provinsi/$provinsi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -201,6 +207,7 @@ export interface FileRoutesByFullPath {
   '/umroh/': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
   '/admin/paket/import': typeof AdminPaketImportRoute
+  '/umroh/provinsi/$provinsi': typeof UmrohProvinsiProvinsiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -229,6 +236,7 @@ export interface FileRoutesByTo {
   '/umroh': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
   '/admin/paket/import': typeof AdminPaketImportRoute
+  '/umroh/provinsi/$provinsi': typeof UmrohProvinsiProvinsiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -259,6 +267,7 @@ export interface FileRoutesById {
   '/umroh/': typeof UmrohIndexRoute
   '/admin/paket/$id': typeof AdminPaketIdRoute
   '/admin/paket/import': typeof AdminPaketImportRoute
+  '/umroh/provinsi/$provinsi': typeof UmrohProvinsiProvinsiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -290,6 +299,7 @@ export interface FileRouteTypes {
     | '/umroh/'
     | '/admin/paket/$id'
     | '/admin/paket/import'
+    | '/umroh/provinsi/$provinsi'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -318,6 +328,7 @@ export interface FileRouteTypes {
     | '/umroh'
     | '/admin/paket/$id'
     | '/admin/paket/import'
+    | '/umroh/provinsi/$provinsi'
   id:
     | '__root__'
     | '/'
@@ -347,6 +358,7 @@ export interface FileRouteTypes {
     | '/umroh/'
     | '/admin/paket/$id'
     | '/admin/paket/import'
+    | '/umroh/provinsi/$provinsi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -367,6 +379,7 @@ export interface RootRouteChildren {
   UmrohKotaRoute: typeof UmrohKotaRoute
   PaketIndexRoute: typeof PaketIndexRoute
   UmrohIndexRoute: typeof UmrohIndexRoute
+  UmrohProvinsiProvinsiRoute: typeof UmrohProvinsiProvinsiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -560,6 +573,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPaketImportRouteImport
       parentRoute: typeof AdminPaketRoute
     }
+    '/umroh/provinsi/$provinsi': {
+      id: '/umroh/provinsi/$provinsi'
+      path: '/umroh/provinsi/$provinsi'
+      fullPath: '/umroh/provinsi/$provinsi'
+      preLoaderRoute: typeof UmrohProvinsiProvinsiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -621,6 +641,7 @@ const rootRouteChildren: RootRouteChildren = {
   UmrohKotaRoute: UmrohKotaRoute,
   PaketIndexRoute: PaketIndexRoute,
   UmrohIndexRoute: UmrohIndexRoute,
+  UmrohProvinsiProvinsiRoute: UmrohProvinsiProvinsiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

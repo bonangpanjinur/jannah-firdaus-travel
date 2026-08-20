@@ -39,6 +39,14 @@ export const Route = createFileRoute("/umroh/")({
 });
 
 const CITY_BATCH_SIZE = 60;
+function provinceSlug(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 function AreaLayanan() {
   const [visibleCount, setVisibleCount] = useState(CITY_BATCH_SIZE);
@@ -87,7 +95,16 @@ function AreaLayanan() {
             key={namaProvinsi}
             className="[content-visibility:auto] [contain-intrinsic-size:600px]"
           >
-            <h2 className="font-display text-2xl">Area layanan {namaProvinsi}</h2>
+            <div className="flex flex-wrap items-baseline justify-between gap-3">
+              <h2 className="font-display text-2xl">Area layanan {namaProvinsi}</h2>
+              <Link
+                to="/umroh/provinsi/$provinsi"
+                params={{ provinsi: provinceSlug(namaProvinsi) }}
+                className="text-sm text-gold hover:underline"
+              >
+                Lihat semua kota
+              </Link>
+            </div>
             <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {kotaPerProvinsi[namaProvinsi]!.map((kota) => {
                 const wilayah =

@@ -1,0 +1,76 @@
+const base = (process.env.SITE_URL ?? "https://www.jannahfirdaustravel.co.id").replace(/\/$/, "");
+const paths = ["/", "/umroh", "/paket", "/paket/umroh-reguler-9-hari"];
+const timeoutMs = Number(process.env.AUDIT_TIMEOUT_MS ?? 20000);
+const requiredHeaders = [
+  "x-content-type-options",
+  "x-frame-options",
+  "referrer-policy",
+  "permissions-policy",
+];
+
+async function fetchTimed(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const start = performance.now();
+  try {
+    const response = await fetch(url, {
+      redirect: "manual",
+      signal: controller.signal,
+      headers: { "user-agent": "jannah-firdaus-production-audit/1.0" },
+    });
+    const body = await response.text();
+    return { response, body, elapsedMs: Math.round(performance.now() - start) };
+  } finally {
+    clearTimeout(timer);
+  }
+}
+function canonical(html) {
+  const link = html.match(/<link\b[^>]*\brel=["'][^"']*\bcanonical\b[^"']*["'][^>]*>/i)?.[0] ?? "";
+  return link.match(/\bhref=["']([^"']+)["']/i)?.[1] ?? null;
+}
+function hasType(html, type) {
+  return new RegExp(`"@type"\\s*:\\s*(?:"${type}"|\\[[^\\]]*"${type}"[^\\]]*\\])`, "i").test(html);
+}
+function hasEarlyThemeGuard(html) {
+  return /data-theme|color-scheme|theme/i.test(html.slice(0, 12000));
+}
+
+let failures = 0;
+for (const path of paths) {
+  const url = `${base}${path}`;
+  try {
+    const { response, body, elapsedMs } = await fetchTimed(url);
+    const checks = {
+      http: response.status === 200,
+      ttfb_proxy_ms: elapsedMs,
+      canonical: canonical(body),
+      travelAgency: hasType(body, "TravelAgency"),
+      faqPage: hasType(body, "FAQPage"),
+      breadcrumb: hasType(body, "BreadcrumbList"),
+      themeGuard: hasEarlyThemeGuard(body),
+      securityHeaders: Object.fromEntries(
+        requiredHeaders.map((key) => [key, response.headers.get(key)]),
+      ),
+    };
+    const missingHeaders = requiredHeaders.filter((key) => !response.headers.get(key));
+    const requiredSchemaFailure = path.startsWith("/umroh/")
+      ? !checks.travelAgency || !checks.faqPage || !checks.breadcrumb
+      : !checks.travelAgency;
+    if (!checks.http || missingHeaders.length || !checks.canonical || requiredSchemaFailure)
+      failures++;
+    console.log(
+      JSON.stringify({ path, status: response.status, ...checks, missingHeaders }, null, 2),
+    );
+  } catch (error) {
+    failures++;
+    console.error(
+      JSON.stringify(
+        { path, error: error instanceof Error ? error.message : String(error) },
+        null,
+        2,
+      ),
+    );
+  }
+}
+if (failures) process.exit(1);
+console.log("Production audit passed for all priority routes.");

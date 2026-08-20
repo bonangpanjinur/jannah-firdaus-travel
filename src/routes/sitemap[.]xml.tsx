@@ -18,6 +18,15 @@ const STATIC_PATHS = [
   "/kontak",
 ];
 
+function provinceSlug(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 function escapeXml(value: string) {
   return value.replace(
     /[<>&'"]/g,
@@ -73,13 +82,17 @@ export const Route = createFileRoute("/sitemap.xml")({
           return urlEntry(origin, `/paket/${row.slug}`, row.updated_at, imgUrl);
         });
 
-        const cityPaths = (Array.isArray(KOTA_LAYANAN) ? KOTA_LAYANAN : []).map(
-          (kota) => `/umroh/${kota.slug}`,
-        );
+        const cities = Array.isArray(KOTA_LAYANAN) ? KOTA_LAYANAN : [];
+        const cityPaths = cities.map((kota) => `/umroh/${kota.slug}`);
+        const provincePaths = Array.from(
+          new Set(cities.map((kota) => provinceSlug(kota.provinsi))).values(),
+        ).map((slug) => `/umroh/provinsi/${slug}`);
         const body = [
           '<?xml version="1.0" encoding="UTF-8"?>',
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-          ...[...STATIC_PATHS, ...cityPaths].map((path) => urlEntry(origin, path)),
+          ...[...STATIC_PATHS, ...provincePaths, ...cityPaths].map((path) =>
+            urlEntry(origin, path),
+          ),
           ...paketEntries,
           "</urlset>",
         ].join("\n");
