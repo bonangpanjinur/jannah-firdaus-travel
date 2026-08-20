@@ -60,7 +60,10 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
             ),
           ),
         },
-        { type: "application/ld+json", children: JSON.stringify(faqLd(FAQ, "/umroh-jakarta-selatan")) },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(faqLd(FAQ, "/umroh-jakarta-selatan")),
+        },
         {
           type: "application/ld+json",
           children: JSON.stringify(
@@ -94,9 +97,12 @@ const WILAYAH = [
 
 function UmrohJakartaSelatan() {
   const { data: settings } = useSettings();
-  const { data: pakets = [] } = useQuery(packagesQuery());
+  const { data: pakets = [] } = useQuery(packagesQuery({ limit: 3 }));
   const nama = settings?.agency_name ?? "Kami";
-  const termurah = pakets.map((p) => hargaMulai(p)).filter(Boolean).sort((a, b) => (a as number) - (b as number))[0];
+  const termurah = pakets
+    .map((p) => hargaMulai(p))
+    .filter(Boolean)
+    .sort((a, b) => (a as number) - (b as number))[0];
 
   return (
     <main className="container-page py-10 sm:py-14">
@@ -104,9 +110,11 @@ function UmrohJakartaSelatan() {
         <p className="eyebrow">Layanan Lokal</p>
         <h1 className="mt-2 font-display text-3xl sm:text-4xl">{SEO_BRAND} Jakarta Selatan</h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
-          {SEO_BRAND} melayani jamaah umroh di Jakarta Selatan, {SITE_REGION}, dan sekitarnya. Konsultasi paket dapat dilakukan
-          langsung di kantor kami maupun secara daring.
-          {termurah ? ` Paket kami tersedia mulai ${formatRupiah(termurah as number)} per jamaah.` : ""}
+          {SEO_BRAND} melayani jamaah umroh di Jakarta Selatan, {SITE_REGION}, dan sekitarnya.
+          Konsultasi paket dapat dilakukan langsung di kantor kami maupun secara daring.
+          {termurah
+            ? ` Paket kami tersedia mulai ${formatRupiah(termurah as number)} per jamaah.`
+            : ""}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/paket" className="btn-gold">
@@ -125,12 +133,15 @@ function UmrohJakartaSelatan() {
         </div>
         <div className="bento-card p-6">
           <h2 className="font-display text-xl">Legalitas</h2>
-          <p className="mt-3 text-sm/6 text-muted-foreground">{settings?.license_text ?? "Tercantum pada halaman tentang kami."}</p>
+          <p className="mt-3 text-sm/6 text-muted-foreground">
+            {settings?.license_text ?? "Tercantum pada halaman tentang kami."}
+          </p>
         </div>
         <div className="bento-card p-6">
           <h2 className="font-display text-xl">Keberangkatan</h2>
           <p className="mt-3 text-sm/6 text-muted-foreground">
-            Titik kumpul di Bandara Soekarno-Hatta dengan pendampingan tim sejak sebelum keberangkatan.
+            Titik kumpul di Bandara Soekarno-Hatta dengan pendampingan tim sejak sebelum
+            keberangkatan.
           </p>
         </div>
       </section>
@@ -142,7 +153,10 @@ function UmrohJakartaSelatan() {
         </p>
         <ul className="mt-4 flex flex-wrap gap-2 text-sm">
           {WILAYAH.map((w) => (
-            <li key={w} className="rounded-full border border-border px-3 py-1 text-muted-foreground">
+            <li
+              key={w}
+              className="rounded-full border border-border px-3 py-1 text-muted-foreground"
+            >
               {w}
             </li>
           ))}

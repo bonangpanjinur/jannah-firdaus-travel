@@ -24,6 +24,10 @@ export const getRouter = () => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
+        // Public content changes infrequently; avoid an immediate client refetch
+        // after SSR hydration while still refreshing within one minute.
+        staleTime: 60_000,
+        gcTime: 5 * 60_000,
         // Surface data-fetch failures in the dev server / browser console.
         throwOnError: false,
       },

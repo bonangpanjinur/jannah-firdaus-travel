@@ -48,7 +48,7 @@ export const Route = createFileRoute("/umroh/$kota")({
     if (!kota) throw notFound();
     const [info, pakets] = await Promise.all([
       loadSiteInfo(context.queryClient),
-      context.queryClient.ensureQueryData(packagesQuery()).catch((): Paket[] => []),
+      context.queryClient.ensureQueryData(packagesQuery({ limit: 3 })).catch((): Paket[] => []),
     ]);
     return { info, kota, pakets: pakets.slice(0, 3) };
   },
@@ -146,7 +146,7 @@ function KotaNotFound() {
 function HalamanKota() {
   const { kota, pakets: initialPakets } = Route.useLoaderData();
   const { data: settings } = useSettings();
-  const { data: queryPakets } = useQuery(packagesQuery());
+  const { data: queryPakets } = useQuery(packagesQuery({ limit: 3 }));
   const pakets = (queryPakets?.length ? queryPakets : initialPakets).slice(0, 3);
   const nama = settings?.agency_name ?? "Kami";
   const termurah = pakets
@@ -167,12 +167,16 @@ function HalamanKota() {
           Area Layanan
         </Link>
         <span className="px-2">/</span>
-        <span className="text-foreground">{SEO_BRAND} {kota.nama}</span>
+        <span className="text-foreground">
+          {SEO_BRAND} {kota.nama}
+        </span>
       </nav>
 
       <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Area Layanan</p>
-        <h1 className="mt-2 font-display text-3xl sm:text-4xl">{SEO_BRAND} {kota.nama}</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">
+          {SEO_BRAND} {kota.nama}
+        </h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
           {SEO_BRAND} melayani jamaah umroh asal {kota.nama}, {kota.provinsi}. {kota.intro}
           {termurah ? ` Paket tersedia mulai ${formatRupiah(termurah)} per jamaah.` : ""}

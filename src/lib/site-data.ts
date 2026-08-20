@@ -107,6 +107,8 @@ const normalizePaket = (row: Paket): Paket => ({
 
 export const settingsQuery = {
   queryKey: ["site-settings"] as const,
+  staleTime: 60_000,
+  gcTime: 5 * 60_000,
   queryFn: async (): Promise<SiteSettings | null> => {
     if (!hasSupabaseConfig()) return null;
     const { data, error } = await db().from("site_settings").select("*").eq("id", 1).maybeSingle();
@@ -115,13 +117,17 @@ export const settingsQuery = {
   },
 };
 
-export const packagesQuery = (opts?: { includeDrafts?: boolean }) => ({
-  queryKey: ["packages", opts?.includeDrafts ?? false] as const,
+export const packagesQuery = (opts?: { includeDrafts?: boolean; limit?: number }) => ({
+  queryKey: ["packages", opts?.includeDrafts ?? false, opts?.limit ?? null] as const,
+  staleTime: 60_000,
+  gcTime: 5 * 60_000,
   queryFn: async (): Promise<Paket[]> => {
     if (!hasSupabaseConfig()) return [];
     let q = db().from("packages").select("*");
     if (!opts?.includeDrafts) q = q.eq("is_published", true);
-    const { data, error } = await q.order("sort_order", { ascending: true });
+    q = q.order("sort_order", { ascending: true });
+    if (opts?.limit) q = q.limit(opts.limit);
+    const { data, error } = await q;
     if (error) throw error;
     return ((data ?? []) as Paket[]).map(normalizePaket);
   },
@@ -129,6 +135,8 @@ export const packagesQuery = (opts?: { includeDrafts?: boolean }) => ({
 
 export const packageBySlugQuery = (slug: string) => ({
   queryKey: ["package", slug] as const,
+  staleTime: 60_000,
+  gcTime: 5 * 60_000,
   queryFn: async (): Promise<Paket | null> => {
     if (!hasSupabaseConfig()) return null;
     const { data, error } = await db().from("packages").select("*").eq("slug", slug).maybeSingle();
@@ -179,6 +187,8 @@ export const packageImagesQuery = (packageId: string | undefined) => ({
 
 export const galleryQuery = {
   queryKey: ["gallery"] as const,
+  staleTime: 60_000,
+  gcTime: 5 * 60_000,
   queryFn: async (): Promise<GalleryItem[]> => {
     if (!hasSupabaseConfig()) return [];
     const { data, error } = await db()
