@@ -172,11 +172,12 @@ export function pageMeta({
   };
 }
 
-export function breadcrumbLd(items: { name: string; path: string }[]) {
+export function breadcrumbLd(items: { name: string; path: string }[] | null | undefined) {
+  const list = Array.isArray(items) ? items : [];
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: list.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,
@@ -185,11 +186,12 @@ export function breadcrumbLd(items: { name: string; path: string }[]) {
   };
 }
 
-export function faqLd(items: { q: string; a: string }[]) {
+export function faqLd(items: { q: string; a: string }[] | null | undefined) {
+  const list = Array.isArray(items) ? items : [];
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: items.map((item) => ({
+    mainEntity: list.map((item) => ({
       "@type": "Question",
       name: item.q,
       acceptedAnswer: { "@type": "Answer", text: item.a },
@@ -383,15 +385,16 @@ export function productLd(
 }
 
 /** Daftar berurut paket sebagai ItemList (dipakai halaman daftar & kota). */
-export function itemListLd(name: string, path: string, trips: object[]) {
+export function itemListLd(name: string, path: string, trips: object[] | null | undefined) {
+  const list = Array.isArray(trips) ? trips : [];
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name,
     url: absoluteUrl(path),
-    numberOfItems: trips.length,
+    numberOfItems: list.length,
     itemListOrder: "https://schema.org/ItemListOrderAscending",
-    itemListElement: trips.map((trip, i) => ({ "@type": "ListItem", position: i + 1, item: trip })),
+    itemListElement: list.map((trip, i) => ({ "@type": "ListItem", position: i + 1, item: trip })),
   };
 }
 
@@ -407,8 +410,9 @@ export function layananKotaLd(
     departureDate?: string | null;
     quota?: number | null;
     durationDays?: number | null;
-  }[],
+  }[] | null | undefined,
 ) {
+  const list = Array.isArray(katalog) ? katalog : [];
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -438,12 +442,12 @@ export function layananKotaLd(
       servicePhone: info.phone ?? undefined,
       availableLanguage: { "@type": "Language", name: "Indonesian", alternateName: "id" },
     },
-    ...(katalog.length
+    ...(list.length
       ? {
           hasOfferCatalog: {
             "@type": "OfferCatalog",
             name: `Paket umroh untuk jamaah ${kota.nama}`,
-            itemListElement: katalog.map((k, i) => {
+            itemListElement: list.map((k, i) => {
               const availability = availabilityOf({
                 quota: k.quota,
                 departure_date: k.departureDate,

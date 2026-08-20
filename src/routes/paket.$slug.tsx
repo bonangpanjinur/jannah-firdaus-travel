@@ -154,8 +154,8 @@ function DetailPaket() {
   const { slug } = Route.useParams();
   const { data: settings } = useSettings();
   const { data: paket, isLoading } = useQuery(packageBySlugQuery(slug));
-  const { data: itinerary = [] } = useQuery(itineraryQuery(paket?.id));
-  const { data: images = [] } = useQuery(packageImagesQuery(paket?.id));
+  const { data: itinerary } = useQuery(itineraryQuery(paket?.id));
+  const { data: images } = useQuery(packageImagesQuery(paket?.id));
   const [lightbox, setLightbox] = useState<{ src: string; caption: string } | null>(null);
 
   function scrollToForm() {
@@ -185,6 +185,11 @@ function DetailPaket() {
     );
   }
 
+  const itineraryItems = Array.isArray(itinerary) ? itinerary : [];
+  const imageItems = Array.isArray(images) ? images : [];
+  const includes = Array.isArray(paket.includes) ? paket.includes : [];
+  const excludes = Array.isArray(paket.excludes) ? paket.excludes : [];
+  const requirements = Array.isArray(paket.requirements) ? paket.requirements : [];
   const faqItems = packageFaq(paket);
   const harga = [
     { label: "Quad (sekamar 4)", value: paket.price_quad },
@@ -193,8 +198,8 @@ function DetailPaket() {
   ];
 
   const galeri =
-    images.length > 0
-      ? images.map((img) => ({
+    imageItems.length > 0
+      ? imageItems.map((img) => ({
           id: img.id,
           src: img.image_url,
           caption: img.caption ?? `Foto paket ${paket.name}`,
@@ -314,7 +319,7 @@ function DetailPaket() {
               <div>
                 <h3 className="font-display text-lg">Termasuk</h3>
                 <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  {paket.includes.map((item) => (
+                  {includes.map((item) => (
                     <li key={item} className="flex gap-2">
                       <Check className="mt-0.5 size-4 shrink-0 text-primary" />
                       {item}
@@ -325,7 +330,7 @@ function DetailPaket() {
               <div>
                 <h3 className="font-display text-lg">Tidak termasuk</h3>
                 <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  {paket.excludes.map((item) => (
+                  {excludes.map((item) => (
                     <li key={item} className="flex gap-2">
                       <X className="mt-0.5 size-4 shrink-0 text-destructive" />
                       {item}
@@ -336,11 +341,11 @@ function DetailPaket() {
             </TabsContent>
 
             <TabsContent value="itinerary" className="mt-6">
-              {itinerary.length === 0 ? (
+              {itineraryItems.length === 0 ? (
                 <p className="text-sm text-muted-foreground">Itinerary akan segera diperbarui.</p>
               ) : (
                 <ol className="space-y-4 border-l border-border pl-6">
-                  {itinerary.map((item) => (
+                  {itineraryItems.map((item) => (
                     <li key={item.id} className="relative">
                       <span className="absolute -left-[31px] flex size-6 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
                         {item.day_number}
@@ -355,7 +360,7 @@ function DetailPaket() {
 
             <TabsContent value="syarat" className="mt-6">
               <ul className="space-y-2 text-sm text-muted-foreground">
-                {paket.requirements.map((item) => (
+                {requirements.map((item) => (
                   <li key={item} className="flex gap-2">
                     <FileText className="mt-0.5 size-4 shrink-0 text-primary" />
                     {item}
@@ -395,7 +400,7 @@ function DetailPaket() {
                   </figure>
                 ))}
               </div>
-              {images.length === 0 ? (
+              {imageItems.length === 0 ? (
                 <p className="mt-4 text-xs text-muted-foreground">
                   Foto dokumentasi umum. Foto khusus paket ini akan segera ditambahkan.
                 </p>
