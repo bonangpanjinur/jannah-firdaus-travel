@@ -148,8 +148,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banggai",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banggai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banggai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banggai, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -157,8 +159,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banggai Kepulauan",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banggai Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banggai Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banggai Kepulauan, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -166,8 +170,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banggai Laut",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banggai Laut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banggai Laut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banggai Laut, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -175,8 +181,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bantaeng",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bantaeng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bantaeng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bantaeng, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -184,8 +192,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Barru",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Barru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Barru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Barru, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -193,8 +203,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Boalemo",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Boalemo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Boalemo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Boalemo, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -202,8 +214,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bolaang Mongondow",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bolaang Mongondow dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bolaang Mongondow dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bolaang Mongondow, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -211,8 +225,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bolaang Mongondow Selatan",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bolaang Mongondow Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bolaang Mongondow Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bolaang Mongondow Selatan, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -220,8 +236,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bolaang Mongondow Timur",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bolaang Mongondow Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bolaang Mongondow Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bolaang Mongondow Timur, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -229,8 +247,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bolaang Mongondow Utara",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bolaang Mongondow Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bolaang Mongondow Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bolaang Mongondow Utara, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -238,8 +258,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bombana",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bombana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bombana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bombana, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -247,8 +269,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bone",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bone dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bone dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bone, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -256,8 +280,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bone Bolango",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bone Bolango dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bone Bolango dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bone Bolango, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -265,8 +291,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bulukumba",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bulukumba dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bulukumba dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bulukumba, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -274,8 +302,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buol",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buol dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buol dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buol, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -283,8 +313,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buru",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buru, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -292,8 +324,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buru Selatan",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buru Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buru Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buru Selatan, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -301,8 +335,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buton",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buton dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buton dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buton, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -310,8 +346,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buton Selatan",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buton Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buton Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buton Selatan, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -319,8 +357,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buton Tengah",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buton Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buton Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buton Tengah, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -328,8 +368,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buton Utara",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buton Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buton Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buton Utara, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -337,8 +379,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Donggala",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Donggala dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Donggala dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Donggala, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -346,8 +390,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Enrekang",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Enrekang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Enrekang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Enrekang, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -355,8 +401,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gorontalo",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gorontalo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gorontalo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gorontalo, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -364,8 +412,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gorontalo Utara",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gorontalo Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gorontalo Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gorontalo Utara, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -373,8 +423,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gowa",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gowa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gowa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gowa, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -382,8 +434,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Halmahera Barat",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Halmahera Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Halmahera Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Halmahera Barat, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -391,8 +445,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Halmahera Selatan",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Halmahera Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Halmahera Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Halmahera Selatan, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -400,8 +456,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Halmahera Tengah",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Halmahera Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Halmahera Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Halmahera Tengah, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -409,8 +467,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Halmahera Timur",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Halmahera Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Halmahera Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Halmahera Timur, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -418,8 +478,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Halmahera Utara",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Halmahera Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Halmahera Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Halmahera Utara, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -427,8 +489,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jeneponto",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jeneponto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jeneponto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jeneponto, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -436,8 +500,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Aru",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Aru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Aru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Aru, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -445,8 +511,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Sangihe",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Sangihe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Sangihe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Sangihe, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -454,8 +522,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Selayar",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Selayar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Selayar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Selayar, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -463,8 +533,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kep. Siau Tagulandang Biaro",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kep. Siau Tagulandang Biaro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kep. Siau Tagulandang Biaro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kep. Siau Tagulandang Biaro, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -472,8 +544,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Sula",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Sula dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Sula dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Sula, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -481,8 +555,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Talaud",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Talaud dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Talaud dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Talaud, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -490,8 +566,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Tanimbar",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Tanimbar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Tanimbar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Tanimbar, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -499,8 +577,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kolaka",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kolaka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kolaka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kolaka, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -508,8 +588,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kolaka Timur",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kolaka Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kolaka Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kolaka Timur, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -517,8 +599,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kolaka Utara",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kolaka Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kolaka Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kolaka Utara, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -526,8 +610,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Konawe",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Konawe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Konawe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Konawe, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -535,8 +621,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Konawe Kepulauan",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Konawe Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Konawe Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Konawe Kepulauan, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -544,8 +632,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Konawe Selatan",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Konawe Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Konawe Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Konawe Selatan, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -553,8 +643,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Konawe Utara",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Konawe Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Konawe Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Konawe Utara, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -562,8 +654,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Ambon",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Ambon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Ambon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Ambon, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -571,8 +665,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bau Bau",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bau Bau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bau Bau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bau Bau, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -580,8 +676,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bitung",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bitung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bitung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bitung, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -589,8 +687,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Gorontalo",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Gorontalo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Gorontalo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Gorontalo, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -598,8 +698,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Kendari",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Kendari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Kendari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Kendari, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -607,8 +709,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Kotamobagu",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Kotamobagu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Kotamobagu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Kotamobagu, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -616,8 +720,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Makassar",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Makassar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Makassar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Makassar, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -625,8 +731,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Manado",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Manado dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Manado dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Manado, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -634,8 +742,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Palopo",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Palopo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Palopo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Palopo, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -643,8 +753,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Palu",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Palu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Palu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Palu, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -652,8 +764,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Parepare",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Parepare dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Parepare dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Parepare, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -661,8 +775,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Ternate",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Ternate dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Ternate dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Ternate, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -670,8 +786,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tidore Kepulauan",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tidore Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tidore Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tidore Kepulauan, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -679,8 +797,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tomohon",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tomohon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tomohon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tomohon, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -688,8 +808,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tual",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tual dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tual dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tual, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -697,8 +819,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Luwu",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Luwu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Luwu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Luwu, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -706,8 +830,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Luwu Timur",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Luwu Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Luwu Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Luwu Timur, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -715,8 +841,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Majene",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Majene dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Majene dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Majene, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -724,8 +852,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Maluku Barat Daya",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Maluku Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Maluku Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Maluku Barat Daya, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -733,8 +863,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Maluku Tengah",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Maluku Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Maluku Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Maluku Tengah, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -742,8 +874,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Minahasa Selatan/Bolaang Mongondwo Timur",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Minahasa Selatan/Bolaang Mongondwo Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Minahasa Selatan/Bolaang Mongondwo Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Minahasa Selatan/Bolaang Mongondwo Timur, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -751,8 +885,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Minahasa Tenggara",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Minahasa Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Minahasa Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Minahasa Tenggara, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -760,8 +896,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Minahasa Utara",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Minahasa Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Minahasa Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Minahasa Utara, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -769,8 +907,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Morowali",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Morowali dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Morowali dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Morowali, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -778,8 +918,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mamasa",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mamasa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mamasa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mamasa, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -787,8 +929,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mamuju",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mamuju dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mamuju dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mamuju, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -796,8 +940,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mamuju Tengah",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mamuju Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mamuju Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mamuju Tengah, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -805,8 +951,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Maros",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Maros dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Maros dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Maros, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -814,8 +962,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Minahasa",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Minahasa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Minahasa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Minahasa, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -823,8 +973,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Minahasa Selatan",
     provinsi: "Sulawesi Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Minahasa Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Minahasa Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Minahasa Selatan, Sulawesi Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -832,8 +984,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Morowali Utara",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Morowali Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Morowali Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Morowali Utara, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -841,8 +995,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Muna",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Muna dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Muna dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Muna, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -850,8 +1006,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Muna Barat",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Muna Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Muna Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Muna Barat, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -859,8 +1017,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pohuwato",
     provinsi: "Gorontalo",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pohuwato dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pohuwato dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pohuwato, Gorontalo, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -868,8 +1028,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pangkajene Dan Kepulauan",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pangkajene Dan Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pangkajene Dan Kepulauan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pangkajene Dan Kepulauan, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -877,8 +1039,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Parigi Moutong",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Parigi Moutong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Parigi Moutong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Parigi Moutong, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -886,8 +1050,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pasangkayu",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pasangkayu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pasangkayu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pasangkayu, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -895,8 +1061,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pinrang",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pinrang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pinrang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pinrang, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -904,8 +1072,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Polewali Mandar",
     provinsi: "Sulawesi Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Polewali Mandar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Polewali Mandar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Polewali Mandar, Sulawesi Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -913,8 +1083,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pulau Morotai",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pulau Morotai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pulau Morotai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pulau Morotai, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -922,8 +1094,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pulau Taliabu",
     provinsi: "Maluku Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pulau Taliabu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pulau Taliabu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pulau Taliabu, Maluku Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -931,8 +1105,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Seram Bagian Barat",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Seram Bagian Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Seram Bagian Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Seram Bagian Barat, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -940,8 +1116,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Seram Bagian Timur",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Seram Bagian Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Seram Bagian Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Seram Bagian Timur, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -949,8 +1127,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sidenreng Rappang",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sidenreng Rappang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sidenreng Rappang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sidenreng Rappang, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -958,8 +1138,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sigi",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sigi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sigi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sigi, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -967,8 +1149,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sinjai",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sinjai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sinjai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sinjai, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -976,8 +1160,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Soppeng",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Soppeng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Soppeng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Soppeng, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -985,8 +1171,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Takalar",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Takalar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Takalar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Takalar, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -994,8 +1182,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tana Toraja",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tana Toraja dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tana Toraja dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tana Toraja, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1003,8 +1193,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tojo Una Una",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tojo Una Una dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tojo Una Una dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tojo Una Una, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1012,8 +1204,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Toli Toli",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Toli Toli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Toli Toli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Toli Toli, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1021,8 +1215,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Toraja Utara",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Toraja Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Toraja Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Toraja Utara, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1030,8 +1226,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Wakatobi",
     provinsi: "Sulawesi Tenggara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Wakatobi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Wakatobi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Wakatobi, Sulawesi Tenggara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1039,8 +1237,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Wajo",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Wajo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Wajo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Wajo, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1048,8 +1248,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Luwu Utara",
     provinsi: "Sulawesi Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Luwu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Luwu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Luwu Utara, Sulawesi Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1057,8 +1259,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Barat",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Barat, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1066,8 +1270,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Barat Daya",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Barat Daya, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1075,8 +1281,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Besar",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Besar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Besar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Besar, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1084,8 +1292,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Jaya",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Jaya, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1093,8 +1303,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Selatan",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Selatan, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1102,8 +1314,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Singkil",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Singkil dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Singkil dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Singkil, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1111,8 +1325,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Tamiang",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Tamiang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Tamiang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Tamiang, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1120,8 +1336,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Tengah",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Tengah, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1129,8 +1347,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Tenggara",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Tenggara, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1138,8 +1358,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Timur",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Timur, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1147,8 +1369,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Aceh Utara",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Aceh Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Aceh Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Aceh Utara, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1156,8 +1380,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Agam",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Agam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Agam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Agam, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1165,8 +1391,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Asahan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Asahan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Asahan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Asahan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1174,8 +1402,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangka",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangka, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1183,8 +1413,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangka Barat",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangka Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangka Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangka Barat, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1192,8 +1424,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangka Selatan",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangka Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangka Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangka Selatan, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1201,8 +1435,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangka Tengah",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangka Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangka Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangka Tengah, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1210,8 +1446,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banyuasin",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banyuasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banyuasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banyuasin, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1219,8 +1457,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Batanghari",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Batanghari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Batanghari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Batanghari, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1228,8 +1468,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Batu Bara",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Batu Bara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Batu Bara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Batu Bara, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1237,8 +1479,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Belitung",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Belitung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Belitung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Belitung, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1246,8 +1490,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Belitung Timur",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Belitung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Belitung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Belitung Timur, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1255,8 +1501,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bener Meriah",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bener Meriah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bener Meriah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bener Meriah, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1264,8 +1512,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bengkalis",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bengkalis dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bengkalis dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bengkalis, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1273,8 +1523,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bengkulu Selatan",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bengkulu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bengkulu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bengkulu Selatan, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1282,8 +1534,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bengkulu Tengah",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bengkulu Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bengkulu Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bengkulu Tengah, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1291,8 +1545,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bengkulu Utara",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bengkulu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bengkulu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bengkulu Utara, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1300,8 +1556,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bintan",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bintan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bintan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bintan, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1309,8 +1567,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bireuen",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bireuen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bireuen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bireuen, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1318,8 +1578,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bungo",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bungo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bungo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bungo, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1327,8 +1589,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Dairi",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Dairi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Dairi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Dairi, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1336,8 +1600,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Deli Serdang",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Deli Serdang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Deli Serdang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Deli Serdang, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1345,8 +1611,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Dharmasraya",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Dharmasraya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Dharmasraya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Dharmasraya, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1354,8 +1622,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Empat Lawang",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Empat Lawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Empat Lawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Empat Lawang, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1363,8 +1633,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gayo Lues",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gayo Lues dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gayo Lues dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gayo Lues, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1372,8 +1644,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Humbang Hasundutan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Humbang Hasundutan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Humbang Hasundutan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Humbang Hasundutan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1381,8 +1655,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Indragiri Hilir",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Indragiri Hilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Indragiri Hilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Indragiri Hilir, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1390,8 +1666,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Indragiri Hulu",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Indragiri Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Indragiri Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Indragiri Hulu, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1399,8 +1677,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kampar",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kampar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kampar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kampar, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1408,8 +1688,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Karimun",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Karimun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Karimun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Karimun, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1417,8 +1699,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Karo",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Karo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Karo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Karo, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1426,8 +1710,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kaur",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kaur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kaur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kaur, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1435,8 +1721,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepahiang",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepahiang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepahiang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepahiang, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1444,8 +1732,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Anambas",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Anambas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Anambas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Anambas, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1453,8 +1743,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Garut",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Garut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Garut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Garut, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1462,8 +1754,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Mentawai",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Mentawai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Mentawai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Mentawai, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1471,8 +1765,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Meranti",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Meranti dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Meranti dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Meranti, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1480,8 +1776,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kerinci",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kerinci dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kerinci dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kerinci, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1489,8 +1787,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Banda Aceh",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Banda Aceh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Banda Aceh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Banda Aceh, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1498,8 +1798,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bandar Lampung",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bandar Lampung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bandar Lampung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bandar Lampung, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1507,8 +1809,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Batam",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Batam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Batam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Batam, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1516,8 +1820,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bengkulu",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bengkulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bengkulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bengkulu, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1525,8 +1831,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Binjai",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Binjai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Binjai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Binjai, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1534,8 +1842,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bukittinggi",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bukittinggi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bukittinggi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bukittinggi, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1543,8 +1853,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gianyar",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gianyar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gianyar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gianyar, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1552,8 +1864,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Dumai",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Dumai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Dumai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Dumai, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1561,8 +1875,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Gunungsitoli",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Gunungsitoli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Gunungsitoli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Gunungsitoli, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1570,8 +1886,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Jambi",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Jambi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Jambi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Jambi, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1579,8 +1897,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Langsa",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Langsa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Langsa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Langsa, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1588,8 +1908,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Lhokseumawe",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Lhokseumawe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Lhokseumawe dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Lhokseumawe, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1597,8 +1919,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Lubuk Linggau",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Lubuk Linggau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Lubuk Linggau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Lubuk Linggau, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1606,8 +1930,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Medan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Medan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Medan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Medan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1615,8 +1941,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Metro",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Metro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Metro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Metro, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1624,8 +1952,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Padang",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Padang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Padang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Padang, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1633,8 +1963,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Padang Panjang",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Padang Panjang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Padang Panjang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Padang Panjang, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1642,8 +1974,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Padang Sidempuan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Padang Sidempuan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Padang Sidempuan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Padang Sidempuan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1651,8 +1985,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pagar Alam",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pagar Alam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pagar Alam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pagar Alam, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1660,8 +1996,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Palembang",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Palembang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Palembang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Palembang, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1669,8 +2007,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Prabumulih",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Prabumulih dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Prabumulih dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Prabumulih, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1678,8 +2018,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sabang",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sabang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sabang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sabang, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1687,8 +2029,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Solok",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Solok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Solok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Solok, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1696,8 +2040,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mandailing Natal",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mandailing Natal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mandailing Natal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mandailing Natal, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1705,8 +2051,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pangkal Pinang",
     provinsi: "Kepulauan Bangka Belitung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pangkal Pinang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pangkal Pinang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pangkal Pinang, Kepulauan Bangka Belitung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1714,8 +2062,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pariaman",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pariaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pariaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pariaman, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1723,8 +2073,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Payakumbuh",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Payakumbuh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Payakumbuh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Payakumbuh, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1732,8 +2084,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pekanbaru",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pekanbaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pekanbaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pekanbaru, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1741,8 +2095,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pematangsiantar",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pematangsiantar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pematangsiantar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pematangsiantar, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1750,8 +2106,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sawahlunto",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sawahlunto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sawahlunto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sawahlunto, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1759,8 +2117,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sibolga",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sibolga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sibolga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sibolga, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1768,8 +2128,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kuantan Singingi",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kuantan Singingi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kuantan Singingi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kuantan Singingi, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1777,8 +2139,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Labuhanbatu",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Labuhanbatu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Labuhanbatu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Labuhanbatu, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1786,8 +2150,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Labuhanbatu Selatan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Labuhanbatu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Labuhanbatu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Labuhanbatu Selatan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1795,8 +2161,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Labuhanbatu Utara",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Labuhanbatu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Labuhanbatu Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Labuhanbatu Utara, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1804,8 +2172,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lahat",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lahat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lahat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lahat, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1813,8 +2183,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lampung Barat",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lampung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lampung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lampung Barat, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1822,8 +2194,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lampung Tengah",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lampung Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lampung Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lampung Tengah, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1831,8 +2205,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lampung Timur",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lampung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lampung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lampung Timur, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1840,8 +2216,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lampung Utara",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lampung Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lampung Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lampung Utara, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1849,8 +2227,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Langkat",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Langkat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Langkat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Langkat, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1858,8 +2238,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Subulussalam",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Subulussalam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Subulussalam dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Subulussalam, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1867,8 +2249,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sungai Penuh",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sungai Penuh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sungai Penuh dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sungai Penuh, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1876,8 +2260,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lebong",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lebong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lebong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lebong, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1885,8 +2271,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lima Puluh Kota",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lima Puluh Kota dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lima Puluh Kota dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lima Puluh Kota, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1894,8 +2282,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lingga",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lingga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lingga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lingga, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1903,8 +2293,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Merangin",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Merangin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Merangin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Merangin, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1912,8 +2304,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tanjung Balai",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tanjung Balai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tanjung Balai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tanjung Balai, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1921,8 +2315,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tanjung Pinang",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tanjung Pinang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tanjung Pinang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tanjung Pinang, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1930,8 +2326,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tebing Tinggi",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tebing Tinggi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tebing Tinggi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tebing Tinggi, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1939,8 +2337,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mesuji",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mesuji dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mesuji dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mesuji, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1948,8 +2348,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Muara Enim",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Muara Enim dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Muara Enim dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Muara Enim, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1957,8 +2359,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Muaro Jambi",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Muaro Jambi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Muaro Jambi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Muaro Jambi, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1966,8 +2370,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Muko Muko",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Muko Muko dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Muko Muko dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Muko Muko, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1975,8 +2381,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Musi Banyuasin",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Musi Banyuasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Musi Banyuasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Musi Banyuasin, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1984,8 +2392,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Musi Rawas",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Musi Rawas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Musi Rawas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Musi Rawas, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -1993,8 +2403,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Musi Rawas Utara",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Musi Rawas Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Musi Rawas Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Musi Rawas Utara, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2002,8 +2414,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nagan Raya",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nagan Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nagan Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nagan Raya, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2011,8 +2425,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Natuna",
     provinsi: "Kepulauan Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Natuna dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Natuna dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Natuna, Kepulauan Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2020,8 +2436,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nias",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nias dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nias dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nias, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2029,8 +2447,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nias Barat",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nias Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nias Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nias Barat, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2038,8 +2458,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nias Selatan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nias Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nias Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nias Selatan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2047,8 +2469,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nias Utara",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nias Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nias Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nias Utara, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2056,8 +2480,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ogan Ilir",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ogan Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ogan Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ogan Ilir, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2065,8 +2491,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ogan Komering Ilir",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ogan Komering Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ogan Komering Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ogan Komering Ilir, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2074,8 +2502,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ogan Komering Ulu",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ogan Komering Ulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ogan Komering Ulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ogan Komering Ulu, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2083,8 +2513,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ogan Komering Ulu Selatan",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ogan Komering Ulu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ogan Komering Ulu Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ogan Komering Ulu Selatan, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2092,8 +2524,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ogan Komering Ulu Timur",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ogan Komering Ulu Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ogan Komering Ulu Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ogan Komering Ulu Timur, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2101,8 +2535,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Padang Lawas",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Padang Lawas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Padang Lawas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Padang Lawas, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2110,8 +2546,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Padang Lawas Utara",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Padang Lawas Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Padang Lawas Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Padang Lawas Utara, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2119,8 +2557,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Penukal Abab Lematang Ilir",
     provinsi: "Sumatera Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Penukal Abab Lematang Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Penukal Abab Lematang Ilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Penukal Abab Lematang Ilir, Sumatera Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2128,8 +2568,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pesawaran",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pesawaran dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pesawaran dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pesawaran, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2137,8 +2579,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pesisir Barat",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pesisir Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pesisir Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pesisir Barat, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2146,8 +2590,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pesisir Selatan",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pesisir Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pesisir Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pesisir Selatan, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2155,8 +2601,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pidie",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pidie dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pidie dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pidie, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2164,8 +2612,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pidie Jaya",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pidie Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pidie Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pidie Jaya, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2173,8 +2623,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pringsewu",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pringsewu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pringsewu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pringsewu, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2182,8 +2634,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Rejang Lebong",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Rejang Lebong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Rejang Lebong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Rejang Lebong, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2191,8 +2645,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Rokan Hilir",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Rokan Hilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Rokan Hilir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Rokan Hilir, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2200,8 +2656,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Rokan Hulu",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Rokan Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Rokan Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Rokan Hulu, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2209,8 +2667,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Samosir",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Samosir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Samosir dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Samosir, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2218,8 +2678,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gresik",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gresik dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gresik dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gresik, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2227,8 +2689,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Grobogan",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Grobogan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Grobogan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Grobogan, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2236,8 +2700,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gunungkidul",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gunungkidul dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gunungkidul dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gunungkidul, Daerah Istimewa Yogyakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2245,8 +2711,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Indramayu",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Indramayu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Indramayu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Indramayu, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2254,8 +2722,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pandeglang",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pandeglang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pandeglang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pandeglang, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2263,8 +2733,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pangandaran",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pangandaran dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pangandaran dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pangandaran, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2272,8 +2744,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pakpak Bharat",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pakpak Bharat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pakpak Bharat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pakpak Bharat, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2281,8 +2755,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pasaman",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pasaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pasaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pasaman, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2290,8 +2766,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pelalawan",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pelalawan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pelalawan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pelalawan, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2299,8 +2777,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Brebes",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Brebes dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Brebes dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Brebes, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2308,8 +2788,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sarolangun",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sarolangun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sarolangun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sarolangun, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2317,8 +2799,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Seluma",
     provinsi: "Bengkulu",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Seluma dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Seluma dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Seluma, Bengkulu, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2326,8 +2810,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Serdang Bedagai",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Serdang Bedagai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Serdang Bedagai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Serdang Bedagai, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2335,8 +2821,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Siak",
     provinsi: "Riau",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Siak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Siak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Siak, Riau, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2344,8 +2832,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sijunjung",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sijunjung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sijunjung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sijunjung, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2353,8 +2843,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Simalungun",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Simalungun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Simalungun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Simalungun, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2362,8 +2854,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Simeulue",
     provinsi: "Aceh",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Simeulue dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Simeulue dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Simeulue, Aceh, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2371,8 +2865,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Solok",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Solok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Solok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Solok, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2380,8 +2876,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Solok Selatan",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Solok Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Solok Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Solok Selatan, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2389,8 +2887,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Buleleng",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Buleleng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Buleleng dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Buleleng, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2398,8 +2898,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ciamis",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ciamis dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ciamis dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ciamis, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2407,8 +2909,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Cianjur",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Cianjur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Cianjur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Cianjur, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2416,8 +2920,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Cilacap",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Cilacap dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Cilacap dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Cilacap, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2425,8 +2931,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Cirebon",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Cirebon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Cirebon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Cirebon, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2434,8 +2942,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Demak",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Demak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Demak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Demak, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2443,8 +2953,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Dompu",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Dompu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Dompu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Dompu, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2452,8 +2964,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Flores Timur",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Flores Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Flores Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Flores Timur, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2461,8 +2975,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanah Datar",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanah Datar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanah Datar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanah Datar, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2470,8 +2986,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanggamus",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanggamus dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanggamus dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanggamus, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2479,8 +2997,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanjung Jabung Barat",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanjung Jabung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanjung Jabung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanjung Jabung Barat, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2488,8 +3008,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanjung Jabung Timur",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanjung Jabung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanjung Jabung Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanjung Jabung Timur, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2497,8 +3019,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tapanuli Selatan",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tapanuli Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tapanuli Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tapanuli Selatan, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2506,8 +3030,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tapanuli Tengah",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tapanuli Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tapanuli Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tapanuli Tengah, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2515,8 +3041,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tapanuli Utara",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tapanuli Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tapanuli Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tapanuli Utara, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2524,8 +3052,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tebo",
     provinsi: "Jambi",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tebo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tebo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tebo, Jambi, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2533,8 +3063,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Toba",
     provinsi: "Sumatera Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Toba dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Toba dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Toba, Sumatera Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2542,8 +3074,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tulang Bawang",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tulang Bawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tulang Bawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tulang Bawang, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2551,8 +3085,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tulang Bawang Barat",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tulang Bawang Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tulang Bawang Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tulang Bawang Barat, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2560,8 +3096,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Way Kanan",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Way Kanan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Way Kanan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Way Kanan, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2569,8 +3107,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Padang Pariaman",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Padang Pariaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Padang Pariaman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Padang Pariaman, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2578,8 +3118,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Adm. Kep. Seribu",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Adm. Kep. Seribu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Adm. Kep. Seribu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Adm. Kep. Seribu, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2587,8 +3129,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Alor",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Alor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Alor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Alor, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2596,8 +3140,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Badung",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Badung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Badung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Badung, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2605,8 +3151,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bandung",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bandung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bandung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bandung, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2614,8 +3162,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bandung Barat",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bandung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bandung Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bandung Barat, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2623,8 +3173,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangkalan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangkalan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangkalan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangkalan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2632,8 +3184,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bangli",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bangli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bangli dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bangli, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2641,8 +3195,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banjarnegara",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banjarnegara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banjarnegara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banjarnegara, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2650,8 +3206,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bantul",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bantul dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bantul dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bantul, Daerah Istimewa Yogyakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2659,8 +3217,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banyumas",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banyumas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banyumas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banyumas, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2668,8 +3228,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banyuwangi",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banyuwangi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banyuwangi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banyuwangi, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2677,8 +3239,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Batang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Batang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Batang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Batang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2686,8 +3250,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Belu",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Belu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Belu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Belu, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2695,8 +3261,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bima",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bima dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bima dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bima, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2704,8 +3272,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Blitar",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Blitar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Blitar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Blitar, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2713,8 +3283,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Blora",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Blora dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Blora dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Blora, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2722,8 +3294,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bojonegoro",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bojonegoro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bojonegoro dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bojonegoro, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2731,8 +3305,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bondowoso",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bondowoso dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bondowoso dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bondowoso, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2740,8 +3316,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Boyolali",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Boyolali dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Boyolali dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Boyolali, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2749,8 +3327,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jember",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jember dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jember dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jember, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2758,8 +3338,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jembrana",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jembrana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jembrana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jembrana, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2767,8 +3349,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jepara",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jepara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jepara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jepara, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2776,8 +3360,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jombang",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jombang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jombang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jombang, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2785,8 +3371,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Karanganyar",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Karanganyar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Karanganyar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Karanganyar, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2794,8 +3382,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Karangasem",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Karangasem dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Karangasem dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Karangasem, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2803,8 +3393,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Karawang",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Karawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Karawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Karawang, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2812,8 +3404,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kebumen",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kebumen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kebumen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kebumen, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2821,8 +3415,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kediri",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kediri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kediri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kediri, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2830,8 +3426,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kendal",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kendal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kendal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kendal, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2839,8 +3437,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Klaten",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Klaten dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Klaten dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Klaten, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2848,8 +3448,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Klungkung",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Klungkung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Klungkung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Klungkung, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2857,8 +3459,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Adm. Jakarta Barat",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Adm. Jakarta Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Adm. Jakarta Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Adm. Jakarta Barat, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2866,8 +3470,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Adm. Jakarta Pusat",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Adm. Jakarta Pusat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Adm. Jakarta Pusat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Adm. Jakarta Pusat, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2875,8 +3481,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Adm. Jakarta Selatan",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Adm. Jakarta Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Adm. Jakarta Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Adm. Jakarta Selatan, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2884,8 +3492,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Adm. Jakarta Timur",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Adm. Jakarta Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Adm. Jakarta Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Adm. Jakarta Timur, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2893,8 +3503,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Adm. Jakarta Utara",
     provinsi: "DKI Jakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Adm. Jakarta Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Adm. Jakarta Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Adm. Jakarta Utara, DKI Jakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2902,8 +3514,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bandung",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bandung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bandung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bandung, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2911,8 +3525,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Cimahi",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Cimahi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Cimahi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Cimahi, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2920,8 +3536,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Cirebon",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Cirebon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Cirebon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Cirebon, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2929,8 +3547,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Banjar",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Banjar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Banjar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Banjar, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2938,8 +3558,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Batu",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Batu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Batu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Batu, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2947,8 +3569,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bekasi",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bekasi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bekasi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bekasi, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2956,8 +3580,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bima",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bima dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bima dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bima, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2965,8 +3591,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Denpasar",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Denpasar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Denpasar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Denpasar, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2974,8 +3602,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Depok",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Depok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Depok dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Depok, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2983,8 +3613,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Kediri",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Kediri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Kediri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Kediri, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -2992,8 +3624,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Kupang",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Kupang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Kupang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Kupang, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3001,8 +3635,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Madiun",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Madiun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Madiun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Madiun, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3010,8 +3646,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Magelang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Magelang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Magelang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Magelang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3019,8 +3657,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Malang",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Malang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Malang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Malang, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3028,8 +3668,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Blitar",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Blitar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Blitar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Blitar, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3037,8 +3679,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bogor",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bogor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bogor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bogor, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3046,8 +3690,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Cilegon",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Cilegon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Cilegon dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Cilegon, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3055,8 +3701,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Mataram",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Mataram dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Mataram dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Mataram, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3064,8 +3712,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kulon Progo",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kulon Progo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kulon Progo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kulon Progo, Daerah Istimewa Yogyakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3073,8 +3723,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kuningan",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kuningan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kuningan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kuningan, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3082,8 +3734,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kupang",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kupang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kupang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kupang, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3091,8 +3745,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lamongan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lamongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lamongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lamongan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3100,8 +3756,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Mojokerto",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Mojokerto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Mojokerto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Mojokerto, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3109,8 +3767,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pasuruan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pasuruan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pasuruan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pasuruan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3118,8 +3778,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pekalongan",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pekalongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pekalongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pekalongan, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3127,8 +3789,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Probolinggo",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Probolinggo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Probolinggo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Probolinggo, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3136,8 +3800,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Salatiga",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Salatiga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Salatiga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Salatiga, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3145,8 +3811,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Semarang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Semarang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Semarang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Semarang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3154,8 +3822,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Serang",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Serang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Serang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Serang, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3163,8 +3833,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sukabumi",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sukabumi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sukabumi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sukabumi, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3172,8 +3844,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Surabaya",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Surabaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Surabaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Surabaya, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3181,8 +3855,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Surakarta",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Surakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Surakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Surakarta, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3190,8 +3866,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tangerang",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tangerang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tangerang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tangerang, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3199,8 +3877,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tangerang Selatan",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tangerang Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tangerang Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tangerang Selatan, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3208,8 +3888,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tasikmalaya",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tasikmalaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tasikmalaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tasikmalaya, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3217,8 +3899,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lebak",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lebak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lebak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lebak, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3226,8 +3910,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lembata",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lembata dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lembata dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lembata, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3235,8 +3921,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tegal",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tegal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tegal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tegal, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3244,8 +3932,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lombok Barat",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lombok Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lombok Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lombok Barat, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3253,8 +3943,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lombok Tengah",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lombok Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lombok Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lombok Tengah, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3262,8 +3954,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lombok Timur",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lombok Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lombok Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lombok Timur, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3271,8 +3965,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lombok Utara",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lombok Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lombok Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lombok Utara, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3280,8 +3976,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lumajang",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lumajang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lumajang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lumajang, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3289,8 +3987,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Madiun",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Madiun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Madiun dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Madiun, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3298,8 +3998,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Magelang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Magelang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Magelang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Magelang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3307,8 +4009,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Magetan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Magetan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Magetan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Magetan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3316,8 +4020,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Majalengka",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Majalengka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Majalengka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Majalengka, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3325,8 +4031,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Malaka",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Malaka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Malaka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Malaka, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3334,8 +4042,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Malang",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Malang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Malang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Malang, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3343,8 +4053,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Manggarai",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Manggarai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Manggarai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Manggarai, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3352,8 +4064,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Manggarai Barat",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Manggarai Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Manggarai Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Manggarai Barat, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3361,8 +4075,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Manggarai Timur",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Manggarai Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Manggarai Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Manggarai Timur, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3370,8 +4086,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mojokerto",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mojokerto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mojokerto dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mojokerto, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3379,8 +4097,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nagekeo",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nagekeo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nagekeo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nagekeo, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3388,8 +4108,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ngada",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ngada dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ngada dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ngada, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3397,8 +4119,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nganjuk",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nganjuk dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nganjuk dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nganjuk, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3406,8 +4130,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ngawi",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ngawi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ngawi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ngawi, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3415,8 +4141,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pacitan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pacitan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pacitan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pacitan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3424,8 +4152,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pamekasan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pamekasan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pamekasan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pamekasan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3433,8 +4163,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Yogyakarta",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Yogyakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Yogyakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Yogyakarta, Daerah Istimewa Yogyakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3442,8 +4174,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kudus",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kudus dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kudus dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kudus, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3451,8 +4185,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pasuruan",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pasuruan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pasuruan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pasuruan, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3460,8 +4196,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pati",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pati dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pati dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pati, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3469,8 +4207,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pekalongan",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pekalongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pekalongan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pekalongan, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3478,8 +4218,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pemalang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pemalang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pemalang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pemalang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3487,8 +4229,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ponorogo",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ponorogo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ponorogo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ponorogo, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3496,8 +4240,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Probolinggo",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Probolinggo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Probolinggo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Probolinggo, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3505,8 +4251,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Purbalingga",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Purbalingga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Purbalingga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Purbalingga, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3514,8 +4262,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Purwakarta",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Purwakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Purwakarta dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Purwakarta, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3523,8 +4273,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Purworejo",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Purworejo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Purworejo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Purworejo, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3532,8 +4284,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Rembang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Rembang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Rembang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Rembang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3541,8 +4295,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Rote Ndao",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Rote Ndao dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Rote Ndao dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Rote Ndao, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3550,8 +4306,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sabu Raijua",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sabu Raijua dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sabu Raijua dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sabu Raijua, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3559,8 +4317,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sampang",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sampang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sampang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sampang, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3568,8 +4328,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Semarang",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Semarang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Semarang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Semarang, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3577,8 +4339,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Serang",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Serang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Serang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Serang, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3586,8 +4350,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sidoarjo",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sidoarjo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sidoarjo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sidoarjo, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3595,8 +4361,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sikka",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sikka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sikka dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sikka, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3604,8 +4372,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Situbondo",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Situbondo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Situbondo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Situbondo, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3613,8 +4383,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sleman",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sleman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sleman dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sleman, Daerah Istimewa Yogyakarta, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3622,8 +4394,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sragen",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sragen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sragen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sragen, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3631,8 +4405,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Subang",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Subang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Subang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Subang, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3640,8 +4416,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sukabumi",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sukabumi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sukabumi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sukabumi, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3649,8 +4427,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sukoharjo",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sukoharjo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sukoharjo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sukoharjo, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3658,8 +4438,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumba Barat",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumba Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumba Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumba Barat, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3667,8 +4449,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumba Tengah",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumba Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumba Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumba Tengah, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3676,8 +4460,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumba Timur",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumba Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumba Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumba Timur, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3685,8 +4471,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumbawa",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumbawa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumbawa dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumbawa, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3694,8 +4482,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumbawa Barat",
     provinsi: "Nusa Tenggara Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumbawa Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumbawa Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumbawa Barat, Nusa Tenggara Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3703,8 +4493,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumedang",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumedang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumedang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumedang, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3712,8 +4504,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumenep",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumenep dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumenep dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumenep, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3721,8 +4515,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tabanan",
     provinsi: "Bali",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tabanan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tabanan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tabanan, Bali, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3730,8 +4526,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tangerang",
     provinsi: "Banten",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tangerang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tangerang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tangerang, Banten, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3739,8 +4537,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tasikmalaya",
     provinsi: "Jawa Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tasikmalaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tasikmalaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tasikmalaya, Jawa Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3748,8 +4548,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tegal",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tegal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tegal dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tegal, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3757,8 +4559,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Temanggung",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Temanggung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Temanggung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Temanggung, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3766,8 +4570,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Timor Tengah Selatan",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Timor Tengah Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Timor Tengah Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Timor Tengah Selatan, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3775,8 +4581,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Timor Tengah Utara",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Timor Tengah Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Timor Tengah Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Timor Tengah Utara, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3784,8 +4592,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Trenggalek",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Trenggalek dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Trenggalek dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Trenggalek, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3793,8 +4603,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tuban",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tuban dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tuban dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tuban, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3802,8 +4614,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tulungagung",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tulungagung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tulungagung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tulungagung, Jawa Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3811,8 +4625,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Wonogiri",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Wonogiri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Wonogiri dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Wonogiri, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3820,8 +4636,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Wonosobo",
     provinsi: "Jawa Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Wonosobo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Wonosobo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Wonosobo, Jawa Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3829,8 +4647,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Berau",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Berau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Berau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Berau, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3838,8 +4658,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bulungan",
     provinsi: "Kalimantan Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bulungan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bulungan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bulungan, Kalimantan Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3847,8 +4669,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Banjarbaru",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Banjarbaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Banjarbaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Banjarbaru, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3856,8 +4680,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Banjarmasin",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Banjarmasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Banjarmasin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Banjarmasin, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3865,8 +4691,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Bontang",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Bontang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Bontang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Bontang, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3874,8 +4702,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Balangan",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Balangan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Balangan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Balangan, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3883,8 +4713,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Barito Kuala",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Barito Kuala dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Barito Kuala dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Barito Kuala, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3892,8 +4724,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Barito Selatan",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Barito Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Barito Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Barito Selatan, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3901,8 +4735,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Barito Timur",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Barito Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Barito Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Barito Timur, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3910,8 +4746,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Barito Utara",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Barito Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Barito Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Barito Utara, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3919,8 +4757,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Bengkayang",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Bengkayang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Bengkayang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Bengkayang, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3928,8 +4768,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Gunung Mas",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Gunung Mas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Gunung Mas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Gunung Mas, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3937,8 +4779,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Hulu Sungai Selatan",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Hulu Sungai Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Hulu Sungai Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Hulu Sungai Selatan, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3946,8 +4790,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Hulu Sungai Tengah",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Hulu Sungai Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Hulu Sungai Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Hulu Sungai Tengah, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3955,8 +4801,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Hulu Sungai Utara",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Hulu Sungai Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Hulu Sungai Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Hulu Sungai Utara, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3964,8 +4812,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kayong Utara",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kayong Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kayong Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kayong Utara, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3973,8 +4823,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ketapang",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ketapang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ketapang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ketapang, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3982,8 +4834,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kapuas",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kapuas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kapuas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kapuas, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -3991,8 +4845,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kapuas Hulu",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kapuas Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kapuas Hulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kapuas Hulu, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4000,8 +4856,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Katingan",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Katingan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Katingan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Katingan, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4009,8 +4867,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Palangkaraya",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Palangkaraya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Palangkaraya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Palangkaraya, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4018,8 +4878,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Pontianak",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Pontianak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Pontianak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Pontianak, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4027,8 +4889,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Samarinda",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Samarinda dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Samarinda dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Samarinda, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4036,8 +4900,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Singkawang",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Singkawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Singkawang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Singkawang, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4045,8 +4911,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Tarakan",
     provinsi: "Kalimantan Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Tarakan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Tarakan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Tarakan, Kalimantan Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4054,8 +4922,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kotabaru",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kotabaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kotabaru dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kotabaru, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4063,8 +4933,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kotawaringin Barat",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kotawaringin Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kotawaringin Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kotawaringin Barat, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4072,8 +4944,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kotawaringin Timur",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kotawaringin Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kotawaringin Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kotawaringin Timur, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4081,8 +4955,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kubu Raya",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kubu Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kubu Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kubu Raya, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4090,8 +4966,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kutai Barat",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kutai Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kutai Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kutai Barat, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4099,8 +4977,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kutai Kartanegara",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kutai Kartanegara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kutai Kartanegara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kutai Kartanegara, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4108,8 +4988,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kutai Timur",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kutai Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kutai Timur dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kutai Timur, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4117,8 +4999,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lamandau",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lamandau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lamandau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lamandau, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4126,8 +5010,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Landak",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Landak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Landak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Landak, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4135,8 +5021,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mahakam Ulu",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mahakam Ulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mahakam Ulu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mahakam Ulu, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4144,8 +5032,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Malinau",
     provinsi: "Kalimantan Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Malinau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Malinau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Malinau, Kalimantan Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4153,8 +5043,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Melawi",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Melawi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Melawi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Melawi, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4162,8 +5054,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mempawah",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mempawah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mempawah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mempawah, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4171,8 +5065,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Murung Raya",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Murung Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Murung Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Murung Raya, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4180,8 +5076,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nunukan",
     provinsi: "Kalimantan Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nunukan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nunukan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nunukan, Kalimantan Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4189,8 +5087,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Paser",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Paser dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Paser dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Paser, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4198,8 +5098,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pulang Pisau",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pulang Pisau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pulang Pisau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pulang Pisau, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4207,8 +5109,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sambas",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sambas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sambas dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sambas, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4216,8 +5120,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sanggau",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sanggau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sanggau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sanggau, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4225,8 +5131,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sekadau",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sekadau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sekadau dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sekadau, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4234,8 +5142,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Seruyan",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Seruyan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Seruyan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Seruyan, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4243,8 +5153,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sintang",
     provinsi: "Kalimantan Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sintang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sintang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sintang, Kalimantan Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4252,8 +5164,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sukamara",
     provinsi: "Kalimantan Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sukamara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sukamara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sukamara, Kalimantan Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4261,8 +5175,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tabalong",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tabalong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tabalong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tabalong, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4270,8 +5186,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tana Tidung",
     provinsi: "Kalimantan Utara",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tana Tidung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tana Tidung dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tana Tidung, Kalimantan Utara, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4279,8 +5197,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanah Bumbu",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanah Bumbu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanah Bumbu dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanah Bumbu, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4288,8 +5208,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tanah Laut",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tanah Laut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tanah Laut dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tanah Laut, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4297,8 +5219,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tapin",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tapin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tapin dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tapin, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4306,8 +5230,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sumba Barat Daya",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sumba Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sumba Barat Daya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sumba Barat Daya, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4315,8 +5241,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Ende",
     provinsi: "Nusa Tenggara Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Ende dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Ende dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Ende, Nusa Tenggara Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4324,8 +5252,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Penajam Paser Utara",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Penajam Paser Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Penajam Paser Utara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Penajam Paser Utara, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4333,8 +5263,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Balikpapan",
     provinsi: "Kalimantan Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Balikpapan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Balikpapan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Balikpapan, Kalimantan Timur, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4342,8 +5274,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Banjar",
     provinsi: "Kalimantan Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Banjar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Banjar dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Banjar, Kalimantan Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4351,8 +5285,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Asmat",
     provinsi: "Papua Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Asmat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Asmat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Asmat, Papua Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4360,8 +5296,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Biak Numfor",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Biak Numfor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Biak Numfor dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Biak Numfor, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4369,8 +5307,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Boven Digoel",
     provinsi: "Papua Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Boven Digoel dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Boven Digoel dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Boven Digoel, Papua Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4378,8 +5318,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Deiyai",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Deiyai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Deiyai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Deiyai, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4387,8 +5329,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Dogiyai",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Dogiyai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Dogiyai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Dogiyai, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4396,8 +5340,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Fak Fak",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Fak Fak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Fak Fak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Fak Fak, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4405,8 +5351,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Intan Jaya",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Intan Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Intan Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Intan Jaya, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4414,8 +5362,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jayapura",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jayapura dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jayapura dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jayapura, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4423,8 +5373,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Jayawijaya",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Jayawijaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Jayawijaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Jayawijaya, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4432,8 +5384,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kaimana",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kaimana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kaimana dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kaimana, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4441,8 +5395,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Keerom",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Keerom dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Keerom dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Keerom, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4450,8 +5406,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kepulauan Yapen",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kepulauan Yapen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kepulauan Yapen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kepulauan Yapen, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4459,8 +5417,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Jayapura",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Jayapura dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Jayapura dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Jayapura, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4468,8 +5428,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Kota Sorong",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Kota Sorong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Kota Sorong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Kota Sorong, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4477,8 +5439,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lanny Jaya",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lanny Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lanny Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lanny Jaya, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4486,8 +5450,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mamberamo Raya",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mamberamo Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mamberamo Raya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mamberamo Raya, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4495,8 +5461,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mamberamo Tengah",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mamberamo Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mamberamo Tengah dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mamberamo Tengah, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4504,8 +5472,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Manokwari",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Manokwari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Manokwari dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Manokwari, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4513,8 +5483,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mappi",
     provinsi: "Papua Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mappi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mappi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mappi, Papua Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4522,8 +5494,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Maybrat",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Maybrat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Maybrat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Maybrat, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4531,8 +5505,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Merauke",
     provinsi: "Papua Selatan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Merauke dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Merauke dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Merauke, Papua Selatan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4540,8 +5516,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Mimika",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Mimika dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Mimika dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Mimika, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4549,8 +5527,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nabire",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nabire dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nabire dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nabire, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4558,8 +5538,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Nduga",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Nduga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Nduga dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Nduga, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4567,8 +5549,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Paniai",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Paniai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Paniai dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Paniai, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4576,8 +5560,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pegunungan Arfak",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pegunungan Arfak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pegunungan Arfak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pegunungan Arfak, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4585,8 +5571,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pegunungan Bintang",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pegunungan Bintang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pegunungan Bintang dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pegunungan Bintang, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4594,8 +5582,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Puncak",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Puncak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Puncak dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Puncak, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4603,8 +5593,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Puncak Jaya",
     provinsi: "Papua Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Puncak Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Puncak Jaya dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Puncak Jaya, Papua Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4612,8 +5604,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Raja Ampat",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Raja Ampat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Raja Ampat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Raja Ampat, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4621,8 +5615,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sarmi",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sarmi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sarmi dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sarmi, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4630,8 +5626,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sorong",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sorong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sorong dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sorong, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4639,8 +5637,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Sorong Selatan",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Sorong Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Sorong Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Sorong Selatan, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4648,8 +5648,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Supiori",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Supiori dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Supiori dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Supiori, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4657,8 +5659,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tambrauw",
     provinsi: "Papua Barat Daya",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tambrauw dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tambrauw dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tambrauw, Papua Barat Daya, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4666,8 +5670,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Teluk Bintuni",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Teluk Bintuni dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Teluk Bintuni dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Teluk Bintuni, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4675,8 +5681,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Teluk Wondama",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Teluk Wondama dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Teluk Wondama dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Teluk Wondama, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4684,8 +5692,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Tolikara",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Tolikara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Tolikara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Tolikara, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4693,8 +5703,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Waropen",
     provinsi: "Papua",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Waropen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Waropen dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Waropen, Papua, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4702,8 +5714,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Yahukimo",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Yahukimo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Yahukimo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Yahukimo, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4711,8 +5725,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Yalimo",
     provinsi: "Papua Pegunungan",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Yalimo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Yalimo dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Yalimo, Papua Pegunungan, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4720,8 +5736,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Pasaman Barat",
     provinsi: "Sumatera Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Pasaman Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Pasaman Barat dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Pasaman Barat, Sumatera Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4729,8 +5747,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Lampung Selatan",
     provinsi: "Lampung",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Lampung Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Lampung Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Lampung Selatan, Lampung, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4738,8 +5758,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Poso",
     provinsi: "Sulawesi Tengah",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Poso dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Poso dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Poso, Sulawesi Tengah, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4747,8 +5769,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Maluku Tenggara",
     provinsi: "Maluku",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Maluku Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Maluku Tenggara dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Maluku Tenggara, Maluku, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
   {
@@ -4756,8 +5780,10 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
     nama: "Manokwari Selatan",
     provinsi: "Papua Barat",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
-    intro: "Manokwari Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
-    service_note: "Tim kami membantu konsultasi paket, kelengkapan dokumen, manasik, dan koordinasi keberangkatan jamaah.",
+    intro:
+      "Manokwari Selatan dan sekitarnya dapat berkonsultasi dengan Jannah Firdaus Tour Travel secara daring untuk persiapan perjalanan umroh.",
+    service_note:
+      "Jamaah dari Manokwari Selatan, Papua Barat, mendapatkan pendampingan untuk memilih paket, menyiapkan dokumen, mengikuti manasik, dan mengatur koordinasi keberangkatan sesuai jadwal rombongan.",
     wilayah: [],
   },
 ];
