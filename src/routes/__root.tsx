@@ -104,7 +104,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { name: "theme-color", content: "#1a1a18" },
       ],
       links: [
-        { rel: "canonical", href: absoluteUrl("/") },
         {
           rel: "stylesheet",
           href: appCss,

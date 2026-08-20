@@ -53,13 +53,26 @@ for (const path of paths) {
       ),
     };
     const missingHeaders = requiredHeaders.filter((key) => !response.headers.get(key));
+    const expectedCanonical = new URL(path || "/", base).href;
+    const canonicalFailure = checks.canonical !== expectedCanonical;
     const requiredSchemaFailure = path.startsWith("/umroh/")
       ? !checks.travelAgency || !checks.faqPage || !checks.breadcrumb
       : !checks.travelAgency;
-    if (!checks.http || missingHeaders.length || !checks.canonical || requiredSchemaFailure)
+    if (!checks.http || missingHeaders.length || canonicalFailure || requiredSchemaFailure)
       failures++;
     console.log(
-      JSON.stringify({ path, status: response.status, ...checks, missingHeaders }, null, 2),
+      JSON.stringify(
+        {
+          path,
+          status: response.status,
+          expectedCanonical,
+          ...checks,
+          canonicalFailure,
+          missingHeaders,
+        },
+        null,
+        2,
+      ),
     );
   } catch (error) {
     failures++;
