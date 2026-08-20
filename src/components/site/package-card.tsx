@@ -25,6 +25,8 @@ export function PackageCard({ paket }: { paket: Paket }) {
             width={1200}
             height={900}
             loading="lazy"
+            decoding="async"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="size-full object-cover transition-transform duration-500 group-hover:scale-105"
             fallback={
               <div className="flex size-full items-center justify-center surface-emerald font-display text-lg">

@@ -60,6 +60,8 @@ function Galeri() {
                 src={item.image_url}
                 alt={item.caption ?? "Dokumentasi jamaah umroh"}
                 loading="lazy"
+                decoding="async"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="w-full object-cover transition-transform duration-700 hover:scale-105"
               />
               {item.caption ? (
