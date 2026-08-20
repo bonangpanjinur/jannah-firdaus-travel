@@ -26,12 +26,23 @@ export const Route = createFileRoute("/")({
   loader: ({ context }) => loadSiteInfo(context.queryClient),
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
-    return pageMeta({
-      title: `${info.siteName} — Travel Umroh ${SITE_CITY}`,
-      description: `${info.siteName}, travel umroh ${SITE_CITY}: paket umroh terjadwal dengan harga transparan, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah. Konsultasi gratis via WhatsApp.`,
-      path: "/",
-      siteName: info.siteName,
-    });
+    return {
+      ...pageMeta({
+        title: `${info.siteName} — Travel Umroh ${SITE_CITY}`,
+        description: `${info.siteName}, travel umroh ${SITE_CITY}: paket umroh terjadwal dengan harga transparan, hotel dekat Masjidil Haram, maskapai resmi, dan bimbingan ibadah. Konsultasi gratis via WhatsApp.`,
+        path: "/",
+        siteName: info.siteName,
+      }),
+      links: [
+        {
+          rel: "preload",
+          as: "image",
+          href: "/images/hero-kabah.webp",
+          type: "image/webp",
+          fetchPriority: "high",
+        },
+      ],
+    };
   },
 
   component: Beranda,
@@ -95,6 +106,7 @@ function Beranda() {
             alt="Suasana thawaf di Masjidil Haram saat senja"
             width={1920}
             height={1088}
+            sizes="100vw"
             fetchPriority="high"
             decoding="async"
             className="size-full object-cover"
