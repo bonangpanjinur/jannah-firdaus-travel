@@ -72,7 +72,8 @@ for (const path of paths) {
     const missingHeaders = requiredHeaders.filter((key) => !response.headers.get(key));
     const expectedCanonical = new URL(path || "/", base).href;
     const canonicalFailure = checks.canonical !== expectedCanonical;
-    const requiredSchemaFailure = path.startsWith("/umroh/")
+    const isCityPage = path.startsWith("/umroh/") && !path.startsWith("/umroh/provinsi/");
+    const requiredSchemaFailure = isCityPage
       ? !checks.travelAgency || !checks.faqPage || !checks.breadcrumb
       : !checks.travelAgency;
     if (
