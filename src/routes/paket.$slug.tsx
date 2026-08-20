@@ -462,7 +462,7 @@ function DetailPaket() {
         </aside>
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
+      <div className="fixed inset-x-0 bottom-[calc(4.5rem+env(safe-area-inset-bottom))] z-40 border-t border-border bg-background/95 backdrop-blur-xl lg:bottom-0">
         <div className="container-page flex items-center gap-3 py-3 pr-16">
           <div className="min-w-0">
             <p className="text-[11px] text-muted-foreground">Mulai dari</p>

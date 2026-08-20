@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
+import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
 import { ThemeApplier } from "@/components/site/theme-applier";
 import { ErrorState } from "@/components/site/error-state";
 import {
@@ -207,12 +208,13 @@ function RootComponent() {
       <ThemeApplier />
       <div className="flex min-h-screen flex-col">
         {isBackoffice ? null : <SiteHeader />}
-        <div className="flex-1">
+        <div className="flex-1 pb-20 md:pb-0">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </div>
         {isBackoffice ? null : <SiteFooter />}
       </div>
+      {isBackoffice ? null : <MobileBottomNav />}
       {isBackoffice ? null : <WhatsAppFloat />}
       <Toaster />
     </QueryClientProvider>
