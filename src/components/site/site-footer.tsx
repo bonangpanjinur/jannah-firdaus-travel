@@ -27,22 +27,34 @@ export function SiteFooter() {
           <h4 className="text-sm font-semibold uppercase tracking-wider opacity-80">Navigasi</h4>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             <li>
-              <Link to="/paket" className="hover:underline">
+              <Link
+                to="/paket"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Paket Umroh
               </Link>
             </li>
             <li>
-              <Link to="/galeri" className="hover:underline">
+              <Link
+                to="/galeri"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Galeri
               </Link>
             </li>
             <li>
-              <Link to="/tentang" className="hover:underline">
+              <Link
+                to="/tentang"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Tentang Kami
               </Link>
             </li>
             <li>
-              <Link to="/kontak" className="hover:underline">
+              <Link
+                to="/kontak"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Kontak
               </Link>
             </li>
@@ -55,37 +67,58 @@ export function SiteFooter() {
           </h4>
           <ul className="mt-4 space-y-2 text-sm opacity-90">
             <li>
-              <Link to="/umroh-jakarta-selatan" className="hover:underline">
+              <Link
+                to="/umroh-jakarta-selatan"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Umroh Jakarta Selatan
               </Link>
             </li>
             <li>
-              <Link to="/umroh" className="hover:underline">
-                Area Layanan Jabodetabek
+              <Link
+                to="/umroh"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Area Layanan Seluruh Indonesia
               </Link>
             </li>
             <li>
-              <Link to="/biaya-umroh" className="hover:underline">
+              <Link
+                to="/biaya-umroh"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Biaya Umroh
               </Link>
             </li>
             <li>
-              <Link to="/syarat-umroh" className="hover:underline">
+              <Link
+                to="/syarat-umroh"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Syarat Umroh
               </Link>
             </li>
             <li>
-              <Link to="/umroh-plus" className="hover:underline">
+              <Link
+                to="/umroh-plus"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Umroh Plus
               </Link>
             </li>
             <li>
-              <Link to="/faq" className="hover:underline">
+              <Link
+                to="/faq"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 FAQ
               </Link>
             </li>
             <li>
-              <Link to="/kontak" className="hover:underline">
+              <Link
+                to="/kontak"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
                 Konsultasi & Kontak
               </Link>
             </li>
