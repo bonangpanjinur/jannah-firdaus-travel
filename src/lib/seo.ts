@@ -253,6 +253,27 @@ export function breadcrumbLd(
   };
 }
 
+export function faqUmrohUmum(siteName: string, kota: string) {
+  return [
+    {
+      q: `Apa saja syarat umum daftar umroh dari ${kota}?`,
+      a: `Syarat pendaftaran umroh umumnya meliputi dokumen identitas yang masih berlaku dan dokumen perjalanan sesuai ketentuan. ${siteName} akan membantu memeriksa kelengkapan dokumen sebelum pendaftaran diproses.`,
+    },
+    {
+      q: `Berapa lama proses persiapan umroh dari ${kota}?`,
+      a: `Waktu persiapan bergantung pada jadwal paket dan kelengkapan dokumen jamaah. ${siteName} membantu jamaah memilih jadwal, menyiapkan dokumen, dan mengikuti manasik sebelum keberangkatan.`,
+    },
+    {
+      q: `Apakah tersedia konsultasi dan manasik umroh?`,
+      a: `Ya. ${siteName} menyediakan konsultasi paket serta manasik sebelum keberangkatan agar jamaah memahami rangkaian ibadah dan persiapan perjalanan.`,
+    },
+    {
+      q: `Bagaimana cara memilih paket umroh yang sesuai?`,
+      a: `Pertimbangkan jadwal keberangkatan, durasi perjalanan, fasilitas hotel, maskapai, dan anggaran. Tim ${siteName} dapat membantu membandingkan pilihan paket sesuai kebutuhan jamaah.`,
+    },
+  ];
+}
+
 export function faqLd(items: { q: string; a: string }[] | null | undefined, pagePath?: string) {
   const list = Array.isArray(items) ? items : [];
   return {

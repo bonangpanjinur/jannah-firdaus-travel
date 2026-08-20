@@ -11,6 +11,7 @@ import {
   pageMeta,
   breadcrumbLd,
   faqLd,
+  faqUmrohUmum,
   tripLd,
   itemListLd,
   layananKotaLd,
@@ -37,6 +38,7 @@ function faqKota(kota: KotaLayanan, siteName: string) {
       q: `Bagaimana cara mendaftar umroh dari ${kota.nama}?`,
       a: `Pilih paket yang sesuai, hubungi kami melalui WhatsApp, lalu kirim dokumen pendaftaran. Seluruh proses dapat diselesaikan tanpa harus datang berkali-kali ke kantor.`,
     },
+    ...faqUmrohUmum(siteName, kota.nama),
   ];
 }
 

@@ -9,6 +9,7 @@ import {
   pageMeta,
   breadcrumbLd,
   faqLd,
+  faqUmrohUmum,
   localBusinessKotaLd,
   SITE_CITY,
   SITE_REGION,
@@ -32,6 +33,7 @@ const FAQ = [
     q: "Apakah tersedia manasik untuk jamaah Jakarta Selatan?",
     a: "Manasik diadakan sebelum keberangkatan bagi seluruh jamaah dalam satu rombongan, termasuk jamaah dari Jakarta Selatan dan sekitarnya.",
   },
+  ...faqUmrohUmum(SEO_BRAND, "Jakarta Selatan"),
 ];
 
 export const Route = createFileRoute("/umroh-jakarta-selatan")({
