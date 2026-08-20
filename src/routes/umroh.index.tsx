@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import { KOTA_LAYANAN } from "@/lib/kota";
 import {
   loadSiteInfo,
@@ -37,8 +38,12 @@ export const Route = createFileRoute("/umroh/")({
   component: AreaLayanan,
 });
 
+const CITY_BATCH_SIZE = 60;
+
 function AreaLayanan() {
-  const kotaPerProvinsi = KOTA_LAYANAN.reduce<Record<string, typeof KOTA_LAYANAN>>(
+  const [visibleCount, setVisibleCount] = useState(CITY_BATCH_SIZE);
+  const visibleCities = KOTA_LAYANAN.slice(0, visibleCount);
+  const kotaPerProvinsi = visibleCities.reduce<Record<string, typeof KOTA_LAYANAN>>(
     (groups, kota) => {
       (groups[kota.provinsi] ??= []).push(kota);
       return groups;
@@ -60,6 +65,10 @@ function AreaLayanan() {
       </header>
 
       <section className="mt-10 space-y-10">
+        <p className="text-sm text-muted-foreground">
+          Menampilkan {visibleCities.length} dari {KOTA_LAYANAN.length} kota dan kabupaten. Pilih
+          wilayah untuk membuka halaman layanan kota.
+        </p>
         <div>
           <h2 className="font-display text-2xl">Jakarta Selatan</h2>
           <Link
@@ -106,6 +115,21 @@ function AreaLayanan() {
           </div>
         ))}
       </section>
+
+      {visibleCount < KOTA_LAYANAN.length ? (
+        <div className="mt-10 flex justify-center">
+          <button
+            type="button"
+            className="btn-ghost"
+            onClick={() =>
+              setVisibleCount((count) => Math.min(count + CITY_BATCH_SIZE, KOTA_LAYANAN.length))
+            }
+            aria-label={`Tampilkan ${Math.min(CITY_BATCH_SIZE, KOTA_LAYANAN.length - visibleCount)} kota lainnya`}
+          >
+            Tampilkan {Math.min(CITY_BATCH_SIZE, KOTA_LAYANAN.length - visibleCount)} kota lainnya
+          </button>
+        </div>
+      ) : null}
     </main>
   );
 }
