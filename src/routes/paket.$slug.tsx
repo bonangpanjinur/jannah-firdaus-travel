@@ -234,7 +234,7 @@ function DetailPaket() {
               Paket Umroh
             </Link>
             <span className="px-2">/</span>
-            <span className="text-foreground">{paket.name}</span>
+            <span className="font-medium text-white/90">{paket.name}</span>
           </nav>
           <div className="mt-5 flex flex-wrap gap-2">
             {paket.is_featured ? (
@@ -245,7 +245,7 @@ function DetailPaket() {
             ) : null}
             {paket.quota ? <Badge variant="secondary">Kuota {paket.quota} jamaah</Badge> : null}
           </div>
-          <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-foreground sm:text-3xl md:text-5xl">
+          <h1 className="mt-4 max-w-3xl font-display text-2xl leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)] sm:text-3xl md:text-5xl">
             {paket.name}
           </h1>
           <p className="mt-4 max-w-2xl text-sm/7 text-white/75">{paket.description}</p>
