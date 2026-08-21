@@ -74,37 +74,84 @@ function slugify(value: string) {
     .replace(/^-|-$/g, "");
 }
 
-function validateDraft(value: Draft) {
-  if (!value.name?.trim()) return "Nama paket wajib diisi.";
-  if (!value.slug?.trim()) return "Slug paket wajib diisi.";
+type DraftErrors = Partial<Record<keyof Paket | "prices", string>>;
+
+function validateDraft(value: Draft): DraftErrors {
+  const errors: DraftErrors = {};
+  const requiredText = [
+    ["name", value.name, "Nama paket wajib diisi."],
+    ["slug", value.slug, "Slug paket wajib diisi."],
+    ["flyer_url", value.flyer_url, "Foto flyer wajib diunggah."],
+    ["description", value.description, "Deskripsi singkat wajib diisi."],
+    ["departure_date", value.departure_date, "Tanggal keberangkatan wajib diisi."],
+    ["airline", value.airline, "Maskapai wajib diisi."],
+    ["hotel_makkah", value.hotel_makkah, "Hotel Makkah wajib diisi."],
+    ["hotel_madinah", value.hotel_madinah, "Hotel Madinah wajib diisi."],
+  ] as const;
+
+  for (const [key, fieldValue, message] of requiredText) {
+    if (!String(fieldValue ?? "").trim()) errors[key] = message;
+  }
+
   if (
-    value.duration_days !== null &&
-    value.duration_days !== undefined &&
-    (!Number.isInteger(value.duration_days) || value.duration_days < 1)
-  )
-    return "Durasi harus berupa angka minimal 1 hari.";
-  if (
-    value.quota !== null &&
-    value.quota !== undefined &&
-    (!Number.isInteger(value.quota) || value.quota < 0)
-  )
-    return "Kuota tidak boleh negatif.";
-  if (
-    [value.price_quad, value.price_triple, value.price_double].some(
-      (price) => price !== null && price !== undefined && price < 0,
-    )
-  )
-    return "Harga tidak boleh negatif.";
-  if (
-    [value.hotel_makkah_stars, value.hotel_madinah_stars].some(
-      (stars) =>
-        stars !== null &&
-        stars !== undefined &&
-        (!Number.isInteger(stars) || stars < 1 || stars > 5),
-    )
-  )
-    return "Rating hotel harus antara 1 sampai 5 bintang.";
-  return null;
+    value.duration_days === null ||
+    value.duration_days === undefined ||
+    value.duration_days < 1
+  ) {
+    errors.duration_days = "Durasi wajib diisi minimal 1 hari.";
+  } else if (!Number.isInteger(value.duration_days)) {
+    errors.duration_days = "Durasi harus berupa angka bulat.";
+  }
+
+  if (value.quota === null || value.quota === undefined || value.quota < 1) {
+    errors.quota = "Kuota wajib diisi minimal 1 jamaah.";
+  } else if (!Number.isInteger(value.quota)) {
+    errors.quota = "Kuota harus berupa angka bulat.";
+  }
+
+  if (value.hotel_makkah_stars === null || value.hotel_makkah_stars === undefined) {
+    errors.hotel_makkah_stars = "Rating Hotel Makkah wajib diisi.";
+  } else if (
+    !Number.isInteger(value.hotel_makkah_stars) ||
+    value.hotel_makkah_stars < 1 ||
+    value.hotel_makkah_stars > 5
+  ) {
+    errors.hotel_makkah_stars = "Rating harus antara 1 sampai 5 bintang.";
+  }
+
+  if (value.hotel_madinah_stars === null || value.hotel_madinah_stars === undefined) {
+    errors.hotel_madinah_stars = "Rating Hotel Madinah wajib diisi.";
+  } else if (
+    !Number.isInteger(value.hotel_madinah_stars) ||
+    value.hotel_madinah_stars < 1 ||
+    value.hotel_madinah_stars > 5
+  ) {
+    errors.hotel_madinah_stars = "Rating harus antara 1 sampai 5 bintang.";
+  }
+
+  const prices = [value.price_quad, value.price_triple, value.price_double];
+  if (!prices.some((price) => price !== null && price !== undefined && price > 0)) {
+    errors.prices = "Isi minimal satu harga kamar dengan nilai lebih dari 0.";
+  }
+  for (const [key, price] of [
+    ["price_quad", value.price_quad],
+    ["price_triple", value.price_triple],
+    ["price_double", value.price_double],
+  ] as const) {
+    if (price !== null && price !== undefined && price < 0)
+      errors[key] = "Harga tidak boleh negatif.";
+  }
+
+  if (!value.includes?.length) errors.includes = "Tambahkan minimal satu fasilitas yang termasuk.";
+  if (!value.excludes?.length) errors.excludes = "Tambahkan minimal satu item yang tidak termasuk.";
+  if (!value.requirements?.length)
+    errors.requirements = "Tambahkan minimal satu persyaratan jamaah.";
+
+  return errors;
+}
+
+function firstValidationError(errors: DraftErrors) {
+  return Object.values(errors)[0] ?? null;
 }
 
 function AdminPaket() {
@@ -112,6 +159,7 @@ function AdminPaket() {
   const query = packagesQuery({ includeDrafts: true });
   const { data: packages = [], isLoading } = useQuery(query);
   const [draft, setDraft] = useState<Draft | null>(null);
+  const [errors, setErrors] = useState<DraftErrors>({});
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
@@ -127,7 +175,8 @@ function AdminPaket() {
 
   const save = useMutation({
     mutationFn: async (value: Draft) => {
-      const validationError = validateDraft(value);
+      const validationErrors = validateDraft(value);
+      const validationError = firstValidationError(validationErrors);
       if (validationError) throw new Error(validationError);
       const payload = {
         ...value,
@@ -174,6 +223,22 @@ function AdminPaket() {
 
   function field(key: keyof Paket, value: unknown) {
     setDraft((previous) => ({ ...(previous ?? {}), [key]: value }));
+    setErrors((previous) => {
+      if (!previous[key]) return previous;
+      const next = { ...previous };
+      delete next[key];
+      return next;
+    });
+  }
+
+  function validateAndSave(value: Draft) {
+    const nextErrors = validateDraft(value);
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
+      toast.error(`${Object.keys(nextErrors).length} field perlu diperbaiki.`);
+      return;
+    }
+    save.mutate(value);
   }
 
   /** Nama paket otomatis mengisi slug selama admin belum mengubah slug secara manual. */
@@ -194,6 +259,7 @@ function AdminPaket() {
     void id;
     void created_at;
     void updated_at;
+    setErrors({});
     setDraft({
       ...rest,
       name: `${paket.name} (Salinan)`,
@@ -223,7 +289,14 @@ function AdminPaket() {
             <Button asChild variant="outline">
               <a href="/admin/paket/import">Import CSV + ZIP</a>
             </Button>
-            <Button onClick={() => setDraft({ ...empty })}>Tambah paket</Button>
+            <Button
+              onClick={() => {
+                setErrors({});
+                setDraft({ ...empty });
+              }}
+            >
+              Tambah paket
+            </Button>
           </div>
         ) : null}
       </div>
@@ -267,7 +340,11 @@ function AdminPaket() {
                 <Button type="button" variant="outline" onClick={() => setDraft(null)}>
                   Batal
                 </Button>
-                <Button type="button" disabled={save.isPending} onClick={() => save.mutate(draft)}>
+                <Button
+                  type="button"
+                  disabled={save.isPending}
+                  onClick={() => validateAndSave(draft)}
+                >
                   {save.isPending ? "Menyimpan…" : "Simpan paket"}
                 </Button>
               </div>
@@ -297,45 +374,76 @@ function AdminPaket() {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              save.mutate(draft);
+              validateAndSave(draft);
             }}
             className="space-y-6"
           >
+            {Object.keys(errors).length ? (
+              <div
+                role="alert"
+                className="rounded-2xl border border-destructive/40 bg-destructive/5 p-4 text-sm"
+              >
+                <p className="font-semibold text-destructive">
+                  Periksa {Object.keys(errors).length} field sebelum menyimpan.
+                </p>
+                <ul className="mt-2 grid gap-1 text-muted-foreground sm:grid-cols-2">
+                  {Object.entries(errors).map(([key, message]) => (
+                    <li key={key}>
+                      <a
+                        className="underline decoration-destructive/40 underline-offset-2"
+                        href={`#field-${key}`}
+                      >
+                        {message}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
             <Section
               id="paket-section-1"
               title="1. Informasi dasar"
               hint="Nama paket dan flyer adalah yang pertama dilihat calon jamaah."
             >
               <Text
+                id="field-name"
                 label="Nama paket"
+                error={errors.name}
                 placeholder="Umroh Reguler 12 Hari Februari"
                 value={draft.name ?? ""}
                 onChange={changeName}
                 required
               />
               <Text
+                id="field-slug"
                 label="Slug (URL)"
+                error={errors.slug}
                 placeholder="umroh-reguler-12-hari-februari"
                 value={draft.slug ?? ""}
                 onChange={(value) => field("slug", slugify(value))}
                 required
               />
-              <div className="md:col-span-2">
+              <div id="field-flyer_url" className="md:col-span-2">
                 <ImageUpload
                   label="Foto flyer paket"
                   folder="flyers"
                   value={draft.flyer_url}
                   onChange={(value) => field("flyer_url", value)}
                 />
+                <FieldError message={errors.flyer_url} />
               </div>
-              <div className="space-y-2 md:col-span-2">
-                <Label>Deskripsi singkat</Label>
+              <div id="field-description" className="space-y-2 md:col-span-2">
+                <Label>
+                  Deskripsi singkat <span className="text-destructive">*</span>
+                </Label>
                 <Textarea
                   rows={3}
                   placeholder="Umroh 12 hari bersama pembimbing berpengalaman, hotel dekat Masjidil Haram, dan city tour Thaif."
                   value={draft.description ?? ""}
+                  aria-invalid={Boolean(errors.description)}
                   onChange={(event) => field("description", event.target.value)}
                 />
+                <FieldError message={errors.description} />
               </div>
             </Section>
 
@@ -345,26 +453,38 @@ function AdminPaket() {
               hint="Tanggal dan maskapai membantu jamaah membandingkan paket."
             >
               <Text
+                id="field-departure_date"
                 label="Tanggal keberangkatan"
+                error={errors.departure_date}
+                required
                 type="date"
                 value={draft.departure_date ?? ""}
                 onChange={(value) => field("departure_date", value || null)}
               />
               <Text
+                id="field-duration_days"
                 label="Durasi (hari)"
+                error={errors.duration_days}
+                required
                 type="number"
                 placeholder="12"
                 value={String(draft.duration_days ?? "")}
                 onChange={(value) => field("duration_days", value ? Number(value) : null)}
               />
               <Text
+                id="field-airline"
                 label="Maskapai"
+                error={errors.airline}
+                required
                 placeholder="Saudia Airlines"
                 value={draft.airline ?? ""}
                 onChange={(value) => field("airline", value)}
               />
               <Text
+                id="field-quota"
                 label="Kuota jamaah"
+                error={errors.quota}
+                required
                 type="number"
                 placeholder="45"
                 value={String(draft.quota ?? "")}
@@ -378,13 +498,19 @@ function AdminPaket() {
               hint="Tulis nama hotel dan bintangnya (1-5)."
             >
               <Text
+                id="field-hotel_makkah"
                 label="Hotel Makkah"
+                error={errors.hotel_makkah}
+                required
                 placeholder="Hilton Suites Makkah"
                 value={draft.hotel_makkah ?? ""}
                 onChange={(value) => field("hotel_makkah", value)}
               />
               <Text
+                id="field-hotel_makkah_stars"
                 label="Bintang Makkah"
+                error={errors.hotel_makkah_stars}
+                required
                 type="number"
                 min="1"
                 max="5"
@@ -393,13 +519,19 @@ function AdminPaket() {
                 onChange={(value) => field("hotel_makkah_stars", value ? Number(value) : null)}
               />
               <Text
+                id="field-hotel_madinah"
                 label="Hotel Madinah"
+                error={errors.hotel_madinah}
+                required
                 placeholder="Frontel Al Harithia"
                 value={draft.hotel_madinah ?? ""}
                 onChange={(value) => field("hotel_madinah", value)}
               />
               <Text
+                id="field-hotel_madinah_stars"
                 label="Bintang Madinah"
+                error={errors.hotel_madinah_stars}
+                required
                 type="number"
                 min="1"
                 max="5"
@@ -415,21 +547,27 @@ function AdminPaket() {
               hint="Isi dalam rupiah tanpa titik, contoh: 32500000. Kosongkan bila tidak ditawarkan."
             >
               <Text
+                id="field-price_quad"
                 label="Harga quad (sekamar 4)"
+                error={errors["price_quad"] ?? errors.prices}
                 type="number"
                 placeholder="32500000"
                 value={String(draft.price_quad ?? "")}
                 onChange={(value) => field("price_quad", value ? Number(value) : null)}
               />
               <Text
+                id="field-price_triple"
                 label="Harga triple (sekamar 3)"
+                error={errors["price_triple"] ?? errors.prices}
                 type="number"
                 placeholder="34500000"
                 value={String(draft.price_triple ?? "")}
                 onChange={(value) => field("price_triple", value ? Number(value) : null)}
               />
               <Text
+                id="field-price_double"
                 label="Harga double (sekamar 2)"
+                error={errors["price_double"] ?? errors.prices}
                 type="number"
                 placeholder="37500000"
                 value={String(draft.price_double ?? "")}
@@ -443,20 +581,26 @@ function AdminPaket() {
               hint="Klik tombol isian cepat, lalu sunting sesuai paket Anda."
             >
               <ListField
+                id="field-includes"
                 label="Termasuk"
                 value={draft.includes ?? []}
+                error={errors["includes"]}
                 presets={PRESET_INCLUDES}
                 onChange={(value) => field("includes", value)}
               />
               <ListField
+                id="field-excludes"
                 label="Tidak termasuk"
                 value={draft.excludes ?? []}
+                error={errors["excludes"]}
                 presets={PRESET_EXCLUDES}
                 onChange={(value) => field("excludes", value)}
               />
               <ListField
+                id="field-requirements"
                 label="Persyaratan"
                 value={draft.requirements ?? []}
+                error={errors["requirements"]}
                 presets={PRESET_REQUIREMENTS}
                 onChange={(value) => field("requirements", value)}
               />
@@ -644,6 +788,7 @@ function Section({
 }
 
 function Text({
+  id,
   label,
   value,
   onChange,
@@ -652,7 +797,9 @@ function Text({
   min,
   max,
   placeholder,
+  error,
 }: {
+  id?: string | undefined;
   label: string;
   value: string;
   onChange: (value: string) => void;
@@ -661,37 +808,58 @@ function Text({
   min?: string;
   max?: string;
   placeholder?: string;
+  error?: string | undefined;
 }) {
   return (
-    <div className="space-y-2">
-      <Label>{label}</Label>
+    <div id={id} className="space-y-2">
+      <Label>
+        {label} {required ? <span className="text-destructive">*</span> : null}
+      </Label>
       <Input
         type={type}
         min={min ?? (type === "number" ? "0" : undefined)}
         max={max}
         value={value}
         required={required}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className={error ? "border-destructive focus-visible:ring-destructive" : undefined}
         placeholder={placeholder}
         onChange={(event) => onChange(event.target.value)}
       />
+      <FieldError id={error ? `${id}-error` : undefined} message={error} />
     </div>
   );
 }
 
+function FieldError({ id, message }: { id?: string | undefined; message?: string | undefined }) {
+  return message ? (
+    <p id={id} className="text-xs font-medium text-destructive">
+      {message}
+    </p>
+  ) : null;
+}
+
 function ListField({
+  id,
   label,
   value,
   presets = [],
   onChange,
+  error,
 }: {
+  id?: string | undefined;
   label: string;
   value: string[];
   presets?: string[];
   onChange: (value: string[]) => void;
+  error?: string | undefined;
 }) {
   return (
-    <div className="space-y-2 md:col-span-2">
-      <Label>{label} (satu baris satu item)</Label>
+    <div id={id} className="space-y-2 md:col-span-2">
+      <Label>
+        {label} (satu baris satu item) <span className="text-destructive">*</span>
+      </Label>
       {presets.length ? (
         <div className="flex flex-wrap gap-1.5">
           {presets.map((preset) => {
@@ -715,6 +883,9 @@ function ListField({
       <Textarea
         rows={4}
         value={value.join("\n")}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? `${id}-error` : undefined}
+        className={error ? "border-destructive focus-visible:ring-destructive" : undefined}
         onChange={(event) =>
           onChange(
             event.target.value
@@ -724,6 +895,7 @@ function ListField({
           )
         }
       />
+      <FieldError id={error ? `${id}-error` : undefined} message={error} />
     </div>
   );
 }
