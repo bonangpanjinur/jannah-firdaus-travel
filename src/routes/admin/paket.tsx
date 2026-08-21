@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Download, Printer } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -690,6 +691,22 @@ function AdminPaket() {
                 </Button>
                 <Button
                   size="sm"
+                  variant="outline"
+                  onClick={() => downloadPackageSummary(paket)}
+                  aria-label={`Unduh ringkasan ${paket.name}`}
+                >
+                  <Download className="size-4" /> Unduh
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => printPackageSummary(paket)}
+                  aria-label={`Cetak ringkasan ${paket.name}`}
+                >
+                  <Printer className="size-4" /> Cetak
+                </Button>
+                <Button
+                  size="sm"
                   variant="destructive"
                   onClick={() => {
                     if (
@@ -721,6 +738,111 @@ function AdminPaket() {
       </Dialog>
     </main>
   );
+}
+
+function escapeHtml(value: unknown) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function summaryList(title: string, items: string[] | null | undefined) {
+  const cleaned = (items ?? []).map((item) => item.trim()).filter(Boolean);
+  if (!cleaned.length) return "";
+  return `<section><h2>${escapeHtml(title)}</h2><ul>${cleaned.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>`;
+}
+
+function packageSummaryHtml(paket: Paket) {
+  const flyer = absoluteMediaUrl(paket.flyer_url);
+  const prices = (
+    [
+      ["Quad", paket.price_quad],
+      ["Triple", paket.price_triple],
+      ["Double", paket.price_double],
+    ] as Array<[string, number | null | undefined]>
+  ).filter(([, price]) => price !== null && price !== undefined && price > 0);
+
+  return `<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>${escapeHtml(paket.name || "Ringkasan Paket")}</title>
+<style>
+  :root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f4f8f5; color: #17241f; }
+  .page { max-width: 900px; margin: 0 auto; padding: 32px; }
+  .header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; border-bottom: 3px solid #0d8b61; padding-bottom: 20px; }
+  .brand { color: #0d8b61; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  h1 { margin: 8px 0 0; font-size: 30px; line-height: 1.15; }
+  .meta { margin-top: 10px; color: #5a6a63; font-size: 14px; line-height: 1.6; }
+  .hero { display: grid; grid-template-columns: 220px 1fr; gap: 24px; margin-top: 24px; }
+  .flyer { width: 220px; max-height: 300px; border-radius: 14px; object-fit: cover; border: 1px solid #d5e3dc; }
+  .placeholder { display: grid; place-items: center; min-height: 180px; border: 1px dashed #a9bdb3; border-radius: 14px; color: #718178; text-align: center; padding: 16px; }
+  .description { font-size: 16px; line-height: 1.7; white-space: pre-wrap; }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+  .fact, section { border: 1px solid #d5e3dc; border-radius: 12px; background: #fff; padding: 16px; }
+  .fact strong { display: block; margin-bottom: 5px; color: #0d8b61; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .fact span { font-size: 15px; }
+  section { margin-top: 16px; }
+  h2 { margin: 0 0 10px; font-size: 17px; }
+  ul { margin: 0; padding-left: 20px; line-height: 1.7; }
+  .price { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px solid #edf2ef; }
+  .price:last-child { border-bottom: 0; }
+  .footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid #d5e3dc; color: #718178; font-size: 12px; }
+  @media (max-width: 600px) { .page { padding: 20px 16px; } .header, .hero { grid-template-columns: 1fr; display: grid; } .flyer { width: 100%; max-height: 420px; } .grid { grid-template-columns: 1fr; } }
+  @media print { body { background: #fff; } .page { padding: 0; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="header"><div><div class="brand">Jannah Firdaus Tour Travel</div><h1>${escapeHtml(paket.name || "Ringkasan Paket Wisata")}</h1><div class="meta">${paket.is_published ? "Paket aktif" : "Draft"}</div></div><div class="meta">${escapeHtml(paket.slug || "")}</div></header>
+  <div class="hero">${flyer ? `<img class="flyer" src="${escapeHtml(flyer)}" alt="Flyer ${escapeHtml(paket.name)}" />` : `<div class="placeholder">Foto flyer belum tersedia</div>`}<div class="description">${escapeHtml(paket.description || "Belum ada deskripsi paket.")}</div></div>
+  <div class="grid">
+    <div class="fact"><strong>Keberangkatan</strong><span>${escapeHtml(formatTanggal(paket.departure_date))}</span></div>
+    <div class="fact"><strong>Durasi</strong><span>${paket.duration_days ? `${escapeHtml(paket.duration_days)} hari` : "Belum diisi"}</span></div>
+    <div class="fact"><strong>Maskapai</strong><span>${escapeHtml(paket.airline || "Belum diisi")}</span></div>
+    <div class="fact"><strong>Kuota</strong><span>${paket.quota ? `${escapeHtml(paket.quota)} jamaah` : "Belum diisi"}</span></div>
+    <div class="fact"><strong>Hotel Makkah</strong><span>${escapeHtml(paket.hotel_makkah || "Belum diisi")} ${paket.hotel_makkah_stars ? `· ${escapeHtml(paket.hotel_makkah_stars)} bintang` : ""}</span></div>
+    <div class="fact"><strong>Hotel Madinah</strong><span>${escapeHtml(paket.hotel_madinah || "Belum diisi")} ${paket.hotel_madinah_stars ? `· ${escapeHtml(paket.hotel_madinah_stars)} bintang` : ""}</span></div>
+  </div>
+  ${prices.length ? `<section><h2>Harga paket</h2>${prices.map(([room, price]) => `<div class="price"><span>${escapeHtml(room)}</span><strong>${escapeHtml(formatRupiah(price as number))}</strong></div>`).join("")}</section>` : ""}
+  ${summaryList("Termasuk", paket.includes)}
+  ${summaryList("Tidak termasuk", paket.excludes)}
+  ${summaryList("Persyaratan", paket.requirements)}
+  <footer class="footer">Ringkasan ini dibuat dari data panel admin dan dapat diperbarui sewaktu-waktu. Hubungi Jannah Firdaus Tour Travel untuk konfirmasi ketersediaan dan harga terbaru.</footer>
+</main>
+</body>
+</html>`;
+}
+
+function downloadPackageSummary(paket: Paket) {
+  const blob = new Blob([packageSummaryHtml(paket)], { type: "text/html;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `${paket.slug || "ringkasan-paket"}.html`;
+  link.click();
+  URL.revokeObjectURL(url);
+  toast.success("Ringkasan paket berhasil diunduh");
+}
+
+function printPackageSummary(paket: Paket) {
+  const printWindow = window.open("", "_blank", "noopener,noreferrer");
+  if (!printWindow) {
+    toast.error("Popup diblokir browser. Izinkan popup untuk mencetak ringkasan.");
+    return;
+  }
+  printWindow.document.write(packageSummaryHtml(paket));
+  printWindow.document.close();
+  printWindow.addEventListener("load", () => {
+    printWindow.focus();
+    printWindow.print();
+  });
 }
 
 function Section({
