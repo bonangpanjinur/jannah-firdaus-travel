@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
@@ -111,6 +111,17 @@ function AdminPaket() {
   const query = packagesQuery({ includeDrafts: true });
   const { data: packages = [], isLoading } = useQuery(query);
   const [draft, setDraft] = useState<Draft | null>(null);
+  const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+
+  useEffect(() => {
+    const savedView = window.localStorage.getItem("admin-paket-view");
+    if (savedView === "grid" || savedView === "list") setViewMode(savedView);
+  }, []);
+
+  function changeViewMode(mode: "list" | "grid") {
+    setViewMode(mode);
+    window.localStorage.setItem("admin-paket-view", mode);
+  }
 
   const save = useMutation({
     mutationFn: async (value: Draft) => {
@@ -207,6 +218,32 @@ function AdminPaket() {
             <a href="/admin/paket/import">Import CSV + ZIP</a>
           </Button>
           <Button onClick={() => setDraft({ ...empty })}>Tambah paket</Button>
+        </div>
+      </div>
+
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-muted-foreground">{packages.length} paket tersedia</p>
+        <div
+          className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
+          role="group"
+          aria-label="Pilih tampilan paket"
+        >
+          <button
+            type="button"
+            aria-pressed={viewMode === "list"}
+            onClick={() => changeViewMode("list")}
+            className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+          >
+            List
+          </button>
+          <button
+            type="button"
+            aria-pressed={viewMode === "grid"}
+            onClick={() => changeViewMode("grid")}
+            className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+          >
+            Grid
+          </button>
         </div>
       </div>
 
@@ -414,14 +451,28 @@ function AdminPaket() {
           Belum ada paket. Klik “Tambah paket” untuk membuat paket umroh pertama Anda.
         </p>
       ) : (
-        <ul className="mt-8 space-y-3">
+        <ul
+          className={
+            viewMode === "grid" ? "mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3" : "mt-8 space-y-3"
+          }
+        >
           {packages.map((paket) => (
             <li
               key={paket.id}
-              className="flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft sm:p-5"
+              className={
+                viewMode === "grid"
+                  ? "rounded-2xl border border-border bg-card p-4 shadow-soft"
+                  : "flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-border bg-card p-4 shadow-soft sm:p-5"
+              }
             >
-              <div className="flex min-w-0 items-center gap-4">
-                <div className="size-20 shrink-0 overflow-hidden rounded-xl border border-border bg-muted sm:size-24">
+              <div className={viewMode === "grid" ? "min-w-0" : "flex min-w-0 items-center gap-4"}>
+                <div
+                  className={
+                    viewMode === "grid"
+                      ? "mb-4 aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-muted"
+                      : "size-20 shrink-0 overflow-hidden rounded-xl border border-border bg-muted sm:size-24"
+                  }
+                >
                   <StorageImage
                     src={paket.flyer_url}
                     alt={`Foto paket ${paket.name}`}
@@ -443,7 +494,11 @@ function AdminPaket() {
                   </p>
                 </div>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div
+                className={
+                  viewMode === "grid" ? "mt-4 flex flex-wrap gap-2" : "flex flex-wrap gap-2"
+                }
+              >
                 <Button asChild size="sm" variant="secondary">
                   <Link to="/admin/paket/$id" params={{ id: paket.id }}>
                     Itinerary & galeri
