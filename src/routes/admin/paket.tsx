@@ -78,74 +78,45 @@ type DraftErrors = Partial<Record<keyof Paket | "prices", string>>;
 
 function validateDraft(value: Draft): DraftErrors {
   const errors: DraftErrors = {};
-  const requiredText = [
-    ["name", value.name, "Nama paket wajib diisi."],
-    ["slug", value.slug, "Slug paket wajib diisi."],
-    ["flyer_url", value.flyer_url, "Foto flyer wajib diunggah."],
-    ["description", value.description, "Deskripsi singkat wajib diisi."],
-    ["departure_date", value.departure_date, "Tanggal keberangkatan wajib diisi."],
-    ["airline", value.airline, "Maskapai wajib diisi."],
-    ["hotel_makkah", value.hotel_makkah, "Hotel Makkah wajib diisi."],
-    ["hotel_madinah", value.hotel_madinah, "Hotel Madinah wajib diisi."],
-  ] as const;
 
-  for (const [key, fieldValue, message] of requiredText) {
-    if (!String(fieldValue ?? "").trim()) errors[key] = message;
+  if (
+    value.duration_days !== null &&
+    value.duration_days !== undefined &&
+    (!Number.isInteger(value.duration_days) || value.duration_days < 1)
+  ) {
+    errors.duration_days = "Durasi harus berupa angka bulat minimal 1 hari.";
   }
 
   if (
-    value.duration_days === null ||
-    value.duration_days === undefined ||
-    value.duration_days < 1
+    value.quota !== null &&
+    value.quota !== undefined &&
+    (!Number.isInteger(value.quota) || value.quota < 0)
   ) {
-    errors.duration_days = "Durasi wajib diisi minimal 1 hari.";
-  } else if (!Number.isInteger(value.duration_days)) {
-    errors.duration_days = "Durasi harus berupa angka bulat.";
+    errors.quota = "Kuota harus berupa angka bulat dan tidak boleh negatif.";
   }
 
-  if (value.quota === null || value.quota === undefined || value.quota < 1) {
-    errors.quota = "Kuota wajib diisi minimal 1 jamaah.";
-  } else if (!Number.isInteger(value.quota)) {
-    errors.quota = "Kuota harus berupa angka bulat.";
+  for (const [key, stars] of [
+    ["hotel_makkah_stars", value.hotel_makkah_stars],
+    ["hotel_madinah_stars", value.hotel_madinah_stars],
+  ] as const) {
+    if (
+      stars !== null &&
+      stars !== undefined &&
+      (!Number.isInteger(stars) || stars < 1 || stars > 5)
+    ) {
+      errors[key] = "Rating hotel harus antara 1 sampai 5 bintang.";
+    }
   }
 
-  if (value.hotel_makkah_stars === null || value.hotel_makkah_stars === undefined) {
-    errors.hotel_makkah_stars = "Rating Hotel Makkah wajib diisi.";
-  } else if (
-    !Number.isInteger(value.hotel_makkah_stars) ||
-    value.hotel_makkah_stars < 1 ||
-    value.hotel_makkah_stars > 5
-  ) {
-    errors.hotel_makkah_stars = "Rating harus antara 1 sampai 5 bintang.";
-  }
-
-  if (value.hotel_madinah_stars === null || value.hotel_madinah_stars === undefined) {
-    errors.hotel_madinah_stars = "Rating Hotel Madinah wajib diisi.";
-  } else if (
-    !Number.isInteger(value.hotel_madinah_stars) ||
-    value.hotel_madinah_stars < 1 ||
-    value.hotel_madinah_stars > 5
-  ) {
-    errors.hotel_madinah_stars = "Rating harus antara 1 sampai 5 bintang.";
-  }
-
-  const prices = [value.price_quad, value.price_triple, value.price_double];
-  if (!prices.some((price) => price !== null && price !== undefined && price > 0)) {
-    errors.prices = "Isi minimal satu harga kamar dengan nilai lebih dari 0.";
-  }
   for (const [key, price] of [
     ["price_quad", value.price_quad],
     ["price_triple", value.price_triple],
     ["price_double", value.price_double],
   ] as const) {
-    if (price !== null && price !== undefined && price < 0)
-      errors[key] = "Harga tidak boleh negatif.";
+    if (price !== null && price !== undefined && (!Number.isFinite(price) || price < 0)) {
+      errors[key] = "Harga harus berupa angka dan tidak boleh negatif.";
+    }
   }
-
-  if (!value.includes?.length) errors.includes = "Tambahkan minimal satu fasilitas yang termasuk.";
-  if (!value.excludes?.length) errors.excludes = "Tambahkan minimal satu item yang tidak termasuk.";
-  if (!value.requirements?.length)
-    errors.requirements = "Tambahkan minimal satu persyaratan jamaah.";
 
   return errors;
 }
@@ -384,7 +355,7 @@ function AdminPaket() {
                 className="rounded-2xl border border-destructive/40 bg-destructive/5 p-4 text-sm"
               >
                 <p className="font-semibold text-destructive">
-                  Periksa {Object.keys(errors).length} field sebelum menyimpan.
+                  Periksa format {Object.keys(errors).length} field sebelum menyimpan.
                 </p>
                 <ul className="mt-2 grid gap-1 text-muted-foreground sm:grid-cols-2">
                   {Object.entries(errors).map(([key, message]) => (
@@ -412,7 +383,6 @@ function AdminPaket() {
                 placeholder="Umroh Reguler 12 Hari Februari"
                 value={draft.name ?? ""}
                 onChange={changeName}
-                required
               />
               <Text
                 id="field-slug"
@@ -421,7 +391,6 @@ function AdminPaket() {
                 placeholder="umroh-reguler-12-hari-februari"
                 value={draft.slug ?? ""}
                 onChange={(value) => field("slug", slugify(value))}
-                required
               />
               <div id="field-flyer_url" className="md:col-span-2">
                 <ImageUpload
@@ -433,9 +402,7 @@ function AdminPaket() {
                 <FieldError message={errors.flyer_url} />
               </div>
               <div id="field-description" className="space-y-2 md:col-span-2">
-                <Label>
-                  Deskripsi singkat <span className="text-destructive">*</span>
-                </Label>
+                <Label>Deskripsi singkat</Label>
                 <Textarea
                   rows={3}
                   placeholder="Umroh 12 hari bersama pembimbing berpengalaman, hotel dekat Masjidil Haram, dan city tour Thaif."
@@ -456,7 +423,6 @@ function AdminPaket() {
                 id="field-departure_date"
                 label="Tanggal keberangkatan"
                 error={errors.departure_date}
-                required
                 type="date"
                 value={draft.departure_date ?? ""}
                 onChange={(value) => field("departure_date", value || null)}
@@ -465,7 +431,6 @@ function AdminPaket() {
                 id="field-duration_days"
                 label="Durasi (hari)"
                 error={errors.duration_days}
-                required
                 type="number"
                 placeholder="12"
                 value={String(draft.duration_days ?? "")}
@@ -475,7 +440,6 @@ function AdminPaket() {
                 id="field-airline"
                 label="Maskapai"
                 error={errors.airline}
-                required
                 placeholder="Saudia Airlines"
                 value={draft.airline ?? ""}
                 onChange={(value) => field("airline", value)}
@@ -484,7 +448,6 @@ function AdminPaket() {
                 id="field-quota"
                 label="Kuota jamaah"
                 error={errors.quota}
-                required
                 type="number"
                 placeholder="45"
                 value={String(draft.quota ?? "")}
@@ -501,7 +464,6 @@ function AdminPaket() {
                 id="field-hotel_makkah"
                 label="Hotel Makkah"
                 error={errors.hotel_makkah}
-                required
                 placeholder="Hilton Suites Makkah"
                 value={draft.hotel_makkah ?? ""}
                 onChange={(value) => field("hotel_makkah", value)}
@@ -510,7 +472,6 @@ function AdminPaket() {
                 id="field-hotel_makkah_stars"
                 label="Bintang Makkah"
                 error={errors.hotel_makkah_stars}
-                required
                 type="number"
                 min="1"
                 max="5"
@@ -522,7 +483,6 @@ function AdminPaket() {
                 id="field-hotel_madinah"
                 label="Hotel Madinah"
                 error={errors.hotel_madinah}
-                required
                 placeholder="Frontel Al Harithia"
                 value={draft.hotel_madinah ?? ""}
                 onChange={(value) => field("hotel_madinah", value)}
@@ -531,7 +491,6 @@ function AdminPaket() {
                 id="field-hotel_madinah_stars"
                 label="Bintang Madinah"
                 error={errors.hotel_madinah_stars}
-                required
                 type="number"
                 min="1"
                 max="5"
@@ -857,9 +816,7 @@ function ListField({
 }) {
   return (
     <div id={id} className="space-y-2 md:col-span-2">
-      <Label>
-        {label} (satu baris satu item) <span className="text-destructive">*</span>
-      </Label>
+      <Label>{label} (satu baris satu item)</Label>
       {presets.length ? (
         <div className="flex flex-wrap gap-1.5">
           {presets.map((preset) => {
