@@ -218,7 +218,7 @@ function DetailPaket() {
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
-        <div className="container-page relative flex min-h-[520px] items-end py-10 sm:min-h-[580px] sm:py-14 md:py-20">
+        <div className="container-page relative flex min-h-[520px] flex-col items-start justify-end py-10 sm:min-h-[580px] sm:py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-white/70">
             <Link
               to="/"
