@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,7 +11,7 @@ import { Switch } from "@/components/ui/switch";
 import { formatRupiah, formatTanggal } from "@/lib/format";
 import { db, packagesQuery, type Paket } from "@/lib/site-data";
 import { ImageUpload } from "@/components/admin/image-upload";
-import { deleteMedia, isStoragePath } from "@/lib/storage";
+import { absoluteMediaUrl, deleteMedia, isStoragePath } from "@/lib/storage";
 import { StorageImage } from "@/components/site/storage-image";
 
 export const Route = createFileRoute("/admin/paket")({
@@ -112,6 +113,7 @@ function AdminPaket() {
   const { data: packages = [], isLoading } = useQuery(query);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+  const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     const savedView = window.localStorage.getItem("admin-paket-view");
@@ -473,17 +475,33 @@ function AdminPaket() {
                       : "size-20 shrink-0 overflow-hidden rounded-xl border border-border bg-muted sm:size-24"
                   }
                 >
-                  <StorageImage
-                    src={paket.flyer_url}
-                    alt={`Foto paket ${paket.name}`}
-                    loading="lazy"
-                    className="size-full object-cover"
-                    fallback={
-                      <div className="flex size-full items-center justify-center px-2 text-center text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
-                        Foto belum tersedia
-                      </div>
-                    }
-                  />
+                  {paket.flyer_url && absoluteMediaUrl(paket.flyer_url) ? (
+                    <button
+                      type="button"
+                      className="group relative block size-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-inset"
+                      onClick={() =>
+                        setPreview({
+                          src: absoluteMediaUrl(paket.flyer_url)!,
+                          alt: `Preview foto paket ${paket.name}`,
+                        })
+                      }
+                      aria-label={`Preview foto paket ${paket.name}`}
+                    >
+                      <StorageImage
+                        src={paket.flyer_url}
+                        alt={`Foto paket ${paket.name}`}
+                        loading="lazy"
+                        className="size-full object-cover transition-transform duration-200 group-hover:scale-105"
+                      />
+                      <span className="absolute inset-x-1 bottom-1 rounded-md bg-black/60 px-1.5 py-1 text-center text-[10px] font-medium text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                        Klik untuk preview
+                      </span>
+                    </button>
+                  ) : (
+                    <div className="flex size-full items-center justify-center px-2 text-center text-[10px] font-medium uppercase tracking-wide text-muted-foreground">
+                      Foto belum tersedia
+                    </div>
+                  )}
                 </div>
                 <div className="min-w-0">
                   <p className="truncate font-semibold">{paket.name}</p>
@@ -529,6 +547,18 @@ function AdminPaket() {
           ))}
         </ul>
       )}
+
+      <Dialog open={Boolean(preview)} onOpenChange={(open) => !open && setPreview(null)}>
+        <DialogContent className="max-w-4xl overflow-hidden p-2 sm:p-3">
+          {preview ? (
+            <img
+              src={preview.src}
+              alt={preview.alt}
+              className="max-h-[80vh] w-full rounded-xl object-contain"
+            />
+          ) : null}
+        </DialogContent>
+      </Dialog>
     </main>
   );
 }
