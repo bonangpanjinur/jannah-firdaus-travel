@@ -339,29 +339,21 @@ function DetailPaket() {
               <TabsTrigger value="galeri">Galeri</TabsTrigger>
             </TabsList>
 
-            <TabsContent value="fasilitas" className="mt-6 grid gap-8 sm:grid-cols-2">
-              <div>
-                <h3 className="font-display text-lg">Termasuk</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  {includes.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-display text-lg">Tidak termasuk</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                  {excludes.map((item) => (
-                    <li key={item} className="flex gap-2">
-                      <X className="mt-0.5 size-4 shrink-0 text-destructive" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <TabsContent value="fasilitas" className="mt-6 grid gap-4 sm:grid-cols-2">
+              <FeatureCard
+                title="Sudah termasuk"
+                description="Layanan yang menjadi bagian dari paket ini."
+                items={includes}
+                icon={Check}
+                tone="positive"
+              />
+              <FeatureCard
+                title="Tidak termasuk"
+                description="Biaya atau kebutuhan yang perlu dipersiapkan terpisah."
+                items={excludes}
+                icon={X}
+                tone="negative"
+              />
             </TabsContent>
 
             <TabsContent value="itinerary" className="mt-6">
@@ -394,6 +386,17 @@ function DetailPaket() {
             </TabsContent>
 
             <TabsContent value="galeri" className="mt-6">
+              <div className="mb-4 flex items-end justify-between gap-3">
+                <div>
+                  <h3 className="font-display text-xl">Dokumentasi perjalanan</h3>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    Klik foto untuk melihat ukuran lebih besar.
+                  </p>
+                </div>
+                <span className="shrink-0 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  {galeri.length} foto
+                </span>
+              </div>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
                 {galeri.map((img) => (
                   <figure key={img.id} className="group bento-card">
@@ -425,9 +428,10 @@ function DetailPaket() {
                 ))}
               </div>
               {imageItems.length === 0 ? (
-                <p className="mt-4 text-xs text-muted-foreground">
-                  Foto dokumentasi umum. Foto khusus paket ini akan segera ditambahkan.
-                </p>
+                <div className="mt-4 rounded-2xl border border-dashed border-border bg-muted/30 p-4 text-sm text-muted-foreground">
+                  Foto dokumentasi umum digunakan sebagai preview. Foto khusus paket ini akan
+                  ditambahkan setelah tersedia.
+                </div>
               ) : null}
             </TabsContent>
           </Tabs>
@@ -558,6 +562,61 @@ function DetailPaket() {
         </div>
       </section>
     </main>
+  );
+}
+
+function FeatureCard({
+  title,
+  description,
+  items,
+  icon: Icon,
+  tone,
+}: {
+  title: string;
+  description: string;
+  items: string[];
+  icon: React.ComponentType<{ className?: string }>;
+  tone: "positive" | "negative";
+}) {
+  const isPositive = tone === "positive";
+  return (
+    <section
+      className={`rounded-2xl border p-5 ${
+        isPositive
+          ? "border-primary/20 bg-primary/[0.04]"
+          : "border-destructive/15 bg-destructive/[0.03]"
+      }`}
+    >
+      <div className="flex items-start gap-3">
+        <span
+          className={`flex size-9 shrink-0 items-center justify-center rounded-full ${
+            isPositive ? "bg-primary/10 text-primary" : "bg-destructive/10 text-destructive"
+          }`}
+        >
+          <Icon className="size-4" />
+        </span>
+        <div>
+          <h3 className="font-display text-lg">{title}</h3>
+          <p className="mt-1 text-xs leading-5 text-muted-foreground">{description}</p>
+        </div>
+      </div>
+      {items.length > 0 ? (
+        <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
+          {items.map((item) => (
+            <li key={item} className="flex items-start gap-2.5 leading-5">
+              <Icon
+                className={`mt-0.5 size-4 shrink-0 ${isPositive ? "text-primary" : "text-destructive"}`}
+              />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-5 rounded-xl border border-dashed border-border bg-background/50 p-3 text-sm text-muted-foreground">
+          Belum ada informasi tambahan.
+        </p>
+      )}
+    </section>
   );
 }
 
