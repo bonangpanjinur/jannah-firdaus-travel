@@ -209,7 +209,7 @@ function DetailPaket() {
 
   return (
     <main className="pb-16">
-      <section className="relative isolate overflow-hidden">
+      <section className="relative isolate min-h-[520px] overflow-hidden sm:min-h-[580px]">
         <img
           src={heroMakkah}
           alt="Suasana Masjidil Haram saat jamaah melakukan tawaf"
@@ -218,7 +218,7 @@ function DetailPaket() {
           className="absolute inset-0 size-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.12_0_0/0.97)] via-[oklch(0.12_0_0/0.8)] to-[oklch(0.12_0_0/0.45)]" />
-        <div className="container-page relative py-10 sm:py-14 md:py-20">
+        <div className="container-page relative flex min-h-[520px] items-end py-10 sm:min-h-[580px] sm:py-14 md:py-20">
           <nav aria-label="Breadcrumb" className="text-sm text-white/70">
             <Link
               to="/"
@@ -275,6 +275,19 @@ function DetailPaket() {
 
       <div className="container-page grid gap-8 pb-28 pt-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10 lg:pb-12">
         <div>
+          <div className="mb-4 flex items-end justify-between gap-4">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Ringkasan paket
+              </p>
+              <h2 className="mt-1 font-display text-2xl sm:text-3xl">
+                Semua yang perlu Anda siapkan
+              </h2>
+            </div>
+            <span className="hidden rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary sm:inline-flex">
+              Siap dikonsultasikan
+            </span>
+          </div>
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             <InfoRow
               icon={CalendarDays}
@@ -434,14 +447,21 @@ function DetailPaket() {
           </section>
         </div>
 
-        <aside className="h-fit bento-card p-5 sm:p-6 lg:sticky lg:top-24">
+        <aside className="h-fit overflow-hidden rounded-3xl border border-border bg-card p-5 shadow-soft sm:p-6 lg:sticky lg:top-24">
           <img
             src={fotoJamaah}
             alt="Jamaah umroh bersama tim kami"
             loading="lazy"
             className="mb-5 aspect-16/9 w-full rounded-xl object-cover"
           />
-          <p className="text-xs uppercase tracking-wider text-muted-foreground">Pilihan harga</p>
+          <div className="rounded-2xl bg-primary/5 p-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+              Pilihan harga
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Pilih tipe kamar yang paling sesuai untuk Anda.
+            </p>
+          </div>
           <ul className="mt-4 space-y-3">
             {harga.map((item) => (
               <li key={item.label} className="flex items-center justify-between gap-3 text-sm">
@@ -451,6 +471,9 @@ function DetailPaket() {
             ))}
           </ul>
           <div id="daftar" className="mt-6 scroll-mt-24 border-t border-border pt-6">
+            <div className="mb-4 rounded-2xl border border-gold/30 bg-gold/10 p-3 text-xs leading-5 text-muted-foreground">
+              Konsultasi gratis untuk membantu memilih paket, kamar, dan kesiapan dokumen.
+            </div>
             <h2 className="font-display text-lg">Formulir pendaftaran</h2>
             <p className="mb-4 mt-1 text-xs text-muted-foreground">
               Cukup 3 isian singkat — tim kami langsung menghubungi Anda via WhatsApp.
@@ -550,7 +573,7 @@ function HotelCard({
   bintang: number | null;
 }) {
   return (
-    <div className="bento-card">
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-soft">
       <img
         src={image}
         alt={`Suasana kota ${kota}`}
@@ -585,7 +608,7 @@ function InfoRow({
   value: string;
 }) {
   return (
-    <div className="flex gap-3 bento-card p-3 sm:p-4">
+    <div className="flex gap-3 rounded-2xl border border-border bg-card p-3 shadow-sm transition-colors hover:border-primary/30 sm:p-4">
       <Icon className="size-5 shrink-0 text-gold" />
       <div>
         <p className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</p>
