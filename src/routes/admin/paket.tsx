@@ -209,250 +209,307 @@ function AdminPaket() {
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wider text-gold">Konten utama</p>
-          <h1 className="mt-1 font-display text-3xl">Kelola Paket</h1>
+          <h1 className="mt-1 font-display text-3xl">
+            {draft ? (draft.id ? "Edit Paket" : "Tambah Paket") : "Kelola Paket"}
+          </h1>
           <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-            Isi paket seperti mengisi produk: flyer, deskripsi, pesawat, hotel, harga. Kolom kosong
-            otomatis disembunyikan di halaman publik.
+            {draft
+              ? "Lengkapi informasi paket secara bertahap. Anda dapat menyimpan sebagai draf sebelum data siap ditayangkan."
+              : "Isi paket seperti mengisi produk: flyer, deskripsi, pesawat, hotel, harga. Kolom kosong otomatis disembunyikan di halaman publik."}
           </p>
         </div>
-        <div className="flex flex-wrap gap-2">
-          <Button asChild variant="outline">
-            <a href="/admin/paket/import">Import CSV + ZIP</a>
-          </Button>
-          <Button onClick={() => setDraft({ ...empty })}>Tambah paket</Button>
-        </div>
-      </div>
-
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-        <p className="text-sm text-muted-foreground">{packages.length} paket tersedia</p>
-        <div
-          className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
-          role="group"
-          aria-label="Pilih tampilan paket"
-        >
-          <button
-            type="button"
-            aria-pressed={viewMode === "list"}
-            onClick={() => changeViewMode("list")}
-            className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
-          >
-            List
-          </button>
-          <button
-            type="button"
-            aria-pressed={viewMode === "grid"}
-            onClick={() => changeViewMode("grid")}
-            className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
-          >
-            Grid
-          </button>
-        </div>
-      </div>
-
-      {draft ? (
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            save.mutate(draft);
-          }}
-          className="mt-8 space-y-6"
-        >
-          <Section
-            title="1. Informasi dasar"
-            hint="Nama paket dan flyer adalah yang pertama dilihat calon jamaah."
-          >
-            <Text
-              label="Nama paket"
-              placeholder="Umroh Reguler 12 Hari Februari"
-              value={draft.name ?? ""}
-              onChange={changeName}
-              required
-            />
-            <Text
-              label="Slug (URL)"
-              placeholder="umroh-reguler-12-hari-februari"
-              value={draft.slug ?? ""}
-              onChange={(value) => field("slug", slugify(value))}
-              required
-            />
-            <div className="md:col-span-2">
-              <ImageUpload
-                label="Foto flyer paket"
-                folder="flyers"
-                value={draft.flyer_url}
-                onChange={(value) => field("flyer_url", value)}
-              />
-            </div>
-            <div className="space-y-2 md:col-span-2">
-              <Label>Deskripsi singkat</Label>
-              <Textarea
-                rows={3}
-                placeholder="Umroh 12 hari bersama pembimbing berpengalaman, hotel dekat Masjidil Haram, dan city tour Thaif."
-                value={draft.description ?? ""}
-                onChange={(event) => field("description", event.target.value)}
-              />
-            </div>
-          </Section>
-
-          <Section
-            title="2. Keberangkatan & pesawat"
-            hint="Tanggal dan maskapai membantu jamaah membandingkan paket."
-          >
-            <Text
-              label="Tanggal keberangkatan"
-              type="date"
-              value={draft.departure_date ?? ""}
-              onChange={(value) => field("departure_date", value || null)}
-            />
-            <Text
-              label="Durasi (hari)"
-              type="number"
-              placeholder="12"
-              value={String(draft.duration_days ?? "")}
-              onChange={(value) => field("duration_days", value ? Number(value) : null)}
-            />
-            <Text
-              label="Maskapai"
-              placeholder="Saudia Airlines"
-              value={draft.airline ?? ""}
-              onChange={(value) => field("airline", value)}
-            />
-            <Text
-              label="Kuota jamaah"
-              type="number"
-              placeholder="45"
-              value={String(draft.quota ?? "")}
-              onChange={(value) => field("quota", value ? Number(value) : null)}
-            />
-          </Section>
-
-          <Section title="3. Hotel" hint="Tulis nama hotel dan bintangnya (1-5).">
-            <Text
-              label="Hotel Makkah"
-              placeholder="Hilton Suites Makkah"
-              value={draft.hotel_makkah ?? ""}
-              onChange={(value) => field("hotel_makkah", value)}
-            />
-            <Text
-              label="Bintang Makkah"
-              type="number"
-              min="1"
-              max="5"
-              placeholder="5"
-              value={String(draft.hotel_makkah_stars ?? "")}
-              onChange={(value) => field("hotel_makkah_stars", value ? Number(value) : null)}
-            />
-            <Text
-              label="Hotel Madinah"
-              placeholder="Frontel Al Harithia"
-              value={draft.hotel_madinah ?? ""}
-              onChange={(value) => field("hotel_madinah", value)}
-            />
-            <Text
-              label="Bintang Madinah"
-              type="number"
-              min="1"
-              max="5"
-              placeholder="4"
-              value={String(draft.hotel_madinah_stars ?? "")}
-              onChange={(value) => field("hotel_madinah_stars", value ? Number(value) : null)}
-            />
-          </Section>
-
-          <Section
-            title="4. Harga per jamaah"
-            hint="Isi dalam rupiah tanpa titik, contoh: 32500000. Kosongkan bila tidak ditawarkan."
-          >
-            <Text
-              label="Harga quad (sekamar 4)"
-              type="number"
-              placeholder="32500000"
-              value={String(draft.price_quad ?? "")}
-              onChange={(value) => field("price_quad", value ? Number(value) : null)}
-            />
-            <Text
-              label="Harga triple (sekamar 3)"
-              type="number"
-              placeholder="34500000"
-              value={String(draft.price_triple ?? "")}
-              onChange={(value) => field("price_triple", value ? Number(value) : null)}
-            />
-            <Text
-              label="Harga double (sekamar 2)"
-              type="number"
-              placeholder="37500000"
-              value={String(draft.price_double ?? "")}
-              onChange={(value) => field("price_double", value ? Number(value) : null)}
-            />
-          </Section>
-
-          <Section
-            title="5. Fasilitas & syarat"
-            hint="Klik tombol isian cepat, lalu sunting sesuai paket Anda."
-          >
-            <ListField
-              label="Termasuk"
-              value={draft.includes ?? []}
-              presets={PRESET_INCLUDES}
-              onChange={(value) => field("includes", value)}
-            />
-            <ListField
-              label="Tidak termasuk"
-              value={draft.excludes ?? []}
-              presets={PRESET_EXCLUDES}
-              onChange={(value) => field("excludes", value)}
-            />
-            <ListField
-              label="Persyaratan"
-              value={draft.requirements ?? []}
-              presets={PRESET_REQUIREMENTS}
-              onChange={(value) => field("requirements", value)}
-            />
-          </Section>
-
-          <Section title="6. Penayangan" hint="Simpan sebagai draf dulu bila data belum lengkap.">
-            <div className="flex flex-wrap items-center gap-6 md:col-span-2">
-              <label className="flex items-center gap-2 text-sm">
-                <Switch
-                  checked={draft.is_published ?? true}
-                  onCheckedChange={(value) => field("is_published", value)}
-                />
-                Tayangkan di website
-              </label>
-              <label className="flex items-center gap-2 text-sm">
-                <Switch
-                  checked={draft.is_featured ?? false}
-                  onCheckedChange={(value) => field("is_featured", value)}
-                />
-                Tampilkan sebagai unggulan
-              </label>
-            </div>
-            <Text
-              label="Urutan tampil"
-              type="number"
-              value={String(draft.sort_order ?? 0)}
-              onChange={(value) => field("sort_order", value ? Number(value) : 0)}
-            />
-          </Section>
-
+        {!draft ? (
           <div className="flex flex-wrap gap-2">
-            <Button type="submit" disabled={save.isPending}>
-              {save.isPending ? "Menyimpan…" : "Simpan paket"}
+            <Button asChild variant="outline">
+              <a href="/admin/paket/import">Import CSV + ZIP</a>
             </Button>
-            <Button type="button" variant="outline" onClick={() => setDraft(null)}>
-              Batal
-            </Button>
+            <Button onClick={() => setDraft({ ...empty })}>Tambah paket</Button>
           </div>
-        </form>
+        ) : null}
+      </div>
+
+      {!draft ? (
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-sm text-muted-foreground">{packages.length} paket tersedia</p>
+          <div
+            className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
+            role="group"
+            aria-label="Pilih tampilan paket"
+          >
+            <button
+              type="button"
+              aria-pressed={viewMode === "list"}
+              onClick={() => changeViewMode("list")}
+              className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+            >
+              List
+            </button>
+            <button
+              type="button"
+              aria-pressed={viewMode === "grid"}
+              onClick={() => changeViewMode("grid")}
+              className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+            >
+              Grid
+            </button>
+          </div>
+        </div>
       ) : null}
 
-      {isLoading ? (
+      {draft ? (
+        <>
+          <div className="sticky top-3 z-20 mt-6 rounded-2xl border border-border bg-background/95 p-3 shadow-soft backdrop-blur supports-[backdrop-filter]:bg-background/80">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <Button type="button" variant="ghost" onClick={() => setDraft(null)}>
+                ← Kembali ke daftar
+              </Button>
+              <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="outline" onClick={() => setDraft(null)}>
+                  Batal
+                </Button>
+                <Button type="button" disabled={save.isPending} onClick={() => save.mutate(draft)}>
+                  {save.isPending ? "Menyimpan…" : "Simpan paket"}
+                </Button>
+              </div>
+            </div>
+            <nav
+              className="mt-3 -mx-1 flex gap-1 overflow-x-auto px-1 pb-1 text-xs"
+              aria-label="Navigasi bagian formulir"
+            >
+              {[
+                "Informasi dasar",
+                "Keberangkatan",
+                "Hotel",
+                "Harga",
+                "Fasilitas",
+                "Penayangan",
+              ].map((label, index) => (
+                <a
+                  key={label}
+                  href={`#paket-section-${index + 1}`}
+                  className="shrink-0 rounded-full border border-border px-3 py-1.5 text-muted-foreground transition-colors hover:border-gold hover:text-foreground"
+                >
+                  {index + 1}. {label}
+                </a>
+              ))}
+            </nav>
+          </div>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              save.mutate(draft);
+            }}
+            className="space-y-6"
+          >
+            <Section
+              id="paket-section-1"
+              title="1. Informasi dasar"
+              hint="Nama paket dan flyer adalah yang pertama dilihat calon jamaah."
+            >
+              <Text
+                label="Nama paket"
+                placeholder="Umroh Reguler 12 Hari Februari"
+                value={draft.name ?? ""}
+                onChange={changeName}
+                required
+              />
+              <Text
+                label="Slug (URL)"
+                placeholder="umroh-reguler-12-hari-februari"
+                value={draft.slug ?? ""}
+                onChange={(value) => field("slug", slugify(value))}
+                required
+              />
+              <div className="md:col-span-2">
+                <ImageUpload
+                  label="Foto flyer paket"
+                  folder="flyers"
+                  value={draft.flyer_url}
+                  onChange={(value) => field("flyer_url", value)}
+                />
+              </div>
+              <div className="space-y-2 md:col-span-2">
+                <Label>Deskripsi singkat</Label>
+                <Textarea
+                  rows={3}
+                  placeholder="Umroh 12 hari bersama pembimbing berpengalaman, hotel dekat Masjidil Haram, dan city tour Thaif."
+                  value={draft.description ?? ""}
+                  onChange={(event) => field("description", event.target.value)}
+                />
+              </div>
+            </Section>
+
+            <Section
+              id="paket-section-2"
+              title="2. Keberangkatan & pesawat"
+              hint="Tanggal dan maskapai membantu jamaah membandingkan paket."
+            >
+              <Text
+                label="Tanggal keberangkatan"
+                type="date"
+                value={draft.departure_date ?? ""}
+                onChange={(value) => field("departure_date", value || null)}
+              />
+              <Text
+                label="Durasi (hari)"
+                type="number"
+                placeholder="12"
+                value={String(draft.duration_days ?? "")}
+                onChange={(value) => field("duration_days", value ? Number(value) : null)}
+              />
+              <Text
+                label="Maskapai"
+                placeholder="Saudia Airlines"
+                value={draft.airline ?? ""}
+                onChange={(value) => field("airline", value)}
+              />
+              <Text
+                label="Kuota jamaah"
+                type="number"
+                placeholder="45"
+                value={String(draft.quota ?? "")}
+                onChange={(value) => field("quota", value ? Number(value) : null)}
+              />
+            </Section>
+
+            <Section
+              id="paket-section-3"
+              title="3. Hotel"
+              hint="Tulis nama hotel dan bintangnya (1-5)."
+            >
+              <Text
+                label="Hotel Makkah"
+                placeholder="Hilton Suites Makkah"
+                value={draft.hotel_makkah ?? ""}
+                onChange={(value) => field("hotel_makkah", value)}
+              />
+              <Text
+                label="Bintang Makkah"
+                type="number"
+                min="1"
+                max="5"
+                placeholder="5"
+                value={String(draft.hotel_makkah_stars ?? "")}
+                onChange={(value) => field("hotel_makkah_stars", value ? Number(value) : null)}
+              />
+              <Text
+                label="Hotel Madinah"
+                placeholder="Frontel Al Harithia"
+                value={draft.hotel_madinah ?? ""}
+                onChange={(value) => field("hotel_madinah", value)}
+              />
+              <Text
+                label="Bintang Madinah"
+                type="number"
+                min="1"
+                max="5"
+                placeholder="4"
+                value={String(draft.hotel_madinah_stars ?? "")}
+                onChange={(value) => field("hotel_madinah_stars", value ? Number(value) : null)}
+              />
+            </Section>
+
+            <Section
+              id="paket-section-4"
+              title="4. Harga per jamaah"
+              hint="Isi dalam rupiah tanpa titik, contoh: 32500000. Kosongkan bila tidak ditawarkan."
+            >
+              <Text
+                label="Harga quad (sekamar 4)"
+                type="number"
+                placeholder="32500000"
+                value={String(draft.price_quad ?? "")}
+                onChange={(value) => field("price_quad", value ? Number(value) : null)}
+              />
+              <Text
+                label="Harga triple (sekamar 3)"
+                type="number"
+                placeholder="34500000"
+                value={String(draft.price_triple ?? "")}
+                onChange={(value) => field("price_triple", value ? Number(value) : null)}
+              />
+              <Text
+                label="Harga double (sekamar 2)"
+                type="number"
+                placeholder="37500000"
+                value={String(draft.price_double ?? "")}
+                onChange={(value) => field("price_double", value ? Number(value) : null)}
+              />
+            </Section>
+
+            <Section
+              id="paket-section-5"
+              title="5. Fasilitas & syarat"
+              hint="Klik tombol isian cepat, lalu sunting sesuai paket Anda."
+            >
+              <ListField
+                label="Termasuk"
+                value={draft.includes ?? []}
+                presets={PRESET_INCLUDES}
+                onChange={(value) => field("includes", value)}
+              />
+              <ListField
+                label="Tidak termasuk"
+                value={draft.excludes ?? []}
+                presets={PRESET_EXCLUDES}
+                onChange={(value) => field("excludes", value)}
+              />
+              <ListField
+                label="Persyaratan"
+                value={draft.requirements ?? []}
+                presets={PRESET_REQUIREMENTS}
+                onChange={(value) => field("requirements", value)}
+              />
+            </Section>
+
+            <Section
+              id="paket-section-6"
+              title="6. Penayangan"
+              hint="Simpan sebagai draf dulu bila data belum lengkap."
+            >
+              <div className="flex flex-wrap items-center gap-6 md:col-span-2">
+                <label className="flex items-center gap-2 text-sm">
+                  <Switch
+                    checked={draft.is_published ?? true}
+                    onCheckedChange={(value) => field("is_published", value)}
+                  />
+                  Tayangkan di website
+                </label>
+                <label className="flex items-center gap-2 text-sm">
+                  <Switch
+                    checked={draft.is_featured ?? false}
+                    onCheckedChange={(value) => field("is_featured", value)}
+                  />
+                  Tampilkan sebagai unggulan
+                </label>
+              </div>
+              <Text
+                label="Urutan tampil"
+                type="number"
+                value={String(draft.sort_order ?? 0)}
+                onChange={(value) => field("sort_order", value ? Number(value) : 0)}
+              />
+            </Section>
+
+            <div className="flex flex-wrap gap-2">
+              <Button type="submit" disabled={save.isPending}>
+                {save.isPending ? "Menyimpan…" : "Simpan paket"}
+              </Button>
+              <Button type="button" variant="outline" onClick={() => setDraft(null)}>
+                Batal
+              </Button>
+            </div>
+          </form>
+        </>
+      ) : null}
+
+      {!draft && isLoading ? (
         <p className="mt-8 text-sm text-muted-foreground">Memuat…</p>
-      ) : packages.length === 0 ? (
+      ) : !draft && packages.length === 0 ? (
         <p className="mt-8 rounded-2xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
           Belum ada paket. Klik “Tambah paket” untuk membuat paket umroh pertama Anda.
         </p>
-      ) : (
+      ) : !draft ? (
         <ul
           className={
             viewMode === "grid" ? "mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3" : "mt-8 space-y-3"
@@ -546,7 +603,7 @@ function AdminPaket() {
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
 
       <Dialog open={Boolean(preview)} onOpenChange={(open) => !open && setPreview(null)}>
         <DialogContent className="max-w-4xl overflow-hidden p-2 sm:p-3">
@@ -564,16 +621,21 @@ function AdminPaket() {
 }
 
 function Section({
+  id,
   title,
   hint,
   children,
 }: {
+  id?: string;
   title: string;
   hint?: string;
   children: React.ReactNode;
 }) {
   return (
-    <section className="rounded-2xl border border-border bg-card p-6 shadow-soft">
+    <section
+      id={id}
+      className="scroll-mt-36 rounded-2xl border border-border bg-card p-4 shadow-soft sm:p-6"
+    >
       <h2 className="font-display text-lg">{title}</h2>
       {hint ? <p className="mt-1 text-xs text-muted-foreground">{hint}</p> : null}
       <div className="mt-4 grid gap-4 md:grid-cols-2">{children}</div>
