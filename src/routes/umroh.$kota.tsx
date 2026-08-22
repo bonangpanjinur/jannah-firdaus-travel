@@ -20,6 +20,15 @@ import {
   SEO_BRAND,
 } from "@/lib/seo";
 
+function provinceSlug(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function faqKota(kota: KotaLayanan, siteName: string) {
   return [
     {
@@ -48,9 +57,9 @@ export const Route = createFileRoute("/umroh/$kota")({
     if (!kota) throw notFound();
     const [info, pakets] = await Promise.all([
       loadSiteInfo(context.queryClient),
-      context.queryClient.ensureQueryData(packagesQuery({ limit: 3 })).catch((): Paket[] => []),
+      context.queryClient.ensureQueryData(packagesQuery({ limit: 6 })).catch((): Paket[] => []),
     ]);
-    return { info, kota, pakets: pakets.slice(0, 3) };
+    return { info, kota, pakets: pakets.slice(0, 6) };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
@@ -146,8 +155,8 @@ function KotaNotFound() {
 function HalamanKota() {
   const { kota, pakets: initialPakets } = Route.useLoaderData();
   const { data: settings } = useSettings();
-  const { data: queryPakets } = useQuery(packagesQuery({ limit: 3 }));
-  const pakets = (queryPakets?.length ? queryPakets : initialPakets).slice(0, 3);
+  const { data: queryPakets } = useQuery(packagesQuery({ limit: 6 }));
+  const pakets = (queryPakets?.length ? queryPakets : initialPakets).slice(0, 6);
   const nama = settings?.agency_name ?? "Kami";
   const termurah = pakets
     .map((p) => hargaMulai(p))
@@ -155,6 +164,9 @@ function HalamanKota() {
     .sort((a, b) => a - b)[0];
   const faq = faqKota(kota, nama);
   const lainnya = KOTA_LAYANAN.filter((k) => k.slug !== kota.slug).slice(0, 6);
+  const kotaSatuProvinsi = KOTA_LAYANAN.filter(
+    (k) => k.provinsi === kota.provinsi && k.slug !== kota.slug,
+  ).slice(0, 6);
 
   return (
     <main className="container-page py-10 sm:py-14">
@@ -165,6 +177,14 @@ function HalamanKota() {
         <span className="px-2">/</span>
         <Link to="/umroh" className="hover:underline">
           Area Layanan
+        </Link>
+        <span className="px-2">/</span>
+        <Link
+          to="/umroh/provinsi/$provinsi"
+          params={{ provinsi: provinceSlug(kota.provinsi) }}
+          className="hover:underline"
+        >
+          {kota.provinsi}
         </Link>
         <span className="px-2">/</span>
         <span className="text-foreground">
@@ -186,9 +206,13 @@ function HalamanKota() {
             Lihat jadwal keberangkatan
           </Link>
           <Link to="/kontak" className="btn-ghost">
-            Hubungi kami
+            Konsultasi sekarang
           </Link>
         </div>
+        <p className="mt-4 text-xs text-muted-foreground">
+          Informasi jadwal, kuota, hotel, harga, dan titik keberangkatan dikonfirmasi oleh tim
+          sebelum pendaftaran.
+        </p>
       </header>
 
       <section className="mt-12 grid gap-4 md:grid-cols-3">
@@ -231,16 +255,78 @@ function HalamanKota() {
         </div>
       </section>
 
-      {pakets.length > 0 ? (
-        <section className="mt-14">
-          <h2 className="font-display text-2xl">Paket umroh untuk jamaah {kota.nama}</h2>
+      <section className="mt-14">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h2 className="font-display text-2xl">Paket umroh untuk jamaah {kota.nama}</h2>
+            <p className="mt-2 max-w-2xl text-sm/6 text-muted-foreground">
+              Pilihan paket aktif yang dapat dikonsultasikan oleh calon jamaah dari {kota.nama}.
+              Klik paket untuk melihat rincian fasilitas, hotel, jadwal, dan harga yang tersedia.
+            </p>
+          </div>
+          <Link to="/paket" className="text-sm font-medium text-gold hover:underline">
+            Lihat semua paket
+          </Link>
+        </div>
+        {pakets.length > 0 ? (
           <div className="mt-6 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {pakets.map((paket) => (
               <PackageCard key={paket.id} paket={paket} />
             ))}
           </div>
-        </section>
-      ) : null}
+        ) : (
+          <div className="mt-6 rounded-2xl border border-dashed border-border p-6 text-sm/6 text-muted-foreground">
+            Belum ada jadwal yang dipublikasikan untuk saat ini. Hubungi tim Jannah Firdaus untuk
+            mendapatkan jadwal dan pilihan paket terbaru.
+          </div>
+        )}
+      </section>
+
+      <section className="mt-14 grid gap-4 md:grid-cols-2">
+        <div className="bento-card p-6">
+          <h2 className="font-display text-2xl">Cara konsultasi dari {kota.nama}</h2>
+          <p className="mt-3 text-sm/7 text-muted-foreground">
+            Konsultasi dapat dilakukan melalui WhatsApp, formulir kontak, atau kunjungan ke kantor
+            yang tercantum di halaman kontak. Tim akan membantu mencocokkan kebutuhan jamaah,
+            dokumen, pilihan kamar, jadwal manasik, dan rencana keberangkatan.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link to="/kontak" className="btn-gold">
+              Mulai konsultasi
+            </Link>
+            <Link to="/syarat-umroh" className="btn-ghost">
+              Cek syarat umroh
+            </Link>
+          </div>
+        </div>
+        <div className="bento-card p-6">
+          <h2 className="font-display text-2xl">Panduan sebelum mendaftar</h2>
+          <p className="mt-3 text-sm/7 text-muted-foreground">
+            Pelajari estimasi biaya, dokumen, dan jawaban atas pertanyaan umum sebelum memilih paket
+            yang sesuai.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-2 text-sm">
+            <Link
+              to="/biaya-umroh"
+              className="rounded-full border border-border px-3 py-2 hover:border-gold/50"
+            >
+              Biaya umroh
+            </Link>
+            <Link
+              to="/faq"
+              className="rounded-full border border-border px-3 py-2 hover:border-gold/50"
+            >
+              FAQ jamaah
+            </Link>
+            <Link
+              to="/tentang"
+              className="rounded-full border border-border px-3 py-2 hover:border-gold/50"
+            >
+              Tentang kami
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="mt-14">
         <h2 className="font-display text-2xl">Pertanyaan jamaah {kota.nama}</h2>
@@ -253,6 +339,25 @@ function HalamanKota() {
           ))}
         </div>
       </section>
+
+      {kotaSatuProvinsi.length > 0 ? (
+        <section className="mt-14">
+          <h2 className="font-display text-2xl">Kota lain di {kota.provinsi}</h2>
+          <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+            {kotaSatuProvinsi.map((k) => (
+              <li key={k.slug}>
+                <Link
+                  to="/umroh/$kota"
+                  params={{ kota: k.slug }}
+                  className="rounded-full border border-border px-3 py-1 text-muted-foreground hover:text-foreground"
+                >
+                  {SEO_BRAND} {k.nama}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <section className="mt-14">
         <h2 className="font-display text-2xl">Area layanan lainnya</h2>
