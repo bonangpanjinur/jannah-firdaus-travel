@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Download, Printer } from "lucide-react";
+import { ChevronLeft, ChevronRight, Download, Printer, Search, X } from "lucide-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -38,6 +38,8 @@ const empty: Draft = {
   is_featured: false,
   sort_order: 0,
 };
+
+const PACKAGE_PAGE_SIZE = 9;
 
 const PRESET_INCLUDES = [
   "Tiket pesawat PP",
@@ -133,6 +135,8 @@ function AdminPaket() {
   const [draft, setDraft] = useState<Draft | null>(null);
   const [errors, setErrors] = useState<DraftErrors>({});
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
@@ -144,6 +148,23 @@ function AdminPaket() {
     setViewMode(mode);
     window.localStorage.setItem("admin-paket-view", mode);
   }
+
+  useEffect(() => {
+    setPage(1);
+  }, [search]);
+
+  const normalizedSearch = search.trim().toLowerCase();
+  const filteredPackages = normalizedSearch
+    ? packages.filter((paket) =>
+        [paket.name, paket.slug].some((value) => value.toLowerCase().includes(normalizedSearch)),
+      )
+    : packages;
+  const pageCount = Math.max(1, Math.ceil(filteredPackages.length / PACKAGE_PAGE_SIZE));
+  const currentPage = Math.min(page, pageCount);
+  const visiblePackages = filteredPackages.slice(
+    (currentPage - 1) * PACKAGE_PAGE_SIZE,
+    currentPage * PACKAGE_PAGE_SIZE,
+  );
 
   const save = useMutation({
     mutationFn: async (value: Draft) => {
@@ -274,29 +295,55 @@ function AdminPaket() {
       </div>
 
       {!draft ? (
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-muted-foreground">{packages.length} paket tersedia</p>
-          <div
-            className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
-            role="group"
-            aria-label="Pilih tampilan paket"
-          >
-            <button
-              type="button"
-              aria-pressed={viewMode === "list"}
-              onClick={() => changeViewMode("list")}
-              className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+        <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="relative w-full lg:max-w-md">
+            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Input
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Cari nama atau slug paket…"
+              aria-label="Cari paket berdasarkan nama atau slug"
+              className="pl-9 pr-9"
+            />
+            {search ? (
+              <button
+                type="button"
+                onClick={() => setSearch("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-muted-foreground hover:bg-muted hover:text-foreground"
+                aria-label="Hapus pencarian"
+              >
+                <X className="size-4" />
+              </button>
+            ) : null}
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-muted-foreground">
+              {normalizedSearch
+                ? `${filteredPackages.length} dari ${packages.length} paket ditemukan`
+                : `${packages.length} paket tersedia`}
+            </p>
+            <div
+              className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
+              role="group"
+              aria-label="Pilih tampilan paket"
             >
-              List
-            </button>
-            <button
-              type="button"
-              aria-pressed={viewMode === "grid"}
-              onClick={() => changeViewMode("grid")}
-              className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
-            >
-              Grid
-            </button>
+              <button
+                type="button"
+                aria-pressed={viewMode === "list"}
+                onClick={() => changeViewMode("list")}
+                className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "list" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+              >
+                List
+              </button>
+              <button
+                type="button"
+                aria-pressed={viewMode === "grid"}
+                onClick={() => changeViewMode("grid")}
+                className={`rounded-lg px-3 py-2 text-sm transition-colors ${viewMode === "grid" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"}`}
+              >
+                Grid
+              </button>
+            </div>
           </div>
         </div>
       ) : null}
@@ -613,13 +660,17 @@ function AdminPaket() {
         <p className="mt-8 rounded-2xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
           Belum ada paket. Klik “Tambah paket” untuk membuat paket umroh pertama Anda.
         </p>
+      ) : !draft && filteredPackages.length === 0 ? (
+        <p className="mt-8 rounded-2xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
+          Paket dengan kata kunci “{search}” tidak ditemukan. Coba nama atau slug lain.
+        </p>
       ) : !draft ? (
         <ul
           className={
             viewMode === "grid" ? "mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-3" : "mt-8 space-y-3"
           }
         >
-          {packages.map((paket) => (
+          {visiblePackages.map((paket) => (
             <li
               key={paket.id}
               className={
@@ -723,6 +774,44 @@ function AdminPaket() {
             </li>
           ))}
         </ul>
+      ) : null}
+
+      {!draft && filteredPackages.length > PACKAGE_PAGE_SIZE ? (
+        <nav
+          className="mt-6 flex flex-wrap items-center justify-between gap-3"
+          aria-label="Pagination paket"
+        >
+          <p className="text-sm text-muted-foreground">
+            Menampilkan {(currentPage - 1) * PACKAGE_PAGE_SIZE + 1}–
+            {Math.min(currentPage * PACKAGE_PAGE_SIZE, filteredPackages.length)} dari{" "}
+            {filteredPackages.length}
+          </p>
+          <div className="flex items-center gap-2">
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              disabled={currentPage === 1}
+              onClick={() => setPage((value) => Math.max(1, value - 1))}
+              aria-label="Halaman sebelumnya"
+            >
+              <ChevronLeft className="size-4" /> Sebelumnya
+            </Button>
+            <span className="min-w-20 text-center text-sm text-muted-foreground">
+              Halaman {currentPage} / {pageCount}
+            </span>
+            <Button
+              type="button"
+              size="sm"
+              variant="outline"
+              disabled={currentPage === pageCount}
+              onClick={() => setPage((value) => Math.min(pageCount, value + 1))}
+              aria-label="Halaman berikutnya"
+            >
+              Berikutnya <ChevronRight className="size-4" />
+            </Button>
+          </div>
+        </nav>
       ) : null}
 
       <Dialog open={Boolean(preview)} onOpenChange={(open) => !open && setPreview(null)}>
