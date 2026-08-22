@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { formatRupiah, formatTanggal } from "@/lib/format";
-import { db, packagesQuery, type Paket } from "@/lib/site-data";
+import { adminPackagesQuery, db, type Paket } from "@/lib/site-data";
 import { ImageUpload } from "@/components/admin/image-upload";
 import { absoluteMediaUrl, deleteMedia, isStoragePath } from "@/lib/storage";
 import { StorageImage } from "@/components/site/storage-image";
@@ -135,8 +135,6 @@ function firstValidationError(errors: DraftErrors) {
 
 function AdminPaket() {
   const qc = useQueryClient();
-  const query = packagesQuery({ includeDrafts: true });
-  const { data: packages = [], isLoading } = useQuery(query);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [errors, setErrors] = useState<DraftErrors>({});
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
@@ -146,6 +144,16 @@ function AdminPaket() {
   const [page, setPage] = useState(1);
   const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
+  const query = adminPackagesQuery({
+    page,
+    pageSize: PACKAGE_PAGE_SIZE,
+    search,
+    status: statusFilter,
+    sort: sortBy,
+  });
+  const { data: packageResult = { items: [], total: 0 }, isLoading } = useQuery(query);
+  const packages = packageResult.items;
+  const totalPackages = packageResult.total;
 
   useEffect(() => {
     const savedView = window.localStorage.getItem("admin-paket-view");
@@ -168,33 +176,9 @@ function AdminPaket() {
   }, [draft]);
 
   const normalizedSearch = search.trim().toLowerCase();
-  const filteredPackages = packages
-    .filter((paket) => {
-      if (statusFilter === "published") return paket.is_published;
-      if (statusFilter === "draft") return !paket.is_published;
-      return true;
-    })
-    .filter((paket) =>
-      normalizedSearch
-        ? [paket.name, paket.slug].some((value) => value.toLowerCase().includes(normalizedSearch))
-        : true,
-    )
-    .sort((a, b) => {
-      if (sortBy === "name") return a.name.localeCompare(b.name, "id");
-      if (sortBy === "departure")
-        return (a.departure_date ?? "9999").localeCompare(b.departure_date ?? "9999");
-      if (sortBy === "price")
-        return (
-          (a.price_quad ?? Number.MAX_SAFE_INTEGER) - (b.price_quad ?? Number.MAX_SAFE_INTEGER)
-        );
-      return a.sort_order - b.sort_order;
-    });
-  const pageCount = Math.max(1, Math.ceil(filteredPackages.length / PACKAGE_PAGE_SIZE));
+  const pageCount = Math.max(1, Math.ceil(totalPackages / PACKAGE_PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
-  const visiblePackages = filteredPackages.slice(
-    (currentPage - 1) * PACKAGE_PAGE_SIZE,
-    currentPage * PACKAGE_PAGE_SIZE,
-  );
+  const visiblePackages = packages;
 
   const save = useMutation({
     mutationFn: async (value: Draft) => {
@@ -242,6 +226,7 @@ function AdminPaket() {
     onSuccess: () => {
       toast.success("Paket dihapus");
       qc.invalidateQueries({ queryKey: ["packages"] });
+      qc.invalidateQueries({ queryKey: ["admin-packages"] });
     },
     onError: (error: Error) => toast.error(error.message),
   });
@@ -390,8 +375,8 @@ function AdminPaket() {
             </div>
             <p className="text-sm text-muted-foreground">
               {normalizedSearch
-                ? `${filteredPackages.length} dari ${packages.length} paket ditemukan`
-                : `${packages.length} paket tersedia`}
+                ? `${totalPackages} paket ditemukan`
+                : `${totalPackages} paket tersedia`}
             </p>
             <div
               className="inline-flex rounded-xl border border-border bg-card p-1 shadow-sm"
@@ -752,13 +737,13 @@ function AdminPaket() {
 
       {!draft && isLoading ? (
         <p className="mt-8 text-sm text-muted-foreground">Memuat…</p>
-      ) : !draft && packages.length === 0 ? (
+      ) : !draft && totalPackages === 0 && !normalizedSearch && statusFilter === "all" ? (
         <p className="mt-8 rounded-2xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
           Belum ada paket. Klik “Tambah paket” untuk membuat paket umroh pertama Anda.
         </p>
-      ) : !draft && filteredPackages.length === 0 ? (
+      ) : !draft && totalPackages === 0 ? (
         <p className="mt-8 rounded-2xl border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
-          Paket dengan kata kunci “{search}” tidak ditemukan. Coba nama atau slug lain.
+          Tidak ada paket yang sesuai dengan pencarian atau filter saat ini.
         </p>
       ) : !draft ? (
         <ul
@@ -872,15 +857,14 @@ function AdminPaket() {
         </ul>
       ) : null}
 
-      {!draft && filteredPackages.length > PACKAGE_PAGE_SIZE ? (
+      {!draft && totalPackages > PACKAGE_PAGE_SIZE ? (
         <nav
           className="mt-6 flex flex-wrap items-center justify-between gap-3"
           aria-label="Pagination paket"
         >
           <p className="text-sm text-muted-foreground">
             Menampilkan {(currentPage - 1) * PACKAGE_PAGE_SIZE + 1}–
-            {Math.min(currentPage * PACKAGE_PAGE_SIZE, filteredPackages.length)} dari{" "}
-            {filteredPackages.length}
+            {Math.min(currentPage * PACKAGE_PAGE_SIZE, totalPackages)} dari {totalPackages}
           </p>
           <div className="flex items-center gap-2">
             <Button

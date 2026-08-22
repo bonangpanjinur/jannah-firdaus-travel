@@ -133,6 +133,56 @@ export const packagesQuery = (opts?: { includeDrafts?: boolean; limit?: number }
   },
 });
 
+export interface AdminPackagesQueryResult {
+  items: Paket[];
+  total: number;
+}
+
+export const adminPackagesQuery = (opts?: {
+  page?: number;
+  pageSize?: number;
+  search?: string;
+  status?: "all" | "published" | "draft";
+  sort?: "order" | "name" | "departure" | "price";
+}) => ({
+  queryKey: [
+    "admin-packages",
+    opts?.page ?? 1,
+    opts?.pageSize ?? 9,
+    opts?.search ?? "",
+    opts?.status ?? "all",
+    opts?.sort ?? "order",
+  ] as const,
+  staleTime: 30_000,
+  gcTime: 5 * 60_000,
+  queryFn: async (): Promise<AdminPackagesQueryResult> => {
+    if (!hasSupabaseConfig()) return { items: [], total: 0 };
+    const page = Math.max(1, opts?.page ?? 1);
+    const pageSize = Math.max(1, opts?.pageSize ?? 9);
+    let q = db().from("packages").select("*", { count: "exact" });
+    if (opts?.status === "published") q = q.eq("is_published", true);
+    if (opts?.status === "draft") q = q.eq("is_published", false);
+    const search = opts?.search?.trim().replace(/[%,()]/g, "");
+    if (search) q = q.or(`name.ilike.%${search}%,slug.ilike.%${search}%`);
+    const order =
+      opts?.sort === "name"
+        ? { column: "name", ascending: true }
+        : opts?.sort === "departure"
+          ? { column: "departure_date", ascending: true, nullsFirst: false }
+          : opts?.sort === "price"
+            ? { column: "price_quad", ascending: true, nullsFirst: false }
+            : { column: "sort_order", ascending: true };
+    q = q.order(order.column, { ascending: order.ascending, nullsFirst: order.nullsFirst });
+    q = q.range((page - 1) * pageSize, page * pageSize - 1);
+    const { data, count, error } = await q;
+    if (error) throw error;
+    return {
+      items: ((data ?? []) as Paket[]).map(normalizePaket),
+      total: count ?? 0,
+    };
+  },
+});
+
 export const packageBySlugQuery = (slug: string) => ({
   queryKey: ["package", slug] as const,
   staleTime: 60_000,
