@@ -40,6 +40,11 @@ const empty: Draft = {
 };
 
 const PACKAGE_PAGE_SIZE = 9;
+const PACKAGE_DRAFT_KEY = "admin-paket-draft";
+
+function draftStorageKey(id?: string) {
+  return id ? `${PACKAGE_DRAFT_KEY}-${id}` : `${PACKAGE_DRAFT_KEY}-new`;
+}
 
 const PRESET_INCLUDES = [
   "Tiket pesawat PP",
@@ -136,7 +141,10 @@ function AdminPaket() {
   const [errors, setErrors] = useState<DraftErrors>({});
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
   const [search, setSearch] = useState("");
+  const [statusFilter, setStatusFilter] = useState<"all" | "published" | "draft">("all");
+  const [sortBy, setSortBy] = useState<"order" | "name" | "departure" | "price">("order");
   const [page, setPage] = useState(1);
+  const [lastSavedAt, setLastSavedAt] = useState<number | null>(null);
   const [preview, setPreview] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
@@ -151,14 +159,36 @@ function AdminPaket() {
 
   useEffect(() => {
     setPage(1);
-  }, [search]);
+  }, [search, statusFilter, sortBy]);
+
+  useEffect(() => {
+    if (!draft) return;
+    window.localStorage.setItem(draftStorageKey(draft.id), JSON.stringify(draft));
+    setLastSavedAt(Date.now());
+  }, [draft]);
 
   const normalizedSearch = search.trim().toLowerCase();
-  const filteredPackages = normalizedSearch
-    ? packages.filter((paket) =>
-        [paket.name, paket.slug].some((value) => value.toLowerCase().includes(normalizedSearch)),
-      )
-    : packages;
+  const filteredPackages = packages
+    .filter((paket) => {
+      if (statusFilter === "published") return paket.is_published;
+      if (statusFilter === "draft") return !paket.is_published;
+      return true;
+    })
+    .filter((paket) =>
+      normalizedSearch
+        ? [paket.name, paket.slug].some((value) => value.toLowerCase().includes(normalizedSearch))
+        : true,
+    )
+    .sort((a, b) => {
+      if (sortBy === "name") return a.name.localeCompare(b.name, "id");
+      if (sortBy === "departure")
+        return (a.departure_date ?? "9999").localeCompare(b.departure_date ?? "9999");
+      if (sortBy === "price")
+        return (
+          (a.price_quad ?? Number.MAX_SAFE_INTEGER) - (b.price_quad ?? Number.MAX_SAFE_INTEGER)
+        );
+      return a.sort_order - b.sort_order;
+    });
   const pageCount = Math.max(1, Math.ceil(filteredPackages.length / PACKAGE_PAGE_SIZE));
   const currentPage = Math.min(page, pageCount);
   const visiblePackages = filteredPackages.slice(
@@ -184,9 +214,11 @@ function AdminPaket() {
         : await db().from("packages").insert(rest);
       if (response.error) throw response.error;
     },
-    onSuccess: () => {
+    onSuccess: (_data, variables) => {
       toast.success("Paket tersimpan");
+      window.localStorage.removeItem(draftStorageKey(variables.id));
       setDraft(null);
+      setLastSavedAt(null);
       qc.invalidateQueries({ queryKey: ["packages"] });
     },
     onError: (error: Error) => toast.error(error.message),
@@ -285,6 +317,16 @@ function AdminPaket() {
             <Button
               onClick={() => {
                 setErrors({});
+                const saved = window.localStorage.getItem(draftStorageKey());
+                if (saved) {
+                  try {
+                    setDraft(JSON.parse(saved) as Draft);
+                    toast.info("Draft lokal dipulihkan");
+                    return;
+                  } catch {
+                    window.localStorage.removeItem(draftStorageKey());
+                  }
+                }
                 setDraft({ ...empty });
               }}
             >
@@ -317,6 +359,35 @@ function AdminPaket() {
             ) : null}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="sr-only" htmlFor="package-status-filter">
+                Filter status paket
+              </label>
+              <select
+                id="package-status-filter"
+                value={statusFilter}
+                onChange={(event) => setStatusFilter(event.target.value as typeof statusFilter)}
+                className="h-10 rounded-lg border border-border bg-card px-3 text-sm"
+              >
+                <option value="all">Semua status</option>
+                <option value="published">Aktif</option>
+                <option value="draft">Draf</option>
+              </select>
+              <label className="sr-only" htmlFor="package-sort">
+                Urutkan paket
+              </label>
+              <select
+                id="package-sort"
+                value={sortBy}
+                onChange={(event) => setSortBy(event.target.value as typeof sortBy)}
+                className="h-10 rounded-lg border border-border bg-card px-3 text-sm"
+              >
+                <option value="order">Urutan tampil</option>
+                <option value="name">Nama A–Z</option>
+                <option value="departure">Keberangkatan terdekat</option>
+                <option value="price">Harga terendah</option>
+              </select>
+            </div>
             <p className="text-sm text-muted-foreground">
               {normalizedSearch
                 ? `${filteredPackages.length} dari ${packages.length} paket ditemukan`
@@ -352,11 +423,27 @@ function AdminPaket() {
         <>
           <div className="sticky top-3 z-20 mt-6 rounded-2xl border border-border bg-background/95 p-3 shadow-soft backdrop-blur supports-[backdrop-filter]:bg-background/80">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <Button type="button" variant="ghost" onClick={() => setDraft(null)}>
+              <Button
+                type="button"
+                variant="ghost"
+                onClick={() => {
+                  window.localStorage.removeItem(draftStorageKey(draft.id));
+                  setLastSavedAt(null);
+                  setDraft(null);
+                }}
+              >
                 ← Kembali ke daftar
               </Button>
               <div className="flex flex-wrap gap-2">
-                <Button type="button" variant="outline" onClick={() => setDraft(null)}>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => {
+                    window.localStorage.removeItem(draftStorageKey(draft.id));
+                    setLastSavedAt(null);
+                    setDraft(null);
+                  }}
+                >
                   Batal
                 </Button>
                 <Button
@@ -389,6 +476,7 @@ function AdminPaket() {
                 </a>
               ))}
             </nav>
+            {draft ? <DraftProgress draft={draft} lastSavedAt={lastSavedAt} /> : null}
           </div>
           <form
             onSubmit={(event) => {
@@ -646,7 +734,15 @@ function AdminPaket() {
               <Button type="submit" disabled={save.isPending}>
                 {save.isPending ? "Menyimpan…" : "Simpan paket"}
               </Button>
-              <Button type="button" variant="outline" onClick={() => setDraft(null)}>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => {
+                  window.localStorage.removeItem(draftStorageKey(draft.id));
+                  setLastSavedAt(null);
+                  setDraft(null);
+                }}
+              >
                 Batal
               </Button>
             </div>
@@ -932,6 +1028,48 @@ function printPackageSummary(paket: Paket) {
     printWindow.focus();
     printWindow.print();
   });
+}
+
+function DraftProgress({ draft, lastSavedAt }: { draft: Draft; lastSavedAt: number | null }) {
+  const completed = [
+    Boolean(draft.name || draft.slug || draft.flyer_url || draft.description),
+    Boolean(draft.departure_date || draft.duration_days || draft.airline || draft.quota),
+    Boolean(
+      draft.hotel_makkah ||
+      draft.hotel_madinah ||
+      draft.hotel_makkah_stars ||
+      draft.hotel_madinah_stars,
+    ),
+    Boolean(draft.price_quad || draft.price_triple || draft.price_double),
+    Boolean(draft.includes?.length || draft.excludes?.length || draft.requirements?.length),
+    draft.is_published !== undefined || draft.is_featured !== undefined,
+  ].filter(Boolean).length;
+  const percentage = Math.round((completed / 6) * 100);
+  const savedLabel = lastSavedAt
+    ? `Tersimpan otomatis ${new Intl.DateTimeFormat("id-ID", { hour: "2-digit", minute: "2-digit" }).format(lastSavedAt)}`
+    : "Autosave aktif";
+
+  return (
+    <div className="mt-3 rounded-xl border border-border/80 bg-muted/30 px-3 py-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+        <span className="font-medium">Progres pengisian: {percentage}%</span>
+        <span className="text-muted-foreground">{savedLabel}</span>
+      </div>
+      <div
+        className="mt-2 h-1.5 overflow-hidden rounded-full bg-muted"
+        role="progressbar"
+        aria-label="Progres pengisian paket"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={percentage}
+      >
+        <div
+          className="h-full rounded-full bg-primary transition-[width]"
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
+    </div>
+  );
 }
 
 function Section({
