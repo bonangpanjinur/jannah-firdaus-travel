@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
 import { WhatsAppFloat } from "@/components/site/whatsapp-float";
 import { MobileBottomNav } from "@/components/site/mobile-bottom-nav";
+import { BackToTop } from "@/components/site/back-to-top";
 import { isTheme, ThemeApplier } from "@/components/site/theme-applier";
 import { ErrorState } from "@/components/site/error-state";
 import {
@@ -277,6 +278,7 @@ function RootComponent() {
       </div>
       {isBackoffice ? null : <MobileBottomNav />}
       {isBackoffice ? null : <WhatsAppFloat />}
+      <BackToTop isBackoffice={isBackoffice} />
       <Toaster />
     </QueryClientProvider>
   );
