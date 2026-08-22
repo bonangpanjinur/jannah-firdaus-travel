@@ -20,3 +20,4 @@ User-agent: facebookexternalhit
 Allow: /
 
 Sitemap: https://www.jannahfirdaustravel.co.id/sitemap.xml
+Sitemap: https://www.jannahfirdaustravel.co.id/sitemap-cities-priority.xml

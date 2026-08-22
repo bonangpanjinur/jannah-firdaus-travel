@@ -16,6 +16,10 @@ import { Route as BiayaUmrohRouteImport } from './routes/biaya-umroh'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as SitemapCitiesNationalDotxmlRouteImport } from './routes/sitemap-cities-national[.]xml'
+import { Route as SitemapCitiesPriorityDotxmlRouteImport } from './routes/sitemap-cities-priority[.]xml'
+import { Route as SitemapPackagesDotxmlRouteImport } from './routes/sitemap-packages[.]xml'
+import { Route as SitemapStaticDotxmlRouteImport } from './routes/sitemap-static[.]xml'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SyaratUmrohRouteImport } from './routes/syarat-umroh'
 import { Route as TentangRouteImport } from './routes/tentang'
@@ -71,6 +75,28 @@ const GaleriRoute = GaleriRouteImport.update({
 const KontakRoute = KontakRouteImport.update({
   id: '/kontak',
   path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapCitiesNationalDotxmlRoute =
+  SitemapCitiesNationalDotxmlRouteImport.update({
+    id: '/sitemap-cities-national.xml',
+    path: '/sitemap-cities-national.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SitemapCitiesPriorityDotxmlRoute =
+  SitemapCitiesPriorityDotxmlRouteImport.update({
+    id: '/sitemap-cities-priority.xml',
+    path: '/sitemap-cities-priority.xml',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SitemapPackagesDotxmlRoute = SitemapPackagesDotxmlRouteImport.update({
+  id: '/sitemap-packages.xml',
+  path: '/sitemap-packages.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapStaticDotxmlRoute = SitemapStaticDotxmlRouteImport.update({
+  id: '/sitemap-static.xml',
+  path: '/sitemap-static.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -187,6 +213,10 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
+  '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
+  '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
+  '/sitemap-static.xml': typeof SitemapStaticDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
@@ -216,6 +246,10 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
+  '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
+  '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
+  '/sitemap-static.xml': typeof SitemapStaticDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
@@ -247,6 +281,10 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
+  '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
+  '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
+  '/sitemap-static.xml': typeof SitemapStaticDotxmlRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/syarat-umroh': typeof SyaratUmrohRoute
   '/tentang': typeof TentangRoute
@@ -279,6 +317,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/sitemap-cities-national.xml'
+    | '/sitemap-cities-priority.xml'
+    | '/sitemap-packages.xml'
+    | '/sitemap-static.xml'
     | '/sitemap.xml'
     | '/syarat-umroh'
     | '/tentang'
@@ -308,6 +350,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/sitemap-cities-national.xml'
+    | '/sitemap-cities-priority.xml'
+    | '/sitemap-packages.xml'
+    | '/sitemap-static.xml'
     | '/sitemap.xml'
     | '/syarat-umroh'
     | '/tentang'
@@ -338,6 +384,10 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/sitemap-cities-national.xml'
+    | '/sitemap-cities-priority.xml'
+    | '/sitemap-packages.xml'
+    | '/sitemap-static.xml'
     | '/sitemap.xml'
     | '/syarat-umroh'
     | '/tentang'
@@ -369,6 +419,10 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
+  SitemapCitiesNationalDotxmlRoute: typeof SitemapCitiesNationalDotxmlRoute
+  SitemapCitiesPriorityDotxmlRoute: typeof SitemapCitiesPriorityDotxmlRoute
+  SitemapPackagesDotxmlRoute: typeof SitemapPackagesDotxmlRoute
+  SitemapStaticDotxmlRoute: typeof SitemapStaticDotxmlRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SyaratUmrohRoute: typeof SyaratUmrohRoute
   TentangRoute: typeof TentangRoute
@@ -431,6 +485,34 @@ declare module '@tanstack/react-router' {
       path: '/kontak'
       fullPath: '/kontak'
       preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-cities-national.xml': {
+      id: '/sitemap-cities-national.xml'
+      path: '/sitemap-cities-national.xml'
+      fullPath: '/sitemap-cities-national.xml'
+      preLoaderRoute: typeof SitemapCitiesNationalDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-cities-priority.xml': {
+      id: '/sitemap-cities-priority.xml'
+      path: '/sitemap-cities-priority.xml'
+      fullPath: '/sitemap-cities-priority.xml'
+      preLoaderRoute: typeof SitemapCitiesPriorityDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-packages.xml': {
+      id: '/sitemap-packages.xml'
+      path: '/sitemap-packages.xml'
+      fullPath: '/sitemap-packages.xml'
+      preLoaderRoute: typeof SitemapPackagesDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap-static.xml': {
+      id: '/sitemap-static.xml'
+      path: '/sitemap-static.xml'
+      fullPath: '/sitemap-static.xml'
+      preLoaderRoute: typeof SitemapStaticDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -631,6 +713,10 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
+  SitemapCitiesNationalDotxmlRoute: SitemapCitiesNationalDotxmlRoute,
+  SitemapCitiesPriorityDotxmlRoute: SitemapCitiesPriorityDotxmlRoute,
+  SitemapPackagesDotxmlRoute: SitemapPackagesDotxmlRoute,
+  SitemapStaticDotxmlRoute: SitemapStaticDotxmlRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SyaratUmrohRoute: SyaratUmrohRoute,
   TentangRoute: TentangRoute,
