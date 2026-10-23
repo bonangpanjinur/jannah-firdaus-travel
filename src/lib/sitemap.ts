@@ -102,16 +102,33 @@ export async function publishedPackageRows() {
   try {
     const { data } = await supabase
       .from("packages" as never)
-      .select("slug, updated_at, flyer_url" as never)
+      .select("slug, updated_at, flyer_url, departure_date" as never)
       .eq("is_published" as never, true as never);
-    return (data ?? []) as {
+    return ((data ?? []) as {
       slug: string;
       updated_at: string | null;
       flyer_url: string | null;
-    }[];
+      departure_date: string | null;
+    }[]).filter((row) => !isPackageExpired(row.departure_date));
   } catch {
     return [];
   }
+}
+
+/** Paket tanpa tanggal tetap dianggap aktif; tanggal lampau dikeluarkan dari sitemap. */
+export function isPackageExpired(departureDate: string | null | undefined, today = todayJakarta()) {
+  return Boolean(departureDate && departureDate < today);
+}
+
+function todayJakarta() {
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Jakarta",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  })
+    .format(new Date())
+    .replace(/\//g, "-");
 }
 
 export function packageEntry(row: {
