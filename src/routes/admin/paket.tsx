@@ -25,6 +25,9 @@ const empty: Draft = {
   name: "",
   slug: "",
   description: "",
+  seo_title: "",
+  seo_description: "",
+  og_image_url: "",
   flyer_url: "",
   airline: "",
   hotel_makkah: "",
@@ -86,6 +89,13 @@ type DraftErrors = Partial<Record<keyof Paket | "prices", string>>;
 
 function validateDraft(value: Draft): DraftErrors {
   const errors: DraftErrors = {};
+
+  if ((value.seo_title?.length ?? 0) > 60) {
+    errors.seo_title = "Judul SEO maksimal 60 karakter.";
+  }
+  if ((value.seo_description?.length ?? 0) > 160) {
+    errors.seo_description = "Deskripsi SEO maksimal 160 karakter.";
+  }
 
   if (
     value.duration_days !== null &&
@@ -191,6 +201,9 @@ function AdminPaket() {
         slug: value.slug?.trim() || slugify(value.name ?? ""),
         flyer_url: value.flyer_url || null,
         description: value.description?.trim() || null,
+        seo_title: value.seo_title?.trim() || null,
+        seo_description: value.seo_description?.trim() || null,
+        og_image_url: value.og_image_url || null,
       };
       const { id, ...rest } = payload;
       const response = id
@@ -219,6 +232,7 @@ function AdminPaket() {
       if (error) throw error;
       const paths = [
         paket.flyer_url,
+        paket.og_image_url,
         ...(images ?? []).map((image: { image_url: string }) => image.image_url),
       ].filter(isStoragePath);
       await Promise.all(paths.map((path) => deleteMedia(path).catch(() => undefined)));
@@ -451,6 +465,7 @@ function AdminPaket() {
                 "Harga",
                 "Fasilitas",
                 "Penayangan",
+                "SEO & berbagi",
               ].map((label, index) => (
                 <a
                   key={label}
@@ -713,6 +728,57 @@ function AdminPaket() {
                 value={String(draft.sort_order ?? 0)}
                 onChange={(value) => field("sort_order", value ? Number(value) : 0)}
               />
+            </Section>
+
+            <Section
+              id="paket-section-7"
+              title="7. SEO & gambar sosial"
+              hint="Kosongkan judul atau deskripsi untuk menggunakan teks paket secara otomatis."
+            >
+              <div id="field-seo_title" className="space-y-2 md:col-span-2">
+                <Label htmlFor="input-seo-title">Judul SEO</Label>
+                <Input
+                  id="input-seo-title"
+                  maxLength={60}
+                  value={draft.seo_title ?? ""}
+                  aria-invalid={Boolean(errors.seo_title)}
+                  onChange={(event) => field("seo_title", event.target.value)}
+                  placeholder={draft.name || "Contoh: Paket Umroh Reguler 12 Hari"}
+                />
+                <p className="text-xs text-muted-foreground">
+                  {(draft.seo_title ?? "").length}/60 karakter. Judul paket dipakai bila kosong.
+                </p>
+                <FieldError message={errors.seo_title} />
+              </div>
+              <div id="field-seo_description" className="space-y-2 md:col-span-2">
+                <Label htmlFor="input-seo-description">Meta description</Label>
+                <Textarea
+                  id="input-seo-description"
+                  rows={3}
+                  maxLength={160}
+                  value={draft.seo_description ?? ""}
+                  aria-invalid={Boolean(errors.seo_description)}
+                  onChange={(event) => field("seo_description", event.target.value)}
+                  placeholder="Ringkasan paket yang akurat, mencakup durasi, jadwal, dan layanan utama."
+                />
+                <p className="text-xs text-muted-foreground">
+                  {(draft.seo_description ?? "").length}/160 karakter.
+                </p>
+                <FieldError message={errors.seo_description} />
+              </div>
+              <div id="field-og_image_url" className="md:col-span-2">
+                <ImageUpload
+                  label="Gambar Open Graph / media sosial"
+                  folder="uploads"
+                  value={draft.og_image_url}
+                  onChange={(value) => field("og_image_url", value)}
+                  aspect="aspect-[1200/630]"
+                />
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Gambar flyer dipakai sebagai cadangan bila gambar sosial tidak diisi.
+                </p>
+                <FieldError message={errors.og_image_url} />
+              </div>
             </Section>
 
             <div className="flex flex-wrap gap-2">

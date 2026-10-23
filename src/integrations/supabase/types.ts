@@ -153,11 +153,14 @@ export type Database = {
           is_featured: boolean
           is_published: boolean
           name: string
+          og_image_url: string | null
           price_double: number | null
           price_quad: number | null
           price_triple: number | null
           quota: number | null
           requirements: string[]
+          seo_description: string | null
+          seo_title: string | null
           slug: string
           sort_order: number
           updated_at: string
@@ -179,11 +182,14 @@ export type Database = {
           is_featured?: boolean
           is_published?: boolean
           name: string
+          og_image_url?: string | null
           price_double?: number | null
           price_quad?: number | null
           price_triple?: number | null
           quota?: number | null
           requirements?: string[]
+          seo_description?: string | null
+          seo_title?: string | null
           slug: string
           sort_order?: number
           updated_at?: string
@@ -205,11 +211,14 @@ export type Database = {
           is_featured?: boolean
           is_published?: boolean
           name?: string
+          og_image_url?: string | null
           price_double?: number | null
           price_quad?: number | null
           price_triple?: number | null
           quota?: number | null
           requirements?: string[]
+          seo_description?: string | null
+          seo_title?: string | null
           slug?: string
           sort_order?: number
           updated_at?: string
@@ -274,8 +283,14 @@ export type Database = {
           hero_title: string | null
           id: number
           instagram: string | null
+          jamaah_count: number | null
+          legal_name: string | null
           license_text: string | null
           logo_url: string | null
+          founded_year: number | null
+          ppiu_license_number: string | null
+          service_areas: string[]
+          services: string[]
           tagline: string | null
           theme: string
           updated_at: string
@@ -294,8 +309,14 @@ export type Database = {
           hero_title?: string | null
           id?: number
           instagram?: string | null
+          jamaah_count?: number | null
+          legal_name?: string | null
           license_text?: string | null
           logo_url?: string | null
+          founded_year?: number | null
+          ppiu_license_number?: string | null
+          service_areas?: string[]
+          services?: string[]
           tagline?: string | null
           theme?: string
           updated_at?: string
@@ -314,8 +335,14 @@ export type Database = {
           hero_title?: string | null
           id?: number
           instagram?: string | null
+          jamaah_count?: number | null
+          legal_name?: string | null
           license_text?: string | null
           logo_url?: string | null
+          founded_year?: number | null
+          ppiu_license_number?: string | null
+          service_areas?: string[]
+          services?: string[]
           tagline?: string | null
           theme?: string
           updated_at?: string

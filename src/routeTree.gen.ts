@@ -16,6 +16,7 @@ import { Route as BiayaUmrohRouteImport } from './routes/biaya-umroh'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as ManifestDotjsonRouteImport } from './routes/manifest[.]json'
 import { Route as SitemapCitiesNationalDotxmlRouteImport } from './routes/sitemap-cities-national[.]xml'
 import { Route as SitemapCitiesPriorityDotxmlRouteImport } from './routes/sitemap-cities-priority[.]xml'
 import { Route as SitemapPackagesDotxmlRouteImport } from './routes/sitemap-packages[.]xml'
@@ -75,6 +76,11 @@ const GaleriRoute = GaleriRouteImport.update({
 const KontakRoute = KontakRouteImport.update({
   id: '/kontak',
   path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManifestDotjsonRoute = ManifestDotjsonRouteImport.update({
+  id: '/manifest.json',
+  path: '/manifest.json',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapCitiesNationalDotxmlRoute =
@@ -213,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -246,6 +253,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -281,6 +289,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -317,6 +326,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -350,6 +360,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -384,6 +395,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -419,6 +431,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
+  ManifestDotjsonRoute: typeof ManifestDotjsonRoute
   SitemapCitiesNationalDotxmlRoute: typeof SitemapCitiesNationalDotxmlRoute
   SitemapCitiesPriorityDotxmlRoute: typeof SitemapCitiesPriorityDotxmlRoute
   SitemapPackagesDotxmlRoute: typeof SitemapPackagesDotxmlRoute
@@ -485,6 +498,13 @@ declare module '@tanstack/react-router' {
       path: '/kontak'
       fullPath: '/kontak'
       preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manifest.json': {
+      id: '/manifest.json'
+      path: '/manifest.json'
+      fullPath: '/manifest.json'
+      preLoaderRoute: typeof ManifestDotjsonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-cities-national.xml': {
@@ -713,6 +733,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
+  ManifestDotjsonRoute: ManifestDotjsonRoute,
   SitemapCitiesNationalDotxmlRoute: SitemapCitiesNationalDotxmlRoute,
   SitemapCitiesPriorityDotxmlRoute: SitemapCitiesPriorityDotxmlRoute,
   SitemapPackagesDotxmlRoute: SitemapPackagesDotxmlRoute,

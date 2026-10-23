@@ -8,7 +8,7 @@ export const SITE_TAGLINE_FALLBACK = "Melayani Sepenuh Hati";
 export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
 export const SITE_DESCRIPTION_FALLBACK =
-  "Jannah Firdaus Tour Travel melayani umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel nyaman, dan konsultasi transparan.";
+  "Jannah Firdaus Tour Travel menyediakan informasi paket, jadwal keberangkatan, dan pendampingan perjalanan ibadah umroh.";
 export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
 export const DEFAULT_OG_IMAGE_WIDTH = 1920;
 export const DEFAULT_OG_IMAGE_HEIGHT = 1088;
@@ -27,22 +27,33 @@ export interface SiteInfo {
   instagram: string | null;
   facebook: string | null;
   youtube: string | null;
+  legalName: string | null;
+  ppiuLicenseNumber: string | null;
+  foundedYear: number | null;
+  jamaahCount: number | null;
+  services: string[];
+  serviceAreas: string[];
 }
 
 const FALLBACK: SiteInfo = {
   siteName: SITE_NAME_FALLBACK,
   tagline: SITE_TAGLINE_FALLBACK,
   about: SITE_DESCRIPTION_FALLBACK,
-  address:
-    "Jl. KH Abdullah Syafei No.21D, RT.1/RW.3, Kb. Baru, Kec. Tebet, Kota Jakarta Selatan, DKI Jakarta 12830",
+  address: null,
   phone: null,
-  email: "info@jannahfirdaustravel.co.id",
+  email: null,
   license: null,
   logo: null,
   openingHours: null,
-  instagram: "umrohjannahfirdaustravel",
+  instagram: null,
   facebook: null,
   youtube: null,
+  legalName: null,
+  ppiuLicenseNumber: null,
+  foundedYear: null,
+  jamaahCount: null,
+  services: [],
+  serviceAreas: [],
 };
 
 export function fromSettings(settings: SiteSettings | null): SiteInfo {
@@ -60,6 +71,14 @@ export function fromSettings(settings: SiteSettings | null): SiteInfo {
     instagram: settings.instagram?.trim() || FALLBACK.instagram,
     facebook: settings.facebook?.trim() || null,
     youtube: settings.youtube?.trim() || null,
+    legalName: settings.legal_name?.trim() || null,
+    ppiuLicenseNumber: settings.ppiu_license_number?.trim() || null,
+    foundedYear: settings.founded_year ?? null,
+    jamaahCount: settings.jamaah_count ?? null,
+    services: Array.isArray(settings.services) ? settings.services.filter(Boolean) : [],
+    serviceAreas: Array.isArray(settings.service_areas)
+      ? settings.service_areas.filter(Boolean)
+      : [],
   };
 }
 

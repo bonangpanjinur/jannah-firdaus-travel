@@ -4,7 +4,7 @@ export const DEFAULT_HERO_TITLE = "Wujudkan Perjalanan Umroh Impian Bersama Kami
 export const DEFAULT_HERO_SUBTITLE =
   "Bimbingan ustadz berpengalaman, hotel nyaman, dan pelayanan penuh amanah untuk perjalanan ibadah yang tenang.";
 export const DEFAULT_ABOUT_TEXT =
-  "Jannah Firdaus Travel membantu keluarga Indonesia mempersiapkan perjalanan umroh dengan pendampingan yang amanah, informasi yang jelas, dan pelayanan yang tulus sejak konsultasi hingga kembali ke tanah air.";
+  "Jannah Firdaus Tour Travel membantu keluarga Indonesia mempersiapkan perjalanan umroh dengan pendampingan yang amanah, informasi yang jelas, dan pelayanan yang tulus sejak konsultasi hingga kembali ke tanah air.";
 
 export interface SiteSettings {
   id: number;
@@ -19,6 +19,12 @@ export interface SiteSettings {
   instagram: string | null;
   facebook: string | null;
   youtube: string | null;
+  legal_name: string | null;
+  ppiu_license_number: string | null;
+  founded_year: number | null;
+  jamaah_count: number | null;
+  services: string[];
+  service_areas: string[];
   license_text: string | null;
   hero_title: string | null;
   hero_subtitle: string | null;
@@ -32,6 +38,9 @@ export interface Paket {
   name: string;
   flyer_url: string | null;
   description: string | null;
+  seo_title: string | null;
+  seo_description: string | null;
+  og_image_url: string | null;
   price_quad: number | null;
   price_triple: number | null;
   price_double: number | null;

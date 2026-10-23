@@ -23,8 +23,6 @@ import {
   siteInfoFrom,
   socialLinks,
   openingHoursLd,
-  SITE_CITY,
-  SITE_REGION,
   DEFAULT_OG_IMAGE,
   absoluteUrl,
   type SiteInfo,
@@ -92,6 +90,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
     const initialSettings = rootData?.settings;
     const initialTheme = isTheme(initialSettings?.theme) ? initialSettings.theme : "noir-emas";
+    const iconLinks = logoUrl
+      ? [
+          { rel: "icon", href: logoUrl, sizes: "any" },
+          { rel: "apple-touch-icon", href: logoUrl },
+        ]
+      : [
+          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+          { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+          { rel: "icon", type: "image/png", href: "/favicon-192.png", sizes: "192x192" },
+          { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        ];
     return {
       meta: [
         { charSet: "utf-8" },
@@ -112,16 +121,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: appCss,
         },
-        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
         },
-        { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
-        { rel: "icon", type: "image/png", href: "/favicon-192.png", sizes: "192x192" },
-        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        ...iconLinks,
         { rel: "manifest", href: "/manifest.json" },
       ],
       scripts: [
@@ -136,17 +142,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "@id": absoluteUrl("/#organization"),
             name: info.siteName,
             alternateName: [`${info.siteName} Umroh`],
+            ...(info.legalName ? { legalName: info.legalName } : {}),
             description: info.about,
             slogan: info.tagline,
             url: absoluteUrl("/"),
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: info.address ?? undefined,
-              addressLocality: SITE_CITY,
-              addressRegion: SITE_REGION,
-              addressCountry: "ID",
-            },
+            ...(info.address
+              ? {
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: info.address,
+                    addressCountry: "ID",
+                  },
+                }
+              : {}),
             ...(logoUrl ? { logo: logoUrl } : {}),
+            ...(info.ppiuLicenseNumber
+              ? {
+                  identifier: {
+                    "@type": "PropertyValue",
+                    name: "Nomor izin PPIU",
+                    value: info.ppiuLicenseNumber,
+                  },
+                }
+              : {}),
+            ...(info.foundedYear ? { foundingDate: String(info.foundedYear) } : {}),
             image: absoluteUrl(DEFAULT_OG_IMAGE),
             ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
             ...(info.email ? { email: info.email } : {}),
@@ -162,7 +181,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
                 }
               : {}),
             ...(sameAs.length ? { sameAs } : {}),
-            areaServed: [SITE_CITY, "Jabodetabek", "Indonesia"],
+            ...(info.serviceAreas.length ? { areaServed: info.serviceAreas } : {}),
             knowsLanguage: ["id"],
             ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
             makesOffer: {
