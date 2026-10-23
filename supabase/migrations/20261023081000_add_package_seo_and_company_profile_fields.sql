@@ -35,8 +35,8 @@ create policy "public read consented testimonials"
   using (is_published and consent_to_publish);
 create policy "admin manage testimonials"
   on public.testimonials for all to authenticated
-  using (public.has_role(auth.uid(), 'admin'))
-  with check (public.has_role(auth.uid(), 'admin'));
+  using (private.has_role(auth.uid(), 'admin'::public.app_role))
+  with check (private.has_role(auth.uid(), 'admin'::public.app_role));
 create trigger testimonials_updated
   before update on public.testimonials
   for each row execute function public.set_updated_at();
