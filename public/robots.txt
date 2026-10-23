@@ -2,21 +2,26 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Disallow: /api
 
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Disallow: /api
 
 User-agent: Bingbot
 Allow: /
 Disallow: /admin
 Disallow: /auth
+Disallow: /api
 
 User-agent: Twitterbot
 Allow: /
+Disallow: /api
 
 User-agent: facebookexternalhit
 Allow: /
+Disallow: /api
 
 Sitemap: https://www.jannahfirdaustravel.co.id/sitemap.xml
