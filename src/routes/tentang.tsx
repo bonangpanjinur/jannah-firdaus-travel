@@ -11,7 +11,7 @@ export const Route = createFileRoute("/tentang")({
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
       title: `Tentang ${info.siteName} — Travel Umroh ${SITE_CITY}`,
-      description: `Informasi profil, layanan, dan kontak ${info.siteName} di ${SITE_CITY}.`,
+      description: `Kenali ${info.siteName}, travel umroh di ${SITE_CITY} dengan layanan paket, manasik, pendampingan dokumen, dan konsultasi keberangkatan jamaah.`,
       path: "/tentang",
       siteName: info.siteName,
     });
