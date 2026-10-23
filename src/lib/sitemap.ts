@@ -18,6 +18,7 @@ export const STATIC_SITEMAP_PATHS = [
 
 const SITEMAP_PACKAGE_LOG_INTERVAL_MS = 15 * 60 * 1000;
 const SITEMAP_PACKAGE_CACHE_TTL_MS = 5 * 60 * 1000;
+export const SITEMAP_PACKAGE_PAGE_SIZE = 1000;
 let lastSitemapPackageLogAt = 0;
 let cachedPackageRows: PackageSitemapRow[] | null = null;
 let cachedPackageRowsAt = 0;
@@ -109,6 +110,23 @@ export function cityRows() {
 
 export function priorityCityRows() {
   return cityRows().filter((city) => INDEXABLE_KOTA.has(city.slug));
+}
+
+export function packageSitemapPageCount(packageCount: number) {
+  return Math.max(1, Math.ceil(packageCount / SITEMAP_PACKAGE_PAGE_SIZE));
+}
+
+export function packageSitemapPaths(packageCount: number) {
+  return Array.from({ length: packageSitemapPageCount(packageCount) }, (_, index) => {
+    const page = index + 1;
+    return page === 1 ? "/sitemap-packages.xml" : `/sitemap-packages.xml?page=${page}`;
+  });
+}
+
+export function packageSitemapPage<T>(rows: T[], page: number) {
+  const safePage = Number.isInteger(page) && page >= 1 ? page : 1;
+  const start = (safePage - 1) * SITEMAP_PACKAGE_PAGE_SIZE;
+  return rows.slice(start, start + SITEMAP_PACKAGE_PAGE_SIZE);
 }
 
 export async function publishedPackageRows() {
