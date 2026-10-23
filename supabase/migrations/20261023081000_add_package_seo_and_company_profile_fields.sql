@@ -13,6 +13,34 @@ alter table public.site_settings
   add column if not exists services text[] not null default '{}',
   add column if not exists service_areas text[] not null default '{}';
 
+-- Testimonials remain private drafts until an admin confirms permission to publish.
+create table if not exists public.testimonials (
+  id uuid primary key default gen_random_uuid(),
+  customer_name text not null,
+  city text,
+  quote text not null,
+  rating smallint not null default 5 check (rating between 1 and 5),
+  consent_to_publish boolean not null default false,
+  is_published boolean not null default false,
+  sort_order integer not null default 0,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+grant select on public.testimonials to anon;
+grant select, insert, update, delete on public.testimonials to authenticated;
+grant all on public.testimonials to service_role;
+alter table public.testimonials enable row level security;
+create policy "public read consented testimonials"
+  on public.testimonials for select to anon
+  using (is_published and consent_to_publish);
+create policy "admin manage testimonials"
+  on public.testimonials for all to authenticated
+  using (public.has_role(auth.uid(), 'admin'))
+  with check (public.has_role(auth.uid(), 'admin'));
+create trigger testimonials_updated
+  before update on public.testimonials
+  for each row execute function public.set_updated_at();
+
 -- Use the official public brand confirmed by the site owner, without overwriting custom names.
 update public.site_settings
 set agency_name = 'Jannah Firdaus Tour Travel'

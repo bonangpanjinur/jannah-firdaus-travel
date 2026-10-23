@@ -7,6 +7,7 @@ import {
   HeartHandshake,
   MessageCircle,
   Plane,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PackageCard } from "@/components/site/package-card";
@@ -16,6 +17,7 @@ import {
   DEFAULT_HERO_TITLE,
   galleryQuery,
   packagesQuery,
+  testimonialsQuery,
 } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
@@ -27,6 +29,7 @@ export const Route = createFileRoute("/")({
       loadSiteInfo(context.queryClient),
       context.queryClient.ensureQueryData(packagesQuery()).catch(() => []),
       context.queryClient.ensureQueryData(galleryQuery).catch(() => []),
+      context.queryClient.ensureQueryData(testimonialsQuery).catch(() => []),
     ]);
     return info;
   },
@@ -87,6 +90,7 @@ function Beranda() {
   const { data: settings } = useSettings();
   const { data: packages = [] } = useQuery(packagesQuery());
   const { data: gallery = [] } = useQuery(galleryQuery);
+  const { data: testimonials = [] } = useQuery(testimonialsQuery);
   const unggulan = packages.filter((p) => p.is_featured).slice(0, 3);
   const tampil = unggulan.length ? unggulan : packages.slice(0, 3);
 
@@ -228,6 +232,38 @@ function Beranda() {
               </figure>
             ))}
           </div>
+        </section>
+      ) : null}
+
+      {testimonials.length ? (
+        <section className="container-page mt-16 sm:mt-24">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Cerita Jamaah</p>
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">
+              Pengalaman Perjalanan Umroh
+            </h2>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.slice(0, 6).map((testimonial) => (
+              <li key={testimonial.id} className="bento-card flex flex-col p-6">
+                <div
+                  className="flex gap-1 text-gold"
+                  aria-label={`Rating ${testimonial.rating} dari 5`}
+                >
+                  {Array.from({ length: testimonial.rating }, (_, index) => (
+                    <Star key={index} className="size-4 fill-current" aria-hidden="true" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm/7 text-muted-foreground">
+                  “{testimonial.quote}”
+                </blockquote>
+                <p className="mt-5 border-t border-border pt-4 text-sm font-semibold">
+                  {testimonial.customer_name}
+                  {testimonial.city ? ` · ${testimonial.city}` : ""}
+                </p>
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

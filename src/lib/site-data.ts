@@ -100,6 +100,19 @@ export interface Registration {
   created_at: string;
 }
 
+export interface Testimonial {
+  id: string;
+  customer_name: string;
+  city: string | null;
+  quote: string;
+  rating: number;
+  consent_to_publish: boolean;
+  is_published: boolean;
+  sort_order: number;
+  created_at: string;
+  updated_at: string;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const db = () => supabase as any;
 
@@ -123,6 +136,40 @@ export const settingsQuery = {
     const { data, error } = await db().from("site_settings").select("*").eq("id", 1).maybeSingle();
     if (error) throw error;
     return (data as SiteSettings | null) ?? null;
+  },
+};
+
+export const testimonialsQuery = {
+  queryKey: ["testimonials"] as const,
+  staleTime: 60_000,
+  gcTime: 5 * 60_000,
+  queryFn: async (): Promise<Testimonial[]> => {
+    if (!hasSupabaseConfig()) return [];
+    const { data, error } = await db()
+      .from("testimonials")
+      .select("*")
+      .eq("is_published", true)
+      .eq("consent_to_publish", true)
+      .order("sort_order", { ascending: true })
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Testimonial[];
+  },
+};
+
+export const adminTestimonialsQuery = {
+  queryKey: ["admin-testimonials"] as const,
+  staleTime: 30_000,
+  gcTime: 5 * 60_000,
+  queryFn: async (): Promise<Testimonial[]> => {
+    if (!hasSupabaseConfig()) return [];
+    const { data, error } = await db()
+      .from("testimonials")
+      .select("*")
+      .order("sort_order", { ascending: true })
+      .order("created_at", { ascending: false });
+    if (error) throw error;
+    return (data ?? []) as Testimonial[];
   },
 };
 

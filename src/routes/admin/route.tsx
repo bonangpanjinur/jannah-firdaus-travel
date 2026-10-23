@@ -1,6 +1,17 @@
 import { useEffect } from "react";
 import { createFileRoute, Link, Outlet, useNavigate } from "@tanstack/react-router";
-import { ClipboardList, Code2, FolderOpen, Image, LayoutDashboard, LogOut, Mail, Package, Settings } from "lucide-react";
+import {
+  ClipboardList,
+  Code2,
+  FolderOpen,
+  Image,
+  LayoutDashboard,
+  LogOut,
+  Mail,
+  Package,
+  Settings,
+  Star,
+} from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useIsAdmin, useSession } from "@/hooks/use-site";
@@ -24,6 +35,7 @@ const nav = [
   { to: "/admin/file", label: "File", icon: FolderOpen },
   { to: "/admin/pendaftaran", label: "Pendaftaran", icon: ClipboardList },
   { to: "/admin/pesan", label: "Pesan", icon: Mail },
+  { to: "/admin/testimoni", label: "Testimoni", icon: Star },
   { to: "/admin/schema", label: "Preview SEO", icon: Code2 },
   { to: "/admin/pengaturan", label: "Pengaturan", icon: Settings },
 ] as const;
@@ -46,9 +58,16 @@ function AdminLayout() {
       <div className="flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
         <h1 className="font-display text-2xl">Akses ditolak</h1>
         <p className="max-w-md text-sm text-muted-foreground">
-          Akun {session.user.email} belum memiliki peran admin. Hubungi pengelola untuk mendapatkan akses.
+          Akun {session.user.email} belum memiliki peran admin. Hubungi pengelola untuk mendapatkan
+          akses.
         </p>
-        <Button variant="outline" onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/auth" }); }}>
+        <Button
+          variant="outline"
+          onClick={async () => {
+            await supabase.auth.signOut();
+            navigate({ to: "/auth" });
+          }}
+        >
           Keluar
         </Button>
       </div>
@@ -58,7 +77,9 @@ function AdminLayout() {
   return (
     <div className="flex min-h-screen bg-sand">
       <aside className="hidden w-60 shrink-0 flex-col border-r border-border bg-card p-5 md:flex">
-        <Link to="/" className="font-display text-lg text-primary">Jannah Firdaus Tour Travel</Link>
+        <Link to="/" className="font-display text-lg text-primary">
+          Jannah Firdaus Tour Travel
+        </Link>
         <p className="mt-1 text-xs text-muted-foreground">Panel Admin</p>
         <nav className="mt-6 flex flex-1 flex-col gap-1">
           {nav.map((item) => (
@@ -77,7 +98,10 @@ function AdminLayout() {
         <Button
           variant="outline"
           size="sm"
-          onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/auth" }); }}
+          onClick={async () => {
+            await supabase.auth.signOut();
+            navigate({ to: "/auth" });
+          }}
         >
           <LogOut className="size-4" /> Keluar
         </Button>
