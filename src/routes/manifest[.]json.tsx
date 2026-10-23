@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
-import { absoluteMediaUrl } from "@/lib/storage";
 
 const DEFAULT_NAME = "Jannah Firdaus Tour Travel";
 
@@ -9,17 +8,15 @@ export const Route = createFileRoute("/manifest.json")({
     handlers: {
       GET: async () => {
         let name = DEFAULT_NAME;
-        let icon = "/favicon-512.png";
 
         try {
           const { data, error } = await supabase
             .from("site_settings")
-            .select("agency_name, logo_url")
+            .select("agency_name")
             .eq("id", 1)
             .maybeSingle();
           if (error) throw error;
           name = data?.agency_name?.trim() || DEFAULT_NAME;
-          icon = absoluteMediaUrl(data?.logo_url) || icon;
         } catch {
           // Keep the public fallback manifest available if settings cannot be read.
         }
@@ -35,7 +32,11 @@ export const Route = createFileRoute("/manifest.json")({
           display: "standalone",
           background_color: "#102b25",
           theme_color: "#102b25",
-          icons: [{ src: icon, sizes: "any" }],
+          icons: [
+            { src: "/favicon-192.png?v=20261023", sizes: "192x192", type: "image/png" },
+            { src: "/favicon-512.png?v=20261023", sizes: "512x512", type: "image/png" },
+            { src: "/apple-touch-icon.png?v=20261023", sizes: "180x180", type: "image/png" },
+          ],
         };
 
         return new Response(JSON.stringify(manifest), {

@@ -84,20 +84,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { info?: Partial<SiteInfo>; settings?: SiteSettings | null } | undefined;
     const info = siteInfoFrom(rootData?.info);
 
-    const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
     const initialSettings = rootData?.settings;
     const initialTheme = isTheme(initialSettings?.theme) ? initialSettings.theme : "noir-emas";
-    const iconLinks = logoUrl
-      ? [
-          { rel: "icon", href: logoUrl, sizes: "any" },
-          { rel: "apple-touch-icon", href: logoUrl },
-        ]
-      : [
-          { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-          { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
-          { rel: "icon", type: "image/png", href: "/favicon-192.png", sizes: "192x192" },
-          { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
-        ];
+    // Keep favicon independent from the configurable agency logo. Logos uploaded
+    // through settings are often wide and may be cached or replaced independently.
+    const iconVersion = "20261023";
+    const iconLinks = [
+      { rel: "icon", type: "image/svg+xml", href: `/favicon.svg?v=${iconVersion}` },
+      { rel: "icon", type: "image/png", href: `/favicon-192.png?v=${iconVersion}`, sizes: "192x192" },
+      { rel: "icon", href: `/favicon.ico?v=${iconVersion}`, sizes: "48x48" },
+      { rel: "apple-touch-icon", href: `/apple-touch-icon.png?v=${iconVersion}`, sizes: "180x180" },
+    ];
     return {
       meta: [
         { charSet: "utf-8" },
