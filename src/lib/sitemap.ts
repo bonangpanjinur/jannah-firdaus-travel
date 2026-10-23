@@ -17,7 +17,17 @@ export const STATIC_SITEMAP_PATHS = [
 ] as const;
 
 const SITEMAP_PACKAGE_LOG_INTERVAL_MS = 15 * 60 * 1000;
+const SITEMAP_PACKAGE_CACHE_TTL_MS = 5 * 60 * 1000;
 let lastSitemapPackageLogAt = 0;
+let cachedPackageRows: PackageSitemapRow[] | null = null;
+let cachedPackageRowsAt = 0;
+
+type PackageSitemapRow = {
+  slug: string;
+  updated_at: string | null;
+  flyer_url: string | null;
+  departure_date: string | null;
+};
 
 export function escapeXml(value: string) {
   return value.replace(
@@ -88,7 +98,7 @@ export function xmlResponse(body: string) {
   return new Response(body, {
     headers: {
       "Content-Type": "application/xml; charset=utf-8",
-      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600, stale-while-revalidate=86400",
     },
   });
 }
@@ -102,6 +112,11 @@ export function priorityCityRows() {
 }
 
 export async function publishedPackageRows() {
+  const now = Date.now();
+  if (cachedPackageRows && now - cachedPackageRowsAt < SITEMAP_PACKAGE_CACHE_TTL_MS) {
+    return cachedPackageRows;
+  }
+
   try {
     const { data, error } = await supabase
       .from("packages" as never)
@@ -112,24 +127,21 @@ export async function publishedPackageRows() {
         code: error.code,
         message: error.message,
       });
-      return [];
+      return cachedPackageRows ?? [];
     }
 
-    const published = (data ?? []) as {
-      slug: string;
-      updated_at: string | null;
-      flyer_url: string | null;
-      departure_date: string | null;
-    }[];
+    const published = (data ?? []) as PackageSitemapRow[];
     const expired = published.filter((row) => isPackageExpired(row.departure_date));
     const active = published.filter((row) => !isPackageExpired(row.departure_date));
+    cachedPackageRows = active;
+    cachedPackageRowsAt = now;
     logSitemapPackageSummary(published.length, active.length, expired);
     return active;
   } catch (error) {
     console.error("[sitemap] unexpected published package query failure", {
       message: error instanceof Error ? error.message : String(error),
     });
-    return [];
+    return cachedPackageRows ?? [];
   }
 }
 
