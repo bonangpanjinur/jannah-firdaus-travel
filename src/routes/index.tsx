@@ -17,21 +17,31 @@ import {
   DEFAULT_HERO_TITLE,
   galleryQuery,
   packagesQuery,
+  testimonialsQuery,
 } from "@/lib/site-data";
 import { waLink } from "@/lib/format";
 import { StorageImage } from "@/components/site/storage-image";
 import { loadSiteInfo, siteInfoFrom, pageMeta, SEO_BRAND, SITE_CITY, SITE_DOMAIN } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  loader: async ({ context }) => {
+    const [info] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(packagesQuery()).catch(() => []),
+      context.queryClient.ensureQueryData(galleryQuery).catch(() => []),
+      context.queryClient.ensureQueryData(testimonialsQuery).catch(() => []),
+    ]);
+    return info;
+  },
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     return {
       ...pageMeta({
-        title: `${SEO_BRAND} | Travel Umroh Resmi ${SITE_CITY}`,
-        description: `${SEO_BRAND} melayani perjalanan umroh resmi dari ${SITE_CITY} ke seluruh Indonesia, dengan paket terjadwal, pendampingan ibadah, dan konsultasi transparan melalui WhatsApp.`,
+        title: `${SEO_BRAND} | Paket & Layanan Umroh ${SITE_CITY}`,
+        description: `${SEO_BRAND} menyediakan informasi paket umroh, jadwal keberangkatan, pendampingan ibadah, dan konsultasi untuk jamaah dari ${SITE_CITY} dan wilayah lain di Indonesia.`,
         path: "/",
         siteName: info.siteName,
+        imageAlt: "Suasana thawaf di Masjidil Haram saat senja",
       }),
       links: [
         {
@@ -55,18 +65,18 @@ export const Route = createFileRoute("/")({
 const keunggulan = [
   {
     icon: BadgeCheck,
-    title: "Berizin Resmi",
-    text: "Travel berizin PPIU Kemenag dengan legalitas lengkap dan transparan.",
+    title: "Informasi Program",
+    text: "Jadwal, fasilitas, dan rincian layanan dapat ditinjau pada setiap paket sebelum mendaftar.",
   },
   {
     icon: BookOpenText,
     title: "Bimbingan Ibadah",
-    text: "Didampingi ustadz pembimbing dan muthawif berpengalaman selama perjalanan.",
+    text: "Informasi bimbingan ibadah dan manasik tersedia sesuai program keberangkatan.",
   },
   {
     icon: Plane,
     title: "Maskapai & Hotel Pilihan",
-    text: "Penerbangan resmi dan hotel dekat Masjidil Haram serta Masjid Nabawi.",
+    text: "Detail penerbangan dan akomodasi dicantumkan pada informasi masing-masing paket.",
   },
   {
     icon: HeartHandshake,
@@ -75,29 +85,12 @@ const keunggulan = [
   },
 ];
 
-const testimoni = [
-  {
-    name: "Ibu Siti Rahmawati",
-    origin: "Bekasi",
-    text: "Alhamdulillah pelayanannya sangat baik, hotel dekat sekali dengan Masjidil Haram dan pembimbingnya sabar.",
-  },
-  {
-    name: "Bapak Ahmad Fauzi",
-    origin: "Surabaya",
-    text: "Semua urusan dokumen dibantu sampai tuntas. Jadwal keberangkatan tepat waktu dan tidak ada biaya tersembunyi.",
-  },
-  {
-    name: "Keluarga Hidayat",
-    origin: "Bandung",
-    text: "Berangkat sekeluarga bertujuh, semuanya terkoordinasi rapi. Insya Allah tahun depan berangkat lagi.",
-  },
-];
-
 function Beranda() {
   const info = Route.useLoaderData();
   const { data: settings } = useSettings();
   const { data: packages = [] } = useQuery(packagesQuery());
   const { data: gallery = [] } = useQuery(galleryQuery);
+  const { data: testimonials = [] } = useQuery(testimonialsQuery);
   const unggulan = packages.filter((p) => p.is_featured).slice(0, 3);
   const tampil = unggulan.length ? unggulan : packages.slice(0, 3);
 
@@ -121,9 +114,11 @@ function Beranda() {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-linear-to-t from-background to-transparent" />
         <div className="container-page py-16 sm:py-24 md:py-36">
           <div className="on-dark-media max-w-2xl text-foreground">
-            <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-[11px] sm:px-4 sm:text-xs">
-              {settings?.license_text ?? "Travel umroh berizin resmi"}
-            </p>
+            {settings?.license_text?.trim() ? (
+              <p className="eyebrow mb-5 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-gold/10 px-3 py-1.5 text-[11px] sm:px-4 sm:text-xs">
+                {settings.license_text}
+              </p>
+            ) : null}
             <h1 className="font-display text-[2rem] leading-[1.1] sm:text-4xl md:text-6xl">
               {SEO_BRAND}: {settings?.hero_title?.trim() || DEFAULT_HERO_TITLE}
             </h1>
@@ -147,20 +142,6 @@ function Beranda() {
                 </a>
               </Button>
             </div>
-            <dl className="mt-10 grid max-w-lg grid-cols-3 gap-3 border-t border-border pt-6 sm:gap-4">
-              {[
-                { k: "10+", v: "Tahun pengalaman" },
-                { k: "5.000+", v: "Jamaah terlayani" },
-                { k: "4.9/5", v: "Kepuasan jamaah" },
-              ].map((s) => (
-                <div key={s.v}>
-                  <dt className="font-display text-xl text-gold sm:text-2xl">{s.k}</dt>
-                  <dd className="mt-1 text-[11px] leading-snug text-muted-foreground sm:text-xs">
-                    {s.v}
-                  </dd>
-                </div>
-              ))}
-            </dl>
           </div>
         </div>
       </section>
@@ -218,36 +199,6 @@ function Beranda() {
         </div>
       </section>
 
-      <section className="container-page mt-16 sm:mt-24">
-        <p className="eyebrow">Testimoni</p>
-        <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">Kata Jamaah Kami</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {testimoni.map((item, i) => (
-            <figure
-              key={item.name}
-              className={`bento-card p-6 ${i === 0 ? "md:row-span-2 md:flex md:flex-col md:justify-center" : ""}`}
-            >
-              <div className="flex gap-1 text-gold">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="size-4 fill-current" />
-                ))}
-              </div>
-              <blockquote
-                className={`mt-4 text-muted-foreground ${i === 0 ? "font-display text-xl/8 text-foreground" : "text-sm/7"}`}
-              >
-                “{item.text}”
-              </blockquote>
-              <figcaption className="mt-4 text-sm font-semibold">
-                {item.name}
-                <span className="block text-xs font-normal text-muted-foreground">
-                  {item.origin}
-                </span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
       {gallery.length ? (
         <section className="container-page mt-16 sm:mt-24">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -281,6 +232,38 @@ function Beranda() {
               </figure>
             ))}
           </div>
+        </section>
+      ) : null}
+
+      {testimonials.length ? (
+        <section className="container-page mt-16 sm:mt-24">
+          <div className="max-w-2xl">
+            <p className="eyebrow">Cerita Jamaah</p>
+            <h2 className="mt-2 font-display text-2xl sm:text-3xl md:text-4xl">
+              Pengalaman Perjalanan Umroh
+            </h2>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {testimonials.slice(0, 6).map((testimonial) => (
+              <li key={testimonial.id} className="bento-card flex flex-col p-6">
+                <div
+                  className="flex gap-1 text-gold"
+                  aria-label={`Rating ${testimonial.rating} dari 5`}
+                >
+                  {Array.from({ length: testimonial.rating }, (_, index) => (
+                    <Star key={index} className="size-4 fill-current" aria-hidden="true" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm/7 text-muted-foreground">
+                  “{testimonial.quote}”
+                </blockquote>
+                <p className="mt-5 border-t border-border pt-4 text-sm font-semibold">
+                  {testimonial.customer_name}
+                  {testimonial.city ? ` · ${testimonial.city}` : ""}
+                </p>
+              </li>
+            ))}
+          </ul>
         </section>
       ) : null}
 

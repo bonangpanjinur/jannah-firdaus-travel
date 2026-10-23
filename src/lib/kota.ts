@@ -8,7 +8,61 @@ export interface KotaLayanan {
   wilayah: string[];
 }
 
+// Hanya kota prioritas yang saat ini layak dimasukkan ke indeks dan sitemap.
+// Kota lain tetap dapat diakses, tetapi diberi meta robots noindex.
+export const INDEXABLE_KOTA = new Set<string>([
+  "jakarta",
+  "bogor",
+  "bandung",
+  "tangerang",
+  "bekasi",
+  "semarang",
+  "kota-surabaya",
+  "kota-yogyakarta",
+  "depok",
+  "tangerang-selatan",
+]);
+
 export const KOTA_LAYANAN: KotaLayanan[] = [
+  {
+    slug: "jakarta",
+    nama: "Jakarta",
+    provinsi: "DKI Jakarta",
+    bandara: "Bandara Soekarno-Hatta",
+    intro:
+      "Jamaah di wilayah Jakarta dapat berkonsultasi mengenai paket, dokumen, dan jadwal keberangkatan dengan tim Jannah Firdaus Tour Travel.",
+    service_note:
+      "Konfirmasikan jadwal manasik, titik kumpul, dan ketersediaan paket kepada tim sebelum melakukan pendaftaran.",
+    wilayah: [
+      "Jakarta Pusat",
+      "Jakarta Utara",
+      "Jakarta Barat",
+      "Jakarta Selatan",
+      "Jakarta Timur",
+    ],
+  },
+  {
+    slug: "jakarta-selatan",
+    nama: "Jakarta Selatan",
+    provinsi: "DKI Jakarta",
+    bandara: "Bandara Soekarno-Hatta",
+    intro:
+      "Jamaah di Jakarta Selatan dapat berkonsultasi mengenai pilihan paket, dokumen, dan jadwal keberangkatan melalui tim Jannah Firdaus Tour Travel.",
+    service_note:
+      "Untuk keberangkatan dari Jakarta Selatan, konfirmasikan titik kumpul, jadwal manasik, dan ketersediaan paket langsung kepada tim sebelum mendaftar.",
+    wilayah: [
+      "Kebayoran Baru",
+      "Kebayoran Lama",
+      "Pesanggrahan",
+      "Cilandak",
+      "Pasar Minggu",
+      "Jagakarsa",
+      "Mampang Prapatan",
+      "Pancoran",
+      "Tebet",
+      "Setiabudi",
+    ],
+  },
   {
     slug: "jakarta-pusat",
     nama: "Jakarta Pusat",
@@ -3841,7 +3895,7 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
   },
   {
     slug: "kota-surabaya",
-    nama: "Kota Surabaya",
+    nama: "Surabaya",
     provinsi: "Jawa Timur",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
     intro:
@@ -4160,7 +4214,7 @@ export const KOTA_LAYANAN: KotaLayanan[] = [
   },
   {
     slug: "kota-yogyakarta",
-    nama: "Kota Yogyakarta",
+    nama: "Yogyakarta",
     provinsi: "Daerah Istimewa Yogyakarta",
     bandara: "Bandara terdekat sesuai jadwal keberangkatan",
     intro:

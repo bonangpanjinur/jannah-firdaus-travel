@@ -47,6 +47,21 @@ function AdminPengaturan() {
   const save = useMutation({
     mutationFn: async () => {
       if (!form.agency_name?.trim()) throw new Error("Nama website wajib diisi.");
+      const currentYear = new Date().getFullYear();
+      if (
+        form.founded_year != null &&
+        (!Number.isInteger(form.founded_year) ||
+          form.founded_year < 1800 ||
+          form.founded_year > currentYear)
+      ) {
+        throw new Error(`Tahun berdiri harus antara 1800 dan ${currentYear}.`);
+      }
+      if (
+        form.jamaah_count != null &&
+        (!Number.isInteger(form.jamaah_count) || form.jamaah_count < 0)
+      ) {
+        throw new Error("Jumlah jamaah harus berupa bilangan bulat tidak negatif.");
+      }
       const { id, ...rest } = form;
       void id;
       const { error } = await db()
@@ -54,8 +69,15 @@ function AdminPengaturan() {
         .update({
           ...rest,
           agency_name: form.agency_name.trim(),
+          legal_name: form.legal_name?.trim() || null,
+          ppiu_license_number: form.ppiu_license_number?.trim() || null,
+          license_text: form.license_text?.trim() || null,
+          services: (form.services ?? []).map((item) => item.trim()).filter(Boolean),
+          service_areas: (form.service_areas ?? []).map((item) => item.trim()).filter(Boolean),
           whatsapp_number: form.whatsapp_number?.trim() || null,
-          whatsapp_template: form.whatsapp_template?.trim() || "Assalamu'alaikum, saya ingin bertanya tentang paket {paket}.",
+          whatsapp_template:
+            form.whatsapp_template?.trim() ||
+            "Assalamu'alaikum, saya ingin bertanya tentang paket {paket}.",
           operating_hours: form.operating_hours?.trim() || null,
         })
         .eq("id", 1);
@@ -80,7 +102,8 @@ function AdminPengaturan() {
         </p>
         <h1 className="mt-1 font-display text-3xl">Pengaturan Website</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Perubahan di sini akan tampil di beranda, header, footer, dan halaman informasi.
+          Perubahan tampil di header, footer, favicon, schema situs, dan halaman informasi. Data
+          yang belum terverifikasi dapat dikosongkan.
         </p>
       </div>
       <form
@@ -104,12 +127,15 @@ function AdminPengaturan() {
         />
         <div className="md:col-span-2">
           <ImageUpload
-            label="Logo website"
+            label="Logo resmi perusahaan"
             folder="uploads"
             value={form.logo_url}
             onChange={(value) => field("logo_url", value)}
             aspect="aspect-square"
           />
+          <p className="mt-2 text-xs text-muted-foreground">
+            Logo ini otomatis digunakan di header, favicon, dan structured data situs.
+          </p>
         </div>
         <div className="md:col-span-2 mt-2">
           <p className="text-sm font-semibold uppercase tracking-wider text-gold">Kontak agen</p>
@@ -157,6 +183,87 @@ function AdminPengaturan() {
           value={form.license_text ?? ""}
           onChange={(value) => field("license_text", value)}
         />
+        <Field
+          label="Nama badan usaha resmi"
+          value={form.legal_name ?? ""}
+          onChange={(value) => field("legal_name", value || null)}
+          placeholder="Kosongkan sampai nama legal terverifikasi"
+        />
+        <Field
+          label="Nomor izin PPIU/Kemenag"
+          value={form.ppiu_license_number ?? ""}
+          onChange={(value) => field("ppiu_license_number", value || null)}
+          placeholder="Opsional; isi sesuai dokumen resmi"
+        />
+        <div className="space-y-2">
+          <Label htmlFor="founded-year">Tahun berdiri</Label>
+          <Input
+            id="founded-year"
+            type="number"
+            min="1800"
+            max={new Date().getFullYear()}
+            step="1"
+            value={form.founded_year ?? ""}
+            onChange={(event) =>
+              setForm((previous) => ({
+                ...previous,
+                founded_year: event.target.value ? Number(event.target.value) : null,
+              }))
+            }
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="jamaah-count">Jumlah jamaah terlayani (terverifikasi)</Label>
+          <Input
+            id="jamaah-count"
+            type="number"
+            min="0"
+            step="1"
+            value={form.jamaah_count ?? ""}
+            onChange={(event) =>
+              setForm((previous) => ({
+                ...previous,
+                jamaah_count: event.target.value ? Number(event.target.value) : null,
+              }))
+            }
+          />
+        </div>
+        <div className="space-y-2 md:col-span-2">
+          <Label htmlFor="services-list">Layanan (satu layanan per baris)</Label>
+          <Textarea
+            id="services-list"
+            rows={3}
+            value={(form.services ?? []).join("\n")}
+            onChange={(event) =>
+              setForm((previous) => ({
+                ...previous,
+                services: event.target.value
+                  .split(/\r?\n/)
+                  .map((item) => item.trim())
+                  .filter(Boolean),
+              }))
+            }
+            placeholder="Isi hanya layanan yang benar-benar tersedia"
+          />
+        </div>
+        <div className="space-y-2 md:col-span-2">
+          <Label htmlFor="service-areas-list">Wilayah layanan (satu wilayah per baris)</Label>
+          <Textarea
+            id="service-areas-list"
+            rows={3}
+            value={(form.service_areas ?? []).join("\n")}
+            onChange={(event) =>
+              setForm((previous) => ({
+                ...previous,
+                service_areas: event.target.value
+                  .split(/\r?\n/)
+                  .map((item) => item.trim())
+                  .filter(Boolean),
+              }))
+            }
+            placeholder="Isi wilayah yang dapat dilayani dan diverifikasi"
+          />
+        </div>
         <div className="space-y-2 md:col-span-2">
           <Label>Alamat kantor</Label>
           <Textarea

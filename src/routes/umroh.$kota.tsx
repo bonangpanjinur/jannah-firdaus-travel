@@ -4,7 +4,7 @@ import { useSettings } from "@/hooks/use-site";
 import { packagesQuery, type Paket } from "@/lib/site-data";
 import { formatRupiah, hargaMulai } from "@/lib/format";
 import { PackageCard } from "@/components/site/package-card";
-import { kotaBySlug, KOTA_LAYANAN, type KotaLayanan } from "@/lib/kota";
+import { INDEXABLE_KOTA, kotaBySlug, KOTA_LAYANAN, type KotaLayanan } from "@/lib/kota";
 import {
   loadSiteInfo,
   siteInfoFrom,
@@ -76,6 +76,7 @@ export const Route = createFileRoute("/umroh/$kota")({
       path,
       siteName: info.siteName,
       imageAlt: `${SEO_BRAND} ${kota.nama} — layanan perjalanan umroh`,
+      noindex: !INDEXABLE_KOTA.has(kota.slug),
     });
     const pakets = loaderData.pakets ?? [];
     const trips = pakets.map((paket) =>

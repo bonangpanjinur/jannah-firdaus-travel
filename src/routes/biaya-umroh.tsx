@@ -25,7 +25,13 @@ const FAQ = [
 ];
 
 export const Route = createFileRoute("/biaya-umroh")({
-  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  loader: async ({ context }) => {
+    const [info] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(packagesQuery()).catch(() => []),
+    ]);
+    return info;
+  },
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
@@ -54,13 +60,28 @@ export const Route = createFileRoute("/biaya-umroh")({
 });
 
 const KOMPONEN = [
-  { nama: "Tiket pesawat PP", detail: "Penerbangan Jakarta menuju Jeddah atau Madinah, langsung maupun transit." },
-  { nama: "Visa umroh", detail: "Pengurusan visa resmi beserta asuransi perjalanan sesuai ketentuan Arab Saudi." },
-  { nama: "Hotel Makkah & Madinah", detail: "Menginap dengan pembagian kamar quad, triple, atau double." },
+  {
+    nama: "Tiket pesawat PP",
+    detail: "Penerbangan Jakarta menuju Jeddah atau Madinah, langsung maupun transit.",
+  },
+  {
+    nama: "Visa umroh",
+    detail: "Pengurusan visa resmi beserta asuransi perjalanan sesuai ketentuan Arab Saudi.",
+  },
+  {
+    nama: "Hotel Makkah & Madinah",
+    detail: "Menginap dengan pembagian kamar quad, triple, atau double.",
+  },
   { nama: "Konsumsi", detail: "Makan tiga kali sehari selama program berjalan sesuai paket." },
   { nama: "Transportasi darat", detail: "Bus antar kota dan pergerakan menuju lokasi ziarah." },
-  { nama: "Pembimbing ibadah", detail: "Muthawif yang mendampingi jamaah selama pelaksanaan ibadah." },
-  { nama: "Perlengkapan jamaah", detail: "Koper, kain ihram atau mukena, tas paspor, dan buku panduan manasik." },
+  {
+    nama: "Pembimbing ibadah",
+    detail: "Muthawif yang mendampingi jamaah selama pelaksanaan ibadah.",
+  },
+  {
+    nama: "Perlengkapan jamaah",
+    detail: "Koper, kain ihram atau mukena, tas paspor, dan buku panduan manasik.",
+  },
 ];
 
 const DI_LUAR = [
@@ -84,10 +105,15 @@ function BiayaUmroh() {
       <PageBreadcrumb items={[{ label: "Beranda", to: "/" }, { label: "Biaya Umroh" }]} />
       <header className="mt-6 max-w-2xl">
         <p className="eyebrow">Panduan Biaya</p>
-        <h1 className="mt-2 font-display text-3xl sm:text-4xl">Biaya Umroh dan Rincian Harga Paket</h1>
+        <h1 className="mt-2 font-display text-3xl sm:text-4xl">
+          Biaya Umroh dan Rincian Harga Paket
+        </h1>
         <p className="mt-4 text-sm/7 text-muted-foreground">
-          Halaman ini menjelaskan komponen yang membentuk biaya umroh serta daftar harga paket yang sedang kami buka.
-          {termurah ? ` Saat ini paket kami dimulai dari ${formatRupiah(termurah)} per jamaah.` : ""}
+          Halaman ini menjelaskan komponen yang membentuk biaya umroh serta daftar harga paket yang
+          sedang kami buka.
+          {termurah
+            ? ` Saat ini paket kami dimulai dari ${formatRupiah(termurah)} per jamaah.`
+            : ""}
         </p>
       </header>
 
@@ -125,8 +151,8 @@ function BiayaUmroh() {
             </table>
           </div>
           <p className="mt-3 text-xs text-muted-foreground">
-            Harga dapat berubah mengikuti ketersediaan tiket dan kamar hotel. Konfirmasi terakhir dilakukan saat
-            pendaftaran.
+            Harga dapat berubah mengikuti ketersediaan tiket dan kamar hotel. Konfirmasi terakhir
+            dilakukan saat pendaftaran.
           </p>
         </section>
       )}
@@ -170,7 +196,8 @@ function BiayaUmroh() {
       <section className="bento-card surface-emerald mt-14 p-8 md:p-12">
         <h2 className="font-display text-2xl md:text-3xl">Butuh perhitungan untuk rombongan?</h2>
         <p className="mt-3 text-sm/7 opacity-90">
-          Kami dapat menyusun estimasi biaya sesuai jumlah jamaah, pilihan hotel, dan tanggal keberangkatan.
+          Kami dapat menyusun estimasi biaya sesuai jumlah jamaah, pilihan hotel, dan tanggal
+          keberangkatan.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link to="/paket" className="btn-gold">

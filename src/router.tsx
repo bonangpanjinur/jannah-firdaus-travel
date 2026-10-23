@@ -5,7 +5,7 @@ import { routeTree } from "./routeTree.gen";
 import { ErrorState } from "@/components/site/error-state";
 import { logRouteFailure } from "@/lib/route-logging";
 
-function DefaultErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function DefaultErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   logRouteFailure(error, { boundary: "router_default_error_component" });
   return <ErrorState onRetry={reset} />;
 }

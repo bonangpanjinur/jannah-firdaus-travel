@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   BedDouble,
@@ -77,6 +77,7 @@ export const Route = createFileRoute("/paket/$slug")({
       context.queryClient.ensureQueryData(packageBySlugQuery(params.slug)),
       loadSiteInfo(context.queryClient),
     ]);
+    if (!paket) throw notFound();
     return { paket, site };
   },
   head: ({ params, loaderData }) => {
@@ -84,7 +85,7 @@ export const Route = createFileRoute("/paket/$slug")({
     const info = siteInfoFrom(loaderData?.site);
     const nama = paket?.name ?? params.slug.replace(/-/g, " ");
     const harga = paket ? hargaMulai(paket) : null;
-    const title = `${nama}${harga ? ` — Mulai ${formatRupiah(harga)}` : ""} — ${info.siteName}`;
+    const defaultTitle = `${nama}${harga ? ` — Mulai ${formatRupiah(harga)}` : ""} — ${info.siteName}`;
     const potongan = [
       paket?.duration_days ? `${paket.duration_days} hari` : null,
       paket?.departure_date ? `berangkat ${formatTanggal(paket.departure_date)}` : null,
@@ -92,10 +93,13 @@ export const Route = createFileRoute("/paket/$slug")({
       paket?.hotel_makkah ? `hotel ${paket.hotel_makkah}` : null,
       harga ? `mulai ${formatRupiah(harga)}` : null,
     ].filter(Boolean);
-    const description = potongan.length
+    const defaultDescription = potongan.length
       ? `Paket umroh ${nama} dari ${info.siteName} ${SITE_CITY}: ${potongan.join(", ")}. Lihat itinerary harian dan daftar sekarang.`
       : `Rincian paket umroh ${nama} dari ${info.siteName}: harga, jadwal keberangkatan, hotel, maskapai, dan itinerary harian.`;
-    const gambar = paket?.flyer_url ? absoluteMediaUrl(paket.flyer_url) : null;
+    const title = paket?.seo_title?.trim() || defaultTitle;
+    const description = paket?.seo_description?.trim() || defaultDescription;
+    const socialImage = paket?.og_image_url?.trim() || paket?.flyer_url;
+    const gambar = socialImage ? absoluteMediaUrl(socialImage) : null;
     const path = `/paket/${params.slug}`;
 
     const base = pageMeta({
@@ -147,8 +151,23 @@ export const Route = createFileRoute("/paket/$slug")({
         : [],
     };
   },
+  notFoundComponent: PaketNotFound,
   component: DetailPaket,
 });
+
+function PaketNotFound() {
+  return (
+    <main className="container-page py-20 text-center">
+      <h1 className="font-display text-3xl">Paket umroh tidak ditemukan</h1>
+      <p className="mt-3 text-sm text-muted-foreground">
+        Paket ini tidak tersedia atau tidak lagi dipublikasikan.
+      </p>
+      <Link to="/paket" className="btn-gold mt-6 inline-flex">
+        Lihat daftar paket
+      </Link>
+    </main>
+  );
+}
 
 function DetailPaket() {
   const { slug } = Route.useParams();

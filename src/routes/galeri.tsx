@@ -6,7 +6,13 @@ import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd } from "@/lib/seo";
 import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 export const Route = createFileRoute("/galeri")({
-  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  loader: async ({ context }) => {
+    const [info] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(galleryQuery).catch(() => []),
+    ]);
+    return info;
+  },
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({

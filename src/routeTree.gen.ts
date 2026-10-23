@@ -16,6 +16,7 @@ import { Route as BiayaUmrohRouteImport } from './routes/biaya-umroh'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as KontakRouteImport } from './routes/kontak'
+import { Route as ManifestDotjsonRouteImport } from './routes/manifest[.]json'
 import { Route as SitemapCitiesNationalDotxmlRouteImport } from './routes/sitemap-cities-national[.]xml'
 import { Route as SitemapCitiesPriorityDotxmlRouteImport } from './routes/sitemap-cities-priority[.]xml'
 import { Route as SitemapPackagesDotxmlRouteImport } from './routes/sitemap-packages[.]xml'
@@ -33,6 +34,7 @@ import { Route as AdminPendaftaranRouteImport } from './routes/admin/pendaftaran
 import { Route as AdminPengaturanRouteImport } from './routes/admin/pengaturan'
 import { Route as AdminPesanRouteImport } from './routes/admin/pesan'
 import { Route as AdminSchemaRouteImport } from './routes/admin/schema'
+import { Route as AdminTestimoniRouteImport } from './routes/admin/testimoni'
 import { Route as ApiScanFlyerRouteImport } from './routes/api.scan-flyer'
 import { Route as PaketIndexRouteImport } from './routes/paket.index'
 import { Route as PaketSlugRouteImport } from './routes/paket.$slug'
@@ -75,6 +77,11 @@ const GaleriRoute = GaleriRouteImport.update({
 const KontakRoute = KontakRouteImport.update({
   id: '/kontak',
   path: '/kontak',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ManifestDotjsonRoute = ManifestDotjsonRouteImport.update({
+  id: '/manifest.json',
+  path: '/manifest.json',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapCitiesNationalDotxmlRoute =
@@ -164,6 +171,11 @@ const AdminSchemaRoute = AdminSchemaRouteImport.update({
   path: '/schema',
   getParentRoute: () => AdminRouteRoute,
 } as any)
+const AdminTestimoniRoute = AdminTestimoniRouteImport.update({
+  id: '/testimoni',
+  path: '/testimoni',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
 const ApiScanFlyerRoute = ApiScanFlyerRouteImport.update({
   id: '/api/scan-flyer',
   path: '/api/scan-flyer',
@@ -213,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -229,6 +242,7 @@ export interface FileRoutesByFullPath {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/admin/testimoni': typeof AdminTestimoniRoute
   '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
@@ -246,6 +260,7 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -262,6 +277,7 @@ export interface FileRoutesByTo {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/admin/testimoni': typeof AdminTestimoniRoute
   '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
@@ -281,6 +297,7 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
   '/kontak': typeof KontakRoute
+  '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
   '/sitemap-cities-priority.xml': typeof SitemapCitiesPriorityDotxmlRoute
   '/sitemap-packages.xml': typeof SitemapPackagesDotxmlRoute
@@ -297,6 +314,7 @@ export interface FileRoutesById {
   '/admin/pengaturan': typeof AdminPengaturanRoute
   '/admin/pesan': typeof AdminPesanRoute
   '/admin/schema': typeof AdminSchemaRoute
+  '/admin/testimoni': typeof AdminTestimoniRoute
   '/api/scan-flyer': typeof ApiScanFlyerRoute
   '/paket/$slug': typeof PaketSlugRoute
   '/umroh/$kota': typeof UmrohKotaRoute
@@ -317,6 +335,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -333,6 +352,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/admin/testimoni'
     | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
@@ -350,6 +370,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -366,6 +387,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/admin/testimoni'
     | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
@@ -384,6 +406,7 @@ export interface FileRouteTypes {
     | '/faq'
     | '/galeri'
     | '/kontak'
+    | '/manifest.json'
     | '/sitemap-cities-national.xml'
     | '/sitemap-cities-priority.xml'
     | '/sitemap-packages.xml'
@@ -400,6 +423,7 @@ export interface FileRouteTypes {
     | '/admin/pengaturan'
     | '/admin/pesan'
     | '/admin/schema'
+    | '/admin/testimoni'
     | '/api/scan-flyer'
     | '/paket/$slug'
     | '/umroh/$kota'
@@ -419,6 +443,7 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   GaleriRoute: typeof GaleriRoute
   KontakRoute: typeof KontakRoute
+  ManifestDotjsonRoute: typeof ManifestDotjsonRoute
   SitemapCitiesNationalDotxmlRoute: typeof SitemapCitiesNationalDotxmlRoute
   SitemapCitiesPriorityDotxmlRoute: typeof SitemapCitiesPriorityDotxmlRoute
   SitemapPackagesDotxmlRoute: typeof SitemapPackagesDotxmlRoute
@@ -485,6 +510,13 @@ declare module '@tanstack/react-router' {
       path: '/kontak'
       fullPath: '/kontak'
       preLoaderRoute: typeof KontakRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/manifest.json': {
+      id: '/manifest.json'
+      path: '/manifest.json'
+      fullPath: '/manifest.json'
+      preLoaderRoute: typeof ManifestDotjsonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap-cities-national.xml': {
@@ -606,6 +638,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminSchemaRouteImport
       parentRoute: typeof AdminRouteRoute
     }
+    '/admin/testimoni': {
+      id: '/admin/testimoni'
+      path: '/testimoni'
+      fullPath: '/admin/testimoni'
+      preLoaderRoute: typeof AdminTestimoniRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
     '/api/scan-flyer': {
       id: '/api/scan-flyer'
       path: '/api/scan-flyer'
@@ -687,6 +726,7 @@ interface AdminRouteRouteChildren {
   AdminPengaturanRoute: typeof AdminPengaturanRoute
   AdminPesanRoute: typeof AdminPesanRoute
   AdminSchemaRoute: typeof AdminSchemaRoute
+  AdminTestimoniRoute: typeof AdminTestimoniRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -698,6 +738,7 @@ const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminPengaturanRoute: AdminPengaturanRoute,
   AdminPesanRoute: AdminPesanRoute,
   AdminSchemaRoute: AdminSchemaRoute,
+  AdminTestimoniRoute: AdminTestimoniRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
@@ -713,6 +754,7 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   GaleriRoute: GaleriRoute,
   KontakRoute: KontakRoute,
+  ManifestDotjsonRoute: ManifestDotjsonRoute,
   SitemapCitiesNationalDotxmlRoute: SitemapCitiesNationalDotxmlRoute,
   SitemapCitiesPriorityDotxmlRoute: SitemapCitiesPriorityDotxmlRoute,
   SitemapPackagesDotxmlRoute: SitemapPackagesDotxmlRoute,
