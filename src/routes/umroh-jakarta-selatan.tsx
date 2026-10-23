@@ -11,6 +11,7 @@ import {
   faqLd,
   faqUmrohUmum,
   localBusinessKotaLd,
+  localBusinessLd,
   SITE_CITY,
   SITE_REGION,
   SEO_BRAND,
@@ -69,6 +70,10 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
         {
           type: "application/ld+json",
           children: JSON.stringify(faqLd(FAQ, "/umroh-jakarta-selatan")),
+        },
+        {
+          type: "application/ld+json",
+          children: JSON.stringify(localBusinessLd(info, "/umroh-jakarta-selatan")),
         },
         {
           type: "application/ld+json",
@@ -136,6 +141,21 @@ function UmrohJakartaSelatan() {
         <div className="bento-card p-6">
           <h2 className="font-display text-xl">Kantor di Jakarta Selatan</h2>
           <p className="mt-3 text-sm/6 text-muted-foreground">{settings?.address ?? SITE_CITY}</p>
+          {settings?.operating_hours ? (
+            <p className="mt-2 text-xs text-muted-foreground">
+              Jam layanan: {settings.operating_hours}
+            </p>
+          ) : null}
+          {settings?.google_maps_url ? (
+            <a
+              href={settings.google_maps_url}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-3 inline-block text-sm font-semibold text-gold hover:underline"
+            >
+              Buka lokasi di Google Maps
+            </a>
+          ) : null}
         </div>
         <div className="bento-card p-6">
           <h2 className="font-display text-xl">Legalitas</h2>

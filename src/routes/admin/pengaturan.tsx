@@ -178,6 +178,12 @@ function AdminPengaturan() {
           placeholder="URL channel atau video"
         />
         <Field
+          label="TikTok"
+          value={form.tiktok ?? ""}
+          onChange={(value) => field("tiktok", value)}
+          placeholder="username atau URL profil"
+        />
+        <Field
           label="Jam operasional"
           value={form.operating_hours ?? ""}
           onChange={(value) => field("operating_hours", value)}
@@ -277,6 +283,34 @@ function AdminPengaturan() {
             onChange={(event) => field("address", event.target.value)}
           />
         </div>
+        <Field
+          label="Kode pos kantor"
+          value={form.postal_code ?? ""}
+          onChange={(value) => field("postal_code", value)}
+          placeholder="Contoh: 12830"
+        />
+        <Field
+          label="Google Maps URL"
+          value={form.google_maps_url ?? ""}
+          onChange={(value) => field("google_maps_url", value)}
+          placeholder="https://maps.google.com/?q=..."
+        />
+        <Field
+          label="Latitude kantor"
+          value={form.latitude == null ? "" : String(form.latitude)}
+          onChange={(value) =>
+            setForm((previous) => ({ ...previous, latitude: value ? Number(value) : null }))
+          }
+          placeholder="Isi hanya jika terverifikasi"
+        />
+        <Field
+          label="Longitude kantor"
+          value={form.longitude == null ? "" : String(form.longitude)}
+          onChange={(value) =>
+            setForm((previous) => ({ ...previous, longitude: value ? Number(value) : null }))
+          }
+          placeholder="Isi hanya jika terverifikasi"
+        />
         <div className="space-y-2 md:col-span-2">
           <Label>Judul hero beranda</Label>
           <Input

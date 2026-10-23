@@ -58,6 +58,14 @@ export function SiteFooter() {
                 Kontak
               </Link>
             </li>
+            <li>
+              <Link
+                to="/kanal-resmi"
+                className="rounded-sm transition-colors hover:text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              >
+                Website & Kanal Resmi
+              </Link>
+            </li>
           </ul>
         </div>
 

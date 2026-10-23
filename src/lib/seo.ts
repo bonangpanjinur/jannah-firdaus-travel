@@ -19,6 +19,10 @@ export interface SiteInfo {
   tagline: string;
   about: string;
   address: string | null;
+  postalCode: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  googleMapsUrl: string | null;
   phone: string | null;
   email: string | null;
   license: string | null;
@@ -27,6 +31,7 @@ export interface SiteInfo {
   instagram: string | null;
   facebook: string | null;
   youtube: string | null;
+  tiktok: string | null;
   legalName: string | null;
   ppiuLicenseNumber: string | null;
   foundedYear: number | null;
@@ -40,6 +45,10 @@ const FALLBACK: SiteInfo = {
   tagline: SITE_TAGLINE_FALLBACK,
   about: SITE_DESCRIPTION_FALLBACK,
   address: null,
+  postalCode: null,
+  latitude: null,
+  longitude: null,
+  googleMapsUrl: null,
   phone: null,
   email: null,
   license: null,
@@ -48,6 +57,7 @@ const FALLBACK: SiteInfo = {
   instagram: null,
   facebook: null,
   youtube: null,
+  tiktok: null,
   legalName: null,
   ppiuLicenseNumber: null,
   foundedYear: null,
@@ -63,6 +73,10 @@ export function fromSettings(settings: SiteSettings | null): SiteInfo {
     tagline: settings.tagline?.trim() || FALLBACK.tagline,
     about: settings.about_text?.trim().slice(0, 300) || FALLBACK.about,
     address: settings.address?.trim() || FALLBACK.address,
+    postalCode: settings.postal_code?.trim() || FALLBACK.postalCode,
+    latitude: typeof settings.latitude === "number" ? settings.latitude : FALLBACK.latitude,
+    longitude: typeof settings.longitude === "number" ? settings.longitude : FALLBACK.longitude,
+    googleMapsUrl: settings.google_maps_url?.trim() || FALLBACK.googleMapsUrl,
     phone: settings.whatsapp_number?.trim() || null,
     email: settings.email?.trim() || FALLBACK.email,
     license: settings.license_text?.trim() || null,
@@ -71,6 +85,7 @@ export function fromSettings(settings: SiteSettings | null): SiteInfo {
     instagram: settings.instagram?.trim() || FALLBACK.instagram,
     facebook: settings.facebook?.trim() || null,
     youtube: settings.youtube?.trim() || null,
+    tiktok: settings.tiktok?.trim() || null,
     legalName: settings.legal_name?.trim() || null,
     ppiuLicenseNumber: settings.ppiu_license_number?.trim() || null,
     foundedYear: settings.founded_year ?? null,
@@ -128,6 +143,12 @@ export function socialLinks(info: SiteInfo): string[] {
       info.facebook.startsWith("http") ? info.facebook : `https://facebook.com/${info.facebook}`,
     );
   if (info.youtube) list.push(info.youtube);
+  if (info.tiktok)
+    list.push(
+      info.tiktok.startsWith("http")
+        ? info.tiktok
+        : `https://tiktok.com/@${info.tiktok.replace(/^@/, "")}`,
+    );
   return list;
 }
 
@@ -155,6 +176,7 @@ export function travelAgencyLd(info: SiteInfo) {
             streetAddress: info.address,
             addressLocality: SITE_CITY,
             addressRegion: SITE_REGION,
+            ...(info.postalCode ? { postalCode: info.postalCode } : {}),
             addressCountry: "ID",
           },
         }
@@ -187,6 +209,21 @@ export function travelAgencyLd(info: SiteInfo) {
     ...(sameAs.length ? { sameAs } : {}),
     ...(info.serviceAreas.length ? { areaServed: info.serviceAreas } : {}),
     ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
+  };
+}
+
+/** Schema kantor nyata; lengkapi koordinat dan peta hanya setelah diverifikasi. */
+export function localBusinessLd(info: SiteInfo, path = "/kontak") {
+  const base = travelAgencyLd(info);
+  return {
+    ...base,
+    "@type": "LocalBusiness",
+    "@id": absoluteUrl(`${path}#local-business`),
+    url: absoluteUrl(path),
+    ...(info.googleMapsUrl ? { hasMap: info.googleMapsUrl } : {}),
+    ...(info.latitude !== null && info.longitude !== null
+      ? { geo: { "@type": "GeoCoordinates", latitude: info.latitude, longitude: info.longitude } }
+      : {}),
   };
 }
 

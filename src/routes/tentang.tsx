@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BadgeCheck, MapPin, Users } from "lucide-react";
+import { BadgeCheck, ExternalLink, MapPin, Users } from "lucide-react";
 import { useSettings } from "@/hooks/use-site";
 import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
 import { DEFAULT_ABOUT_TEXT } from "@/lib/site-data";
@@ -111,6 +111,19 @@ function Tentang() {
           </ul>
         </section>
       ) : null}
+      <section className="bento-card surface-emerald mt-4 p-8 md:p-10">
+        <h2 className="font-display text-2xl">Verifikasi informasi resmi</h2>
+        <p className="mt-3 text-sm/7 text-muted-foreground">
+          Informasi legalitas, alamat, dan kanal komunikasi hanya boleh diisi dengan data yang dapat
+          diverifikasi. Lihat daftar domain dan kanal yang kami nyatakan resmi.
+        </p>
+        <a
+          href="/kanal-resmi"
+          className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-gold hover:underline"
+        >
+          Website dan Kanal Resmi <ExternalLink className="size-4" />
+        </a>
+      </section>
       {serviceAreas.length ? (
         <section className="bento-card surface-emerald mt-4 p-8 md:p-10">
           <h2 className="font-display text-2xl">Wilayah layanan</h2>

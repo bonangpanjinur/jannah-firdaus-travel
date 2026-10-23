@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BiayaUmrohRouteImport } from './routes/biaya-umroh'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as KanalResmiRouteImport } from './routes/kanal-resmi'
 import { Route as KontakRouteImport } from './routes/kontak'
 import { Route as ManifestDotjsonRouteImport } from './routes/manifest[.]json'
 import { Route as SitemapCitiesNationalDotxmlRouteImport } from './routes/sitemap-cities-national[.]xml'
@@ -72,6 +73,11 @@ const FaqRoute = FaqRouteImport.update({
 const GaleriRoute = GaleriRouteImport.update({
   id: '/galeri',
   path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KanalResmiRoute = KanalResmiRouteImport.update({
+  id: '/kanal-resmi',
+  path: '/kanal-resmi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontakRoute = KontakRouteImport.update({
@@ -224,6 +230,7 @@ export interface FileRoutesByFullPath {
   '/biaya-umroh': typeof BiayaUmrohRoute
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
+  '/kanal-resmi': typeof KanalResmiRoute
   '/kontak': typeof KontakRoute
   '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
@@ -259,6 +266,7 @@ export interface FileRoutesByTo {
   '/biaya-umroh': typeof BiayaUmrohRoute
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
+  '/kanal-resmi': typeof KanalResmiRoute
   '/kontak': typeof KontakRoute
   '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
@@ -296,6 +304,7 @@ export interface FileRoutesById {
   '/biaya-umroh': typeof BiayaUmrohRoute
   '/faq': typeof FaqRoute
   '/galeri': typeof GaleriRoute
+  '/kanal-resmi': typeof KanalResmiRoute
   '/kontak': typeof KontakRoute
   '/manifest.json': typeof ManifestDotjsonRoute
   '/sitemap-cities-national.xml': typeof SitemapCitiesNationalDotxmlRoute
@@ -334,6 +343,7 @@ export interface FileRouteTypes {
     | '/biaya-umroh'
     | '/faq'
     | '/galeri'
+    | '/kanal-resmi'
     | '/kontak'
     | '/manifest.json'
     | '/sitemap-cities-national.xml'
@@ -369,6 +379,7 @@ export interface FileRouteTypes {
     | '/biaya-umroh'
     | '/faq'
     | '/galeri'
+    | '/kanal-resmi'
     | '/kontak'
     | '/manifest.json'
     | '/sitemap-cities-national.xml'
@@ -405,6 +416,7 @@ export interface FileRouteTypes {
     | '/biaya-umroh'
     | '/faq'
     | '/galeri'
+    | '/kanal-resmi'
     | '/kontak'
     | '/manifest.json'
     | '/sitemap-cities-national.xml'
@@ -442,6 +454,7 @@ export interface RootRouteChildren {
   BiayaUmrohRoute: typeof BiayaUmrohRoute
   FaqRoute: typeof FaqRoute
   GaleriRoute: typeof GaleriRoute
+  KanalResmiRoute: typeof KanalResmiRoute
   KontakRoute: typeof KontakRoute
   ManifestDotjsonRoute: typeof ManifestDotjsonRoute
   SitemapCitiesNationalDotxmlRoute: typeof SitemapCitiesNationalDotxmlRoute
@@ -503,6 +516,13 @@ declare module '@tanstack/react-router' {
       path: '/galeri'
       fullPath: '/galeri'
       preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kanal-resmi': {
+      id: '/kanal-resmi'
+      path: '/kanal-resmi'
+      fullPath: '/kanal-resmi'
+      preLoaderRoute: typeof KanalResmiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontak': {
@@ -753,6 +773,7 @@ const rootRouteChildren: RootRouteChildren = {
   BiayaUmrohRoute: BiayaUmrohRoute,
   FaqRoute: FaqRoute,
   GaleriRoute: GaleriRoute,
+  KanalResmiRoute: KanalResmiRoute,
   KontakRoute: KontakRoute,
   ManifestDotjsonRoute: ManifestDotjsonRoute,
   SitemapCitiesNationalDotxmlRoute: SitemapCitiesNationalDotxmlRoute,

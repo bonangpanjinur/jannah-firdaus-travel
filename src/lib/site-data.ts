@@ -15,10 +15,15 @@ export interface SiteSettings {
   whatsapp_template: string | null;
   operating_hours: string | null;
   address: string | null;
+  postal_code: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  google_maps_url: string | null;
   email: string | null;
   instagram: string | null;
   facebook: string | null;
   youtube: string | null;
+  tiktok: string | null;
   legal_name: string | null;
   ppiu_license_number: string | null;
   founded_year: number | null;

@@ -20,7 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useSettings } from "@/hooks/use-site";
-import { formatRupiah, formatTanggal, hargaMulai, waLink } from "@/lib/format";
+import { formatRupiah, formatTanggal, hargaMulai, isPaketExpired, waLink } from "@/lib/format";
 import {
   itineraryQuery,
   packageBySlugQuery,
@@ -215,6 +215,7 @@ function DetailPaket() {
     { label: "Triple (sekamar 3)", value: paket.price_triple },
     { label: "Double (sekamar 2)", value: paket.price_double },
   ];
+  const expired = isPaketExpired(paket.departure_date);
 
   const galeri =
     imageItems.length > 0
@@ -256,7 +257,9 @@ function DetailPaket() {
             <span className="font-medium text-white/90">{paket.name}</span>
           </nav>
           <div className="mt-5 flex flex-wrap gap-2">
-            {paket.is_featured ? (
+            {expired ? (
+              <Badge variant="destructive">Jadwal berakhir</Badge>
+            ) : paket.is_featured ? (
               <Badge className="bg-gold text-gold-foreground hover:bg-gold">Paket Unggulan</Badge>
             ) : null}
             {paket.duration_days ? (
@@ -273,7 +276,12 @@ function DetailPaket() {
             {formatRupiah(paket.price_quad ?? paket.price_triple ?? paket.price_double)}
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Button size="lg" className="min-h-12 w-full sm:w-auto" onClick={scrollToForm}>
+            <Button
+              size="lg"
+              className="min-h-12 w-full sm:w-auto"
+              onClick={scrollToForm}
+              disabled={expired}
+            >
               <ClipboardList className="size-4" />
               Daftar sekarang
             </Button>

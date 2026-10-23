@@ -14,7 +14,7 @@ import {
   siteInfoFrom,
   pageMeta,
   breadcrumbLd,
-  travelAgencyLd,
+  localBusinessLd,
   SITE_CITY,
 } from "@/lib/seo";
 import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/kontak")({
             "@id": "https://www.jannahfirdaustravel.co.id/kontak#contact",
             name: `Kontak ${info.siteName}`,
             url: "https://www.jannahfirdaustravel.co.id/kontak",
-            mainEntity: travelAgencyLd(info),
+            mainEntity: localBusinessLd(info),
           }),
         },
         {
@@ -134,16 +134,40 @@ function Kontak() {
           <h2 className="font-display text-lg">Informasi kantor</h2>
           <ul className="space-y-3 text-sm text-muted-foreground">
             {settings?.address ? (
-              <li className="flex gap-2"><MapPin className="mt-0.5 size-4 shrink-0 text-gold" />{settings.address}</li>
+              <li className="flex gap-2">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-gold" />
+                {settings.address}
+              </li>
             ) : null}
             {settings?.whatsapp_number ? (
-              <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0 text-gold" />{settings.whatsapp_number}</li>
+              <li className="flex gap-2">
+                <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
+                {settings.whatsapp_number}
+              </li>
             ) : null}
             {settings?.email ? (
-              <li className="flex gap-2"><Mail className="mt-0.5 size-4 shrink-0 text-gold" />{settings.email}</li>
+              <li className="flex gap-2">
+                <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
+                {settings.email}
+              </li>
             ) : null}
             {settings?.operating_hours ? (
-              <li className="flex gap-2"><span className="mt-0.5 size-4 shrink-0 text-gold">◷</span>{settings.operating_hours}</li>
+              <li className="flex gap-2">
+                <span className="mt-0.5 size-4 shrink-0 text-gold">◷</span>
+                {settings.operating_hours}
+              </li>
+            ) : null}
+            {settings?.google_maps_url ? (
+              <li>
+                <a
+                  href={settings.google_maps_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-semibold text-gold hover:underline"
+                >
+                  Buka lokasi kantor di Google Maps
+                </a>
+              </li>
             ) : null}
           </ul>
           <Button asChild className="w-full">

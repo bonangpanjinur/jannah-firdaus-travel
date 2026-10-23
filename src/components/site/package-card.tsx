@@ -2,12 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { CalendarDays, Clock, Plane, Users } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { formatRupiah, formatTanggal, hargaMulai } from "@/lib/format";
+import { formatRupiah, formatTanggal, hargaMulai, isPaketExpired } from "@/lib/format";
 import type { Paket } from "@/lib/site-data";
 import { StorageImage } from "@/components/site/storage-image";
 
 export function PackageCard({ paket }: { paket: Paket }) {
   const remaining = paket.quota;
+  const expired = isPaketExpired(paket.departure_date);
   const quotaLabel =
     remaining === null ? null : remaining <= 5 ? "Kuota terbatas" : `${remaining} kuota tersedia`;
 
@@ -42,7 +43,11 @@ export function PackageCard({ paket }: { paket: Paket }) {
               Unggulan
             </Badge>
           ) : null}
-          {remaining !== null && remaining <= 5 ? (
+          {expired ? (
+            <Badge variant="destructive" className="absolute right-3 top-3">
+              Jadwal berakhir
+            </Badge>
+          ) : remaining !== null && remaining <= 5 ? (
             <Badge variant="destructive" className="absolute right-3 top-3">
               {quotaLabel}
             </Badge>
@@ -99,7 +104,7 @@ export function PackageCard({ paket }: { paket: Paket }) {
                 Detail
               </Link>
             </Button>
-            <Button asChild size="sm" className="min-h-10">
+            <Button asChild size="sm" className="min-h-10" disabled={expired}>
               <Link
                 to="/paket/$slug"
                 params={{ slug: paket.slug }}

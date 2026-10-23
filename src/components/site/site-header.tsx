@@ -15,6 +15,7 @@ const links = [
   { to: "/umroh-plus", label: "Umroh Plus" },
   { to: "/galeri", label: "Galeri" },
   { to: "/tentang", label: "Tentang Kami" },
+  { to: "/kanal-resmi", label: "Kanal Resmi" },
   { to: "/kontak", label: "Kontak" },
 ] as const;
 

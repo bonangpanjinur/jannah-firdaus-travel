@@ -27,6 +27,14 @@ export function bulanTahun(value: string | null | undefined): string {
   return new Intl.DateTimeFormat("id-ID", { month: "long", year: "numeric" }).format(date);
 }
 
+export function isPaketExpired(value: string | null | undefined): boolean {
+  if (!value) return false;
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Jakarta" })
+    .format(new Date())
+    .replace(/\//g, "-");
+  return value < today;
+}
+
 export function hargaMulai(paket: Paket): number | null {
   const values = [paket.price_quad, paket.price_triple, paket.price_double].filter(
     (v): v is number => typeof v === "number",
