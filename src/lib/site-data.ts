@@ -189,7 +189,12 @@ export const packageBySlugQuery = (slug: string) => ({
   gcTime: 5 * 60_000,
   queryFn: async (): Promise<Paket | null> => {
     if (!hasSupabaseConfig()) return null;
-    const { data, error } = await db().from("packages").select("*").eq("slug", slug).maybeSingle();
+    const { data, error } = await db()
+      .from("packages")
+      .select("*")
+      .eq("slug", slug)
+      .eq("is_published", true)
+      .maybeSingle();
     if (error) throw error;
     return data ? normalizePaket(data as Paket) : null;
   },

@@ -10,7 +10,6 @@ export const Route = createFileRoute("/sitemap.xml")({
             "/sitemap-static.xml",
             "/sitemap-packages.xml",
             "/sitemap-cities-priority.xml",
-            "/sitemap-cities-national.xml",
           ]),
         ),
     },

@@ -37,13 +37,20 @@ const FAQ = [
 ];
 
 export const Route = createFileRoute("/umroh-jakarta-selatan")({
-  loader: ({ context }) => loadSiteInfo(context.queryClient),
+  loader: async ({ context }) => {
+    const [info] = await Promise.all([
+      loadSiteInfo(context.queryClient),
+      context.queryClient.ensureQueryData(packagesQuery({ limit: 3 })).catch(() => []),
+    ]);
+    return info;
+  },
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
       title: `${SEO_BRAND} Jakarta Selatan — Paket Umroh Resmi`,
       description: `${SEO_BRAND} melayani jamaah umroh di Jakarta Selatan dan sekitarnya. Lihat paket terjadwal, hotel, pendampingan ibadah, dan konsultasi.`,
       path: "/umroh-jakarta-selatan",
+      noindex: true,
       siteName: info.siteName,
       imageAlt: `${SEO_BRAND} Jakarta Selatan — layanan perjalanan umroh`,
     });

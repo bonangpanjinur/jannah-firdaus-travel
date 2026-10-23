@@ -27,6 +27,7 @@ import {
   SITE_REGION,
   DEFAULT_OG_IMAGE,
   absoluteUrl,
+  type SiteInfo,
 } from "@/lib/seo";
 import { absoluteMediaUrl } from "@/lib/storage";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
@@ -40,16 +41,16 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Halaman tidak ditemukan</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          Halaman yang Anda cari tidak tersedia atau alamatnya sudah berubah.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            Kembali ke beranda
           </Link>
         </div>
       </div>
@@ -57,7 +58,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -82,12 +83,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     return { info, settings };
   },
   head: ({ loaderData }) => {
-    const info = siteInfoFrom(loaderData?.info);
+    const rootData = loaderData as unknown as
+      { info?: Partial<SiteInfo>; settings?: SiteSettings | null } | undefined;
+    const info = siteInfoFrom(rootData?.info);
 
     const sameAs = socialLinks(info);
     const openingHours = openingHoursLd(info.openingHours);
     const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
-    const initialSettings = loaderData?.settings as SiteSettings | null | undefined;
+    const initialSettings = rootData?.settings;
     const initialTheme = isTheme(initialSettings?.theme) ? initialSettings.theme : "noir-emas";
     return {
       meta: [
@@ -99,7 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         { property: "og:locale", content: "id_ID" },
         { property: "og:type", content: "website" },
         { property: "og:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
-        { property: "og:image:alt", content: `Logo ${info.siteName}` },
+        { property: "og:image:alt", content: "Suasana thawaf di Masjidil Haram saat senja" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:image", content: absoluteUrl(DEFAULT_OG_IMAGE) },
         { name: "theme-color", content: "#1a1a18" },
@@ -109,17 +112,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           rel: "stylesheet",
           href: appCss,
         },
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "preconnect", href: "https://fonts.googleapis.com" },
         { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
         {
           rel: "stylesheet",
           href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap",
         },
-        {
-          rel: "icon",
-          href: logoUrl ?? "/favicon.ico",
-          type: logoUrl ? undefined : "image/x-icon",
-        },
+        { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
+        { rel: "icon", type: "image/png", href: "/favicon-192.png", sizes: "192x192" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
         { rel: "manifest", href: "/manifest.json" },
       ],
       scripts: [
@@ -162,7 +164,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             ...(sameAs.length ? { sameAs } : {}),
             areaServed: [SITE_CITY, "Jabodetabek", "Indonesia"],
             knowsLanguage: ["id"],
-            priceRange: "IDR",
             ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
             makesOffer: {
               "@type": "Offer",

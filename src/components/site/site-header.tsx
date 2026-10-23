@@ -10,6 +10,9 @@ import { StorageImage } from "@/components/site/storage-image";
 const links = [
   { to: "/", label: "Beranda" },
   { to: "/paket", label: "Paket Umroh" },
+  { to: "/biaya-umroh", label: "Biaya Umroh" },
+  { to: "/syarat-umroh", label: "Syarat Umroh" },
+  { to: "/umroh-plus", label: "Umroh Plus" },
   { to: "/galeri", label: "Galeri" },
   { to: "/tentang", label: "Tentang Kami" },
   { to: "/kontak", label: "Kontak" },
@@ -44,7 +47,7 @@ export function SiteHeader() {
             </span>
           </span>
         </Link>
-        <nav aria-label="Navigasi utama desktop" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Navigasi utama desktop" className="hidden items-center gap-1 xl:flex">
           {links.map((link) => {
             const active =
               pathname === link.to || (link.to !== "/" && pathname.startsWith(`${link.to}/`));
@@ -53,7 +56,7 @@ export function SiteHeader() {
                 key={link.to}
                 to={link.to}
                 aria-current={active ? "page" : undefined}
-                className={`rounded-full px-3.5 py-2 text-sm font-medium transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${active ? "bg-gold/12 text-gold" : "text-muted-foreground"}`}
+                className={`rounded-full px-2 py-2 text-xs font-medium transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ${active ? "bg-gold/12 text-gold" : "text-muted-foreground"}`}
               >
                 {link.label}
               </Link>
@@ -61,7 +64,7 @@ export function SiteHeader() {
           })}
         </nav>
         <div className="flex items-center gap-2">
-          <Button asChild className="hidden md:inline-flex">
+          <Button asChild className="hidden xl:inline-flex">
             <a href={waLink(settings)} target="_blank" rel="noreferrer">
               <MessageCircle className="size-4" />
               Konsultasi
@@ -69,7 +72,7 @@ export function SiteHeader() {
           </Button>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden" aria-label="Buka menu">
+              <Button variant="outline" size="icon" className="xl:hidden" aria-label="Buka menu">
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>

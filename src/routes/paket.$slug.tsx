@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import {
   BedDouble,
@@ -77,6 +77,7 @@ export const Route = createFileRoute("/paket/$slug")({
       context.queryClient.ensureQueryData(packageBySlugQuery(params.slug)),
       loadSiteInfo(context.queryClient),
     ]);
+    if (!paket) throw notFound();
     return { paket, site };
   },
   head: ({ params, loaderData }) => {
@@ -147,8 +148,23 @@ export const Route = createFileRoute("/paket/$slug")({
         : [],
     };
   },
+  notFoundComponent: PaketNotFound,
   component: DetailPaket,
 });
+
+function PaketNotFound() {
+  return (
+    <main className="container-page py-20 text-center">
+      <h1 className="font-display text-3xl">Paket umroh tidak ditemukan</h1>
+      <p className="mt-3 text-sm text-muted-foreground">
+        Paket ini tidak tersedia atau tidak lagi dipublikasikan.
+      </p>
+      <Link to="/paket" className="btn-gold mt-6 inline-flex">
+        Lihat daftar paket
+      </Link>
+    </main>
+  );
+}
 
 function DetailPaket() {
   const { slug } = Route.useParams();

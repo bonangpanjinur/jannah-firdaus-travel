@@ -2,16 +2,16 @@ import type { QueryClient } from "@tanstack/react-query";
 import { settingsQuery, type SiteSettings } from "@/lib/site-data";
 import { absoluteMediaUrl } from "@/lib/storage";
 
-export const SITE_NAME_FALLBACK = "Jannah Firdaus Travel";
-export const SEO_BRAND = "Jannah Firdaus Tour Travel";
+export const SITE_NAME_FALLBACK = "Jannah Firdaus Tour Travel";
+export const SEO_BRAND = SITE_NAME_FALLBACK;
 export const SITE_TAGLINE_FALLBACK = "Melayani Sepenuh Hati";
 export const SITE_CITY = "Jakarta Selatan";
 export const SITE_REGION = "DKI Jakarta";
 export const SITE_DESCRIPTION_FALLBACK =
-  "Jannah Firdaus Travel melayani umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel nyaman, dan konsultasi transparan.";
+  "Jannah Firdaus Tour Travel melayani umroh dari Jakarta Selatan dengan paket terjadwal, pendampingan ibadah, hotel nyaman, dan konsultasi transparan.";
 export const DEFAULT_OG_IMAGE = "/images/hero-kabah.jpg";
-export const DEFAULT_OG_IMAGE_WIDTH = 1200;
-export const DEFAULT_OG_IMAGE_HEIGHT = 630;
+export const DEFAULT_OG_IMAGE_WIDTH = 1920;
+export const DEFAULT_OG_IMAGE_HEIGHT = 1088;
 export const SITE_DOMAIN = "https://www.jannahfirdaustravel.co.id";
 
 export interface SiteInfo {
@@ -36,7 +36,7 @@ const FALLBACK: SiteInfo = {
   address:
     "Jl. KH Abdullah Syafei No.21D, RT.1/RW.3, Kb. Baru, Kec. Tebet, Kota Jakarta Selatan, DKI Jakarta 12830",
   phone: null,
-  email: "info@jannahfirdaustravel.com",
+  email: "info@jannahfirdaustravel.co.id",
   license: null,
   logo: null,
   openingHours: null,
@@ -118,42 +118,14 @@ export function localBusinessKotaLd(
   kota: { nama: string; provinsi: string },
   path: string,
 ) {
-  const businessId = absoluteUrl(`${path}#bisnis`);
-  const sameAs = socialLinks(info);
-  const hours = openingHoursLd(info.openingHours);
-  const image = absoluteImage(info.logo);
-  const contactPoint = info.phone || info.email
-    ? {
-        "@type": "ContactPoint",
-        ...(info.phone ? { telephone: info.phone } : {}),
-        ...(info.email ? { email: info.email } : {}),
-        contactType: "customer service",
-        availableLanguage: ["id"],
-      }
-    : undefined;
   return {
     "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "@id": businessId,
-    name: SEO_BRAND,
-    alternateName: info.siteName,
+    "@type": "Service",
+    "@id": absoluteUrl(`${path}#layanan`),
+    name: `${SEO_BRAND} — layanan umroh ${kota.nama}`,
     url: absoluteUrl(path),
-    image,
-    logo: image,
     ...(info.about ? { description: info.about } : {}),
-    ...(info.phone ? { telephone: info.phone } : {}),
-    ...(info.email ? { email: info.email } : {}),
-    ...(info.address
-      ? {
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: info.address,
-            addressLocality: SITE_CITY,
-            addressRegion: SITE_REGION,
-            addressCountry: "ID",
-          },
-        }
-      : {}),
+    provider: { "@id": absoluteUrl("/#organization") },
     areaServed: {
       "@type": "City",
       name: kota.nama,
@@ -165,10 +137,6 @@ export function localBusinessKotaLd(
       },
     },
     serviceType: ["Perjalanan umroh", "Konsultasi umroh", "Manasik umroh"],
-    ...(contactPoint ? { contactPoint } : {}),
-    ...(hours ? { openingHoursSpecification: hours } : {}),
-    ...(sameAs.length ? { sameAs } : {}),
-    priceRange: "$$",
   };
 }
 
@@ -217,9 +185,13 @@ export function pageMeta({
       { property: "og:type", content: type },
       { property: "og:url", content: url },
       { property: "og:image", content: img },
-      { property: "og:image:width", content: String(DEFAULT_OG_IMAGE_WIDTH) },
-      { property: "og:image:height", content: String(DEFAULT_OG_IMAGE_HEIGHT) },
-      { property: "og:image:type", content: "image/jpeg" },
+      ...(!image
+        ? [
+            { property: "og:image:width", content: String(DEFAULT_OG_IMAGE_WIDTH) },
+            { property: "og:image:height", content: String(DEFAULT_OG_IMAGE_HEIGHT) },
+            { property: "og:image:type", content: "image/jpeg" },
+          ]
+        : []),
       ...(imageAlt ? [{ property: "og:image:alt", content: imageAlt }] : []),
       ...(siteName ? [{ property: "og:site_name", content: siteName }] : []),
       { property: "og:locale", content: "id_ID" },
@@ -448,27 +420,23 @@ export function productLd(
     ...(paket.description ? { description: paket.description.slice(0, 300) } : {}),
     ...(imageUrl ? { image: imageUrl } : {}),
     brand: { "@type": "Brand", name: info.siteName },
-    ...(paket.airline
-      ? { additionalProperty: { "@type": "PropertyValue", name: "Maskapai", value: paket.airline } }
-      : {}),
-    ...(paket.hotel_makkah
-      ? {
-          additionalProperty: {
-            "@type": "PropertyValue",
-            name: "Hotel Makkah",
-            value: paket.hotel_makkah,
-          },
-        }
-      : {}),
-    ...(paket.hotel_madinah
-      ? {
-          additionalProperty: {
-            "@type": "PropertyValue",
-            name: "Hotel Madinah",
-            value: paket.hotel_madinah,
-          },
-        }
-      : {}),
+    additionalProperty: [
+      paket.airline && {
+        "@type": "PropertyValue",
+        name: "Maskapai",
+        value: paket.airline,
+      },
+      paket.hotel_makkah && {
+        "@type": "PropertyValue",
+        name: "Hotel Makkah",
+        value: paket.hotel_makkah,
+      },
+      paket.hotel_madinah && {
+        "@type": "PropertyValue",
+        name: "Hotel Madinah",
+        value: paket.hotel_madinah,
+      },
+    ].filter(Boolean),
     ...(harga ? { offers: offerLd(paket, harga, kota, provinsi) } : {}),
   };
 }
@@ -492,14 +460,17 @@ export function layananKotaLd(
   info: SiteInfo,
   kota: { nama: string; provinsi: string },
   path: string,
-  katalog: {
-    name: string;
-    url: string;
-    price: number | null;
-    departureDate?: string | null;
-    quota?: number | null;
-    durationDays?: number | null;
-  }[] | null | undefined,
+  katalog:
+    | {
+        name: string;
+        url: string;
+        price: number | null;
+        departureDate?: string | null;
+        quota?: number | null;
+        durationDays?: number | null;
+      }[]
+    | null
+    | undefined,
 ) {
   const list = Array.isArray(katalog) ? katalog : [];
   return {

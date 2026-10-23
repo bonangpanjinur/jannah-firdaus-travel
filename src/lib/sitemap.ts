@@ -1,5 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
-import { KOTA_LAYANAN } from "@/lib/kota";
+import { INDEXABLE_KOTA, KOTA_LAYANAN } from "@/lib/kota";
 import { SITE_DOMAIN } from "@/lib/seo";
 import { absoluteMediaUrl } from "@/lib/storage";
 
@@ -7,7 +7,6 @@ export const STATIC_SITEMAP_PATHS = [
   "/",
   "/paket",
   "/umroh",
-  "/umroh-jakarta-selatan",
   "/biaya-umroh",
   "/syarat-umroh",
   "/umroh-plus",
@@ -15,58 +14,6 @@ export const STATIC_SITEMAP_PATHS = [
   "/galeri",
   "/tentang",
   "/kontak",
-] as const;
-
-export const PRIORITY_CITY_SLUGS = [
-  "jakarta-selatan",
-  "jakarta-pusat",
-  "jakarta-timur",
-  "jakarta-barat",
-  "jakarta-utara",
-  "depok",
-  "bekasi",
-  "tangerang-selatan",
-  "bogor",
-  "tangerang",
-  "bandung",
-  "cimahi",
-  "karawang",
-  "purwakarta",
-  "cirebon",
-  "semarang",
-  "yogyakarta",
-  "surabaya",
-  "malang",
-  "sidoarjo",
-  "denpasar",
-  "medan",
-  "palembang",
-  "pekanbaru",
-  "padang",
-  "bandar-lampung",
-  "batam",
-  "pontianak",
-  "banjarmasin",
-  "samarinda",
-  "balikpapan",
-  "makassar",
-  "manado",
-  "kendari",
-  "palopo",
-  "parepare",
-  "ambon",
-  "jayapura",
-  "mataram",
-  "solo",
-  "sukabumi",
-  "tasikmalaya",
-  "garut",
-  "subang",
-  "serang",
-  "tiga-raksa",
-  "tuban",
-  "jember",
-  "kediri",
 ] as const;
 
 export function escapeXml(value: string) {
@@ -148,8 +95,7 @@ export function cityRows() {
 }
 
 export function priorityCityRows() {
-  const priority = new Set<string>(PRIORITY_CITY_SLUGS);
-  return cityRows().filter((city) => priority.has(city.slug));
+  return cityRows().filter((city) => INDEXABLE_KOTA.has(city.slug));
 }
 
 export async function publishedPackageRows() {
