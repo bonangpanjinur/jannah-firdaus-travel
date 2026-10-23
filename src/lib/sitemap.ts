@@ -10,6 +10,7 @@ export const STATIC_SITEMAP_PATHS = [
   "/biaya-umroh",
   "/syarat-umroh",
   "/umroh-plus",
+  "/umroh-jakarta-selatan",
   "/faq",
   "/galeri",
   "/tentang",

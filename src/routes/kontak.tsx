@@ -9,7 +9,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { useSettings } from "@/hooks/use-site";
 import { waLink } from "@/lib/format";
 import { db } from "@/lib/site-data";
-import { loadSiteInfo, siteInfoFrom, pageMeta, breadcrumbLd, SITE_CITY } from "@/lib/seo";
+import {
+  loadSiteInfo,
+  siteInfoFrom,
+  pageMeta,
+  breadcrumbLd,
+  travelAgencyLd,
+  SITE_CITY,
+} from "@/lib/seo";
 import { PageBreadcrumb } from "@/components/site/page-breadcrumb";
 
 export const Route = createFileRoute("/kontak")({
@@ -30,20 +37,10 @@ export const Route = createFileRoute("/kontak")({
           children: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
+            "@id": "https://www.jannahfirdaustravel.co.id/kontak#contact",
             name: `Kontak ${info.siteName}`,
-            mainEntity: {
-              "@type": "Organization",
-              "@id": "/#organization",
-              name: info.siteName,
-              contactPoint: {
-                "@type": "ContactPoint",
-                contactType: "customer service",
-                availableLanguage: ["id"],
-                areaServed: "ID",
-                ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
-                ...(info.email ? { email: info.email } : {}),
-              },
-            },
+            url: "https://www.jannahfirdaustravel.co.id/kontak",
+            mainEntity: travelAgencyLd(info),
           }),
         },
         {
@@ -139,9 +136,14 @@ function Kontak() {
             {settings?.address ? (
               <li className="flex gap-2"><MapPin className="mt-0.5 size-4 shrink-0 text-gold" />{settings.address}</li>
             ) : null}
-            <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0 text-gold" />{settings?.whatsapp_number}</li>
+            {settings?.whatsapp_number ? (
+              <li className="flex gap-2"><Phone className="mt-0.5 size-4 shrink-0 text-gold" />{settings.whatsapp_number}</li>
+            ) : null}
             {settings?.email ? (
               <li className="flex gap-2"><Mail className="mt-0.5 size-4 shrink-0 text-gold" />{settings.email}</li>
+            ) : null}
+            {settings?.operating_hours ? (
+              <li className="flex gap-2"><span className="mt-0.5 size-4 shrink-0 text-gold">◷</span>{settings.operating_hours}</li>
             ) : null}
           </ul>
           <Button asChild className="w-full">

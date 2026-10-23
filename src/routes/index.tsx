@@ -37,8 +37,8 @@ export const Route = createFileRoute("/")({
     const info = siteInfoFrom(loaderData);
     return {
       ...pageMeta({
-        title: `${SEO_BRAND} | Paket & Layanan Umroh ${SITE_CITY}`,
-        description: `${SEO_BRAND} menyediakan informasi paket umroh, jadwal keberangkatan, pendampingan ibadah, dan konsultasi untuk jamaah dari ${SITE_CITY} dan wilayah lain di Indonesia.`,
+        title: `${SEO_BRAND} | Umroh ${SITE_CITY}`,
+        description: `${SEO_BRAND} melayani paket umroh dari ${SITE_CITY}: jadwal, harga, hotel, manasik, dan konsultasi WhatsApp untuk jamaah Indonesia.`,
         path: "/",
         siteName: info.siteName,
         imageAlt: "Suasana thawaf di Masjidil Haram saat senja",

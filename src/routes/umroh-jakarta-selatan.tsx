@@ -47,10 +47,9 @@ export const Route = createFileRoute("/umroh-jakarta-selatan")({
   head: ({ loaderData }) => {
     const info = siteInfoFrom(loaderData);
     const base = pageMeta({
-      title: `${SEO_BRAND} Jakarta Selatan — Paket Umroh Resmi`,
-      description: `${SEO_BRAND} melayani jamaah umroh di Jakarta Selatan dan sekitarnya. Lihat paket terjadwal, hotel, pendampingan ibadah, dan konsultasi.`,
+      title: `Travel Umroh Jakarta Selatan | ${SEO_BRAND}`,
+      description: `Paket travel umroh Jakarta Selatan dari ${SEO_BRAND}: jadwal, harga, hotel, manasik, dan konsultasi keberangkatan dari Soekarno-Hatta.`,
       path: "/umroh-jakarta-selatan",
-      noindex: true,
       siteName: info.siteName,
       imageAlt: `${SEO_BRAND} Jakarta Selatan — layanan perjalanan umroh`,
     });

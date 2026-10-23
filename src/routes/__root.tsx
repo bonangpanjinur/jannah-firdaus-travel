@@ -21,10 +21,9 @@ import { ErrorState } from "@/components/site/error-state";
 import {
   loadSiteInfo,
   siteInfoFrom,
-  socialLinks,
-  openingHoursLd,
   DEFAULT_OG_IMAGE,
   absoluteUrl,
+  travelAgencyLd,
   type SiteInfo,
 } from "@/lib/seo";
 import { absoluteMediaUrl } from "@/lib/storage";
@@ -85,8 +84,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { info?: Partial<SiteInfo>; settings?: SiteSettings | null } | undefined;
     const info = siteInfoFrom(rootData?.info);
 
-    const sameAs = socialLinks(info);
-    const openingHours = openingHoursLd(info.openingHours);
     const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
     const initialSettings = rootData?.settings;
     const initialTheme = isTheme(initialSettings?.theme) ? initialSettings.theme : "noir-emas";
@@ -137,53 +134,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         {
           type: "application/ld+json",
           children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "TravelAgency",
-            "@id": absoluteUrl("/#organization"),
-            name: info.siteName,
-            alternateName: [`${info.siteName} Umroh`],
-            ...(info.legalName ? { legalName: info.legalName } : {}),
-            description: info.about,
-            slogan: info.tagline,
-            url: absoluteUrl("/"),
-            ...(info.address
-              ? {
-                  address: {
-                    "@type": "PostalAddress",
-                    streetAddress: info.address,
-                    addressCountry: "ID",
-                  },
-                }
-              : {}),
-            ...(logoUrl ? { logo: logoUrl } : {}),
-            ...(info.ppiuLicenseNumber
-              ? {
-                  identifier: {
-                    "@type": "PropertyValue",
-                    name: "Nomor izin PPIU",
-                    value: info.ppiuLicenseNumber,
-                  },
-                }
-              : {}),
-            ...(info.foundedYear ? { foundingDate: String(info.foundedYear) } : {}),
-            image: absoluteUrl(DEFAULT_OG_IMAGE),
-            ...(info.phone ? { telephone: `+${info.phone.replace(/\D/g, "")}` } : {}),
-            ...(info.email ? { email: info.email } : {}),
-            ...(info.phone
-              ? {
-                  contactPoint: {
-                    "@type": "ContactPoint",
-                    contactType: "customer service",
-                    telephone: `+${info.phone.replace(/\D/g, "")}`,
-                    areaServed: "ID",
-                    availableLanguage: ["Indonesian"],
-                  },
-                }
-              : {}),
-            ...(sameAs.length ? { sameAs } : {}),
-            ...(info.serviceAreas.length ? { areaServed: info.serviceAreas } : {}),
+            ...travelAgencyLd(info),
             knowsLanguage: ["id"],
-            ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
             makesOffer: {
               "@type": "Offer",
               itemOffered: { "@type": "Service", name: "Paket perjalanan ibadah umroh" },

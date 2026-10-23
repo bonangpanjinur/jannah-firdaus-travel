@@ -62,12 +62,17 @@ function AdminPengaturan() {
       ) {
         throw new Error("Jumlah jamaah harus berupa bilangan bulat tidak negatif.");
       }
+      const theme = form.theme ?? "noir-emas";
+      if (!THEMES.some((availableTheme) => availableTheme.value === theme)) {
+        throw new Error("Tema tampilan tidak valid. Silakan pilih salah satu tema yang tersedia.");
+      }
       const { id, ...rest } = form;
       void id;
       const { error } = await db()
         .from("site_settings")
         .update({
           ...rest,
+          theme,
           agency_name: form.agency_name.trim(),
           legal_name: form.legal_name?.trim() || null,
           ppiu_license_number: form.ppiu_license_number?.trim() || null,

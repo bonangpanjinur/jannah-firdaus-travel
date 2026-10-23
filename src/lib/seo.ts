@@ -131,6 +131,65 @@ export function socialLinks(info: SiteInfo): string[] {
   return list;
 }
 
+/** Schema entitas bisnis utama yang dipakai lintas halaman agar NAP tetap konsisten. */
+export function travelAgencyLd(info: SiteInfo) {
+  const sameAs = socialLinks(info);
+  const openingHours = openingHoursLd(info.openingHours);
+  const logoUrl = info.logo ? absoluteMediaUrl(info.logo) : null;
+  const telephone = info.phone ? `+${info.phone.replace(/\D/g, "")}` : null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "@id": absoluteUrl("/#organization"),
+    name: info.siteName,
+    alternateName: [`${info.siteName} Umroh`, "Jannah Firdaus Travel"],
+    ...(info.legalName ? { legalName: info.legalName } : {}),
+    description: info.about,
+    slogan: info.tagline,
+    url: absoluteUrl("/"),
+    ...(info.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: info.address,
+            addressLocality: SITE_CITY,
+            addressRegion: SITE_REGION,
+            addressCountry: "ID",
+          },
+        }
+      : {}),
+    ...(logoUrl ? { logo: logoUrl } : {}),
+    ...(info.ppiuLicenseNumber
+      ? {
+          identifier: {
+            "@type": "PropertyValue",
+            name: "Nomor izin PPIU",
+            value: info.ppiuLicenseNumber,
+          },
+        }
+      : {}),
+    ...(info.foundedYear ? { foundingDate: String(info.foundedYear) } : {}),
+    image: absoluteUrl(DEFAULT_OG_IMAGE),
+    ...(telephone ? { telephone } : {}),
+    ...(info.email ? { email: info.email } : {}),
+    ...(telephone
+      ? {
+          contactPoint: {
+            "@type": "ContactPoint",
+            contactType: "customer service",
+            telephone,
+            areaServed: "ID",
+            availableLanguage: ["Indonesian"],
+          },
+        }
+      : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+    ...(info.serviceAreas.length ? { areaServed: info.serviceAreas } : {}),
+    ...(openingHours ? { openingHoursSpecification: openingHours } : {}),
+  };
+}
+
 /** Schema bisnis lokal untuk halaman area layanan kota. */
 export function localBusinessKotaLd(
   info: SiteInfo,
