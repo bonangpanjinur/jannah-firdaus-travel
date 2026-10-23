@@ -1,10 +1,5 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Repository guidance
+
+- Preserve existing Git history; do not force-push, rebase pushed commits, or amend published commits.
+- Run `npm run typecheck` and `npm run build` after application or build configuration changes.
+- Keep server-only secrets and the Supabase service-role key out of browser code.
